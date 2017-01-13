@@ -4,16 +4,16 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 
-import '../styles/normalize.css';
+import App from './components/app';
+import reducers from './reducers';
 
-const App = () => {
-  const store = createStore(() => {}, {}, applyMiddleware(ReduxThunk));
+import './styles/normalize.css';
 
-  return (
-    <Provider store={store}>
-      <div>Hi Tunebay</div>
-    </Provider>
-  );
-};
+const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.querySelector('#root')
+);
