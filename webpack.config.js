@@ -1,14 +1,15 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-// const VENDOR_LIBS = [
-//   'react', 'redux', 'react-redux', 'redux-form',
-//   'react-dom', 'redux-thunk'
-// ];
+const VENDOR_LIBS = [
+  'react', 'redux', 'react-redux',
+  'react-dom', 'redux-thunk', 'lodash'
+];
 
 module.exports = {
   entry: {
-    bundle: './src/index.js'
+    bundle: './src/index.js',
+    vendor: VENDOR_LIBS
   },
   output: {
     path: path.join(__dirname, 'dist'),
