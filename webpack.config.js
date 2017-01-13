@@ -1,4 +1,5 @@
-var path = require('path');
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // const VENDOR_LIBS = [
 //   'react', 'redux', 'react-redux', 'redux-form',
@@ -21,9 +22,14 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        use: ['style-loader', 'css-loader'],
+        loader: ExtractTextPlugin.extract({
+          loader: 'css-loader'
+        }),
         test: /\.css$/
       }
     ]
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin('style.css')
+  ]
 }
