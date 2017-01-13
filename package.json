@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && webpack"
+    "clean": "rimraf dist",
+    "build": "npm run clean && webpack",
+    "start": "webpack-dev-server"
   },
   "author": "",
   "license": "ISC",
@@ -16,7 +18,7 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^2.2.0-rc.4",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^2.2.0-rc.0"
   },
   "dependencies": {
     "babel-core": "^6.21.0",
