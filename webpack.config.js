@@ -4,14 +4,14 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const VENDOR_LIBS = [
   'react', 'redux', 'react-redux', 'redux-form',
-  'react-dom', 'react-input-range', 'redux-thunk'
+  'react-dom', 'redux-thunk'
 ];
 
 module.exports = {
   entry: {
     bundle: './src/index.js',
     vendor: VENDOR_LIBS
-  }
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].[chunkhash].js'
