@@ -1,9 +1,19 @@
-import './styles/test.css';
-import jumboBackground from '../assets/images/jumbo-background.jpg';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
 
-console.info('Like looking under the hood? Why not check out our developers page for all things technical. https://developers.tunebay.com');
+import './styles/normalize.css';
 
-const image = document.createElement('img');
-image.src = jumboBackground;
+const App = () => {
+  const store = createStore(() => {}, {}, applyMiddleware(ReduxThunk));
 
-document.body.appendChild(image)
+  return (
+    <Provider store={store}>
+      <div>Hi Tunebay</div>
+    </Provider>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
