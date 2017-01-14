@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 const VENDOR_LIBS = [
   'react', 'redux', 'react-redux', 'react-router',
@@ -31,7 +32,7 @@ module.exports = {
         test: /\.css$/
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/,
+        test: /\.(jpe?g|png|gif|svg|ico)$/,
         use: [
           {
             loader: 'url-loader',
@@ -44,6 +45,7 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('style.css'),
+    new FaviconsWebpackPlugin('./assets/images/logo.png'),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest']
     }),
