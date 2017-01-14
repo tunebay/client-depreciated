@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Home extends Component {
   componentDidMount() {
-    document.title = 'Tunebay - Music Matters';
+    document.title = 'Tunebay | For the love of music';
   }
 
   render() {
