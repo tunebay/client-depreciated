@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
-export default class App extends Component {
+class Home extends Component {
   render() {
     return (
-      <div>Tunebay</div>
+      <div>Home</div>
     );
   }
 }
+
+export default Home;

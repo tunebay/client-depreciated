@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const VENDOR_LIBS = [
   'react', 'redux', 'react-redux', 'react-router',
-  'react-dom', 'redux-thunk', 'lodash', 'redux-form'
+  'react-dom', 'redux-thunk', 'lodash', 'redux-form', 'history'
 ];
 
 module.exports = {
@@ -53,5 +53,10 @@ module.exports = {
   ],
   performance: {
     hints: false
+  },
+  devtool: '#eval-source-map',
+  devServer: {
+    historyApiFallback: true,
+    contentBase: './'
   }
 };

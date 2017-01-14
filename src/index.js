@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 
 import reducers from './reducers';
-import App from './components/app';
+import Router from './router';
 
 import './styles/normalize.css';
 
@@ -13,7 +13,7 @@ const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router />
   </Provider>,
   document.querySelector('#root')
 );
