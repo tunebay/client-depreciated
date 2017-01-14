@@ -11,5 +11,6 @@
     "node": true,
     "mocha": true,
     "browser": true
-  }
+  },
+  "plugins": ["react"]
 }
