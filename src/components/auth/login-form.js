@@ -11,6 +11,8 @@ class LoginForm extends Component {
 
     return (
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+        <h3>Welcome back</h3>
+        <p>Log in to Tunebay</p>
         <Field
           name="emailOrUsername"
           component={emailOrUsername =>
