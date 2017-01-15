@@ -5,7 +5,10 @@
     "comma-dangle": 0,
     "arrow-body-style": 0,
     "no-shadow": [ "error", { "allow": ["error", "err", "done", "resolve", "reject"] }],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prop-types": 0,
+    "react/prefer-stateless-function": 0,
+    "react/jsx-no-bind": 0
   },
   "env": {
     "node": true,
