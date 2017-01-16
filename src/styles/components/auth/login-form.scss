@@ -15,6 +15,14 @@ $font-stack: 'Avenir Next', sans-serif;
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
   padding-left: 15px;
+  &:focus {
+    outline-color: #34bfed;
+    outline-offset: none;
+    outline-style: ridge;
+    outline-width: thin;
+    outline-radius: 2px;
+    border: none
+  }
 }
 
 .form {
@@ -66,5 +74,5 @@ $font-stack: 'Avenir Next', sans-serif;
 }
 
 .error {
-  color: red
+  color: #ff0033  // #cc0000
 }
