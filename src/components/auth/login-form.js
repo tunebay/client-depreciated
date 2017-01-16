@@ -3,6 +3,8 @@ import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
+import '../../styles/components/auth/login-form.scss';
+
 class LoginForm extends Component {
   handleFormSubmit({ emailOrUsername, password }) {
     this.props.loginUser({ emailOrUsername, password });
@@ -11,8 +13,8 @@ class LoginForm extends Component {
   renderAlert() {
     if (this.props.errorMessage) {
       return (
-        <div>
-          {this.props.errorMessage}
+        <div className="form-section error">
+          Oops! {this.props.errorMessage}
         </div>
       );
     }
@@ -22,29 +24,48 @@ class LoginForm extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-        <h3>Welcome back</h3>
-        <p>Log in to Tunebay</p>
-        <Field
-          name="emailOrUsername"
-          component={emailOrUsername =>
-            <div>
-              <input {...emailOrUsername.input} type="text" placeholder="Email or username" />
-            </div>
-          }
-        />
+      <div className="form-container">
+        <form className="form" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+          <div className="form-section">
+            <h3 className="form-header">Welcome back</h3>
+          </div>
+          <div className="form-section">
+            <p className="form-p">Log in to Tunebay</p>
+          </div>
+          <Field
+            name="emailOrUsername"
+            component={emailOrUsername =>
+              <div className="form-section">
+                <input
+                  className="form-input"
+                  {...emailOrUsername.input}
+                  type="text"
+                  placeholder="Email or username"
+                  autoComplete="off"
+                />
+              </div>
+            }
+          />
 
-        <Field
-          name="password"
-          component={password =>
-            <div>
-              <input {...password.input} type="password" placeholder="Password" />
-            </div>
-          }
-        />
-        {this.renderAlert()}
-        <button action="submit">Log In</button>
-      </form>
+          <Field
+            name="password"
+            component={password =>
+              <div className="form-section">
+                <input
+                  className="form-input"
+                  {...password.input}
+                  type="password"
+                  placeholder="Password"
+                />
+              </div>
+            }
+          />
+          {this.renderAlert()}
+          <div className="form-section">
+            <button className="btn" action="submit">Log In</button>
+          </div>
+        </form>
+      </div>
     );
   }
 }

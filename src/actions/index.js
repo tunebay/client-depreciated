@@ -13,7 +13,6 @@ export const loginUser = ({ emailOrUsername, password }) => {
         browserHistory.push('/feed');
       })
       .catch(() => {
-        console.log('in error');
         dispatch(authError('Incorrect log in details.'));
       });
   };

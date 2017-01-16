@@ -1,0 +1,58 @@
+$black: #252C30;
+$font-stack: 'Avenir Next', sans-serif;
+
+.form-input {
+  height: 43px;
+  width: 360px;
+  border-radius: 2px;
+  font-size: 18px;
+  border-color: #D4D4D4;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.form {
+  padding: 15px;
+  align-items: center;
+}
+
+.form-section {
+  padding-bottom: 15px;
+}
+
+.form-header {
+  font-size: 32px;
+  margin: 0;
+  color: $black;
+  font-family: $font-stack;
+}
+
+.form-p {
+  font-family: $font-stack;
+  margin: 0;
+  font-size: 20px;
+  color: $black;
+}
+
+.form-container {
+  width: 400px;
+}
+
+.btn {
+  width: 360px;
+  height: 55px;
+  border-radius: 2px;
+  background-image: linear-gradient(90deg, #34BFED 0%, #63E1F8 100%);
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-family: $font-stack;
+  font-weight: 500;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.error {
+  color: red
+}
