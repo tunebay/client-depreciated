@@ -8,6 +8,16 @@ class LoginForm extends Component {
     this.props.loginUser({ emailOrUsername, password });
   }
 
+  renderAlert() {
+    if (this.props.errorMessage) {
+      return (
+        <div>
+          {this.props.errorMessage}
+        </div>
+      );
+    }
+  }
+
   render() {
     const { handleSubmit } = this.props;
 
@@ -32,14 +42,21 @@ class LoginForm extends Component {
             </div>
           }
         />
+        {this.renderAlert()}
         <button action="submit">Log In</button>
       </form>
     );
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    errorMessage: state.auth.error
+  };
+};
+
 const ComposedLoginForm = reduxForm({
   form: 'login'
 })(LoginForm);
 
-export default connect(null, actions)(ComposedLoginForm);
+export default connect(mapStateToProps, actions)(ComposedLoginForm);

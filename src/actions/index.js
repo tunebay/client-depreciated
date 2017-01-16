@@ -13,7 +13,8 @@ export const loginUser = ({ emailOrUsername, password }) => {
         browserHistory.push('/feed');
       })
       .catch(() => {
-        dispatchAuthError('Incorrect log in details.');
+        console.log('in error');
+        dispatch(authError('Incorrect log in details.'));
       });
   };
 };
@@ -24,9 +25,10 @@ export const signupUser = () => {
 
 // helpers
 
-const dispatchAuthError = (err) => {
+const authError = (error) => {
+  console.log('dispatching...');
   return {
     type: AUTH_ERROR,
-    payload: err
+    payload: error
   };
 };
