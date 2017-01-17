@@ -6,6 +6,7 @@ import LoginForm from './auth/login-form';
 import '../styles/components/login-page.scss';
 
 const LoginPage = () => {
+  document.title = 'Log in to Tunebay';
   return (
     <div className="login-page-con">
       <Header />
