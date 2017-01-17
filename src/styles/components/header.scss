@@ -10,8 +10,23 @@ $header-black: #2D2E2F;
 .header-secitons {
   list-style: none;
   display: inline-block;
+  margin: 0 auto;
+  align-items: center;
 }
 
 li {
   display: inline-block;
+}
+
+.header-left {
+  height: 30px;
+}
+
+.nav-home {
+  height: 30px;
+}
+
+img {
+  height: 30px;
+  width: 30px;
 }

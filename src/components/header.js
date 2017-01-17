@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 import '../styles/components/header.scss';
 
@@ -9,7 +11,12 @@ class Header extends Component {
         <ul className="header-secitons">
           <li className="header-left">
             <ul>
-              <li>Logo</li>
+              <li>
+                <Link to="/" className="nav-home">
+                  <img src="../../assets/images/logo.png" alt="Home" />
+                  Home
+                </Link>
+              </li>
               <li>Discover</li>
             </ul>
           </li>
@@ -29,4 +36,10 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = ({ auth }) => {
+  return {
+    isAuthenticated: auth.isAuthenticated
+  };
+};
+
+export default connect(mapStateToProps)(Header);
