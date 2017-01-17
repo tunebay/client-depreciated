@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
+import Header from './header';
+
 class Feed extends Component {
   render() {
     return (
-      <div>Feed page</div>
+      <div>
+        <Header />
+      </div>
     );
   }
 }

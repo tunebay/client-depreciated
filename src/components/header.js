@@ -5,6 +5,24 @@ import { Link } from 'react-router';
 import '../styles/components/header.scss';
 
 class Header extends Component {
+  renderHeaderRight() {
+    console.log('Header auth check...', this.props.isAuthenticated);
+    if (this.props.isAuthenticated) {
+      return (
+        <li className="header-right">
+          <Link className="login-header" to="/login">Log Out</Link>
+        </li>
+      );
+    } else {
+      return (
+        <li className="header-right">
+          <Link className="login-header" to="/login">Log In</Link>
+          <Link className="signup-header" to="/signup">Sign Up</Link>
+        </li>
+      );
+    }
+  }
+
   render() {
     return (
       <nav className="header">
@@ -22,23 +40,20 @@ class Header extends Component {
           </li>
           <li className="header-middle">
             <div className="header-search">
-              Search Bar
+              <input type="text" />
             </div>
           </li>
-          <li className="header-right">
-            <div>
-              Search Bar
-            </div>
-          </li>
+          {this.renderHeaderRight()}
         </ul>
       </nav>
     );
   }
 }
 
-const mapStateToProps = ({ auth }) => {
+const mapStateToProps = (state) => {
+  console.log(state.auth);
   return {
-    isAuthenticated: auth.isAuthenticated
+    isAuthenticated: state.auth.isAuthenticated
   };
 };
 
