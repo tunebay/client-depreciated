@@ -14,7 +14,7 @@ class LoginForm extends Component {
     if (this.props.errorMessage) {
       return (
         <div className="form-section error">
-          Oops! {this.props.errorMessage}
+          {this.props.errorMessage}
         </div>
       );
     }
@@ -39,9 +39,7 @@ class LoginForm extends Component {
                 <input
                   className="form-input"
                   {...emailOrUsername.input}
-                  type="text"
                   placeholder="Email or username"
-                  autoComplete="off"
                 />
               </div>
             }
