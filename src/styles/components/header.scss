@@ -1,0 +1,17 @@
+$header-black: #2D2E2F;
+
+.header {
+  height: 45px;
+  width: 100%;
+  background-color: $header-black;
+  position: fixed;
+}
+
+.header-secitons {
+  list-style: none;
+  display: inline-block;
+}
+
+li {
+  display: inline-block;
+}
