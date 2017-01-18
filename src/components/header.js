@@ -10,14 +10,14 @@ class Header extends Component {
     if (this.props.isAuthenticated) {
       return (
         <li className="header-right">
-          <Link className="login-header" to="/login">Log Out</Link>
+          <Link className="logout-btn" to="/logout">Log Out</Link>
         </li>
       );
     } else {
       return (
         <li className="header-right">
-          <Link className="login-header" to="/login">Log In</Link>
-          <Link className="signup-header" to="/signup">Sign Up</Link>
+          <Link className="login-btn" to="/login">Log In</Link>
+          <Link className="signup-btn" to="/signup">Sign Up</Link>
         </li>
       );
     }

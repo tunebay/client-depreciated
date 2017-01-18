@@ -4,6 +4,7 @@ import { Router, Route, browserHistory } from 'react-router';
 import Home from './components/home';
 import Feed from './components/feed';
 import LoginPage from './components/login-page';
+import LogoutPage from './components/logout-page';
 import NotFound from './components/not-found';
 
 const routes = () => {
@@ -12,6 +13,7 @@ const routes = () => {
       <Route path="/" component={Home} />
       <Route path="/feed" component={Feed} />
       <Route path="/login" component={LoginPage} />
+      <Route path="/logout" component={LogoutPage} />
       <Route path="/*" component={NotFound} />
     </Router>
   );
