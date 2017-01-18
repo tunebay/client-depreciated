@@ -27,6 +27,17 @@ export const signupUser = () => {
   console.log('Signing up');
 };
 
+export const fetchUser = () => {
+  return (dispatch) => {
+    axios.get(ROOT_URL, {
+      headers: { authorization: localStorage.getItem('token') }
+    })
+      .then((res) => {
+        console.log(res);
+      });
+  };
+};
+
 // helpers
 
 const authError = (error) => {
