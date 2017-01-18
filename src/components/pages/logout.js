@@ -1,14 +1,21 @@
-import React from 'react';
-
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 import Header from '../header';
 
-const Logout = () => {
-  return (
-    <div>
-      <Header />
-      <div>Log out page</div>
-    </div>
-  );
-};
+class Logout extends Component {
+  componentDidMount() {
+    this.props.logoutUser();
+  }
 
-export default Logout;
+  render() {
+    return (
+      <div>
+        <Header />
+        <div>Log out page</div>
+      </div>
+    );
+  }
+}
+
+export default connect(null, actions)(Logout);
