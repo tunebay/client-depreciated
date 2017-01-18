@@ -10,7 +10,7 @@ export const loginUser = ({ emailOrUsername, password }) => {
       .then((res) => {
         dispatch({ type: AUTH_USER });
         localStorage.setItem('token', res.data.token);
-        browserHistory.push('/feed');
+        browserHistory.push('/');
       })
       .catch(() => {
         dispatch(authError('Incorrect log in details.'));

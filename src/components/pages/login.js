@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Header from './header';
-import LoginForm from './auth/login-form';
+import Header from '../header';
+import LoginForm from '../auth/login-form';
 
-import '../styles/components/login-page.scss';
+import '../../styles/components/login-page.scss';
 
-const LoginPage = () => {
+const Login = () => {
   document.title = 'Log in to Tunebay';
   return (
     <div className="login-page-con">
@@ -20,4 +20,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Login;
