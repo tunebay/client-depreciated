@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import Header from '../header';
+import MainContent from '../main-content';
 
 class Logout extends Component {
   componentDidMount() {
@@ -12,7 +13,9 @@ class Logout extends Component {
     return (
       <div>
         <Header />
-        <div>Log out page</div>
+        <MainContent>
+          <div>Log out page</div>
+        </MainContent>
       </div>
     );
   }

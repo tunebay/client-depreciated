@@ -2,7 +2,7 @@ import React from 'react';
 
 import Header from '../header';
 import LoginForm from '../auth/login-form';
-import MainContent from '../page-content';
+import MainContent from '../main-content';
 
 import '../../styles/components/login-page.scss';
 

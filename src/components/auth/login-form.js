@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
@@ -8,6 +9,10 @@ import '../../styles/components/auth/login-form.scss';
 class LoginForm extends Component {
   handleFormSubmit({ emailOrUsername, password }) {
     this.props.loginUser({ emailOrUsername, password });
+  }
+
+  renderModal() {
+    console.log('Pop up password reset modal');
   }
 
   renderAlert() {
@@ -59,6 +64,20 @@ class LoginForm extends Component {
             }
           />
           {this.renderAlert()}
+          <div className="form-section">
+            <div className="remember-me">
+              <label htmlFor="remember-me">
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  defaultChecked
+                /> Remember me
+              </label>
+            </div>
+            <div className="need-help">
+              <Link className="help-link" onClick={this.renderModal.bind(this)}>Need Help?</Link>
+            </div>
+          </div>
           <div className="form-section">
             <button className="btn" action="submit">Log In</button>
           </div>

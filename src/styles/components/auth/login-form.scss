@@ -1,6 +1,7 @@
 $black: #252C30;
 $logo-blue: #1596F5;
 $e4: #e4e4e4;
+$light-blue: #34bfed;
 $font-stack: 'Avenir Next', sans-serif;
 
 .form-input {
@@ -31,12 +32,14 @@ $font-stack: 'Avenir Next', sans-serif;
 .form {
   padding: 30px 15px;
   align-items: center;
+  color: $black;
 }
 
 .form-section {
   flex: 1;
   padding-bottom: 15px;
   display: flex;
+  justify-content: space-between;
 }
 
 .form-header {
@@ -85,5 +88,25 @@ $font-stack: 'Avenir Next', sans-serif;
 
 .error {
   color: #cc0000;
+  font-family: $font-stack;
+}
+
+.need-help {
+  color: $light-blue;
+  font-family: $font-stack;
+  .help-link {
+    font-size: 12;
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+.checkbox {
+  color: $logo-blue;
+}
+
+.remember-me {
   font-family: $font-stack;
 }

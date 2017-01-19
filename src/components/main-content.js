@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const MainContent = (props) => {
+const MainContent = (props) => {
   return (
     <div style={styles}>
       {props.children}
