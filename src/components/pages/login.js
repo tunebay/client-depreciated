@@ -2,6 +2,7 @@ import React from 'react';
 
 import Header from '../header';
 import LoginForm from '../auth/login-form';
+import MainContent from '../page-content';
 
 import '../../styles/components/login-page.scss';
 
@@ -10,12 +11,12 @@ const Login = () => {
   return (
     <div className="login-page-con">
       <Header />
-      <div className="content">
+      <MainContent>
         <div className="main-content">
           <LoginForm />
         </div>
         <div className="login-footer" />
-      </div>
+      </MainContent>
     </div>
   );
 };
