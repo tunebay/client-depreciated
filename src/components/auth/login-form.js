@@ -6,13 +6,23 @@ import * as actions from '../../actions';
 
 import '../../styles/components/auth/signup-form.scss';
 
+const renderField = (field) => {
+  console.log(field);
+  return (
+    <div className="form-section">
+      <input
+        className="form-input"
+        placeholder={field.placeholder}
+        type={field.type}
+        {...field.input}
+      />
+    </div>
+  );
+};
+
 class LoginForm extends Component {
   handleFormSubmit({ emailOrUsername, password }) {
     this.props.loginUser({ emailOrUsername, password });
-  }
-
-  renderModal() {
-    console.log('Pop up password reset modal');
   }
 
   renderAlert() {
@@ -34,36 +44,26 @@ class LoginForm extends Component {
           <div className="form-section">
             <h3 className="form-header">Welcome back</h3>
           </div>
+
           <div className="form-section">
             <p className="form-p">Log in to Tunebay</p>
           </div>
-          <Field
-            name="emailOrUsername"
-            component={emailOrUsername =>
-              <div className="form-section">
-                <input
-                  className="form-input"
-                  {...emailOrUsername.input}
-                  placeholder="Email or username"
-                />
-              </div>
-            }
-          />
 
           <Field
-            name="password"
-            component={password =>
-              <div className="form-section">
-                <input
-                  className="form-input"
-                  {...password.input}
-                  type="password"
-                  placeholder="Password"
-                />
-              </div>
-            }
+            name="emailOrUsername"
+            component={renderField}
+            type="text"
+            placeholder="Email or username"
           />
+          <Field
+            name="password"
+            component={renderField}
+            type="password"
+            placeholder="password"
+          />
+
           {this.renderAlert()}
+
           <div className="form-section">
             <div className="remember-me">
               <label htmlFor="remember-me">
@@ -75,9 +75,10 @@ class LoginForm extends Component {
               </label>
             </div>
             <div className="need-help">
-              <Link className="help-link" onClick={this.renderModal.bind(this)}>Need Help?</Link>
+              <Link className="help-link" onClick={() => console.log('modal')}>Need Help?</Link>
             </div>
           </div>
+
           <div className="form-section">
             <button className="btn" action="submit">Log In</button>
           </div>
