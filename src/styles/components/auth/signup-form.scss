@@ -1,0 +1,62 @@
+$black: #252C30;
+$logo-blue: #1596F5;
+$e4: #e4e4e4;
+$light-blue: #34bfed;
+$font-stack: 'Avenir Next', sans-serif;
+
+.form-container {
+  width: 400px;
+  height: 500px;
+  border: solid;;
+  border-color: $e4;
+  border-radius: 2px;
+  border-width: 1px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.form {
+  padding: 30px 15px;
+  align-items: center;
+  color: $black;
+}
+
+.btn {
+  width: 370px;
+  height: 55px;
+  border-radius: 2px;
+  background-image: linear-gradient(90deg, #34BFED 0%, #63E1F8 100%);
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  font-size: 18px;
+  font-family: $font-stack;
+  font-weight: 500;
+  margin: 0;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.form-section {
+  flex: 1;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-header {
+  font-size: 32px;
+  margin: 0;
+  text-align: left;
+  color: $black;
+  font-family: $font-stack;
+}
+
+.form-p {
+  font-family: $font-stack;
+  margin: 0;
+  font-size: 20px;
+  color: $black;
+}

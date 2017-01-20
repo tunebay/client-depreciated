@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
-import '../../styles/components/auth/login-form.scss';
+import '../../styles/components/auth/signup-form.scss';
 
 class LoginForm extends Component {
   handleFormSubmit({ emailOrUsername, password }) {
