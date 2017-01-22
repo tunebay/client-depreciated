@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
+import { findDOMNode } from 'react-dom';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import ReactTooltip from 'react-tooltip';
 import * as actions from '../../actions';
 
 import '../../styles/components/auth/auth-form.scss';
 
 const renderField = (field) => {
-  console.log(field);
   return (
     <div className="form-section">
       <input
         className="form-input"
+        data-tip="whats up yo"
+        data-for="tool-tip"
         placeholder={field.placeholder}
         type={field.type}
         {...field.input}
@@ -20,10 +23,16 @@ const renderField = (field) => {
 };
 
 class SignupForm extends Component {
+  handleFormSubmit(formProps) {
+    this.props.signupUser(formProps);
+  }
+
   render() {
+    const { handleSubmit } = this.props;
+
     return (
       <div className="form-container">
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
           <div className="form-section">
             <h3 className="form-header">Create an account</h3>
           </div>
@@ -53,7 +62,7 @@ class SignupForm extends Component {
             placeholder="Username"
           />
           <div className="form-section">
-            <div className="field-info">Usernames will be used for your personal URL and can be changed at anytime e.g tunebay.com/yourusername</div>
+            <div className="field-info">Usernames will be used for your personal URL and can be changed at anytime</div>
           </div>
 
           <Field
