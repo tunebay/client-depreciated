@@ -1,17 +1,82 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
 import * as actions from '../../actions';
 
-import '../../styles/components/auth/login-form.scss';
+import '../../styles/components/auth/auth-form.scss';
+
+const renderField = (field) => {
+  console.log(field);
+  return (
+    <div className="form-section">
+      <input
+        className="form-input"
+        placeholder={field.placeholder}
+        type={field.type}
+        {...field.input}
+      />
+    </div>
+  );
+};
 
 class SignupForm extends Component {
   render() {
     return (
       <div className="form-container">
-        <div>Sign up form</div>
+        <form className="form">
+          <div className="form-section">
+            <h3 className="form-header">Create an account</h3>
+          </div>
+
+          <div className="form-section">
+            <p className="form-p">{'Yep, it\'s free'}</p>
+          </div>
+
+          <Field
+            name="displayName"
+            component={renderField}
+            type="text"
+            placeholder="Full name / artist name"
+          />
+
+          <Field
+            name="email"
+            component={renderField}
+            type="email"
+            placeholder="Email"
+          />
+
+          <Field
+            name="username"
+            component={renderField}
+            type="text"
+            placeholder="Username"
+          />
+          <div className="form-section">
+            <div className="field-info">Usernames will be used for your personal URL and can be changed at anytime e.g tunebay.com/yourusername</div>
+          </div>
+
+          <Field
+            name="password"
+            component={renderField}
+            type="password"
+            placeholder="New password"
+          />
+
+          <div className="form-section">
+            <button className="btn" action="submit">Sign Up</button>
+          </div>
+          <div className="form-section">
+            <div className="field-info">By clicking ‘Sign Up’ you are agreeing to our <span>Terms of Use</span> and <span>Privacy Policy.</span></div>
+          </div>
+        </form>
       </div>
     );
   }
 }
 
-export default connect(null, actions)(SignupForm);
+const ComposedSignupForm = reduxForm({
+  form: 'login'
+})(SignupForm);
+
+export default connect(null, actions)(ComposedSignupForm);
