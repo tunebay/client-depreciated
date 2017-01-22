@@ -38,7 +38,7 @@ $font-stack: 'Avenir Next', sans-serif;
 
 .form-section {
   flex: 1;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
   display: flex;
   justify-content: space-between;
 }
@@ -56,6 +56,7 @@ $font-stack: 'Avenir Next', sans-serif;
   margin: 0;
   font-size: 20px;
   color: $black;
+  padding-bottom: 5px;
 }
 
 .form-container {
@@ -116,6 +117,7 @@ $font-stack: 'Avenir Next', sans-serif;
   font-size: 13px;
   font-family: $font-stack;
   color: #6C6C6C;
+  padding: 5px 0px;
 }
 
 span {
