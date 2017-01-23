@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { findDOMNode } from 'react-dom';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import ReactTooltip from 'react-tooltip';
 import * as actions from '../../actions';
 
 import '../../styles/components/auth/auth-form.scss';

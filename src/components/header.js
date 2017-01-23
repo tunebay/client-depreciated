@@ -6,21 +6,19 @@ import '../styles/components/header.scss';
 
 class Header extends Component {
   renderHeaderRight() {
-    console.log('Header auth check...', this.props.isAuthenticated);
     if (this.props.isAuthenticated) {
       return (
         <li className="header-right">
           <Link className="logout-btn" to="/logout">Log Out</Link>
         </li>
       );
-    } else {
-      return (
-        <li className="header-right">
-          <Link className="login-btn" to="/login">Log In</Link>
-          <Link className="signup-btn" to="/signup">Sign Up</Link>
-        </li>
-      );
     }
+    return (
+      <li className="header-right">
+        <Link className="login-btn" to="/login">Log In</Link>
+        <Link className="signup-btn" to="/signup">Sign Up</Link>
+      </li>
+    );
   }
 
   render() {
@@ -51,7 +49,6 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.auth);
   return {
     isAuthenticated: state.auth.isAuthenticated
   };
