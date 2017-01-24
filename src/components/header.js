@@ -29,7 +29,7 @@ class Header extends Component {
             <ul>
               <li>
                 <Link to="/" className="nav-home">
-                  <img src="../../assets/images/logo.png" alt="Home" />
+                  <img src="../../assets/images/logo.png" alt="logo" />
                   Home
                 </Link>
               </li>

@@ -15,12 +15,38 @@ const renderField = (field) => {
         placeholder={field.placeholder}
         type={field.type}
         {...field.input}
+        required
+      />
+    </div>
+  );
+};
+
+const renderUsernameField = (field) => {
+  return (
+    <div className="form-section">
+      <div className="at-symbol">@</div>
+      <input
+        className="form-input username"
+        data-tip="whats up yo"
+        data-for="tool-tip"
+        placeholder={field.placeholder}
+        type={field.type}
+        {...field.input}
+        required
       />
     </div>
   );
 };
 
 class SignupForm extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showPassword: 'password'
+    };
+  }
+
   handleFormSubmit(formProps) {
     this.props.signupUser(formProps);
   }
@@ -43,7 +69,7 @@ class SignupForm extends Component {
             name="displayName"
             component={renderField}
             type="text"
-            placeholder="Full name / artist name"
+            placeholder="Full name / Artist name"
           />
 
           <Field
@@ -55,9 +81,9 @@ class SignupForm extends Component {
 
           <Field
             name="username"
-            component={renderField}
+            component={renderUsernameField}
             type="text"
-            placeholder="Username"
+            placeholder="username"
           />
           <div className="form-section">
             <div className="field-info">Usernames will be used for your personal URL and can be changed at anytime</div>
@@ -65,6 +91,7 @@ class SignupForm extends Component {
 
           <Field
             name="password"
+            className="password-input"
             component={renderField}
             type="password"
             placeholder="New password"

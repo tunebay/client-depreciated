@@ -23,14 +23,25 @@ export const logoutUser = () => {
   return { type: DEAUTH_USER };
 };
 
-export const signupUser = () => {
-  console.log('Signing up');
+export const signupUser = ({ displayName, email, password, username }) => {
+  return (dispatch) => {
+    axios.post(`${ROOT_URL}/signup`, { displayName, email, password, username })
+      .then((res) => {
+        dispatch({ type: AUTH_USER });
+        localStorage.setItem('token', res.data.token);
+        browserHistory.push('/');
+      })
+      .catch((res) => {
+        // console.log(res);
+        dispatch(authError(res.data));
+      });
+  };
 };
 
 // helpers
 
 const authError = (error) => {
-  console.log('dispatching...');
+  console.log('ERROR IN AUTH:', error);
   return {
     type: AUTH_ERROR,
     payload: error

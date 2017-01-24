@@ -1,5 +1,6 @@
 $black: #252C30;
 $logo-blue: #1596F5;
+$placeholder: #a1a1a1;
 $e4: #e4e4e4;
 $light-blue: #34bfed;
 $font-stack: 'Avenir Next', sans-serif;
@@ -8,10 +9,10 @@ $font-stack: 'Avenir Next', sans-serif;
   height: 43px;
   width: 370px;
   border-radius: 2px;
-  font-size: 16px;
+  font-size: 17px;
   border-color: #D4D4D4;
   border-width: 1px;
-  font-weight: 450;
+  font-weight: 400;
   border-style: solid;
   font-family: $font-stack;
   color: $black;
@@ -22,8 +23,8 @@ $font-stack: 'Avenir Next', sans-serif;
   &:focus {
     outline-color: #34bfed;
     outline-offset: none;
-    outline-style: ridge;
-    outline-width: thin;
+    outline-style: solid;
+    outline-width: 2px;
     outline-radius: 2px;
     border: none
   }
@@ -62,8 +63,8 @@ $font-stack: 'Avenir Next', sans-serif;
 .form-container {
   width: 400px;
   height: 500px;
-  border: solid;;
-  border-color: $e4;
+  border: none;
+  // border-color: $e4;
   border-radius: 2px;
   border-width: 1px;
   margin: 0 auto;
@@ -96,8 +97,8 @@ $font-stack: 'Avenir Next', sans-serif;
 .need-help {
   color: $light-blue;
   font-family: $font-stack;
+  padding: 5px;
   .help-link {
-    font-size: 12;
     &:hover {
       text-decoration: underline;
       cursor: pointer;
@@ -111,6 +112,7 @@ $font-stack: 'Avenir Next', sans-serif;
 
 .remember-me {
   font-family: $font-stack;
+  padding: 5px;
 }
 
 .field-info {
@@ -122,4 +124,42 @@ $font-stack: 'Avenir Next', sans-serif;
 
 span {
   color: $light-blue;
+}
+
+::-webkit-input-placeholder {
+   color: $placeholder;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: $placeholder;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: $placeholder;
+}
+
+:-ms-input-placeholder {
+   color: $placeholder;
+}
+
+.at-symbol {
+  height: 43px;
+  width: 48px;
+  border: $light-blue;
+  display: flex;
+  background-color: $light-blue;
+  align-items: center;
+  justify-content: center;
+  border-right: 0px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 20px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.username {
+  border-left: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }

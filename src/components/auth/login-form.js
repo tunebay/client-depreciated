@@ -15,6 +15,7 @@ const renderField = (field) => {
         placeholder={field.placeholder}
         type={field.type}
         {...field.input}
+        required
       />
     </div>
   );

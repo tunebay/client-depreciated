@@ -1,0 +1,30 @@
+$header-black: #2D2E2F;
+$font-stack: 'Avenir Next', sans-serif;
+
+.signup-header {
+  display: flex;
+  height: 45px;
+  width: 100%;
+  background-color: $header-black;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+}
+
+.have-account {
+  position: absolute;
+  right: 10%;
+  margin: auto;
+  color: #fff;
+  font-size: 14px;
+  font-family: $font-stack;
+}
+
+.login-btn {
+  font-weight: 600;
+  color: #fff;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

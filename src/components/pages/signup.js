@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from '../header';
+import SignupHeader from '../signup-header';
 import SignupForm from '../auth/signup-form';
 import MainContent from '../main-content';
 
@@ -10,7 +10,7 @@ const Signup = () => {
   document.title = 'Sign up for Tunebay';
   return (
     <div className="login-page-con">
-      <Header />
+      <SignupHeader />
       <MainContent>
         <div className="main-content">
           <SignupForm />
