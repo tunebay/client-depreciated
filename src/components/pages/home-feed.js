@@ -6,10 +6,6 @@ import Header from '../header';
 import MainContent from '../main-content';
 
 class HomeFeed extends Component {
-  componentDidMount() {
-    this.props.fetchUser();
-  }
-
   render() {
     document.title = 'Tunebay';
     return (

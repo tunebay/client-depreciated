@@ -31,9 +31,9 @@ export const signupUser = ({ displayName, email, password, username }) => {
         localStorage.setItem('token', res.data.token);
         browserHistory.push('/');
       })
-      .catch((res) => {
+      .catch((err) => {
         // console.log(res);
-        dispatch(authError(res.data));
+        dispatch(authError(err));
       });
   };
 };
