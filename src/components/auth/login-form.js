@@ -16,6 +16,8 @@ const renderField = (field) => {
         type={field.type}
         {...field.input}
         required
+        autoCorrect={false}
+        spellCheck={false}
       />
     </div>
   );
