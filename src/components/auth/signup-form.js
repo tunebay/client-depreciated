@@ -7,6 +7,9 @@ import * as actions from '../../actions';
 import '../../styles/components/auth/auth-form.scss';
 
 const renderField = (field) => {
+  if (field.type === 'email') {
+    console.log('RENDER FIELD:', field);
+  }
   return (
     <div className="form-section">
       <input
@@ -20,8 +23,9 @@ const renderField = (field) => {
         autoCorrect={false}
         spellCheck={false}
       />
-      <ReactTooltip id="main" place="right" type="error" effect="solid">
-        <div>Wtf is this</div>
+      {/* render tooltip */}
+      <ReactTooltip id="main" place="left" type="error" effect="solid">
+        <div></div>
       </ReactTooltip>
     </div>
   );
@@ -45,14 +49,6 @@ const renderUsernameField = (field) => {
 };
 
 class SignupForm extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      showPassword: 'password'
-    };
-  }
-
   handleFormSubmit(formProps) {
     this.props.signupUser(formProps);
   }
@@ -83,6 +79,7 @@ class SignupForm extends Component {
             component={renderField}
             type="email"
             placeholder="Email"
+            sidetip="EMAIL SIDETIP"
           />
 
           <Field
@@ -119,4 +116,10 @@ const ComposedSignupForm = reduxForm({
   form: 'login'
 })(SignupForm);
 
-export default connect(null, actions)(ComposedSignupForm);
+const mapStateToProps = (state) => {
+  return {
+    errorMessage: state.auth.error
+  };
+};
+
+export default connect(mapStateToProps, actions)(ComposedSignupForm);

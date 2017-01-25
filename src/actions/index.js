@@ -32,7 +32,7 @@ export const signupUser = ({ displayName, email, password, username }) => {
         browserHistory.push('/');
       })
       .catch((res) => {
-        authError(res.response.data.error);
+        dispatch(authError(res.response.data.error));
       });
   };
 };
@@ -40,7 +40,6 @@ export const signupUser = ({ displayName, email, password, username }) => {
 // helpers
 
 const authError = (error) => {
-  console.log('ERROR IN AUTH:', error);
   return {
     type: AUTH_ERROR,
     payload: error
