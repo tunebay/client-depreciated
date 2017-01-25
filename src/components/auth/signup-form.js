@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import ReactTooltip from 'react-tooltip';
 import * as actions from '../../actions';
 
 import '../../styles/components/auth/auth-form.scss';
@@ -10,8 +11,8 @@ const renderField = (field) => {
     <div className="form-section">
       <input
         className="form-input"
-        data-tip="whats up yo"
-        data-for="tool-tip"
+        data-for="main"
+        data-tip="This is a tip yo"
         placeholder={field.placeholder}
         type={field.type}
         {...field.input}
@@ -19,6 +20,9 @@ const renderField = (field) => {
         autoCorrect={false}
         spellCheck={false}
       />
+      <ReactTooltip id="main" place="right" type="error" effect="solid">
+        <div>Wtf is this</div>
+      </ReactTooltip>
     </div>
   );
 };
