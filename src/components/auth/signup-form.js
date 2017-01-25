@@ -6,27 +6,40 @@ import * as actions from '../../actions';
 
 import '../../styles/components/auth/auth-form.scss';
 
-const renderField = (field) => {
-  if (field.type === 'email') {
-    console.log('RENDER FIELD:', field);
+const validate = (values) => {
+  console.log('VALUES:', values);
+  const errors = {};
+  if (!values.username) {
+    errors.username = 'You must choose a username';
+  } else if (values.username.length > 16) {
+    errors.username = 'Must be 16 characters or less';
   }
+  if (!values.email) {
+    errors.email = 'Enter your email address';
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address';
+  }
+  return errors;
+};
+
+const renderField = (field) => {
+  console.log('FIELD ERROR:', field.meta.error);
   return (
     <div className="form-section">
       <input
+        {...field.input}
+        type={field.type}
+        placeholder={field.placeholder}
+        spellCheck={false}
+        autoCorrect={false}
         className="form-input"
         data-for="main"
         data-tip="This is a tip yo"
-        placeholder={field.placeholder}
-        type={field.type}
-        {...field.input}
-        required
-        autoCorrect={false}
-        spellCheck={false}
       />
-      {/* render tooltip */}
-      <ReactTooltip id="main" place="left" type="error" effect="solid">
-        <div></div>
-      </ReactTooltip>
+      {field.meta.touched && field.meta.error &&
+        <ReactTooltip id="main" place="left" type="error" effect="solid">
+          <div>{field.meta.error}</div>
+        </ReactTooltip>}
     </div>
   );
 };
@@ -34,11 +47,13 @@ const renderField = (field) => {
 const renderUsernameField = (field) => {
   return (
     <div className="form-section">
-      <div className="at-symbol">@</div>
+      <div
+        className="at-symbol"
+        data-for="username"
+        data-tip="username"
+      >@</div>
       <input
         className="form-input username"
-        data-tip="whats up yo"
-        data-for="tool-tip"
         placeholder={field.placeholder}
         type={field.type}
         {...field.input}
@@ -79,7 +94,6 @@ class SignupForm extends Component {
             component={renderField}
             type="email"
             placeholder="Email"
-            sidetip="EMAIL SIDETIP"
           />
 
           <Field
@@ -113,7 +127,8 @@ class SignupForm extends Component {
 }
 
 const ComposedSignupForm = reduxForm({
-  form: 'login'
+  form: 'login',
+  validate
 })(SignupForm);
 
 const mapStateToProps = (state) => {
