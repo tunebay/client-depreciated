@@ -1,6 +1,11 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER, AUTH_ERROR, DEAUTH_USER } from './types';
+import {
+  AUTH_USER,
+  AUTH_ERROR,
+  DEAUTH_USER,
+  SIGNUP_ATTEMPT
+} from './types';
 
 const API_URL = 'http://localhost:3000';
 
@@ -25,6 +30,7 @@ export const logoutUser = () => {
 
 export const signupUser = ({ displayName, email, password, username }) => {
   return (dispatch) => {
+    dispatch({ type: SIGNUP_ATTEMPT });
     axios.post(`${API_URL}/signup`, { displayName, email, password, username })
       .then((res) => {
         dispatch({ type: AUTH_USER });

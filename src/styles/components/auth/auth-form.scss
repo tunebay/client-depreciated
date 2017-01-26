@@ -84,6 +84,8 @@ $font-stack: 'Avenir Next', sans-serif;
   font-family: $font-stack;
   font-weight: 500;
   margin: 0;
+  justify-content: center;
+  align-items: center;
   &:hover {
     cursor: pointer;
   }

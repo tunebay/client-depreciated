@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import ReactTooltip from 'react-tooltip';
+import Spinner from 'react-spinner';
 import * as actions from '../../actions';
 import Tooltip from '../hoc/tooltip';
 
@@ -105,6 +105,13 @@ class SignupForm extends Component {
     this.props.signupUser(formProps);
   }
 
+  renderButton() {
+    if (this.props.isLoading) {
+      return <button className="btn"><Spinner /></button>;
+    }
+    return <button className="btn" action="submit">Sign Up</button>;
+  }
+
   render() {
     const { handleSubmit } = this.props;
 
@@ -128,7 +135,7 @@ class SignupForm extends Component {
           <Field name="password" component={renderPasswordField} />
 
           <div className="form-section">
-            <button className="btn" action="submit">Sign Up</button>
+            {this.renderButton()}
           </div>
           <div className="form-section">
             <div className="field-info">By clicking ‘Sign Up’ you are agreeing to our <span>Terms of Use</span> and <span>Privacy Policy.</span></div>
@@ -170,7 +177,8 @@ const ComposedSignupForm = reduxForm({
 
 const mapStateToProps = (state) => {
   return {
-    errorMessage: state.auth.error
+    errorMessage: state.auth.error,
+    isLoading: state.auth.loading
   };
 };
 
