@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import ReactTooltip from 'react-tooltip';
 import * as actions from '../../actions';
+import Tooltip from '../hoc/tooltip';
 
 import '../../styles/components/auth/auth-form.scss';
 
@@ -12,6 +13,7 @@ const renderDisplayNameField = (field) => {
       <input
         {...field.input}
         type="text"
+        ref={field.ref}
         placeholder="Full name / Artist name"
         spellCheck={false}
         autoCorrect={false}
@@ -22,9 +24,9 @@ const renderDisplayNameField = (field) => {
         formNoValidate
       />
       {field.meta.touched && field.meta.error &&
-        <ReactTooltip id="displayName" multiline place="left" type="error" effect="solid">
+        <Tooltip id="displayName" event="nothing" showInitial place="left" type="error" effect="solid">
           <div>{field.meta.error}</div>
-        </ReactTooltip>}
+        </Tooltip>}
     </div>
   );
 };
@@ -45,9 +47,9 @@ const renderEmailField = (field) => {
         formNoValidate
       />
       {field.meta.touched && field.meta.error &&
-        <ReactTooltip id="email" multiline place="left" type="error" effect="solid">
+        <Tooltip id="email" event="nothing" showInitial place="left" type="error" effect="solid">
           <div>{field.meta.error}</div>
-        </ReactTooltip>}
+        </Tooltip>}
     </div>
   );
 };
@@ -69,9 +71,9 @@ const renderUsernameField = (field) => {
         formNoValidate
       />
       {field.meta.touched && field.meta.error &&
-        <ReactTooltip id="username" multiline place="left" type="error" effect="solid">
+        <Tooltip id="username" event="nothing" showInitial place="left" type="error" effect="solid">
           <div>{field.meta.error}</div>
-        </ReactTooltip>}
+        </Tooltip>}
     </div>
   );
 };
@@ -91,9 +93,9 @@ const renderPasswordField = (field) => {
         formNoValidate
       />
       {field.meta.touched && field.meta.error &&
-        <ReactTooltip id="password" multiline place="left" type="error" effect="solid">
+        <Tooltip id="password" showInitial event="nothing" place="left" type="error" effect="solid">
           <div>{field.meta.error}</div>
-        </ReactTooltip>}
+        </Tooltip>}
     </div>
   );
 };

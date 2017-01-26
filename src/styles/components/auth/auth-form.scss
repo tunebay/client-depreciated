@@ -87,6 +87,9 @@ $font-stack: 'Avenir Next', sans-serif;
   &:hover {
     cursor: pointer;
   }
+  &:focus {
+    outline: none;
+  }
 }
 
 .error {
