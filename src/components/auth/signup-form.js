@@ -22,7 +22,7 @@ const renderDisplayNameField = (field) => {
         formNoValidate
       />
       {field.meta.touched && field.meta.error &&
-        <ReactTooltip id="displayName" place="left" type="error" effect="solid">
+        <ReactTooltip id="displayName" multiline place="left" type="error" effect="solid">
           <div>{field.meta.error}</div>
         </ReactTooltip>}
     </div>
@@ -45,7 +45,7 @@ const renderEmailField = (field) => {
         formNoValidate
       />
       {field.meta.touched && field.meta.error &&
-        <ReactTooltip id="email" place="left" type="error" effect="solid">
+        <ReactTooltip id="email" multiline place="left" type="error" effect="solid">
           <div>{field.meta.error}</div>
         </ReactTooltip>}
     </div>
@@ -69,7 +69,7 @@ const renderUsernameField = (field) => {
         formNoValidate
       />
       {field.meta.touched && field.meta.error &&
-        <ReactTooltip id="username" place="left" type="error" effect="solid">
+        <ReactTooltip id="username" multiline place="left" type="error" effect="solid">
           <div>{field.meta.error}</div>
         </ReactTooltip>}
     </div>
@@ -91,7 +91,7 @@ const renderPasswordField = (field) => {
         formNoValidate
       />
       {field.meta.touched && field.meta.error &&
-        <ReactTooltip id="password" place="left" type="error" effect="solid">
+        <ReactTooltip id="password" multiline place="left" type="error" effect="solid">
           <div>{field.meta.error}</div>
         </ReactTooltip>}
     </div>
