@@ -1,4 +1,5 @@
 import axios from 'axios';
+import _ from 'lodash';
 import { browserHistory } from 'react-router';
 import {
   AUTH_USER,
@@ -44,15 +45,25 @@ export const signupUser = ({ displayName, email, password, username }) => {
   };
 };
 
-export const uniqueUsernameCheck = ({ username }) => {
+export const uniqueUsernameCheck = _.debounce(({ username }) => {
   axios.post(`${API_URL}/signup/usernamecheck`, { username })
     .then((res) => {
-      console.log('In then:', res.data);
+      console.log('In then:', res.data.status);
     })
     .catch((error) => {
       console.log('In error:', error);
     });
-};
+}, 500);
+
+// const usernameCheck = ({ username }) => {
+//   axios.post(`${API_URL}/signup/usernamecheck`, { username })
+//     .then((res) => {
+//       console.log('In then:', res.data.status);
+//     })
+//     .catch((error) => {
+//       console.log('In error:', error);
+//     });
+// };
 
 // helpers
 
