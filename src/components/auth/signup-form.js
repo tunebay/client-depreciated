@@ -6,38 +6,46 @@ import * as actions from '../../actions';
 
 import '../../styles/components/auth/auth-form.scss';
 
-const validate = (values) => {
-  console.log('VALUES:', values);
-  const errors = {};
-  if (!values.username) {
-    errors.username = 'You must choose a username';
-  } else if (values.username.length > 16) {
-    errors.username = 'Must be 16 characters or less';
-  }
-  if (!values.email) {
-    errors.email = 'Enter your email address';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address';
-  }
-  return errors;
-};
-
-const renderField = (field) => {
-  console.log('FIELD ERROR:', field.meta.error);
+const renderDisplayNameField = (field) => {
   return (
     <div className="form-section">
       <input
         {...field.input}
-        type={field.type}
-        placeholder={field.placeholder}
+        type="text"
+        placeholder="Full name / Artist name"
         spellCheck={false}
         autoCorrect={false}
+        maxLength="20"
         className="form-input"
-        data-for="main"
-        data-tip="This is a tip yo"
+        data-for="displayName"
+        data-tip="displayName"
+        formNoValidate
       />
       {field.meta.touched && field.meta.error &&
-        <ReactTooltip id="main" place="left" type="error" effect="solid">
+        <ReactTooltip id="displayName" place="left" type="error" effect="solid">
+          <div>{field.meta.error}</div>
+        </ReactTooltip>}
+    </div>
+  );
+};
+
+const renderEmailField = (field) => {
+  return (
+    <div className="form-section">
+      <input
+        {...field.input}
+        type="email"
+        placeholder="Email address"
+        spellCheck={false}
+        autoCorrect={false}
+        maxLength="54"
+        className="form-input"
+        data-for="email"
+        data-tip="email"
+        formNoValidate
+      />
+      {field.meta.touched && field.meta.error &&
+        <ReactTooltip id="email" place="left" type="error" effect="solid">
           <div>{field.meta.error}</div>
         </ReactTooltip>}
     </div>
@@ -53,12 +61,39 @@ const renderUsernameField = (field) => {
         data-tip="username"
       >@</div>
       <input
-        className="form-input username"
-        placeholder={field.placeholder}
-        type={field.type}
         {...field.input}
-        required
+        placeholder="username"
+        type="text"
+        maxLength="16"
+        className="form-input username"
+        formNoValidate
       />
+      {field.meta.touched && field.meta.error &&
+        <ReactTooltip id="username" place="left" type="error" effect="solid">
+          <div>{field.meta.error}</div>
+        </ReactTooltip>}
+    </div>
+  );
+};
+
+const renderPasswordField = (field) => {
+  return (
+    <div className="form-section">
+      <input
+        {...field.input}
+        type="password"
+        placeholder="New password"
+        spellCheck={false}
+        autoCorrect={false}
+        className="form-input"
+        data-for="password"
+        data-tip="password"
+        formNoValidate
+      />
+      {field.meta.touched && field.meta.error &&
+        <ReactTooltip id="password" place="left" type="error" effect="solid">
+          <div>{field.meta.error}</div>
+        </ReactTooltip>}
     </div>
   );
 };
@@ -82,37 +117,13 @@ class SignupForm extends Component {
             <p className="form-p">{'Yep, it\'s free'}</p>
           </div>
 
-          <Field
-            name="displayName"
-            component={renderField}
-            type="text"
-            placeholder="Full name / Artist name"
-          />
-
-          <Field
-            name="email"
-            component={renderField}
-            type="email"
-            placeholder="Email"
-          />
-
-          <Field
-            name="username"
-            component={renderUsernameField}
-            type="text"
-            placeholder="username"
-          />
+          <Field name="displayName" component={renderDisplayNameField} />
+          <Field name="email" component={renderEmailField} />
+          <Field name="username" component={renderUsernameField} />
           <div className="form-section">
             <div className="field-info">Usernames will be used for your personal URL and can be changed at anytime</div>
           </div>
-
-          <Field
-            name="password"
-            className="password-input"
-            component={renderField}
-            type="password"
-            placeholder="New password"
-          />
+          <Field name="password" component={renderPasswordField} />
 
           <div className="form-section">
             <button className="btn" action="submit">Sign Up</button>
@@ -125,6 +136,30 @@ class SignupForm extends Component {
     );
   }
 }
+
+const validate = (values) => {
+  const errors = {};
+
+  if (!values.displayName) {
+    errors.displayName = 'What\'s your name?';
+  } else if (values.displayName.length > 20) {
+    errors.displayName = 'Display names can be a maximum of 20 characters';
+  }
+  if (!values.email) {
+    errors.email = 'Enter your email address';
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address';
+  }
+  if (!values.username) {
+    errors.username = 'You must choose a username';
+  } else if (!/^[a-z][a-z0-9_]{0,24}$/i.test(values.username)) {
+    errors.username = 'Your username can only contain letters, numbers and \'_\'';
+  }
+  if (!values.password || values.password.length < 6) {
+    errors.password = 'Password must be atleast 6 characters long';
+  }
+  return errors;
+};
 
 const ComposedSignupForm = reduxForm({
   form: 'login',
