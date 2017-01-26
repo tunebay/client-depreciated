@@ -4,7 +4,8 @@ import {
   AUTH_USER,
   AUTH_ERROR,
   DEAUTH_USER,
-  SIGNUP_ATTEMPT
+  SIGNUP_ATTEMPT,
+  USERNAME_CHECK
 } from './types';
 
 const API_URL = 'http://localhost:3000';
@@ -41,6 +42,16 @@ export const signupUser = ({ displayName, email, password, username }) => {
         dispatch(authError(res.response.data.error));
       });
   };
+};
+
+export const uniqueUsernameCheck = ({ username }) => {
+  axios.post(`${API_URL}/signup/usernamecheck`, { username })
+    .then((res) => {
+      console.log('In then:', res.data);
+    })
+    .catch((error) => {
+      console.log('In error:', error);
+    });
 };
 
 // helpers

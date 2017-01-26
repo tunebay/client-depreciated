@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import Spinner from 'react-spinner';
-import * as actions from '../../actions';
+import _ from 'lodash';
+import { uniqueUsernameCheck, signupUser } from '../../actions';
 import Tooltip from '../hoc/tooltip';
 
 import '../../styles/components/auth/auth-form.scss';
@@ -55,6 +56,7 @@ const renderEmailField = (field) => {
 };
 
 const renderUsernameField = (field) => {
+  uniqueUsernameCheck({ username: field.input.value });
   return (
     <div className="form-section">
       <div
@@ -128,7 +130,12 @@ class SignupForm extends Component {
 
           <Field name="displayName" component={renderDisplayNameField} />
           <Field name="email" component={renderEmailField} />
-          <Field name="username" component={renderUsernameField} />
+
+          <Field
+            name="username"
+            component={renderUsernameField}
+          />
+
           <div className="form-section">
             <div className="field-info">Usernames will be used for your personal URL and can be changed at anytime</div>
           </div>
@@ -160,7 +167,7 @@ const validate = (values) => {
     errors.email = 'Invalid email address';
   }
   if (!values.username) {
-    errors.username = 'You must choose a username';
+    errors.username = 'Choose a username';
   } else if (!/^[a-z][a-z0-9_]{0,24}$/i.test(values.username)) {
     errors.username = 'Your username can only contain letters, numbers and \'_\'';
   }
@@ -182,4 +189,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, actions)(ComposedSignupForm);
+export default connect(mapStateToProps, {signupUser})(ComposedSignupForm);
