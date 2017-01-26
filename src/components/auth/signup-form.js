@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import Spinner from 'react-spinner';
 import _ from 'lodash';
-import { uniqueUsernameCheck, signupUser } from '../../actions';
+import { uniqueUsernameCheck, uniqueEmailCheck, signupUser } from '../../actions';
 import Tooltip from '../hoc/tooltip';
 
 import '../../styles/components/auth/auth-form.scss';
@@ -33,6 +33,9 @@ const renderDisplayNameField = (field) => {
 };
 
 const renderEmailField = (field) => {
+  if (!field.meta.error) {
+    uniqueEmailCheck({ email: field.input.value });
+  }
   return (
     <div className="form-section">
       <input
@@ -56,7 +59,10 @@ const renderEmailField = (field) => {
 };
 
 const renderUsernameField = (field) => {
-  uniqueUsernameCheck({ username: field.input.value });
+  if (!field.meta.error) {
+    uniqueUsernameCheck({ username: field.input.value });
+  }
+
   return (
     <div className="form-section">
       <div
@@ -189,4 +195,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {signupUser})(ComposedSignupForm);
+export default connect(mapStateToProps, { signupUser })(ComposedSignupForm);

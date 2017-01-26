@@ -48,7 +48,17 @@ export const signupUser = ({ displayName, email, password, username }) => {
 export const uniqueUsernameCheck = _.debounce(({ username }) => {
   axios.post(`${API_URL}/signup/usernamecheck`, { username })
     .then((res) => {
-      console.log('In then:', res.data.status);
+      console.log('Username uniqueness:', res.data.status);
+    })
+    .catch((error) => {
+      console.log('In error:', error);
+    });
+}, 500);
+
+export const uniqueEmailCheck = _.debounce(({ email }) => {
+  axios.post(`${API_URL}/signup/emailcheck`, { email })
+    .then((res) => {
+      console.log('email uniqueness:', res.data.status);
     })
     .catch((error) => {
       console.log('In error:', error);
