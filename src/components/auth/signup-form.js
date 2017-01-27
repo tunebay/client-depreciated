@@ -58,6 +58,26 @@ const renderEmailField = (field) => {
   );
 };
 
+const renderUsernameError = (error) => {
+  if (error) {
+    return (
+      <Tooltip id="username" event="nothing" showInitial place="left" type="error" effect="solid">
+        <div>{error}</div>
+      </Tooltip>
+    );
+  }
+};
+
+const renderEmailError = (error) => {
+  if (error) {
+    return (
+      <Tooltip id="email" event="nothing" showInitial place="left" type="error" effect="solid">
+        <div>{error}</div>
+      </Tooltip>
+    );
+  }
+};
+
 const renderUsernameField = (field) => {
   if (!field.meta.error) {
     uniqueUsernameCheck({ username: field.input.value });
@@ -136,11 +156,10 @@ class SignupForm extends Component {
 
           <Field name="displayName" component={renderDisplayNameField} />
           <Field name="email" component={renderEmailField} />
+          <Field name="username" component={renderUsernameField} />
 
-          <Field
-            name="username"
-            component={renderUsernameField}
-          />
+          {renderUsernameError(this.props.usernameError)}
+          {renderEmailError(this.props.emailError)}
 
           <div className="form-section">
             <div className="field-info">Usernames will be used for your personal URL and can be changed at anytime</div>
@@ -191,7 +210,10 @@ const ComposedSignupForm = reduxForm({
 const mapStateToProps = (state) => {
   return {
     errorMessage: state.auth.error,
-    isLoading: state.auth.loading
+    isLoading: state.auth.loading,
+    usernameValidating: state.auth.usernameValidating,
+    usernameError: state.auth.usernameError,
+    emailError: state.auth.emailError
   };
 };
 

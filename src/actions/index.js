@@ -1,11 +1,16 @@
 import axios from 'axios';
-import _ from 'lodash';
 import { browserHistory } from 'react-router';
+import _ from 'lodash';
+import { store } from '../';
 import {
   AUTH_USER,
   AUTH_ERROR,
   DEAUTH_USER,
   SIGNUP_ATTEMPT,
+  EMAIL_VALIDATING,
+  USERNAME_VALIDATING,
+  USERNAME_ERROR,
+  EMAIL_ERROR
 } from './types';
 
 const API_URL = 'http://localhost:3000';
@@ -45,9 +50,10 @@ export const signupUser = ({ displayName, email, password, username }) => {
 };
 
 export const uniqueUsernameCheck = _.debounce(({ username }) => {
+  store.dispatch({ type: USERNAME_VALIDATING });
   axios.post(`${API_URL}/signup/usernamecheck`, { username })
     .then((res) => {
-      console.log('Username uniqueness:', res.data.status);
+      store.dispatch({ type: USERNAME_ERROR, payload: res.data.error });
     })
     .catch((error) => {
       console.log('In error:', error);
@@ -55,9 +61,10 @@ export const uniqueUsernameCheck = _.debounce(({ username }) => {
 }, 500);
 
 export const uniqueEmailCheck = _.debounce(({ email }) => {
+  store.dispatch({ type: EMAIL_VALIDATING });
   axios.post(`${API_URL}/signup/emailcheck`, { email })
     .then((res) => {
-      console.log('email uniqueness:', res.data.status);
+      store.dispatch({ type: EMAIL_ERROR, payload: res.data.error });
     })
     .catch((error) => {
       console.log('In error:', error);

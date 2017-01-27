@@ -10,7 +10,7 @@ import Router from './router';
 
 import './styles/normalize.css';
 
-const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+export const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 const token = localStorage.getItem('token');
 
 if (token) {
