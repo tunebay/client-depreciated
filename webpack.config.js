@@ -5,8 +5,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const VENDOR_LIBS = [
-  'react', 'redux', 'react-redux', 'react-router',
-  'react-dom', 'redux-thunk', 'lodash', 'redux-form', 'history'
+  'axios',
+  'react',
+  'redux',
+  'react-redux',
+  'react-spinner',
+  'react-tooltip',
+  'react-router',
+  'react-dom',
+  'redux-thunk',
+  'lodash',
+  'redux-form',
+  'history'
 ];
 
 module.exports = {

@@ -6,7 +6,6 @@ import {
   AUTH_ERROR,
   DEAUTH_USER,
   SIGNUP_ATTEMPT,
-  USERNAME_CHECK
 } from './types';
 
 const API_URL = 'http://localhost:3000';
