@@ -9,7 +9,7 @@ const MainContent = (props) => {
 };
 
 const styles = {
-  paddingTop: 45,
+  paddingTop: 50,
   display: 'flex'
 };
 
