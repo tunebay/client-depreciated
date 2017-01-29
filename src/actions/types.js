@@ -8,3 +8,6 @@ export const EMAIL_VALIDATING = 'EMAIL_VALIDATING';
 export const USERNAME_VALIDATING = 'USERNAME_VALIDATING';
 export const EMAIL_ERROR = 'EMAIL_ERROR';
 export const USERNAME_ERROR = 'USERNAME_ERROR';
+
+// profile actions
+export const LOAD_USER = 'LOAD_USER';
