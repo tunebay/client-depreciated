@@ -3,8 +3,12 @@ $header-black: #2D2E2F;
 .header {
   height: 50px;
   width: 100%;
+  display: flex;
   background-color: $header-black;
   position: fixed;
+  -webkit-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.46);
+  -moz-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.46);
+  box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.46);
 }
 
 .header-secitons {
