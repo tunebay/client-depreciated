@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/profile-actions';
+import Header from '../header';
+import MainContent from '../main-content';
 
 class Profile extends Component {
   componentWillMount() {
     this.props.loadUser(this.props.params.username);
   }
 
-  render() {
+  renderMainContent() {
     const { user } = this.props;
 
     if (this.props.loading) {
@@ -19,6 +21,17 @@ class Profile extends Component {
         <h1>{user.display_name}</h1>
         <h3>{user.username}</h3>
         <h3>{user.email}</h3>
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <div>
+        <Header />
+        <MainContent>
+          {this.renderMainContent()}
+        </MainContent>
       </div>
     );
   }
