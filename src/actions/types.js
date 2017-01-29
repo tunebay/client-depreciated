@@ -10,4 +10,5 @@ export const EMAIL_ERROR = 'EMAIL_ERROR';
 export const USERNAME_ERROR = 'USERNAME_ERROR';
 
 // profile actions
-export const LOAD_USER = 'LOAD_USER';
+export const MOUNT_USER = 'MOUNT_USER';
+export const LOADING_USER = 'LOADING_USER';

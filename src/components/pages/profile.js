@@ -8,12 +8,27 @@ class Profile extends Component {
   }
 
   render() {
+    const { user } = this.props;
+
+    if (this.props.loading) {
+      return <div />;
+    }
+
     return (
       <div>
-        <h1>{this.props.params.username}</h1>
+        <h1>{user.display_name}</h1>
+        <h3>{user.username}</h3>
+        <h3>{user.email}</h3>
       </div>
     );
   }
 }
 
-export default connect(null, actions)(Profile);
+const mapStateToProps = (state) => {
+  return {
+    user: state.profile.user,
+    loading: state.profile.loading
+  };
+};
+
+export default connect(mapStateToProps, actions)(Profile);
