@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import Spinner from 'react-spinner';
-import _ from 'lodash';
-import { uniqueUsernameCheck, uniqueEmailCheck, signupUser } from '../../actions';
+import { uniqueUsernameCheck, uniqueEmailCheck, signupUser } from '../../actions/auth-actions';
 import Tooltip from '../hoc/tooltip';
 
 import '../../styles/components/auth/auth-form.scss';
