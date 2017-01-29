@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions/profile-actions';
 
 class Profile extends Component {
+  componentWillMount() {
+    this.props.loadUser(this.props.params.username);
+  }
+
   render() {
-    console.log(this.props.params);
     return (
       <div>
         <h1>{this.props.params.username}</h1>
@@ -11,4 +16,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default connect(null, actions)(Profile);
