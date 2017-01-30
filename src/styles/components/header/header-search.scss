@@ -45,6 +45,9 @@ $font-stack: 'Open Sans', 'Avenir Next', sans-serif;
   padding-left: 10px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 
