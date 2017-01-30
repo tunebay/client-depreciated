@@ -1,0 +1,68 @@
+$header-black: #2D2E2F;
+$hover-black: #191A1B;
+$font-stack: 'Avenir Next', sans-serif;
+
+.header-left {
+  // background-color: red;
+  height: 50px;
+  margin-left: 30px;
+  margin-right: 5px;
+  align-items: center;
+  display: flex;
+}
+
+.left-section {
+  align-items: center;
+}
+
+.logo {
+  flex: 1.3;
+  // background-color: blue;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 0;
+  margin-right: 10px;
+}
+
+.tunebay-logo {
+  height: 33px;
+  display: block;
+}
+
+.home {
+  flex: 1;
+  background-color: $header-black;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 50px;
+  &:hover {
+    background-color: $hover-black;
+  }
+}
+
+.header-link {
+  justify-content: center;
+  align-items: center;
+  font-style: $font-stack;
+  text-decoration: none;
+  font-size: 14px;
+  color: white;
+  &:visited {
+    color: white;
+  }
+}
+
+.discover {
+  // background-color: green;
+  flex: 1;
+  background-color: $header-black;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 50px;
+  &:hover {
+    background-color: $hover-black;
+  }
+}

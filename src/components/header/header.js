@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import '../../styles/components/header.scss';
+import '../../styles/components/header/header.scss';
+
+import HeaderLeft from './header-left';
 
 class Header extends Component {
   render() {
     return (
       <nav className="header">
         <div className="header-section">
-          <div className="header-left">Left</div>
+          <HeaderLeft />
         </div>
         <div className="header-section">
           <div className="header-search">Search</div>
