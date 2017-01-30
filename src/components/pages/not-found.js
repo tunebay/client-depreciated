@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../header';
+import Header from '../header/header';
 import MainContent from '../main-content';
 
 const NotFound = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SignupHeader from '../signup-header';
+import SignupHeader from '../header/signup-header';
 import SignupForm from '../auth/signup-form';
 import MainContent from '../main-content';
 

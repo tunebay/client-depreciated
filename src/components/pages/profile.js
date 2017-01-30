@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/profile-actions';
-import Header from '../header';
+import Header from '../header/header';
 import MainContent from '../main-content';
 
 class Profile extends Component {
