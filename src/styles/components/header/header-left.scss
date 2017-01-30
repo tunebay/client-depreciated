@@ -1,6 +1,6 @@
 $header-black: #2D2E2F;
 $hover-black: #191A1B;
-$font-stack: 'Avenir Next', sans-serif;
+$font-stack: 'Open Sans', sans-serif;
 
 .header-left {
   // background-color: red;
@@ -45,7 +45,7 @@ $font-stack: 'Avenir Next', sans-serif;
 .header-link {
   justify-content: center;
   align-items: center;
-  font-style: $font-stack;
+  font-family: $font-stack;
   text-decoration: none;
   font-size: 14px;
   color: white;

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import '../../styles/components/header/header.scss';
 
 import HeaderLeft from './header-left';
+import HeaderSearch from './header-search';
 
 class Header extends Component {
   render() {
@@ -13,7 +14,7 @@ class Header extends Component {
           <HeaderLeft />
         </div>
         <div className="header-section">
-          <div className="header-search">Search</div>
+          <HeaderSearch />
         </div>
         <div className="header-section">
           <div className="header-player">Player</div>
