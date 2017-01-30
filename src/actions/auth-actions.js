@@ -71,17 +71,6 @@ export const uniqueEmailCheck = _.debounce(({ email }) => {
     });
 }, 500);
 
-// const usernameCheck = ({ username }) => {
-//   axios.post(`${API_URL}/signup/usernamecheck`, { username })
-//     .then((res) => {
-//       console.log('In then:', res.data.status);
-//     })
-//     .catch((error) => {
-//       console.log('In error:', error);
-//     });
-// };
-
-// helpers
 
 const authError = (error) => {
   return {
