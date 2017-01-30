@@ -6,6 +6,7 @@ import '../../styles/components/header/header.scss';
 import HeaderLeft from './header-left';
 import HeaderSearch from './header-search';
 import HeaderControl from './header-control';
+import HeaderPlayer from './header-player';
 
 class Header extends Component {
   render() {
@@ -18,7 +19,7 @@ class Header extends Component {
           <HeaderSearch />
         </div>
         <div className="header-section">
-          <div className="header-player">Player</div>
+          <HeaderPlayer />
         </div>
         <div className="header-section">
           <HeaderControl isAuthenticated={this.props.isAuthenticated} />
