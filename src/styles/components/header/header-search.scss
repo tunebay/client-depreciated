@@ -1,5 +1,7 @@
 $placeholder: #a1a1a1;
+$faded-placeholder: #C9C9C9;
 $font-stack: 'Open Sans', 'Avenir Next', sans-serif;
+
 
 .header-search {
   margin-left: 5px;
@@ -51,18 +53,33 @@ $font-stack: 'Open Sans', 'Avenir Next', sans-serif;
 }
 
 
-::-webkit-input-placeholder {
-   color: $placeholder;
+input::-webkit-input-placeholder {
+  color: $placeholder;
+}
+input:focus::-webkit-input-placeholder {
+  color: $faded-placeholder;
 }
 
-:-moz-placeholder { /* Firefox 18- */
-   color: $placeholder;
+/* Firefox < 19 */
+input:-moz-placeholder {
+    color: $placeholder;
+}
+input:focus:-moz-placeholder {
+    color: $faded-placeholder;
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
-   color: $placeholder;
+/* Firefox > 19 */
+input::-moz-placeholder {
+  color: $placeholder;
+}
+input:focus::-moz-placeholder {
+  color: $faded-placeholder;
 }
 
-:-ms-input-placeholder {
-   color: $placeholder;
+/* Internet Explorer 10 */
+input:-ms-input-placeholder {
+  color: $placeholder;
+}
+input:focus:-ms-input-placeholder {
+  color: $faded-placeholder;
 }
