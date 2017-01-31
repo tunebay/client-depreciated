@@ -13,8 +13,23 @@ $logo-blue: #1596F5;
   align-items: center;
 }
 
-.header-section {
-  flex: 1;
+.header-left-section {
+  flex: 36;
+  height: auto;
+}
+
+.header-search-section {
+  flex: 36;
+  height: auto;
+}
+
+.header-player-section {
+  flex: 45;
+  height: auto;
+}
+
+.header-control-section {
+  flex: 27;
   height: auto;
 }
 

@@ -13,16 +13,16 @@ class Header extends Component {
     return (
       <div className="header-con">
         <nav className="header">
-          <div className="header-section">
+          <div className="header-left-section">
             <HeaderLeft />
           </div>
-          <div className="header-section">
+          <div className="header-search-section">
             <HeaderSearch />
           </div>
-          <div className="header-section">
+          <div className="header-player-section">
             <HeaderPlayer />
           </div>
-          <div className="header-section">
+          <div className="header-control-section">
             <HeaderControl isAuthenticated={this.props.isAuthenticated} />
           </div>
         </nav>
