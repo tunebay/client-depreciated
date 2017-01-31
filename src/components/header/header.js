@@ -23,7 +23,7 @@ class Header extends Component {
             <HeaderPlayer />
           </div>
           <div className="header-control-section">
-            <HeaderControl isAuthenticated={this.props.isAuthenticated} />
+            <HeaderControl />
           </div>
         </nav>
         <div className="progress-con">
