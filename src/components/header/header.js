@@ -11,20 +11,25 @@ import HeaderPlayer from './header-player';
 class Header extends Component {
   render() {
     return (
-      <nav className="header">
-        <div className="header-section">
-          <HeaderLeft />
+      <div className="header-con">
+        <nav className="header">
+          <div className="header-section">
+            <HeaderLeft />
+          </div>
+          <div className="header-section">
+            <HeaderSearch />
+          </div>
+          <div className="header-section">
+            <HeaderPlayer />
+          </div>
+          <div className="header-section">
+            <HeaderControl isAuthenticated={this.props.isAuthenticated} />
+          </div>
+        </nav>
+        <div className="progress-con">
+          <progress className="progress-bar" value="23" max="100" />
         </div>
-        <div className="header-section">
-          <HeaderSearch />
-        </div>
-        <div className="header-section">
-          <HeaderPlayer />
-        </div>
-        <div className="header-section">
-          <HeaderControl isAuthenticated={this.props.isAuthenticated} />
-        </div>
-      </nav>
+      </div>
     );
   }
 }
