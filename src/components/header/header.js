@@ -26,9 +26,9 @@ class Header extends Component {
             <HeaderControl />
           </div>
         </nav>
-        <div className="progress-con">
+        {/* <div className="progress-con">
           <progress className="progress-bar" value="23" max="100" />
-        </div>
+        </div> */}
       </div>
     );
   }

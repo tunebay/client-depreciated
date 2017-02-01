@@ -11,6 +11,7 @@ $logo-blue: #1596F5;
   // -moz-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.46);
   // box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.46);
   align-items: center;
+  z-index: 2;
 }
 
 .header-left-section {
@@ -33,10 +34,10 @@ $logo-blue: #1596F5;
   height: auto;
 }
 
-.progress-con {
-  // background-color: red;
-  padding-top: 39px;
-}
+// .progress-con {
+//   // background-color: red;
+//   padding-top: 39px;
+// }
 
 .progress-bar {
   width: 100%;

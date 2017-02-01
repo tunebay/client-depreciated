@@ -9,6 +9,7 @@ import reducers from './reducers';
 import Router from './router';
 
 import './styles/normalize.css';
+import './styles/app.scss';
 
 export const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 const token = localStorage.getItem('token');

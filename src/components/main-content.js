@@ -10,6 +10,7 @@ const MainContent = (props) => {
 
 const styles = {
   // paddingTop: 50,
+  // backgroundColor: '#f1f1f1',
   display: 'flex'
 };
 
