@@ -19,7 +19,15 @@ class Upload extends Component {
 
       console.log('Got signature', signedURL);
 
-      return axios.put(signedURL, file);
+      const config = {
+        headers: { 'Content-Type': file.type },
+        onUploadProgress: (progress) => {
+          const percentCompleted = Math.round((progress.loaded * 100) / progress.total);
+          console.log(percentCompleted);
+        }
+      };
+
+      return axios.put(signedURL, file, config);
     })
     .then((res) => {
       console.log(res);
