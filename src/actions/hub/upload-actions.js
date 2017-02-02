@@ -2,13 +2,15 @@ import axios from 'axios';
 import {
   UPDATE_UPLOAD_PROGRESS,
   UPLOAD_COMPLETE,
-  UPLOAD_ERROR
+  UPLOAD_ERROR,
+  UPLOAD_STARTED
 } from '../types';
 
 const API_URL = 'http://localhost:3000';
 
 export const uploadAudioToS3 = (files) => {
   return (dispatch) => {
+    dispatch({ type: UPLOAD_STARTED });
     const file = files[0];
     axios.get(`${API_URL}/upload/s3/sign`, {
       params: {
@@ -27,15 +29,15 @@ export const uploadAudioToS3 = (files) => {
           dispatch({ type: UPDATE_UPLOAD_PROGRESS, payload: percentCompleted });
         }
       };
+
       return axios.put(signedURL, file, config);
     })
     .then((res) => {
-      dispatch({ type: UPLOAD_COMPLETE })
+      dispatch({ type: UPLOAD_COMPLETE });
       console.log(res);
     })
     .catch((err) => {
       dispatch({ type: UPLOAD_ERROR, payload: err });
-      console.log('error in catch:', err);
     });
   };
 };

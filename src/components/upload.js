@@ -2,17 +2,21 @@ import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
 import * as actions from '../actions/hub/upload-actions';
-// import ReactS3Uploader from 'react-s3-uploader';
 
 class Upload extends Component {
-  onDrop(files) {
+  onDrop(files, rejectedFiles) {
     this.props.uploadAudioToS3(files);
+    console.log('Rejected:', rejectedFiles);
   }
 
   render() {
     return (
       <div>
-        <Dropzone onDrop={this.onDrop.bind(this)}>
+        <Dropzone
+          onDrop={this.onDrop.bind(this)}
+          accept={'audio/*'}
+          maxSize={1000000000} // 1gb
+        >
           <div>Try dropping some files here, or click to select files to upload.</div>
         </Dropzone>
         <div>{this.props.progress}</div>
@@ -21,9 +25,10 @@ class Upload extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ upload }) => {
   return {
-    progress: state.upload.percentCompleted
+    progress: upload.percentCompleted,
+    uploadComplete: upload.uploadComplete
   };
 };
 
