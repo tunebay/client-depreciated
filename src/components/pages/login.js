@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Header from '../header/header';
-import LoginForm from '../auth/login-form';
 import MainContent from '../main-content';
+import LoginForm from '../auth/login-form';
 
 import '../../styles/components/login-page.scss';
 
