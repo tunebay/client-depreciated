@@ -7,7 +7,6 @@ import * as actions from '../../actions/auth-actions';
 import '../../styles/components/auth/auth-form.scss';
 
 const renderField = (field) => {
-  console.log(field);
   return (
     <div className="form-section">
       <input

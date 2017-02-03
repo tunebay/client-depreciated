@@ -5,7 +5,6 @@ import Welcome from './pages/welcome';
 
 class Root extends Component {
   renderRoot() {
-    console.log('Authenticated:', this.props.authenticated);
     if (this.props.authenticated) {
       return <HomeFeed />;
     }

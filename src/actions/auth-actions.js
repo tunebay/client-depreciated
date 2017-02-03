@@ -10,7 +10,7 @@ import {
   EMAIL_VALIDATING,
   USERNAME_VALIDATING,
   USERNAME_ERROR,
-  EMAIL_ERROR
+  EMAIL_ERROR,
 } from './types';
 
 const API_URL = 'http://localhost:3000';
@@ -19,8 +19,7 @@ export const loginUser = ({ emailOrUsername, password }) => {
   return (dispatch) => {
     axios.post(`${API_URL}/login`, { emailOrUsername, password })
       .then((res) => {
-        dispatch({ type: AUTH_USER });
-        console.log(res);
+        dispatch({ type: AUTH_USER, payload: res.data.user });
         localStorage.setItem('token', res.data.token);
         browserHistory.push('/');
       })
@@ -40,7 +39,7 @@ export const signupUser = ({ displayName, email, password, username }) => {
     dispatch({ type: SIGNUP_ATTEMPT });
     axios.post(`${API_URL}/signup`, { displayName, email, password, username })
       .then((res) => {
-        dispatch({ type: AUTH_USER });
+        dispatch({ type: AUTH_USER, payload: res.data.user });
         localStorage.setItem('token', res.data.token);
         browserHistory.push('/');
       })
