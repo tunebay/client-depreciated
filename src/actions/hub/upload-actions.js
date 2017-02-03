@@ -25,7 +25,6 @@ export const uploadAudioToS3 = (files) => {
         headers: { 'Content-Type': file.type },
         onUploadProgress: (progress) => {
           const percentCompleted = Math.round((progress.loaded * 100) / progress.total);
-          console.log(percentCompleted);
           dispatch({ type: UPDATE_UPLOAD_PROGRESS, payload: percentCompleted });
         }
       };
