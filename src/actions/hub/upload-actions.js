@@ -1,3 +1,4 @@
+import { v4 } from 'node-uuid';
 import axios from 'axios';
 import {
   UPDATE_UPLOAD_PROGRESS,
@@ -12,9 +13,10 @@ export const uploadAudioToS3 = (files) => {
   return (dispatch) => {
     dispatch({ type: UPLOAD_STARTED });
     const file = files[0];
+    const filename = `/users/music/${v4()}`;
     axios.get(`${API_URL}/upload/s3/sign`, {
       params: {
-        filename: file.name,
+        filename,
         filetype: file.type
       }
     })
