@@ -31,7 +31,7 @@ export const loginUser = ({ emailOrUsername, password }) => {
 };
 
 export const logoutUser = () => {
-  localStorage.removeItem('token');
+  localStorage.clear();
   return { type: DEAUTH_USER };
 };
 

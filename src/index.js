@@ -10,14 +10,13 @@ import Router from './router';
 import './styles/normalize.css';
 import './styles/app.scss';
 
-console.log('user state:', persistedState);
 
 const persistedState = loadState();
+console.log('user state:', persistedState);
 export const store = createStore(reducers, persistedState, applyMiddleware(ReduxThunk));
 
 store.subscribe(() => {
-  console.log('in subscribe');
-  saveState(store.getState().auth.user);
+  saveState(store.getState().session.user);
 });
 
 const token = localStorage.getItem('token');

@@ -16,15 +16,13 @@ const INITITAL_STATE = {
   usernameError: '',
   emailError: '',
   usernameValidating: false,
-  emailValidating: false,
-  currentUser: null,
-  user: null
+  emailValidating: false
 };
 
 export default (state = INITITAL_STATE, action) => {
   switch (action.type) {
     case AUTH_USER:
-      return { ...INITITAL_STATE, isAuthenticated: true, user: action.payload };
+      return { ...INITITAL_STATE, isAuthenticated: true };
     case DEAUTH_USER:
       return { ...INITITAL_STATE };
     case AUTH_ERROR:

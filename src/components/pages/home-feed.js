@@ -11,7 +11,7 @@ class HomeFeed extends Component {
       <div className="home-feed-con">
         <Header />
         <MainContent>
-          {/* <div>Hello {this.props.currentUser.displayName}</div> */}
+          <div>Hello {this.props.displayName}</div>
           <div>Home feed</div>
         </MainContent>
       </div>
@@ -19,4 +19,11 @@ class HomeFeed extends Component {
   }
 }
 
-export default connect()(HomeFeed);
+const mapStateToProps = (state) => {
+  console.log('mapppinng', state);
+  return {
+    user: state.session
+  };
+};
+
+export default connect(mapStateToProps)(HomeFeed);
