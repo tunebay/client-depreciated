@@ -21,7 +21,7 @@ export const loginUser = ({ emailOrUsername, password }) => {
       .then((res) => {
         dispatch({ type: AUTH_USER, payload: res.data.user });
         localStorage.setItem('token', res.data.token);
-        localStorage.setItem('currentUser', JSON.stringify(res.data.user));
+        localStorage.setItem('user', JSON.stringify(res.data.user));
         browserHistory.push('/');
       })
       .catch(() => {

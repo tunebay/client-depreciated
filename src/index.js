@@ -4,14 +4,22 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 import { AUTH_USER } from './actions/types';
-
+import { loadState, saveState } from './util/local-storage';
 import reducers from './reducers';
 import Router from './router';
-
 import './styles/normalize.css';
 import './styles/app.scss';
 
-export const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+console.log('user state:', persistedState);
+
+const persistedState = loadState();
+export const store = createStore(reducers, persistedState, applyMiddleware(ReduxThunk));
+
+store.subscribe(() => {
+  console.log('in subscribe');
+  saveState(store.getState().auth.user);
+});
+
 const token = localStorage.getItem('token');
 
 if (token) {

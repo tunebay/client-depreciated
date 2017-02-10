@@ -6,7 +6,6 @@ import MainContent from '../main-content';
 
 class HomeFeed extends Component {
   render() {
-    console.log(this.props);
     document.title = 'Tunebay';
     return (
       <div className="home-feed-con">
@@ -20,11 +19,4 @@ class HomeFeed extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  console.log(state.auth);
-  return {
-    currentUser: state.auth.currentUser
-  };
-};
-
-export default connect(mapStateToProps)(HomeFeed);
+export default connect()(HomeFeed);
