@@ -12,11 +12,11 @@ import './styles/app.scss';
 
 
 const persistedState = loadState();
-console.log('user state:', persistedState);
+console.log('persisted user state:', persistedState);
 export const store = createStore(reducers, persistedState, applyMiddleware(ReduxThunk));
 
 store.subscribe(() => {
-  saveState(store.getState().session.user);
+  saveState(store.getState().currentUser);
 });
 
 const token = localStorage.getItem('token');

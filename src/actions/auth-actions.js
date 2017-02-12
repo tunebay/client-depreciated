@@ -11,6 +11,7 @@ import {
   USERNAME_VALIDATING,
   USERNAME_ERROR,
   EMAIL_ERROR,
+  SET_CURRENT_USER
 } from './types';
 
 const API_URL = 'http://localhost:3000';
@@ -19,10 +20,14 @@ export const loginUser = ({ emailOrUsername, password }) => {
   return (dispatch) => {
     axios.post(`${API_URL}/login`, { emailOrUsername, password })
       .then((res) => {
-        dispatch({ type: AUTH_USER, payload: res.data.user });
-        localStorage.setItem('token', res.data.token);
-        localStorage.setItem('user', JSON.stringify(res.data.user));
-        browserHistory.push('/');
+        console.log('user:', res.data.user);
+        dispatch({ type: AUTH_USER })
+          .then(() => {
+            dispatch({ type: SET_CURRENT_USER, payload: res.data.user })
+            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('user', JSON.stringify(res.data.user));
+            browserHistory.push('/');
+          })
       })
       .catch(() => {
         dispatch(authError('Incorrect log in details.'));

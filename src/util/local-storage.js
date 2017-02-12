@@ -1,12 +1,12 @@
 export const loadState = () => {
   try {
-    const seralizedState = localStorage.getItem('user');
+    const seralizedState = localStorage.getItem('currentUser');
     if (!seralizedState) {
       console.log('no serialized state');
       return undefined;
     }
     console.log('FOUND USER IN local-storage:', seralizedState);
-    return { session: JSON.parse(seralizedState) };
+    return { currentUser: JSON.parse(seralizedState) };
   } catch (err) {
     console.log('load state error:', err);
   }

@@ -11,7 +11,7 @@ class HomeFeed extends Component {
       <div className="home-feed-con">
         <Header />
         <MainContent>
-          <div>Hello {this.props.displayName}</div>
+          {/* <div>Hello {this.props.user.displayName}</div> */}
           <div>Home feed</div>
         </MainContent>
       </div>
@@ -22,7 +22,7 @@ class HomeFeed extends Component {
 const mapStateToProps = (state) => {
   console.log('mapppinng', state);
   return {
-    user: state.session
+    currentUser: state.currentUser
   };
 };
 
