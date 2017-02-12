@@ -1,4 +1,4 @@
-import { AUTH_USER, SET_CURRENT_USER } from '../actions/types';
+import { SET_CURRENT_USER } from '../actions/types';
 
 const INITITAL_STATE = {
   displayName: null,
@@ -9,14 +9,14 @@ const INITITAL_STATE = {
 
 export default (state = INITITAL_STATE, action) => {
   switch (action.type) {
-    case AUTH_USER:
+    case SET_CURRENT_USER:
       console.log('action payload:', action.payload);
       return {
         ...state,
-        // id: action.payload.id,
-        // username: action.payload.username,
-        // email: action.payload.email,
-        // displayName: action.payload.displayName
+        id: action.payload.id,
+        username: action.payload.username,
+        email: action.payload.email,
+        displayName: action.payload.displayName
       };
     default:
       return state;

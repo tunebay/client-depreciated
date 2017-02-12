@@ -11,7 +11,7 @@ class HomeFeed extends Component {
       <div className="home-feed-con">
         <Header />
         <MainContent>
-          {/* <div>Hello {this.props.user.displayName}</div> */}
+          <div>Hello {this.props.currentUser.displayName}</div>
           <div>Home feed</div>
         </MainContent>
       </div>
