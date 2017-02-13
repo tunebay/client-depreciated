@@ -20,7 +20,6 @@ export const loginUser = ({ emailOrUsername, password }) => {
   return (dispatch) => {
     axios.post(`${API_URL}/login`, { emailOrUsername, password })
       .then((res) => {
-        console.log('user:', res.data.user);
         dispatch({ type: AUTH_USER });
         dispatch({ type: SET_CURRENT_USER, payload: res.data.user });
         localStorage.setItem('token', res.data.token);
