@@ -10,7 +10,7 @@ const MainContent = (props) => {
 
 const styles = {
   paddingTop: 50,
-  display: 'flex'
+  display: 'flex',
 };
 
 export default MainContent;
