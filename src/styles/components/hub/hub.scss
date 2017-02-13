@@ -9,16 +9,18 @@
 .sidenav {
   height: 100vh;
   background-color: #fff;
-  width: 260px;
+  width: 262px;
+  margin: 0;
   position: fixed;
-  -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
-  -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
-  box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
+  border-right: 1px solid #e1e1e1;
+  // -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
+  // -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
+  // box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
 }
 
 .hub-details {
   background-color: #f1f1f1;
-  padding-left: 260px;
+  padding-left: 263px;
   justify-content: center;
   align-items: center;
 }
