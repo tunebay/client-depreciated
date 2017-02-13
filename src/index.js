@@ -13,7 +13,6 @@ import './styles/app.scss';
 
 
 const persistedState = loadState();
-console.log('persisted user state:', persistedState);
 export const store = createStore(reducers, persistedState, applyMiddleware(ReduxThunk));
 
 store.subscribe(_.throttle(() => {
