@@ -1,6 +1,6 @@
 export const loadState = () => {
   try {
-    const seralizedState = localStorage.getItem('currentUser');
+    const seralizedState = localStorage.getItem('user');
     if (!seralizedState) {
       console.log('no serialized state');
       return undefined;
