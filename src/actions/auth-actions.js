@@ -42,8 +42,10 @@ export const signupUser = ({ displayName, email, password, username }) => {
     dispatch({ type: SIGNUP_ATTEMPT });
     axios.post(`${API_URL}/signup`, { displayName, email, password, username })
       .then((res) => {
-        dispatch({ type: AUTH_USER, payload: res.data.user });
+        dispatch({ type: AUTH_USER });
+        dispatch({ type: SET_CURRENT_USER, payload: res.data.user });
         localStorage.setItem('token', res.data.token);
+        localStorage.setItem('user', JSON.stringify(res.data.user));
         browserHistory.push('/');
       })
       .catch((res) => {
