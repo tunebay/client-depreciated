@@ -8,7 +8,7 @@ import Logout from './components/pages/logout';
 import Profile from './components/pages/profile';
 import Hub from './components/pages/hub';
 import NotFound from './components/pages/not-found';
-
+import RequireAuth from './components/hoc/require-auth';
 
 const routes = () => {
   return (
@@ -17,7 +17,7 @@ const routes = () => {
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
       <Route path="/logout" component={Logout} />
-      <Route path="/hub" component={Hub} />
+      <Route path="/hub" component={RequireAuth(Hub)} />
       <Route path="/:username" component={Profile} />
       <Route path="/*" component={NotFound} />
     </Router>
