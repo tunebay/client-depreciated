@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 
 export default function (ComposedComponent) {
   class Authentication extends Component {
-
-
     componentWillMount() {
       if (!this.props.isAuthenticated) {
         this.context.router.push('/');

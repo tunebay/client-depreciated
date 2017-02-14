@@ -39,6 +39,7 @@ class Upload extends Component {
 }
 
 const mapStateToProps = ({ upload, currentUser }) => {
+  if (!currentUser) { return {}; }
   return {
     progress: upload.percentCompleted,
     uploadComplete: upload.uploadComplete,
