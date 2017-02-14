@@ -1,11 +1,14 @@
 import React from 'react';
+import Jumbotron from './jumbotron';
+import HotRightNow from './hot-right-now';
 
 const Welcome = () => {
   document.title = 'Tunebay | For the love of music';
 
   return (
     <div className="welcome-con">
-      <div>Welcome Page</div>
+      <Jumbotron />
+      <HotRightNow />
     </div>
   );
 };

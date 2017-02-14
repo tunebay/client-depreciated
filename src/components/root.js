@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import HomeFeed from './pages/home-feed';
-import Welcome from './pages/welcome';
+import Welcome from './pages/welcome/';
 
 class Root extends Component {
   renderRoot() {
