@@ -5,8 +5,15 @@ import * as actions from '../actions/hub/upload-actions';
 
 class Upload extends Component {
   onDrop(files, rejectedFiles) {
-    this.props.uploadAudioToS3(files);
+    this.props.uploadAudioToS3(files, this.props.userId);
     console.log('Rejected:', rejectedFiles);
+  }
+
+  renderAudio() {
+    if (this.props.uploadComplete) {
+      return <div>Upload complete!</div>;
+    }
+    return <div>{this.props.progress}</div>;
   }
 
   render() {
@@ -19,16 +26,17 @@ class Upload extends Component {
         >
           <div>Try dropping some files here, or click to select files to upload.</div>
         </Dropzone>
-        <div>{this.props.progress}</div>
+        {this.renderAudio()}
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ upload }) => {
+const mapStateToProps = ({ upload, currentUser }) => {
   return {
     progress: upload.percentCompleted,
-    uploadComplete: upload.uploadComplete
+    uploadComplete: upload.uploadComplete,
+    userId: currentUser.id
   };
 };
 

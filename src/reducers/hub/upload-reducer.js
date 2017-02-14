@@ -7,7 +7,8 @@ import {
 const INITITAL_STATE = {
   percentCompleted: null,
   error: '',
-  uploadComplete: false
+  uploadComplete: false,
+  url: ''
 };
 
 export default (state = INITITAL_STATE, action) => {
@@ -15,7 +16,7 @@ export default (state = INITITAL_STATE, action) => {
     case UPDATE_UPLOAD_PROGRESS:
       return { ...INITITAL_STATE, percentCompleted: action.payload };
     case UPLOAD_COMPLETE:
-      return { ...INITITAL_STATE, uploadComplete: true };
+      return { ...INITITAL_STATE, uploadComplete: true, url: action.payload };
     case UPLOAD_ERROR:
       return { ...INITITAL_STATE, error: action.payload };
     default:
