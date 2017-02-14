@@ -9,6 +9,10 @@ class Upload extends Component {
     console.log('Rejected:', rejectedFiles);
   }
 
+  onOpenClick() {
+    this.dropzone.open();
+  }
+
   renderAudio() {
     if (this.props.uploadComplete) {
       return <div>Upload complete!</div>;
@@ -20,11 +24,13 @@ class Upload extends Component {
     return (
       <div>
         <Dropzone
+          ref={(node) => { this.dropzone = node; }}
           onDrop={this.onDrop.bind(this)}
+          disableClick
           accept={'audio/*'}
           maxSize={1000000000} // 1gb
         >
-          <div>Try dropping some files here, or click to select files to upload.</div>
+          <div>Drag and drop audio files here <br />or <button onClick={this.onOpenClick.bind(this)}>Choose files</button></div>
         </Dropzone>
         {this.renderAudio()}
       </div>
