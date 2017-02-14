@@ -1,3 +1,5 @@
+$font-stack: 'Avenir Next', sans-serif;
+
 #jumbo-con {
   width: 100%;
   height: 550px;
@@ -5,14 +7,47 @@
   background-position: 0px 0px;
   overflow: hidden;
   display: flex;
-  justify-content: center;
-  align-items: center;
   background-size: cover;
 }
 
 #jumbo-logo {
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: auto;
+  padding-top: 20px;
+  padding-left: 20px;
 }
+
+#shoutout-con {
+  align-self: center;
+  width: 600px;
+  #shout-h {
+    color: white;
+    font-size: 48px;
+    font-family: $font-stack;
+    font-weight: bold;
+    margin: 0;
+  }
+  #shout-p {
+    color: white;
+    font-size: 24px;
+    font-family: $font-stack;
+    font-weight: 400;
+  }
+  #shout-btn {
+    padding-top: 10px;
+    width: 150px;
+    height: 45px;
+    border-radius: 100px;
+    background: none;
+    color: white;
+    border: solid 2px #E9E8E8;
+    font-family: $font-stack;
+    &:hover {
+
+    }
+  }
+}
+
+
 
 // background-image: url('../../../../assets/images/jumbo-background.jpg');
