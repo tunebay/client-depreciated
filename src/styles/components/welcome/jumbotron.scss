@@ -19,8 +19,7 @@ $font-stack: 'Avenir Next', sans-serif;
 }
 
 #shoutout-con {
-  align-self: center;
-  width: 600px;
+  width: 550px;
   #shout-h {
     color: white;
     font-size: 48px;
@@ -55,7 +54,19 @@ $font-stack: 'Avenir Next', sans-serif;
   width: 1080px !important;
   margin: 0 auto !important;
   position: relative;
-  padding: 24px;
+  padding: 0 24px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-container {
+  height: 550px !important;
+  border-radius: 0px !important;
+  border-radius: 0px !important;
+  margin: 0 !important;
+  -webkit-box-shadow: inset 0px 1px 20px -7px rgba(0,0,0,0.44);
+  -moz-box-shadow: inset 0px 1px 20px -7px rgba(0,0,0,0.44);
+  box-shadow: inset 0px 1px 20px -7px rgba(0,0,0,0.44);
 }
 
 
