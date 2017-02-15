@@ -2,7 +2,7 @@ import React from 'react';
 
 import SignupHeader from '../header/signup-header';
 import SignupForm from '../auth/signup-form';
-import MainContent from '../main-content';
+import PageContainer from './page-container';
 
 import '../../styles/components/login-page.scss';
 
@@ -11,12 +11,11 @@ const Signup = () => {
   return (
     <div className="login-page-con">
       <SignupHeader />
-      <MainContent>
+      <PageContainer>
         <div className="main-content">
           <SignupForm />
         </div>
-        <div className="login-footer" />
-      </MainContent>
+      </PageContainer>
     </div>
   );
 };

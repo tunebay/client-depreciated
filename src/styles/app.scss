@@ -2,10 +2,12 @@ body {
   background-color: #f1f1f1;
 }
 
-// .main-content {
-//   padding-top: 50px;
-//   display: flex;
-//   width: 1080px !important;
-//   margin: 0 auto !important;
-//   position: relative !important;
-// }
+.page-contaier {
+  display: flex;
+  width: 1080px !important;
+  margin: 0 auto !important;
+  position: relative;
+  padding: 0 24px;
+  justify-content: space-between;
+  align-items: center;
+}
