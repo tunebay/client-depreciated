@@ -6,7 +6,9 @@ const Jumbotron = () => {
   return (
     <div id="jumbo-con">
       <img src="../../../assets/images/header-logo.png" id="jumbo-logo" alt="logo" />
-      <Shoutout />
+      <div id="jumbo-main">
+        <Shoutout />
+      </div>
     </div>
   );
 };

@@ -13,8 +13,9 @@ $font-stack: 'Avenir Next', sans-serif;
 #jumbo-logo {
   height: 40px;
   width: auto;
-  padding-top: 20px;
-  padding-left: 20px;
+  padding-top: 24px;
+  padding-left: 24px;
+  position: absolute;
 }
 
 #shoutout-con {
@@ -47,6 +48,14 @@ $font-stack: 'Avenir Next', sans-serif;
       border-color: white;
     }
   }
+}
+
+#jumbo-main {
+  display: flex;
+  width: 1080px !important;
+  margin: 0 auto !important;
+  position: relative;
+  padding: 24px;
 }
 
 
