@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import SignupForm from '../../auth/signup-form';
 import LoginForm from '../../auth/login-form';
 import '../../../styles/components/welcome/jumbotron.scss';
@@ -31,16 +32,26 @@ class FormContainer extends Component {
   }
 
   render() {
+    const signupBtnClass = classNames({
+      'welcome-signup-btn': true,
+      'auth-btn-active': this.state.signupActive
+    });
+
+    const loginBtnClass = classNames({
+      'welcome-login-btn': true,
+      'auth-btn-active': !this.state.signupActive
+    });
+
     return (
       <div className="form-container">
         <div className="form-con-btns">
           <button
             onClick={this.handleSignupClick.bind(this)}
-            className="welcome-signup-btn"
+            className={signupBtnClass}
           >Sign Up</button>
           <button
             onClick={this.handleLoginClick.bind(this)}
-            className="welcome-login-btn"
+            className={loginBtnClass}
           >Log In</button>
         </div>
         {this.renderForm()}

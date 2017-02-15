@@ -14,7 +14,7 @@ $light-blue: #34BFED;
 #jumbo-logo {
   height: 40px;
   width: auto;
-  padding-top: 24px;
+  padding-top: 15px;
   padding-left: 24px;
   position: absolute;
 }
@@ -65,9 +65,6 @@ $light-blue: #34BFED;
   border-radius: 0px !important;
   border-radius: 0px !important;
   margin: 0 !important;
-  -webkit-box-shadow: inset 0px 1px 20px -7px rgba(0,0,0,0.44);
-  -moz-box-shadow: inset 0px 1px 20px -7px rgba(0,0,0,0.44);
-  box-shadow: inset 0px 1px 20px -7px rgba(0,0,0,0.44);
 }
 
 .form-con-btns {
@@ -83,6 +80,7 @@ $light-blue: #34BFED;
   flex: 1;
   background-color: $light-blue;
   color: white;
+  outline: none;
 }
 
 .welcome-login-btn {
@@ -91,11 +89,13 @@ $light-blue: #34BFED;
   flex: 1;
   background-color: $light-blue;
   color: white;
+  outline: none;
 }
 
 .auth-btn-active {
   background-color: white;
   color: $light-blue;
+  outline: none;
 }
 
 
