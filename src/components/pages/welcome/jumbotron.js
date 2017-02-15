@@ -15,4 +15,19 @@ const Jumbotron = () => {
   );
 };
 
+(function(){
+
+  const parallax = document.querySelectorAll('#jumbo-con');
+  const speed = 0.5;
+
+  window.onscroll = () => {
+    [].slice.call(parallax).forEach((el, i) => {
+      const windowYOffset = window.pageYOffset;
+      const elBackgrounPos = '50% ' + (windowYOffset * speed) + 'px';
+
+      el.style.backgroundPosition = elBackgrounPos;
+    });
+  };
+})();
+
 export default Jumbotron;

@@ -9,6 +9,8 @@ $light-blue: #34BFED;
   overflow: hidden;
   display: flex;
   background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 #jumbo-logo {
@@ -81,6 +83,12 @@ $light-blue: #34BFED;
   background-color: $light-blue;
   color: white;
   outline: none;
+  -webkit-box-shadow: inset -4px -3px 5px 0px rgba(0,0,0,0.05);
+  -moz-box-shadow: inset -4px -3px 5px 0px rgba(0,0,0,0.05);
+  box-shadow: inset -4px -3px 5px 0px rgba(0,0,0,0.05);
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .welcome-login-btn {
@@ -90,12 +98,24 @@ $light-blue: #34BFED;
   background-color: $light-blue;
   color: white;
   outline: none;
+  -webkit-box-shadow: inset 4px -3px 5px 0px rgba(0,0,0,0.05);
+  -moz-box-shadow: inset 4px -3px 5px 0px rgba(0,0,0,0.05);
+  box-shadow: inset 4px -3px 5px 0px rgba(0,0,0,0.05);
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .auth-btn-active {
   background-color: white;
   color: $light-blue;
   outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  &:hover {
+    cursor: default;
+  }
 }
 
 
