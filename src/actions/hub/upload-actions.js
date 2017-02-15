@@ -9,12 +9,12 @@ import {
 
 const API_URL = 'http://localhost:3000';
 
-export const uploadAudioToS3 = (files, userId) => {
+export const uploadAudioToS3 = (files) => {
   return (dispatch) => {
     dispatch({ type: UPLOAD_STARTED });
     const file = files[0];
     console.log(file);
-    const filename = `users/${userId}/music/${v4()}`;
+    const filename = `users/music/${v4()}`;
     axios.get(`${API_URL}/upload/s3/sign`, {
       params: {
         filename,
