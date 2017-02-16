@@ -32,3 +32,25 @@ $background: #f1f1f1;
     width: 810px;
   }
 }
+
+.hub-header {
+  height: 60px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  float: right;
+  width: 100%;
+  margin-left: 270px;
+  -webkit-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.25);
+  box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.25);
+  position: fixed;
+}
+
+.hub-title {
+  padding-left: 30px;
+  color: #4a4a4a;
+  font-weight: 500;
+  font-family: 'Avenir Next';
+  font-size: 20px;
+}
