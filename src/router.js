@@ -6,7 +6,7 @@ import Login from './components/pages/login';
 import Signup from './components/pages/signup';
 import Logout from './components/pages/logout';
 import Profile from './components/pages/profile';
-import Hub from './components/pages/hub';
+import Hub from './components/pages/hub/hub';
 import NotFound from './components/pages/not-found';
 import RequireAuth from './components/hoc/require-auth';
 

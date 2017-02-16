@@ -1,26 +1,22 @@
 .hub-container {
   display: flex;
-  flex-direction: row;
-  background-color: #f1f1f1;
+  background-color: red;
+  width: 100%;
+  min-height: calc(100vh - 50px);
+  height: auto;
+  padding-top: 50px;
+}
+//
+.hub-content {
+  display: flex;
   width: 100%;
   height: auto;
+  background-color: blue;
+  margin-left: 262px;
 }
 
-.sidenav {
-  height: 100vh;
-  background-color: #fff;
-  width: 262px;
-  margin: 0;
-  position: fixed;
-  border-right: 1px solid #e1e1e1;
-  // -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
-  // -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
-  // box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
-}
-
-.hub-details {
-  background-color: #f1f1f1;
-  padding-left: 263px;
-  justify-content: center;
-  align-items: center;
+.long-content {
+  height: 100px;
+  width: 500px;
+  background-color: green;
 }
