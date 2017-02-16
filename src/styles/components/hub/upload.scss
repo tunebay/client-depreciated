@@ -1,0 +1,47 @@
+.dropzone {
+  height: 300px;
+  width: 810px;
+  border: 2px dashed #B7B7B7;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.inner-drop {
+  text-align: center;
+  color: #4A4A4A;
+  font-family: 'Avenir Next';
+  line-height: 20px;
+  h1 {
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+  }
+  span {
+    color: #4A4A4A;
+    font-size: 20px;
+    margin: 0;
+  }
+  .choose-file-btn {
+    background: #34BFED;
+    border-radius: 2px;
+    color: #FFFFFF;
+    height: 50px;
+    width: 180px;
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .upload-icon {
+    width: 100px;
+    height: auto;
+    padding-bottom: 20px;
+  }
+}
