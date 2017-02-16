@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
 import * as actions from '../actions/hub/upload-actions';
+import AudioUploadForm from './pages/hub/audio-upload-form';
 
 import '../styles/components/hub/upload.scss';
 
@@ -16,11 +17,10 @@ class Upload extends Component {
     this.dropzone.open();
   }
 
-  renderAudio() {
-    if (this.props.uploadComplete) {
-      return <div>Upload complete!</div>;
+  renderAudioForm() {
+    if (this.props.uploadStarted) {
+      return <AudioUploadForm uploadProgress={this.props.progress} />;
     }
-    return <div>{this.props.progress}</div>;
   }
 
   render() {
@@ -40,7 +40,10 @@ class Upload extends Component {
             <button className="choose-file-btn"onClick={this.onOpenClick.bind(this)}>Choose files</button>
           </div>
         </Dropzone>
-        {this.renderAudio()}
+        {this.renderAudioForm()}
+        <p className="important-terms">
+          Important: By uploading, you confirm that your audio complies with our Terms of use and you don’t infringe anyone else’s rights. If in doubt, check our Copyright information pages and FAQs before uploading.
+        </p>
       </div>
     );
   }
@@ -51,6 +54,7 @@ const mapStateToProps = ({ upload, currentUser }) => {
   return {
     progress: upload.percentCompleted,
     uploadComplete: upload.uploadComplete,
+    uploadStarted: upload.uploadStarted,
     userId: currentUser.id
   };
 };

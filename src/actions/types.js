@@ -19,4 +19,5 @@ export const UPLOAD_COMPLETE = 'UPLOAD_COMPLETE';
 export const UPLOAD_ERROR = 'UPLOAD_ERROR';
 export const UPLOAD_STARTED = 'UPLOAD_STARTED';
 
+// current user
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
