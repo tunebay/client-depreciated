@@ -13,10 +13,17 @@
   height: auto;
   background-color: blue;
   margin-left: 262px;
+  justify-content: center;
+}
+
+.hub-content-wrapper {
+  width: 1080px;
+  height: auto;
+  background-color: white;
 }
 
 .long-content {
-  height: 100px;
+  height: 1000px;
   width: 500px;
   background-color: green;
 }

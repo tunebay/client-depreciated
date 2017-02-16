@@ -16,8 +16,10 @@ class Hub extends Component {
         <HubContainer>
           <HubSideNav />
           <HubContent>
-            <Upload />
-            <div className="long-content" />
+            <div className="hub-content-wrapper">
+              <Upload />
+              <div className="long-content" />
+            </div>
           </HubContent>
         </HubContainer>
       </div>
