@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
-import * as actions from '../actions/hub/upload-actions';
-import AudioUploadForm from './pages/hub/audio-upload-form';
+import * as actions from '../../../../actions/hub/upload-actions';
+import '../../../../styles/components/hub/upload.scss';
 
-import '../styles/components/hub/upload.scss';
-
-
-class Upload extends Component {
+class AudioUploadZone extends Component {
   onDrop(files, rejectedFiles) {
-    this.props.uploadAudioToS3(files, this.props.userId);
+    this.props.uploadAudioToS3(files);
     console.log('Rejected:', rejectedFiles);
   }
 
@@ -17,15 +14,9 @@ class Upload extends Component {
     this.dropzone.open();
   }
 
-  renderAudioForm() {
-    if (this.props.uploadStarted) {
-      return <AudioUploadForm uploadProgress={this.props.progress} />;
-    }
-  }
-
   render() {
     return (
-      <div className="upload-wrapper">
+      <div className="audio-upload-zone">
         <Dropzone
           ref={(node) => { this.dropzone = node; }}
           onDrop={this.onDrop.bind(this)}
@@ -40,11 +31,8 @@ class Upload extends Component {
             <button className="choose-file-btn"onClick={this.onOpenClick.bind(this)}>Choose files</button>
           </div>
         </Dropzone>
-        {this.renderAudioForm()}
-        <p className="important-terms">
-          Important: By uploading, you confirm that your audio complies with our Terms of use and you don’t infringe anyone else’s rights. If in doubt, check our Copyright information pages and FAQs before uploading.
-        </p>
       </div>
+        // {this.renderAudioForm()}
     );
   }
 }
@@ -59,4 +47,4 @@ const mapStateToProps = ({ upload, currentUser }) => {
   };
 };
 
-export default connect(mapStateToProps, actions)(Upload);
+export default connect(mapStateToProps, actions)(AudioUploadZone);

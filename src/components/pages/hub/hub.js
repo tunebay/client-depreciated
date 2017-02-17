@@ -4,7 +4,7 @@ import Header from '../../header/header';
 import HubContainer from './hub-container';
 import HubSideNav from './hub-side-nav';
 import HubContent from './hub-content';
-import Upload from '../../upload';
+import HubUpload from './upload/';
 
 import '../../../styles/components/hub/hub.scss';
 
@@ -18,8 +18,7 @@ class Hub extends Component {
           <div className="hub-header"><h3 className="hub-title">Upload</h3></div>
           <HubContent>
             <div className="hub-content-wrapper">
-              <Upload />
-              <div className="long-content" />
+              <HubUpload />
             </div>
           </HubContent>
         </HubContainer>
