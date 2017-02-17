@@ -7,7 +7,6 @@ class AudioUploadForm extends Component {
         <form className="audio-upload-form" action="">
           <div>Im a form that knows the upload percentage: {this.props.uploadProgress}</div>
         </form>
-        <div className="form-progress-con" />
       </div>
     );
   }
