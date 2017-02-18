@@ -20,13 +20,14 @@ export const loginUser = ({ emailOrUsername, password }) => {
   return (dispatch) => {
     axios.post(`${API_URL}/login`, { emailOrUsername, password })
       .then((res) => {
-        dispatch({ type: AUTH_USER });
-        dispatch({ type: SET_CURRENT_USER, payload: res.data.user });
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('user', JSON.stringify(res.data.user));
+        dispatch({ type: AUTH_USER });
+        dispatch({ type: SET_CURRENT_USER, payload: res.data.user });
         browserHistory.push('/');
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log('In login action catch:', err);
         dispatch(authError('Incorrect log in details.'));
       });
   };
