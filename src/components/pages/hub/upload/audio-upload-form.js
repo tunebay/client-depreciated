@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import BasicInfoPage from './basic-info-page';
 import PricingPage from './pricing-page';
-import AvailabilityPage from './availability-page';
 import ReleasePage from './release-page';
 
 class AudioUploadForm extends Component {
@@ -27,15 +26,12 @@ class AudioUploadForm extends Component {
   }
 
   renderFormPage() {
-    console.log(this.state.page);
     switch (this.state.page) {
       case 1:
         return <BasicInfoPage onSubmit={this.nextPage} />;
       case 2:
         return <PricingPage previousPage={this.previousPage} onSubmit={this.nextPage} />;
       case 3:
-        return <AvailabilityPage previousPage={this.previousPage} onSubmit={this.nextPage} />;
-      case 4:
         return <ReleasePage previousPage={this.previousPage} onSubmit={this.handleSubmit.bind(this)} />;
       default:
         return <BasicInfoPage onSubmit={this.nextPage} />;

@@ -9,14 +9,11 @@ class BasicInfoPage extends Component {
     return (
       <form onSubmit={handleSubmit}>
         <Field name="title" type="text" component={renderTitleField} label="Title" />
-        <Field name="playlistType" type="text" component={renderTitleField} label="Title" />
-        <Field name="releaseDate" type="text" component={renderTitleField} label="Title" />
-        <Field name="permalink" type="text" component={renderTitleField} label="Title" />
-        <Field name="genre1" type="text" component={renderTitleField} label="Title" />
-        <Field name="genre2" type="text" component={renderTitleField} label="Title" />
-        <Field name="genre3" type="text" component={renderTitleField} label="Title" />
-        <Field name="tags" type="text" component={renderTitleField} label="Title" />
-        <Field name="description" type="text" component={renderTitleField} label="Title" />
+        <Field name="playlistType" type="text" component={renderTitleField} label="Playlist Type" />
+        <Field name="genre" type="text" component={renderTitleField} label="Genre(s)" />
+        <Field name="permalink" type="text" component={renderTitleField} label="Permalink" />
+        <Field name="tags" type="text" component={renderTitleField} label="tags" />
+        <Field name="description" type="text" component={renderTitleField} label="Description" />
         <div>
           <button type="submit">Next</button>
         </div>
@@ -30,11 +27,8 @@ const ComposedForm = reduxForm({
   fields: [
     'title',
     'playlistType',
-    'releaseDate',
     'permalink',
-    'genre1',
-    'genre2',
-    'genre3',
+    'genre',
     'tags',
     'description'
   ],
