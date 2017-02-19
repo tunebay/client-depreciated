@@ -40,9 +40,7 @@ class AudioUploadForm extends Component {
 
   render() {
     return (
-      <div className="audio-upload-form-zone">
-        {this.renderFormPage()}
-      </div>
+      this.renderFormPage()
     );
   }
 }

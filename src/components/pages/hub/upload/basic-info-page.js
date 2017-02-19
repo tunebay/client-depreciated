@@ -7,7 +7,7 @@ class BasicInfoPage extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <form onSubmit={handleSubmit}>
+      <form className="audio-upload-form" onSubmit={handleSubmit}>
         <Field name="title" type="text" component={renderTitleField} label="Title" />
         <Field name="playlistType" type="text" component={renderTitleField} label="Playlist Type" />
         <Field name="genre" type="text" component={renderTitleField} label="Genre(s)" />

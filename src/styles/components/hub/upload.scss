@@ -56,22 +56,44 @@
 }
 
 .audio-upload-form {
-  height: 550px;
-  width: 810px;
-  display: flex;
-  border-radius: 2px;
-  border: 1px solid #e1e1e1;
-  background-color: white;
+  padding: 10px;
+  border: 1px solid #50E3C2;
+  width: 100%;
+  height: auto;
 }
 
-.audio-upload-form-zone {
+.upload-form-container {
   margin-top: 30px;
   height: auto;
   width: 810px;
-  background-color: white;
+  border: 1px solid red;
   margin-top: 100px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+.artwork-section {
+  height: auto;
+  border: 1px solid #34BFED;
+  padding: 10px;
+}
+
+.playlist-details {
+  display: flex;
+  flex-direction: row;
+}
+
+.artwork-upload {
+  height: 250px;
+  width: 250px;
+  opacity: 0.51;
+  background-image: linear-gradient(45deg, #34BFED 0%, #0775F7 96%, #2386FB 100%);
+}
+
+.upload-form-footer {
+  width: 100%;
+  height: 60px;
+  border: 1px solid green;
 }
 
 .hub-upload {
