@@ -103,6 +103,18 @@
   align-items: center;
 }
 
+.track-list-container {
+  width: 100%;
+  height: auto;
+  border: 1px solid orange;
+}
+
+.add-another-track {
+  height: 60px;
+  width: 100%;
+  background-color: #F7F7F7;
+}
+
 @media screen and (max-width: 1350px) {
   .form-progress-con {
     display: none;

@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import AudioUploadZone from './audio-upload-zone';
 import UploadFormContainer from './upload-form-container';
 import AudioUploadForm from './audio-upload-form';
+import TracklistContainer from './tracklist-container';
 import '../../../../styles/components/hub/upload.scss';
 
 class HubUpload extends Component {
   render() {
     return (
       <div className="hub-upload">
-        {/* <AudioUploadZone /> */}
+        <AudioUploadZone />
         <UploadFormContainer>
           <div className="playlist-details">
             <div className="artwork-section">
@@ -16,7 +17,7 @@ class HubUpload extends Component {
             </div>
             <AudioUploadForm />
           </div>
-          <div className="tracklist-container"></div>
+          <TracklistContainer />
           <div className="upload-form-footer"></div>
         </UploadFormContainer>
         <p className="important-terms">
