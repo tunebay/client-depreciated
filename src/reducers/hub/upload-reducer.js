@@ -1,8 +1,9 @@
 import {
   UPDATE_UPLOAD_PROGRESS,
-  UPLOAD_COMPLETE,
+  TRACK_UPLOAD_COMPLETE,
   UPLOAD_ERROR,
-  UPLOAD_STARTED
+  UPLOAD_STARTED,
+  FULL_UPLOAD_COMPLETE
 } from '../../actions/types';
 
 const INITITAL_STATE = {
@@ -10,19 +11,22 @@ const INITITAL_STATE = {
   error: '',
   uploadComplete: false,
   url: '',
-  uploadStarted: false
+  uploadStarted: false,
+  tracks: []
 };
 
 export default (state = INITITAL_STATE, action) => {
   switch (action.type) {
     case UPLOAD_STARTED:
-      return { ...INITITAL_STATE, uploadStarted: true };
+      console.log('UPLOAD_STARTED:', action.payload);
+      return { ...state, uploadStarted: true, tracks: action.payload };
     case UPDATE_UPLOAD_PROGRESS:
-      return { ...INITITAL_STATE, percentCompleted: action.payload, uploadStarted: true };
-    case UPLOAD_COMPLETE:
-      return { ...INITITAL_STATE, uploadComplete: true, url: action.payload, uploadStarted: true };
+      return { ...state, percentCompleted: action.payload, uploadStarted: true };
     case UPLOAD_ERROR:
       return { ...INITITAL_STATE, error: action.payload };
+    case FULL_UPLOAD_COMPLETE:
+      console.log('upload complete');
+      return { ...state, uploadComplete: true };
     default:
       return state;
   }

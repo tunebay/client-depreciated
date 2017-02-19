@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   SortableContainer,
   SortableElement,
@@ -19,23 +20,19 @@ const UploadedTrack = SortableElement(({ value }) => {
 });
 
 const TrackList = SortableContainer(({ tracks }) => {
+  console.log('SortableContainer:', tracks);
   return (
     <ul>
-      {tracks.map((value, index) =>
-        <UploadedTrack key={`item-${index}`} index={index} value={value} />
+      {tracks.map((track, index) => {
+        console.log('Track Name:', track.name);
+        return <UploadedTrack key={`item-${index}`} index={index} value={track.name} />
+      }
       )}
     </ul>
   );
 });
 
 class UploadTracklist extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tracks: ['wait what', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6']
-    };
-  }
-
   onSortEnd({ oldIndex, newIndex }) {
     const { tracks } = this.state;
 
@@ -45,11 +42,16 @@ class UploadTracklist extends Component {
   }
 
   render() {
-    const { tracks } = this.state;
     return (
-      <TrackList tracks={tracks} onSortEnd={this.onSortEnd} useDragHandle />
+      <TrackList tracks={this.props.tracks} onSortEnd={this.onSortEnd} useDragHandle />
     );
   }
 }
 
-export default UploadTracklist;
+const mapStateToProps = (state) => {
+  return {
+    tracks: state.upload.tracks
+  };
+};
+
+export default connect(mapStateToProps)(UploadTracklist);

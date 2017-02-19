@@ -2,18 +2,19 @@ import { v4 } from 'node-uuid';
 import axios from 'axios';
 import {
   UPDATE_UPLOAD_PROGRESS,
-  UPLOAD_COMPLETE,
+  TRACK_UPLOAD_COMPLETE,
   UPLOAD_ERROR,
-  UPLOAD_STARTED
+  UPLOAD_STARTED,
+  FULL_UPLOAD_COMPLETE
 } from '../types';
 
 const API_URL = 'http://localhost:3000';
 
-export const uploadAudioToS3 = (files) => {
+export const uploadAudioToS3 = (tracks) => {
+  let uploadCounter = 0;
   return (dispatch) => {
-    dispatch({ type: UPLOAD_STARTED });
-    console.log(files);
-    files.forEach((file) => {
+    dispatch({ type: UPLOAD_STARTED, payload: tracks });
+    tracks.forEach((file) => {
       console.log('Uplaoding:', file.name);
       const filename = `users/music/${v4()}`;
       axios.get(`${API_URL}/upload/s3/sign`, {
@@ -37,8 +38,13 @@ export const uploadAudioToS3 = (files) => {
         return axios.put(signedURL, file, config);
       })
       .then((res) => {
-        console.log('upload complete:', res);
-        dispatch({ type: UPLOAD_COMPLETE, payload: res.config.url.split('?')[0] });
+        uploadCounter += 1;
+        console.log(`${uploadCounter} / ${tracks.length}`);
+        console.log('track upload complete:', res);
+        dispatch({ type: TRACK_UPLOAD_COMPLETE, payload: res.config.url.split('?')[0] });
+        if (uploadCounter === tracks.length) {
+          dispatch({ type: FULL_UPLOAD_COMPLETE });
+        }
       })
       .catch((err) => {
         dispatch({ type: UPLOAD_ERROR, payload: err });
