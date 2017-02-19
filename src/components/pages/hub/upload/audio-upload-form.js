@@ -45,8 +45,8 @@ class AudioUploadForm extends Component {
   }
 }
 
-AudioUploadForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired
-};
+// AudioUploadForm.propTypes = {
+//   onSubmit: PropTypes.func.isRequired
+// };
 
 export default AudioUploadForm;
