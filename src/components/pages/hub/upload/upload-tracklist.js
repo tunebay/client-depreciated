@@ -10,9 +10,17 @@ const SortableList = SortableContainer(({ tracks }) => {
   return (
     <ul>
       {tracks.map((track, index) => {
-        console.log('individual track', track);
         const key = v4();
-        return <UploadedTrack key={key} index={index} value={track.name} />;
+        const playlistPosition = index + 1;
+        console.log(`${track.name} is at position ${playlistPosition}`);
+        return (
+          <UploadedTrack
+            key={key}
+            index={index}
+            value={track.name}
+            playlistPosition={playlistPosition}
+          />
+        );
       })}
     </ul>
   );
@@ -24,8 +32,9 @@ class SortableComponent extends Component {
   }
 
   render() {
+    const { tracks } = this.props;
     return (
-      <SortableList tracks={this.props.tracks} onSortEnd={this.onSortEnd.bind(this)} useDragHandle />
+      <SortableList tracks={tracks} onSortEnd={this.onSortEnd.bind(this)} useDragHandle />
     );
   }
 }
