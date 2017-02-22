@@ -14,8 +14,8 @@ export const uploadAudioToS3 = (tracks) => {
   let uploadCounter = 0;
   return (dispatch) => {
     dispatch({ type: UPLOAD_STARTED, payload: tracks });
+
     tracks.forEach((file) => {
-      console.log('Uplaoding:', file.name);
       const filename = `users/music/${v4()}`;
       axios.get(`${API_URL}/upload/s3/sign`, {
         params: {
@@ -41,7 +41,6 @@ export const uploadAudioToS3 = (tracks) => {
         uploadCounter += 1;
         console.log(`${uploadCounter} / ${tracks.length}`);
         console.log('track upload complete:', res);
-        dispatch({ type: TRACK_UPLOAD_COMPLETE, payload: res.config.url.split('?')[0] });
         if (uploadCounter === tracks.length) {
           dispatch({ type: FULL_UPLOAD_COMPLETE });
         }

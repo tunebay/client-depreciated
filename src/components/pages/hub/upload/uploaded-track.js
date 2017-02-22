@@ -3,13 +3,17 @@ import { SortableElement, SortableHandle } from 'react-sortable-hoc';
 
 const DragHandle = SortableHandle(() => <span>::</span>);
 
-const UploadedTrack = SortableElement(({ value }) => {
+const UploadedTrack = SortableElement((props) => {
   return (
     <li>
       <DragHandle />
-      {value}
+      {props.value}
     </li>
   );
 });
 
 export default UploadedTrack;
+
+// props.progress
+// props.name
+// props.playlistPosition

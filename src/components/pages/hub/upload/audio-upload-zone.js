@@ -6,8 +6,8 @@ import '../../../../styles/components/hub/upload.scss';
 
 class AudioUploadZone extends Component {
   onDrop(files, rejectedFiles) {
-    this.props.uploadAudioToS3(files);
     console.log('Rejected:', rejectedFiles);
+    this.props.uploadAudioToS3(files);
   }
 
   onOpenClick() {
