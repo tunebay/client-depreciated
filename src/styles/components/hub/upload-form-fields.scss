@@ -1,0 +1,34 @@
+$black: #252C30;
+$logo-blue: #1596F5;
+$placeholder: #a1a1a1;
+$e4: #e4e4e4;
+$light-blue: #34bfed;
+$font-stack: 'Avenir Next', sans-serif;
+
+.title-field {
+  label {
+    font-size: 18px;
+    font-family: 'Avenir Next';
+    font-weight: 500;
+  }
+  input {
+    height: 43px;
+    width: 510px;
+    border-radius: 2px;
+    font-size: 17px;
+    border-color: #D4D4D4;
+    border-width: 1px;
+    font-weight: 400;
+    border-style: solid;
+    font-family: $font-stack;
+    color: $black;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    padding-left: 15px;
+    &:focus {
+      outline: none;
+    }
+    margin: 5px 0px;
+  }
+}

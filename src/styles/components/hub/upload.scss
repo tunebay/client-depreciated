@@ -115,6 +115,10 @@
   background-color: #F7F7F7;
 }
 
+.side-by-side-dropdowns {
+  display: flex;
+}
+
 @media screen and (max-width: 1350px) {
   .form-progress-con {
     display: none;

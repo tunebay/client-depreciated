@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { renderTitleField } from './upload-form-fields';
+import {
+  renderTitleField,
+  renderPlaylistTypeField,
+  renderGenreField,
+  renderPermalinkField,
+  renderTagsField,
+  renderDescriptionField
+} from './upload-form-fields';
 
 class BasicInfoPage extends Component {
   render() {
@@ -9,11 +16,13 @@ class BasicInfoPage extends Component {
     return (
       <form className="audio-upload-form" onSubmit={handleSubmit}>
         <Field name="title" type="text" component={renderTitleField} label="Title" />
-        <Field name="playlistType" type="text" component={renderTitleField} label="Playlist Type" />
-        <Field name="genre" type="text" component={renderTitleField} label="Genre(s)" />
-        <Field name="permalink" type="text" component={renderTitleField} label="Permalink" />
-        <Field name="tags" type="text" component={renderTitleField} label="tags" />
-        <Field name="description" type="text" component={renderTitleField} label="Description" />
+        <div className="side-by-side-dropdowns">
+          <Field name="playlistType" type="text" component={renderPlaylistTypeField} label="Playlist Type" />
+          <Field name="genre" type="text" component={renderGenreField} label="Genre(s)" />
+        </div>
+        <Field name="permalink" type="text" component={renderPermalinkField} label="Permalink" />
+        <Field name="tags" type="text" component={renderTagsField} label="tags" />
+        <Field name="description" type="text" component={renderDescriptionField} label="Description" />
         <div>
           <button type="submit">Next</button>
         </div>
