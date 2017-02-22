@@ -9,11 +9,11 @@ class HubUpload extends Component {
   render() {
     return (
       <div className="hub-upload">
-        <AudioUploadZone />
+        {/* <AudioUploadZone /> */}
         <UploadFormContainer>
           <div className="playlist-details">
             <div className="artwork-section">
-              <div className="artwork-upload" /> {/* ArtworkUpload */}
+              <div className="artwork-upload" />
             </div>
             <AudioUploadForm />
           </div>

@@ -1,57 +1,40 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import {
-  SortableContainer,
-  SortableElement,
-  SortableHandle,
-  arrayMove
-} from 'react-sortable-hoc';
+import { SortableContainer, arrayMove } from 'react-sortable-hoc';
+import UploadedTrack from './uploaded-track';
 
-const DragHandle = SortableHandle(() => <span>::</span>);
-
-const UploadedTrack = SortableElement(({ value }) => {
-  console.log(value);
-  return (
-    <li>
-      <DragHandle />
-      {value}
-    </li>
-  );
-});
-
-const TrackList = SortableContainer(({ tracks }) => {
-  console.log('SortableContainer:', tracks);
+const SortableList = SortableContainer(({ items }) => {
   return (
     <ul>
-      {tracks.map((track, index) => {
-        console.log('Track Name:', track.name);
-        return <UploadedTrack key={`item-${index}`} index={index} value={track.name} />
-      }
+      {items.map((value, index) =>
+        <UploadedTrack key={`item-${index}`} index={index} value={value} />
       )}
     </ul>
   );
 });
 
-class UploadTracklist extends Component {
+class SortableComponent extends Component {
+  componentWillMount() {
+    this.state = {
+      items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6']
+    };
+    console.log(this);
+  }
+
   onSortEnd({ oldIndex, newIndex }) {
-    const { tracks } = this.state;
+    const { items } = this.state;
 
     this.setState({
-      tracks: arrayMove(tracks, oldIndex, newIndex)
+      items: arrayMove(items, oldIndex, newIndex)
     });
   }
 
   render() {
+    const { items } = this.state;
+
     return (
-      <TrackList tracks={this.props.tracks} onSortEnd={this.onSortEnd} useDragHandle />
+      <SortableList items={items} onSortEnd={this.onSortEnd.bind(this)} useDragHandle />
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    tracks: state.upload.tracks
-  };
-};
-
-export default connect(mapStateToProps)(UploadTracklist);
+export default SortableComponent;

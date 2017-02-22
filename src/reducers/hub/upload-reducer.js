@@ -12,20 +12,24 @@ const INITITAL_STATE = {
   uploadComplete: false,
   url: '',
   uploadStarted: false,
-  tracks: []
+  tracks: [],
+  playlistLength: 0
 };
 
 export default (state = INITITAL_STATE, action) => {
   switch (action.type) {
     case UPLOAD_STARTED:
-      console.log('UPLOAD_STARTED:', action.payload);
-      return { ...state, uploadStarted: true, tracks: action.payload };
+      return {
+        ...state,
+        uploadStarted: true,
+        tracks: action.payload,
+        playlistLength: action.payload.length
+      };
     case UPDATE_UPLOAD_PROGRESS:
       return { ...state, percentCompleted: action.payload, uploadStarted: true };
     case UPLOAD_ERROR:
       return { ...INITITAL_STATE, error: action.payload };
     case FULL_UPLOAD_COMPLETE:
-      console.log('upload complete');
       return { ...state, uploadComplete: true };
     default:
       return state;
