@@ -1,8 +1,10 @@
 import { v4 } from 'node-uuid';
+import { arrayMove } from 'react-sortable-hoc';
 import axios from 'axios';
 import {
   UPDATE_UPLOAD_PROGRESS,
   TRACK_UPLOAD_COMPLETE,
+  UPDATE_PLAYLIST_ORDER,
   UPLOAD_ERROR,
   UPLOAD_STARTED,
   FULL_UPLOAD_COMPLETE
@@ -50,4 +52,9 @@ export const uploadAudioToS3 = (tracks) => {
       });
     });
   };
+};
+
+export const updateTrackPositions = (tracks, oldIndex, newIndex) => {
+  const newPlaylistOrder = arrayMove(tracks, oldIndex, newIndex);
+  return { type: UPDATE_PLAYLIST_ORDER, payload: newPlaylistOrder };
 };

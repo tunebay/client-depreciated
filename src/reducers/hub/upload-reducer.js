@@ -1,6 +1,7 @@
 import {
   UPDATE_UPLOAD_PROGRESS,
   TRACK_UPLOAD_COMPLETE,
+  UPDATE_PLAYLIST_ORDER,
   UPLOAD_ERROR,
   UPLOAD_STARTED,
   FULL_UPLOAD_COMPLETE
@@ -31,6 +32,8 @@ export default (state = INITITAL_STATE, action) => {
       return { ...INITITAL_STATE, error: action.payload };
     case FULL_UPLOAD_COMPLETE:
       return { ...state, uploadComplete: true };
+    case UPDATE_PLAYLIST_ORDER:
+      return { ...state, tracks: action.payload };
     default:
       return state;
   }
