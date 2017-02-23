@@ -9,6 +9,8 @@ import {
 } from './upload-form-fields';
 import PlaylistTypeField from './playlist-type-field';
 import GenreField from './genre-field';
+import PermalinkField from './permalink-field';
+import TagsField from './tags-field';
 
 class BasicInfoPage extends Component {
   render() {
@@ -17,15 +19,15 @@ class BasicInfoPage extends Component {
       <form className="audio-upload-form" onSubmit={handleSubmit}>
         <Field name="title" type="text" component={renderTitleField} label="Title" />
         <div className="side-by-side-dropdowns">
-          <Field name="playlistType" component={PlaylistTypeField} label="Playlist Type" />
+          <Field name="playlistType" component={PlaylistTypeField} label="Playlist type" />
           <Field name="genre" component={GenreField} label="Genre(s)" />
         </div>
-        <Field name="permalink" type="text" component={renderPermalinkField} label="Permalink" />
-        <Field name="tags" type="text" component={renderTagsField} label="tags" />
+        <Field name="permalink" type="text" component={PermalinkField} label="Permalink" />
+        <Field name="tags" type="text" component={TagsField} label="Tags" />
         <Field name="description" type="text" component={renderDescriptionField} label="Description" />
-        <div>
+        {/* <div>
           <button type="submit">Next</button>
-        </div>
+        </div> */}
       </form>
     );
   }

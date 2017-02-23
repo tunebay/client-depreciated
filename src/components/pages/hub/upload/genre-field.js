@@ -4,6 +4,7 @@ import '../../../../styles/components/hub/upload-form-fields.scss';
 
 class GenreField extends Component {
   render() {
+    const { label, input } = this.props;
     const options = [
       { value: 'alternative rock', label: 'Alternative rock' },
       { value: 'ambient', label: 'Ambient' },
@@ -45,16 +46,16 @@ class GenreField extends Component {
 
     return (
       <div className="playlist-type-field">
-        <label htmlFor={this.props.label}>{this.props.label}</label>
+        <label htmlFor={this.props.label}>Main genre*</label>
         <div>
           <Select
             className="upload-dropdown"
-            {...this.props.input}
+            {...input}
             placeholder="Choose"
             value={this.props.input.value || ''}
             options={options}
-            onBlur={() => this.props.input.onBlur(this.props.input.value)}
-            multi
+            clearable={false}
+            onBlur={() => input.onBlur(input.value)}
           />
         </div>
       </div>

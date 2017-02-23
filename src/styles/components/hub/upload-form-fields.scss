@@ -26,7 +26,7 @@ $font-stack: 'Avenir Next', sans-serif;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
-    padding-left: 15px;
+    padding-left: 10px;
     &:focus {
       outline: none;
     }
@@ -46,5 +46,89 @@ $font-stack: 'Avenir Next', sans-serif;
     margin: 5px 0px;
     width: 250px;
     font-family: $font-stack;
+  }
+}
+.permalink-field {
+  margin: 5px 0px;
+  label {
+    font-size: 18px;
+    font-family: 'Avenir Next';
+    font-weight: 500;
+  }
+  .permalink-field-zone {
+    text-decoration: underline;
+    color: $logo-blue;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-family: 'Avenir Next';
+    font-weight: 500;
+    .permalink-input {
+      height: 40px;
+      width: 100%;
+      text-decoration: none;
+      color: $black;
+      margin-right: 10px;
+      font-family: $font-stack;
+      border-radius: 3px;
+      font-size: 16px;
+      border: none;
+      color: $black;
+      -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+      -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+      box-sizing: border-box;         /* Opera/IE 8+ */
+      padding-left: 15px;
+      &:focus {
+        outline: none;
+        border-style: solid;
+        border-color: #D4D4D4;
+        border-width: 1px;
+      }
+    }
+  }
+}
+
+.tags-field {
+  margin: 5px 0px;
+  margin-right: 10px;
+  label {
+    font-size: 18px;
+    font-family: 'Avenir Next';
+    font-weight: 500;
+  }
+  .upload-dropdown {
+    margin: 5px 0px;
+    font-family: $font-stack;
+  }
+}
+
+.description-field {
+  margin-top: 10px;
+  label {
+    font-size: 18px;
+    font-family: 'Avenir Next';
+    font-weight: 500;
+  }
+  textarea {
+    height: 100px;
+    width: 510px;
+    border-radius: 3px;
+    font-size: 16px;
+    border-color: #D4D4D4;
+    line-height: 20px;
+    border-width: 1px;
+    font-weight: 400;
+    resize: none;
+    border-style: solid;
+    font-family: $font-stack;
+    color: $black;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    padding: 10px;
+    &:focus {
+      outline: none;
+    }
+    margin-top: 10px;
   }
 }

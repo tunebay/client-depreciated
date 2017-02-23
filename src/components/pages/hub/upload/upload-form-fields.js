@@ -13,38 +13,17 @@ export const renderTitleField = ({ input, label, type }) => (
   </div>
 );
 
-export const renderGenreField = ({ input, label, type }) => (
-  <div className="genre-field">
-    <label htmlFor={label}>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type} />
-    </div>
-  </div>
-);
-
-export const renderPermalinkField = ({ input, label, type }) => (
-  <div className="permalink-field">
-    <label htmlFor={label}>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type} />
-    </div>
-  </div>
-);
-
-export const renderTagsField = ({ input, label, type }) => (
-  <div className="tags-field">
-    <label htmlFor={label}>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type} />
-    </div>
-  </div>
-);
-
 export const renderDescriptionField = ({ input, label, type }) => (
   <div className="description-field">
     <label htmlFor={label}>{label}</label>
     <div>
-      <input {...input} placeholder={label} type={type} />
+      <textarea
+        {...input}
+        placeholder={label}
+        type={type}
+        rows="4"
+        cols="50"
+      />
     </div>
   </div>
 );
