@@ -6,16 +6,17 @@ $light-blue: #34bfed;
 $font-stack: 'Avenir Next', sans-serif;
 
 .title-field {
+  margin: 5px 0px;
   label {
     font-size: 18px;
     font-family: 'Avenir Next';
     font-weight: 500;
   }
   input {
-    height: 43px;
+    height: 40px;
     width: 510px;
-    border-radius: 2px;
-    font-size: 17px;
+    border-radius: 3px;
+    font-size: 16px;
     border-color: #D4D4D4;
     border-width: 1px;
     font-weight: 400;
@@ -30,5 +31,20 @@ $font-stack: 'Avenir Next', sans-serif;
       outline: none;
     }
     margin: 5px 0px;
+  }
+}
+
+.playlist-type-field {
+  margin: 5px 0px;
+  margin-right: 5px;
+  label {
+    font-size: 18px;
+    font-family: 'Avenir Next';
+    font-weight: 500;
+  }
+  .upload-dropdown {
+    margin: 5px 0px;
+    width: 250px;
+    font-family: $font-stack;
   }
 }

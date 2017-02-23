@@ -3,12 +3,12 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import {
   renderTitleField,
-  renderPlaylistTypeField,
   renderGenreField,
   renderPermalinkField,
   renderTagsField,
   renderDescriptionField
 } from './upload-form-fields';
+import PlaylistTypeField from './playlist-type-field';
 
 class BasicInfoPage extends Component {
   render() {
@@ -17,8 +17,8 @@ class BasicInfoPage extends Component {
       <form className="audio-upload-form" onSubmit={handleSubmit}>
         <Field name="title" type="text" component={renderTitleField} label="Title" />
         <div className="side-by-side-dropdowns">
-          <Field name="playlistType" type="text" component={renderPlaylistTypeField} label="Playlist Type" />
-          <Field name="genre" type="text" component={renderGenreField} label="Genre(s)" />
+          <Field name="playlistType" component={PlaylistTypeField} label="Playlist Type" />
+          <Field name="genre" component={PlaylistTypeField} label="Genre(s)" />
         </div>
         <Field name="permalink" type="text" component={renderPermalinkField} label="Permalink" />
         <Field name="tags" type="text" component={renderTagsField} label="tags" />
@@ -45,4 +45,13 @@ const ComposedForm = reduxForm({
   forceUnregisterOnUnmount: true
 })(BasicInfoPage);
 
-export default connect()(ComposedForm);
+const mapStateToProps = (state) => {
+  if (state.form.audioUpload && state.form.audioUpload.values) {
+    console.log(state.form.audioUpload.values);
+  }
+  return {
+
+  }
+};
+
+export default connect(mapStateToProps)(ComposedForm);

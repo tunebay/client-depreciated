@@ -1,4 +1,6 @@
 import React from 'react';
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 
 import '../../../../styles/components/hub/upload-form-fields.scss';
 
@@ -7,15 +9,6 @@ export const renderTitleField = ({ input, label, type }) => (
     <label htmlFor={label}>{label}</label>
     <div>
       <input {...input} placeholder={'Name your playlist'} type={type} />
-    </div>
-  </div>
-);
-
-export const renderPlaylistTypeField = ({ input, label, type }) => (
-  <div className="playlist-type-field">
-    <label htmlFor={label}>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type} />
     </div>
   </div>
 );
