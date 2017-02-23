@@ -6,7 +6,10 @@ class TagsField extends Component {
   render() {
     return (
       <div className="tags-field">
-        <label htmlFor={this.props.label}>{this.props.label}</label>
+        <label
+          className="upload-label"
+          htmlFor={this.props.label}
+        >{this.props.label}*</label>
         <div>
           <Creatable
             className="upload-dropdown"

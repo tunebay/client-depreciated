@@ -46,7 +46,7 @@ class GenreField extends Component {
 
     return (
       <div className="playlist-type-field">
-        <label htmlFor={this.props.label}>Main genre*</label>
+        <label className="upload-label" htmlFor={this.props.label}>Main genre*</label>
         <div>
           <Select
             className="upload-dropdown"

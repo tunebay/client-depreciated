@@ -7,7 +7,7 @@ class PermalinkField extends Component {
     const baseUrl = `tunebay.com/${this.props.username}/${this.props.permalink}`;
     return (
       <div className="permalink-field">
-        <label htmlFor={this.props.label}>Playlist URL</label>
+        <label className="upload-label" htmlFor={this.props.label}>Playlist URL</label>
         <div className="permalink-field-zone">
           <div>{baseUrl}</div>
           <input

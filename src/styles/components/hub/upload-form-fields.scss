@@ -7,11 +7,6 @@ $font-stack: 'Avenir Next', sans-serif;
 
 .title-field {
   margin: 5px 0px;
-  label {
-    font-size: 18px;
-    font-family: 'Avenir Next';
-    font-weight: 500;
-  }
   input {
     height: 40px;
     width: 510px;
@@ -37,11 +32,6 @@ $font-stack: 'Avenir Next', sans-serif;
 .playlist-type-field {
   margin: 5px 0px;
   margin-right: 10px;
-  label {
-    font-size: 18px;
-    font-family: 'Avenir Next';
-    font-weight: 500;
-  }
   .upload-dropdown {
     margin: 5px 0px;
     width: 250px;
@@ -50,11 +40,6 @@ $font-stack: 'Avenir Next', sans-serif;
 }
 .permalink-field {
   margin: 5px 0px;
-  label {
-    font-size: 18px;
-    font-family: 'Avenir Next';
-    font-weight: 500;
-  }
   .permalink-field-zone {
     text-decoration: underline;
     color: $logo-blue;
@@ -91,11 +76,6 @@ $font-stack: 'Avenir Next', sans-serif;
 .tags-field {
   margin: 5px 0px;
   margin-right: 10px;
-  label {
-    font-size: 18px;
-    font-family: 'Avenir Next';
-    font-weight: 500;
-  }
   .upload-dropdown {
     margin: 5px 0px;
     font-family: $font-stack;
@@ -104,11 +84,6 @@ $font-stack: 'Avenir Next', sans-serif;
 
 .description-field {
   margin-top: 10px;
-  label {
-    font-size: 18px;
-    font-family: 'Avenir Next';
-    font-weight: 500;
-  }
   textarea {
     height: 100px;
     width: 510px;
@@ -131,4 +106,11 @@ $font-stack: 'Avenir Next', sans-serif;
     }
     margin-top: 10px;
   }
+}
+
+.upload-label {
+  font-size: 16px;
+  font-family: 'Avenir Next';
+  font-weight: 500;
+  color: #4A4A4A;
 }
