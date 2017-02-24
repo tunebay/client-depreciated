@@ -1,13 +1,16 @@
 import { v4 } from 'node-uuid';
 import { arrayMove } from 'react-sortable-hoc';
 import axios from 'axios';
+import _ from 'lodash';
 import {
   UPDATE_UPLOAD_PROGRESS,
   TRACK_UPLOAD_COMPLETE,
   UPDATE_PLAYLIST_ORDER,
   UPLOAD_ERROR,
   UPLOAD_STARTED,
-  FULL_UPLOAD_COMPLETE
+  FULL_UPLOAD_COMPLETE,
+  STOP_UPDATING_PROGRESS,
+  START_UPDATING_PROGRESS
 } from '../types';
 
 const API_URL = 'http://localhost:3000';
@@ -64,6 +67,7 @@ export const uploadAudioToS3 = (tracks) => {
 };
 
 export const updateTrackPositions = (tracks, oldIndex, newIndex) => {
+  console.log('UPDATING TRACK POSITION');
   const newPlaylistOrder = arrayMove(tracks, oldIndex, newIndex);
   newPlaylistOrder.forEach((track, index) => {
     console.log('track logging:', track);
@@ -71,4 +75,9 @@ export const updateTrackPositions = (tracks, oldIndex, newIndex) => {
   });
   console.log('new order:', newPlaylistOrder);
   return { type: UPDATE_PLAYLIST_ORDER, payload: newPlaylistOrder };
+};
+
+export const stopUpdatingProgress = () => {
+  console.log('stop uping progress...');
+  return { type: STOP_UPDATING_PROGRESS };
 };

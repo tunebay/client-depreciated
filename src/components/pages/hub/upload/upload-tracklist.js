@@ -33,12 +33,17 @@ class SortableComponent extends Component {
     this.props.updateTrackPositions(this.props.tracks, oldIndex, newIndex);
   }
 
+  onSortStart() {
+    this.props.stopUpdatingProgress(); // stop weird moving bug
+  }
+
   render() {
     const { tracks } = this.props;
     return (
       <SortableList
         tracks={tracks}
         onSortEnd={this.onSortEnd.bind(this)}
+        onSortStart={this.onSortStart.bind(this)}
         useDragHandle
         axis="y"
         lockAxis="y"
