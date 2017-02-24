@@ -28,7 +28,7 @@ const mapStateToProps = (state) => {
       defaultPermalink = values.title.replace(' ', '-').toLowerCase();
     }
   }
-  console.log('loggin permalink:', defaultPermalink);
+  // console.log('loggin permalink:', defaultPermalink);
   return {
     username: state.currentUser.username,
     permalink: defaultPermalink

@@ -1,13 +1,22 @@
+.uploaded-track-con {
+  padding: 0px;
+  margin: 0px;
+  background-color: #F7F7F7;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .uploaded-track {
   height: 60px;
   border: 1px solid #e1e1e1;
   background-color: #fff;
   list-style: none;
   width: 100%;
+  display: flex;
+  align-items: center;
 }
 
-.uploaded-track-con {
-  padding: 0px;
-  margin: 0px;
-  background-color: grey;
+.uploaded-track-content {
+  padding-left: 15px;
 }

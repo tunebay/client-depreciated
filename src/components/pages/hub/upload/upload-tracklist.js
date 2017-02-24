@@ -36,7 +36,14 @@ class SortableComponent extends Component {
   render() {
     const { tracks } = this.props;
     return (
-      <SortableList tracks={tracks} onSortEnd={this.onSortEnd.bind(this)} useDragHandle />
+      <SortableList
+        tracks={tracks}
+        onSortEnd={this.onSortEnd.bind(this)}
+        useDragHandle
+        axis="y"
+        lockAxis="y"
+        lockToContainerEdge
+      />
     );
   }
 }
