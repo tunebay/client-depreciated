@@ -31,18 +31,12 @@ export default (state = INITITAL_STATE, action) => {
         originalTracks: action.payload,
         playlistLength: action.payload.length
       };
-    case UPDATE_UPLOAD_PROGRESS: {
-      if (state.dragging) {
-        console.log('STARTED DRAGGING STOP EVERYTHING!');
-        return { ...state };
-      }
+    case UPDATE_UPLOAD_PROGRESS: { // wow. will refactor when i know how..(need another reducer??)
+      if (state.dragging) { return { ...state }; }
       const trackToUpdate = state.originalTracks[action.originalIndex];
-      console.log('Track to update: ', trackToUpdate);
       trackToUpdate.progress = action.payload;
-      // console.log('index:', action.index);
       const newTracks = [...state.tracks];
       newTracks.splice(trackToUpdate.playlistIndex, 1, trackToUpdate);
-      // console.log('New tracskkkss: ', newTracks);
       return { ...state, tracks: newTracks };
     }
     case UPLOAD_ERROR:

@@ -23,7 +23,8 @@ export const uploadAudioToS3 = (tracks) => {
       const track = {
         name: file.name,
         originalIndex: index,
-        playlistIndex: index
+        playlistIndex: index,
+        progress: 0
       };
       playlist.push(track);
     });
