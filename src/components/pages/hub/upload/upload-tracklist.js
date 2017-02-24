@@ -8,13 +8,13 @@ import '../../../../styles/components/hub/uploaded-track.scss';
 
 
 const SortableList = SortableContainer(({ tracks }) => {
-  console.log('in list rendering:', tracks);
+  // console.log('in list rendering:', tracks);
   return (
     <ul className="uploaded-track-con">
       {tracks.map((track, index) => {
         const key = v4();
         const playlistPosition = index + 1;
-        console.log(`${track.name} is at position ${playlistPosition}`);
+        // console.log(`${track.name} is at position ${playlistPosition}`);
         return (
           <UploadedTrack
             key={key}

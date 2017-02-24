@@ -14,6 +14,7 @@ const INITITAL_STATE = {
   url: '',
   uploadStarted: false,
   tracks: [],
+  originalTracks: [],
   playlistLength: 0
 };
 
@@ -24,10 +25,19 @@ export default (state = INITITAL_STATE, action) => {
         ...state,
         uploadStarted: true,
         tracks: action.payload,
+        originalTracks: action.payload,
         playlistLength: action.payload.length
       };
-    case UPDATE_UPLOAD_PROGRESS:
-      return { ...state, percentCompleted: action.payload, uploadStarted: true };
+    case UPDATE_UPLOAD_PROGRESS: {
+      const trackToUpdate = state.originalTracks[action.originalIndex];
+      console.log('Track to update: ', trackToUpdate);
+      trackToUpdate.progress = action.payload;
+      // console.log('index:', action.index);
+      const newTracks = [...state.tracks];
+      newTracks.splice(trackToUpdate.playlistIndex, 1, trackToUpdate);
+      // console.log('New tracskkkss: ', newTracks);
+      return { ...state, tracks: newTracks };
+    }
     case UPLOAD_ERROR:
       return { ...INITITAL_STATE, error: action.payload };
     case FULL_UPLOAD_COMPLETE:

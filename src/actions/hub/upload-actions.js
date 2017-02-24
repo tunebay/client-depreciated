@@ -15,9 +15,18 @@ const API_URL = 'http://localhost:3000';
 export const uploadAudioToS3 = (tracks) => {
   let uploadCounter = 0;
   return (dispatch) => {
-    dispatch({ type: UPLOAD_STARTED, payload: tracks });
+    const playlist = [];
+    tracks.forEach((file, index) => {
+      const track = {
+        name: file.name,
+        originalIndex: index,
+        playlistIndex: index
+      };
+      playlist.push(track);
+    });
+    dispatch({ type: UPLOAD_STARTED, payload: playlist });
 
-    tracks.forEach((file) => {
+    tracks.forEach((file, index) => {
       const filename = `users/music/${v4()}`;
       axios.get(`${API_URL}/upload/s3/sign`, {
         params: {
@@ -33,7 +42,7 @@ export const uploadAudioToS3 = (tracks) => {
           onUploadProgress: (progress) => {
             const percentCompleted = Math.round((progress.loaded * 100) / progress.total);
             console.log(file.name, percentCompleted);
-            dispatch({ type: UPDATE_UPLOAD_PROGRESS, payload: percentCompleted });
+            dispatch({ type: UPDATE_UPLOAD_PROGRESS, payload: percentCompleted, originalIndex: index });
           }
         };
 
@@ -56,5 +65,10 @@ export const uploadAudioToS3 = (tracks) => {
 
 export const updateTrackPositions = (tracks, oldIndex, newIndex) => {
   const newPlaylistOrder = arrayMove(tracks, oldIndex, newIndex);
+  newPlaylistOrder.forEach((track, index) => {
+    console.log('track logging:', track);
+    track.playlistIndex = index;
+  });
+  console.log('new order:', newPlaylistOrder);
   return { type: UPDATE_PLAYLIST_ORDER, payload: newPlaylistOrder };
 };

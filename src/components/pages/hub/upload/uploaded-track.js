@@ -8,6 +8,7 @@ const DragHandle = SortableHandle(() => <span>::</span>);
 
 class UploadedTrack extends Component {
   render() {
+    const index = this.props.playlistPosition - 1;
     return (
       <li className="uploaded-track">
         <div className="uploaded-track-content">
@@ -17,6 +18,7 @@ class UploadedTrack extends Component {
             type="text"
             defaultValue={this.props.value}
           />
+          {`****progress: ${this.props.tracks[index].progress}`}
         </div>
       </li>
     );
