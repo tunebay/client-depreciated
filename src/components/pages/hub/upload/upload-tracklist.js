@@ -13,14 +13,14 @@ const SortableList = SortableContainer(({ tracks }) => {
     <ul className="uploaded-track-con">
       {tracks.map((track, index) => {
         const key = v4();
-        const playlistPosition = index + 1;
+        const playlistIndex = index;
         // console.log(`${track.name} is at position ${playlistPosition}`);
         return (
           <UploadedTrack
             key={key}
             index={index}
             value={track.name}
-            playlistPosition={playlistPosition}
+            playlistIndex={playlistIndex}
           />
         );
       })}

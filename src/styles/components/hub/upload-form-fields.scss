@@ -97,6 +97,7 @@ $font-stack: 'Avenir Next', sans-serif;
     border-style: solid;
     font-family: $font-stack;
     color: $black;
+    // think about mixin
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */

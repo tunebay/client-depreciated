@@ -1,16 +1,13 @@
 import { v4 } from 'node-uuid';
 import { arrayMove } from 'react-sortable-hoc';
 import axios from 'axios';
-import _ from 'lodash';
 import {
   UPDATE_UPLOAD_PROGRESS,
-  TRACK_UPLOAD_COMPLETE,
   UPDATE_PLAYLIST_ORDER,
   UPLOAD_ERROR,
   UPLOAD_STARTED,
   FULL_UPLOAD_COMPLETE,
   STOP_UPDATING_PROGRESS,
-  START_UPDATING_PROGRESS
 } from '../types';
 
 const API_URL = 'http://localhost:3000';
@@ -81,4 +78,12 @@ export const updateTrackPositions = (tracks, oldIndex, newIndex) => {
 export const stopUpdatingProgress = () => {
   console.log('stop uping progress...');
   return { type: STOP_UPDATING_PROGRESS };
+};
+
+export const updateTrackName = (tracks, index, input) => {
+  const newPlaylist = [...tracks];
+  const trackToUpdate = tracks[index];
+  trackToUpdate.name = input;
+  newPlaylist.splice(index, 1, trackToUpdate);
+  return { type: UPDATE_PLAYLIST_ORDER, payload: newPlaylist };
 };
