@@ -16,7 +16,7 @@ class PlaylistTypeField extends Component {
         <label
           className="upload-label"
           htmlFor={this.props.label}
-        >{this.props.label}
+        >Playlist type<span>*</span>
         </label>
         <div>
           <Select

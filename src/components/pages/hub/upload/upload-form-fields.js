@@ -6,7 +6,7 @@ import '../../../../styles/components/hub/upload-form-fields.scss';
 
 export const renderTitleField = ({ input, label, type }) => (
   <div className="title-field">
-    <label className="upload-label" htmlFor={label}>{label}</label>
+    <label className="upload-label" htmlFor={label}>Title<span>*</span></label>
     <div>
       <input {...input} placeholder={'Name your playlist'} type={type} />
     </div>

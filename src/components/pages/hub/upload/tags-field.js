@@ -9,7 +9,7 @@ class TagsField extends Component {
         <label
           className="upload-label"
           htmlFor={this.props.label}
-        >{this.props.label}*</label>
+        >{this.props.label}</label>
         <div>
           <Creatable
             className="upload-dropdown"

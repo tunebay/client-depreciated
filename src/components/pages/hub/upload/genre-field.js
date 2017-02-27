@@ -3,6 +3,15 @@ import Select from 'react-select';
 import '../../../../styles/components/hub/upload-form-fields.scss';
 
 class GenreField extends Component {
+  renderLabel() {
+    if (this.props.label !== 'Genre') {
+      return <label className="upload-label" htmlFor={this.props.label}>Additional genre</label>;
+    }
+    return (
+      <label className="upload-label" htmlFor={this.props.label}>Genre<span>*</span></label>
+    );
+  }
+
   render() {
     const { label, input } = this.props;
     const options = [
@@ -46,7 +55,7 @@ class GenreField extends Component {
 
     return (
       <div className="playlist-type-field">
-        <label className="upload-label" htmlFor={this.props.label}>{this.props.label}</label>
+        <label className="upload-label" htmlFor={this.props.label}>{this.renderLabel()}</label>
         <div>
           <Select
             className="upload-dropdown"
