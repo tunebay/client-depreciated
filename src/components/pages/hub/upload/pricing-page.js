@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import PriceField from './price-field';
+import CanPayMoreField from './can-pay-more-field';
 import '../../../../styles/components/hub/upload.scss';
 
 class PricingPage extends Component {
@@ -32,6 +33,7 @@ class PricingPage extends Component {
         {this.renderGenres()}
         <Field name="price" type="number" component={PriceField} label="Price" />
         <p className="pricing-note"><span>Note: </span>{`Leave the price at zero if you intend for this ${this.props.formValues.playlistType.value} to be a free download. People can still decide to donate towards free downloads if you let them.`}</p>
+        <Field name="canPayMore" type="checkbox" component={CanPayMoreField} label="canPayMore" />
       </form>
     );
   }
@@ -40,7 +42,8 @@ class PricingPage extends Component {
 const ComposedForm = reduxForm({
   form: 'audioUpload',
   fields: [
-    'price'
+    'price',
+    'canPayMore'
   ],
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true
