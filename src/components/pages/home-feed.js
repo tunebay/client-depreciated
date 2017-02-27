@@ -20,6 +20,7 @@ class HomeFeed extends Component {
 }
 
 const mapStateToProps = (state) => {
+  if (!state.currentUser) return {};
   return {
     currentUser: state.currentUser
   };

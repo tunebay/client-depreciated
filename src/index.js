@@ -18,6 +18,10 @@ store.subscribe(_.throttle(() => {
   saveState(store.getState().currentUser);
 }, 1000));
 
+// store.subscribe(() => {
+//   saveState(store.getState().currentUser);
+// });
+
 const token = localStorage.getItem('token');
 
 if (token) {
