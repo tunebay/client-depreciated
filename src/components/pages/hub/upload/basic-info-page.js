@@ -9,7 +9,6 @@ import {
 } from './upload-form-fields';
 import PlaylistTypeField from './playlist-type-field';
 import GenreField from './genre-field';
-import PermalinkField from './permalink-field';
 import TagsField from './tags-field';
 
 class BasicInfoPage extends Component {
@@ -20,9 +19,12 @@ class BasicInfoPage extends Component {
         <Field name="title" type="text" component={renderTitleField} label="Title" />
         <div className="side-by-side-dropdowns">
           <Field name="playlistType" component={PlaylistTypeField} label="Playlist type" />
-          <Field name="genre" component={GenreField} label="Genre(s)" />
+          <Field name="genre" component={GenreField} label="Genre" />
         </div>
-        <Field name="permalink" type="text" component={PermalinkField} label="Permalink" />
+        <div className="side-by-side-dropdowns">
+          <Field name="genre2" type="text" component={GenreField} label="Additional genre" />
+          <Field name="genre3" type="text" component={GenreField} label="Additional genre" />
+        </div>
         <Field name="tags" type="text" component={TagsField} label="Tags" />
         <Field name="description" type="text" component={renderDescriptionField} label="Description" />
         {/* <div>
@@ -38,8 +40,9 @@ const ComposedForm = reduxForm({
   fields: [
     'title',
     'playlistType',
-    'permalink',
     'genre',
+    'genre2',
+    'genre3',
     'tags',
     'description'
   ],
