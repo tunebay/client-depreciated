@@ -1,17 +1,37 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { renderTitleField } from './upload-form-fields';
+import PriceField from './price-field';
+import '../../../../styles/components/hub/upload.scss';
 
 class PricingPage extends Component {
+  renderGenres() {
+    const { genre, genre2, genre3 } = this.props.formValues;
+    let genreString = genre.label;
+    if (genre2 && !genre3) {
+      genreString = `${genre.label} / ${genre2.label}`;
+    }
+    if (genre3 && !genre2) {
+      genreString = `${genre.label} / ${genre3.label}`;
+    }
+    if (genre3 && genre2) {
+      genreString = `${genre.label} / ${genre2.label} / ${genre3.label}`;
+    }
+    return (
+      <div className="uploaded-genres">
+        {genreString}
+      </div>
+    );
+  }
+
   render() {
     const { handleSubmit } = this.props;
     return (
-      <form onSubmit={handleSubmit}>
-        <Field name="price" type="text" component={renderTitleField} label="Title" />
-        <div>
-          <button type="submit">Next</button>
-        </div>
+      <form className="audio-upload-form" onSubmit={handleSubmit}>
+        <h1 className="upload-playlist-title">{this.props.formValues.title}</h1>
+        {this.renderGenres()}
+        <Field name="price" type="number" component={PriceField} label="Price" />
+        <p className="pricing-note"><span>Note: </span>{`Leave the price at zero if you intend for this ${this.props.formValues.playlistType.value} to be a free download. People can still decide to donate towards free downloads if you let them.`}</p>
       </form>
     );
   }
@@ -26,4 +46,10 @@ const ComposedForm = reduxForm({
   forceUnregisterOnUnmount: true
 })(PricingPage);
 
-export default connect()(ComposedForm);
+const mapStateToProps = (state) => {
+  return {
+    formValues: state.form.audioUpload.values
+  };
+};
+
+export default connect(mapStateToProps)(ComposedForm);

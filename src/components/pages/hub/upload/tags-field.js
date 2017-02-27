@@ -4,6 +4,7 @@ import '../../../../styles/components/hub/upload-form-fields.scss';
 
 class TagsField extends Component {
   render() {
+    console.log(this.props.input.value);
     return (
       <div className="tags-field">
         <label
@@ -15,7 +16,7 @@ class TagsField extends Component {
             className="upload-dropdown"
             {...this.props.input}
             value={this.props.input.value || ''}
-            clearable={false}
+            // clearable={false}
             placeholder="Add tags to describe your playlist (e.g moody)"
             multi
             promptTextCreator={val => `Add "${val}" tag`}

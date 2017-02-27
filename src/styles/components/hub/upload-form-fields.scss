@@ -109,8 +109,77 @@ $font-stack: 'Avenir Next', sans-serif;
   }
 }
 
-.upload-label {
+.price-field {
+  margin-top: 10px;
+  .upload-price-input-zone {
+    margin: 5px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    input {
+      border-radius: 3px;
+      font-size: 18px;
+      border-color: #D4D4D4;
+      line-height: 20px;
+      border-width: 1px;
+      font-weight: 500;
+      padding-left: 10px;
+      height: 40px;
+      width: 100px;
+      font-family: $font-stack;
+      color: $black;
+      border-style: solid;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left: none;
+      &:focus {
+        outline: none;
+      }
+    }
+    .currency-symbol{
+      height: 44px;
+      width: 40px;
+      color: #fff;
+      background-color: $logo-blue;
+      border-width: 1px;
+      border-color: $logo-blue;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      display: flex;
+      font-size: 18px;
+      font-weight: 600;
+      align-items: center;
+      justify-content: center;
+    }
+    .pricing-guide {
+      background:none!important;
+      border:none;
+      padding:0!important;
+      font: inherit;
+      color: $light-blue;
+      margin-left: 10px;
+      font-family: $font-stack;
+      font-size: 14px;
+      /*border is optional*/
+      // border-bottom:1px solid #444;
+      cursor: pointer;
+    }
+  }
+}
+
+.uploaded-genres {
+  color: #686D72;
+  font-family: $font-stack;
   font-size: 16px;
+  font-weight: 500;
+}
+
+.upload-label {
+  font-size: 17px;
   font-family: 'Avenir Next';
   font-weight: 500;
   color: #4A4A4A;

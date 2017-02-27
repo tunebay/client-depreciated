@@ -1,3 +1,10 @@
+$black: #252C30;
+$logo-blue: #1596F5;
+$placeholder: #a1a1a1;
+$e4: #e4e4e4;
+$light-blue: #34bfed;
+$font-stack: 'Avenir Next', sans-serif;
+
 .dropzone {
   height: 300px;
   width: 810px;
@@ -127,6 +134,23 @@
 
 .side-by-side-dropdowns {
   display: flex;
+}
+
+.upload-playlist-title {
+  color: #4A4A4A;
+  font-family: 'Avenir Next';
+  font-size: 22px;
+  margin: 5px 0;
+}
+
+.pricing-note {
+  color: $black;
+  font-family: $font-stack;
+  font-size: 14px;
+  span {
+    font-weight: 500;
+    color: $black;
+  }
 }
 
 @media screen and (max-width: 1350px) {
