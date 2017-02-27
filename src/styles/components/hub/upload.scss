@@ -92,8 +92,18 @@
 }
 
 .upload-form-footer {
-  width: 100%;
+  width: 810px;
   height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.form-footer-content {
+  padding: 0 20px;
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
 .hub-upload {
