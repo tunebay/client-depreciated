@@ -229,3 +229,18 @@ $font-stack: 'Avenir Next', sans-serif;
     font-size: 14px;
   }
 }
+
+.date-picker-input {
+  width: 140px;
+  height: 40px;
+  font-family: $font-stack;
+  color: $black;
+  font-weight: 400;
+  border-radius: 3px;
+  font-size: 16px;
+  border-color: #D4D4D4;
+  border-width: 1px;
+  font-weight: 400;
+  border-style: solid;
+  padding-left: 10px;
+}
