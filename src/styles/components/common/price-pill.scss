@@ -1,0 +1,23 @@
+$logo-blue: #1596F5;
+$font-stack: 'Avenir Next', sans-serif;
+
+.price-pill {
+  margin-left: 10px;
+  background-color: $logo-blue;
+  width: 65px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  .price-pill-text {
+    display: flex;
+    padding-top: 2px;
+    align-items: baseline;
+    justify-content: center;
+    color: #fff;
+    font-family: $font-stack;
+    font-weight: 500;
+    font-size: 12px;
+  }
+}

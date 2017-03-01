@@ -141,6 +141,7 @@ $font-stack: 'Avenir Next', sans-serif;
   color: #4A4A4A;
   font-family: 'Avenir Next';
   font-size: 22px;
+  vertical-align: sub;
   margin: 5px 0;
 }
 
@@ -153,6 +154,13 @@ $font-stack: 'Avenir Next', sans-serif;
     font-weight: 500;
     color: $black;
   }
+}
+
+.upload-title-price-con {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  // justify-content: center;
 }
 
 @media screen and (max-width: 1350px) {

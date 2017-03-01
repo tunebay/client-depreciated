@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import ReleaseDateField from './release-date-field';
+import PricePill from '../../../common/price-pill';
 import '../../../../styles/components/hub/upload.scss';
 
 class ReleasePage extends Component {
@@ -26,10 +27,13 @@ class ReleasePage extends Component {
 
   render() {
     const { handleSubmit } = this.props;
-    const { title } = this.props.formValues;
+    const { title, price } = this.props.formValues;
     return (
       <form className="audio-upload-form" onSubmit={handleSubmit}>
-        <h1 className="upload-playlist-title">{title}</h1>
+        <div className="upload-title-price-con">
+          <h1 className="upload-playlist-title">{title}</h1>
+          <PricePill price={price} />
+        </div>
         {this.renderGenres()}
         <Field name="releaseDate" type="text" component={ReleaseDateField} label="Release date" />
       </form>
