@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import AudioUploadZone from './audio-upload-zone';
 import UploadFormContainer from './upload-form-container';
 import AudioUploadForm from './audio-upload-form';
 import TracklistContainer from './tracklist-container';
-import { connect } from 'react-redux';
 import '../../../../styles/components/hub/upload.scss';
 
 class HubUpload extends Component {
@@ -12,6 +12,11 @@ class HubUpload extends Component {
     this.state = {
       page: 1
     };
+  }
+
+  handleSubmitButtonClick() {
+    console.log(this.props.formValues);
+    // this.postPlaylistInformation()
   }
 
   handleNextButtonClick() {
@@ -32,6 +37,13 @@ class HubUpload extends Component {
     }
   }
 
+  renderSubmitButon() {
+    if (this.state.page === 3) {
+      return <button onClick={this.handleSubmitButtonClick.bind(this)}>Submit</button>;
+    }
+    return <button onClick={this.handleNextButtonClick.bind(this)}>Next</button>;
+  }
+
   render() {
     return (
       <div className="hub-upload">
@@ -49,7 +61,7 @@ class HubUpload extends Component {
               <div>* Indicates required fields</div>
               <div className="next-prev-buttons">
                 {this.renderPreviousButton()}
-                <button onClick={this.handleNextButtonClick.bind(this)}>Next</button>
+                {this.renderSubmitButon()}
               </div>
             </div>
           </div>
@@ -64,11 +76,9 @@ class HubUpload extends Component {
 
 const mapStateToProps = (state) => {
   if (state.form.audioUpload && state.form.audioUpload.values) {
-    console.log(state.form.audioUpload.values);
+    return { formValues: state.form.audioUpload.values };
   }
-  return {
-
-  };
+  return {};
 };
 
 export default connect(mapStateToProps)(HubUpload);
