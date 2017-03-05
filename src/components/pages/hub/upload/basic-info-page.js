@@ -21,7 +21,6 @@ class BasicInfoPage extends Component {
           <Field name="genre2" type="text" component={GenreField} label="Additional genre" />
           <Field name="genre3" type="text" component={GenreField} label="Additional genre" />
         </div>
-        <Field name="tags" type="text" component={TagsField} label="Tags" />
         <Field name="description" type="text" component={renderDescriptionField} label="Description" />
       </form>
     );
@@ -36,7 +35,6 @@ const ComposedForm = reduxForm({
     'genre',
     'genre2',
     'genre3',
-    'tags',
     'description'
   ],
   destroyOnUnmount: false,
