@@ -29,6 +29,9 @@ const SortableList = SortableContainer(({ tracks }) => {
 });
 
 class SortableComponent extends Component {
+  componentWillMount() {
+    console.log('Mountning....');
+  }
   onSortEnd({ oldIndex, newIndex }) {
     this.props.updateTrackPositions(this.props.tracks, oldIndex, newIndex);
   }

@@ -12,22 +12,30 @@ import {
 
 const API_URL = 'http://localhost:3000';
 
-export const uploadAudioToS3 = (tracks) => {
+export const uploadAudioToS3 = (files) => {
   let uploadCounter = 0;
   return (dispatch) => {
     const playlist = [];
-    tracks.forEach((file, index) => {
-      const track = {
-        name: file.name,
-        originalIndex: index,
-        playlistIndex: index,
-        progress: 0
-      };
-      playlist.push(track);
+    files.forEach((file, index) => {
+      // GET DURATION OF EACH TRACK
+      const audio = document.createElement('AUDIO');
+      audio.src = file.preview;
+      audio.addEventListener('loadedmetadata', () => {
+        const track = {
+          name: file.name,
+          originalIndex: playlist.length, // couldnt use index because event could happen any order
+          playlistIndex: playlist.length,
+          size: file.size,
+          duration: Math.round(audio.duration)
+        };
+        playlist.push(track); // ADD THE TRACK OBJ TO PLAYLIST
+      });
+      // playlist.push(track);
     });
+    console.log(playlist);
     dispatch({ type: UPLOAD_STARTED, payload: playlist });
 
-    tracks.forEach((file, index) => {
+    files.forEach((file, index) => {
       const filename = `users/music/${v4()}`;
       axios.get(`${API_URL}/upload/s3/sign`, {
         params: {
@@ -51,9 +59,9 @@ export const uploadAudioToS3 = (tracks) => {
       })
       .then((res) => {
         uploadCounter += 1;
-        console.log(`${uploadCounter} / ${tracks.length}`);
+        console.log(`${uploadCounter} / ${files.length}`);
         console.log('track upload complete:', res);
-        if (uploadCounter === tracks.length) {
+        if (uploadCounter === files.length) {
           dispatch({ type: FULL_UPLOAD_COMPLETE });
         }
       })

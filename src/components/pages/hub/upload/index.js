@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 import AudioUploadZone from './audio-upload-zone';
 import UploadFormContainer from './upload-form-container';
 import AudioUploadForm from './audio-upload-form';
+import UploadArtwork from './upload-artwork';
 import TracklistContainer from './tracklist-container';
 import '../../../../styles/components/hub/upload.scss';
 
@@ -45,27 +47,37 @@ class HubUpload extends Component {
   }
 
   render() {
+    // const uploadedStarted = this.props.upload.uploadStarted;
+    // console.log(uploadedStarted);
+    // const formClass = classNames({
+    //   hide: !uploadedStarted
+    // });
+    // const uploadClass = classNames({
+    //   hide: uploadedStarted
+    // });
     return (
       <div className="hub-upload">
-        <AudioUploadZone />
-        <UploadFormContainer>
-          <div className="playlist-details">
-            <div className="artwork-section">
-              <div className="artwork-upload" />
+        <div>
+          <AudioUploadZone />
+        </div>
+        <div>
+          <UploadFormContainer>
+            <div className="playlist-details">
+              <UploadArtwork />
+              <AudioUploadForm page={this.state.page} />
             </div>
-            <AudioUploadForm page={this.state.page} />
-          </div>
-          <TracklistContainer />
-          <div className="upload-form-footer">
-            <div className="form-footer-content">
-              <div>* Indicates required fields</div>
-              <div className="next-prev-buttons">
-                {this.renderPreviousButton()}
-                {this.renderSubmitButon()}
+            <TracklistContainer />
+            <div className="upload-form-footer">
+              <div className="form-footer-content">
+                <div>* Indicates required fields</div>
+                <div className="next-prev-buttons">
+                  {this.renderPreviousButton()}
+                  {this.renderSubmitButon()}
+                </div>
               </div>
             </div>
-          </div>
-        </UploadFormContainer>
+          </UploadFormContainer>
+        </div>
         <p className="important-terms">
           <b>Important:</b> By uploading, you confirm that your audio complies with our Terms of use and you don’t infringe anyone else’s rights. If in doubt, check our Copyright information pages and FAQs before uploading.
         </p>
@@ -76,9 +88,14 @@ class HubUpload extends Component {
 
 const mapStateToProps = (state) => {
   if (state.form.audioUpload && state.form.audioUpload.values) {
-    return { formValues: state.form.audioUpload.values };
+    return {
+      formValues: state.form.audioUpload.values,
+      upload: state.upload
+    };
   }
-  return {};
+  return {
+    upload: state.upload
+  };
 };
 
 export default connect(mapStateToProps)(HubUpload);

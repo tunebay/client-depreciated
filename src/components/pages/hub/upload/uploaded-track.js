@@ -30,8 +30,8 @@ class UploadedTrack extends Component {
           <DragHandle />
           <input
             type="text"
+            value={tracks[playlistIndex].name}
             onChange={this.handleInputChange.bind(this)}
-            defaultValue={this.props.value}
           />
         </div>
       </li>
