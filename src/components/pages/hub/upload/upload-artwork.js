@@ -24,10 +24,17 @@ class UploadArtwork extends Component {
   }
 
   renderImage() {
-    if (this.state.image === null) return <div className="artwork-upload" />;
+    if (this.state.image === null) {
+      return (
+        <div className="artwork-upload">
+          <div className="add-artwork">Add arwork</div>
+        </div>
+      );
+    }
 
     return (
       <Editor
+        className="artwork-dragger"
         ref={(node) => { this.editor = node; }}
         image={this.state.image[0].preview}
         width={250}
@@ -38,12 +45,12 @@ class UploadArtwork extends Component {
     );
   }
 
-
   renderImageEditor() {
     if (this.state.image === null) return <div />;
     return (
       <div className="artwork-editor">
         <input
+          className="scale-slider"
           type="range"
           max={2}
           min={1}
@@ -51,6 +58,9 @@ class UploadArtwork extends Component {
           value={this.state.scale}
           onChange={this.changeImageScale.bind(this)}
         />
+        <button
+          onClick={() => this.dropzone.open()}
+        >Choose image</button>
       </div>
     );
   }
@@ -59,6 +69,7 @@ class UploadArtwork extends Component {
     return (
       <div className="artwork-section">
         <Dropzone
+          ref={(node) => { this.dropzone = node; }}
           style={{ width: 250, height: 250 }}
           multiple={false}
           accept="image/*"
