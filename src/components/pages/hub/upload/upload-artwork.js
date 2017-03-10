@@ -58,9 +58,10 @@ class UploadArtwork extends Component {
           value={this.state.scale}
           onChange={this.changeImageScale.bind(this)}
         />
-        <button
+        {/* <button
+          className="choose-img-btn"
           onClick={() => this.dropzone.open()}
-        >Choose image</button>
+        >Choose image</button> */}
       </div>
     );
   }
