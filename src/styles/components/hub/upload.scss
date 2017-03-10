@@ -119,6 +119,12 @@ $font-stack: 'Avenir Next', sans-serif;
   }
 }
 
+.artwork-editor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .upload-form-footer {
   width: 810px;
   height: 60px;
