@@ -5,6 +5,12 @@ $e4: #e4e4e4;
 $light-blue: #34bfed;
 $font-stack: 'Avenir Next', sans-serif;
 
+canvas {
+  &:hover {
+    cursor: move;
+  }
+}
+
 .dropzone {
   height: 300px;
   width: 810px;
@@ -64,7 +70,9 @@ $font-stack: 'Avenir Next', sans-serif;
 }
 
 .audio-upload-form {
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
   // border: 1px solid #50E3C2;
   width: 100%;
   height: auto;
@@ -93,8 +101,8 @@ $font-stack: 'Avenir Next', sans-serif;
 }
 
 .artwork-upload {
-  height: 250px;
-  width: 250px;
+  height: 260px;
+  width: 260px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -217,6 +225,17 @@ $font-stack: 'Avenir Next', sans-serif;
   }
 }
 
+.fa-icon {
+  color: #d1d1d1;
+}
+
+.upload-slider-con {
+  display: flex;
+  justify-content: space-between;
+  width: 140px;
+  align-items: center;
+}
+
 input[type=range] {
   -webkit-appearance: none;
   width: 100px;
@@ -235,10 +254,10 @@ input[type=range]::-webkit-slider-runnable-track {
   border: 0px solid #010101;
 }
 input[type=range]::-webkit-slider-thumb {
-  box-shadow: 0px 0px 0.2px #000000, 0px 0px 0px #0d0d0d;
+  // box-shadow: 0px 0px 0.2px #000000, 0px 0px 0px #0d0d0d;
   border: 1px solid #1596f5;
-  height: 10px;
-  width: 10px;
+  height: 11px;
+  width: 11px;
   border-radius: 50px;
   background: #1596f5;
   cursor: pointer;
@@ -258,10 +277,10 @@ input[type=range]::-moz-range-track {
   border: 0px solid #010101;
 }
 input[type=range]::-moz-range-thumb {
-  box-shadow: 0px 0px 0.2px #000000, 0px 0px 0px #0d0d0d;
+  // box-shadow: 0px 0px 0.2px #000000, 0px 0px 0px #0d0d0d;
   border: 1px solid #1596f5;
-  height: 10px;
-  width: 10px;
+  height: 11px;
+  width: 11px;
   border-radius: 50px;
   background: #1596f5;
   cursor: pointer;
@@ -287,10 +306,10 @@ input[type=range]::-ms-fill-upper {
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
 }
 input[type=range]::-ms-thumb {
-  box-shadow: 0px 0px 0.2px #000000, 0px 0px 0px #0d0d0d;
+  // box-shadow: 0px 0px 0.2px #000000, 0px 0px 0px #0d0d0d;
   border: 1px solid #1596f5;
-  height: 10px;
-  width: 10px;
+  height: 11px;
+  width: 11px;
   border-radius: 50px;
   background: #1596f5;
   cursor: pointer;

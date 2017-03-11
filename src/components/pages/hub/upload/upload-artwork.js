@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 import Editor from 'react-avatar-editor';
+import Icon from 'react-fontawesome';
 import '../../../../styles/components/hub/upload.scss';
 
 
@@ -10,7 +11,7 @@ class UploadArtwork extends Component {
     this.state = {
       image: null,
       disableClick: false,
-      scale: 1.1
+      scale: 1.0
     };
   }
 
@@ -37,8 +38,8 @@ class UploadArtwork extends Component {
         className="artwork-dragger"
         ref={(node) => { this.editor = node; }}
         image={this.state.image[0].preview}
-        width={250}
-        height={250}
+        width={260}
+        height={260}
         border={0}
         scale={this.state.scale}
       />
@@ -50,6 +51,7 @@ class UploadArtwork extends Component {
     return (
       <div className="artwork-editor">
         <div className="upload-slider-con">
+          <Icon name="minus" className="fa-icon" />
           <input
             className="scale-slider"
             type="range"
@@ -59,6 +61,7 @@ class UploadArtwork extends Component {
             value={this.state.scale}
             onChange={this.changeImageScale.bind(this)}
           />
+          <Icon name="plus" className="fa-icon" />
         </div>
         <button
           className="choose-img-btn"
@@ -73,7 +76,7 @@ class UploadArtwork extends Component {
       <div className="artwork-section">
         <Dropzone
           ref={(node) => { this.dropzone = node; }}
-          style={{ width: 250, height: 250 }}
+          style={{ width: 260, height: 260 }}
           multiple={false}
           accept="image/*"
           disableClick={this.state.disableClick}
