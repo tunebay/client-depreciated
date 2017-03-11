@@ -10,7 +10,7 @@ class UploadArtwork extends Component {
     this.state = {
       image: null,
       disableClick: false,
-      scale: 1.2
+      scale: 1.1
     };
   }
 
@@ -49,15 +49,17 @@ class UploadArtwork extends Component {
     if (this.state.image === null) return <div />;
     return (
       <div className="artwork-editor">
-        <input
-          className="scale-slider"
-          type="range"
-          max={2}
-          min={1}
-          step={0.01}
-          value={this.state.scale}
-          onChange={this.changeImageScale.bind(this)}
-        />
+        <div className="upload-slider-con">
+          <input
+            className="scale-slider"
+            type="range"
+            max={2}
+            min={1}
+            step={0.01}
+            value={this.state.scale}
+            onChange={this.changeImageScale.bind(this)}
+          />
+        </div>
         <button
           className="choose-img-btn"
           onClick={() => this.dropzone.open()}
