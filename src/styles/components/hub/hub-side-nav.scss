@@ -7,3 +7,67 @@
   position: fixed;
   flex-flow: column;
 }
+
+.hub-nav-title {
+  height: 60px;
+  font-family: 'Avenir Next';
+  display: flex;
+  align-items: center;
+  color: #fff;
+  h1 {
+    padding-left: 40px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+
+.side-nav-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hub-nav-link {
+  height: 40px;
+  background-color: #375b74;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 14px;
+  font-family: 'Avenir Next', sans-serif;
+}
+
+.hub-nav-link {
+  height: 40px;
+  background-color: #375b74;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 14px;
+  font-family: 'Avenir Next', sans-serif;
+}
+
+.hub-nav-link-active {
+  height: 40px;
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: #1596F5;
+  font-size: 14px;
+  font-family: 'Avenir Next', sans-serif;
+}
+
+.hub-nav-icon {
+  color: #fff;
+  padding-left: 40px;
+  padding-right: 10px;
+}
+
+.hub-nav-icon-active {
+  color: #1596F5;
+  padding-left: 40px;
+  padding-right: 10px;
+}
