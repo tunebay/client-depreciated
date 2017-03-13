@@ -21,6 +21,7 @@ export const uploadAudioToS3 = (files) => {
       const audio = document.createElement('AUDIO');
       audio.src = file.preview;
       audio.addEventListener('loadedmetadata', () => {
+        // file.duration = audio.duration;
         const track = {
           name: file.name,
           originalIndex: playlist.length, // couldnt use index because event could happen any order

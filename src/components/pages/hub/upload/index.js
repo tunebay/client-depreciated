@@ -47,20 +47,20 @@ class HubUpload extends Component {
   }
 
   render() {
-    // const uploadedStarted = this.props.upload.uploadStarted;
-    // console.log(uploadedStarted);
-    // const formClass = classNames({
-    //   hide: !uploadedStarted
-    // });
-    // const uploadClass = classNames({
-    //   hide: uploadedStarted
-    // });
+    const uploadedStarted = this.props.upload.uploadStarted;
+    console.log(uploadedStarted);
+    const formClass = classNames({
+      hide: !uploadedStarted
+    });
+    const uploadClass = classNames({
+      hide: uploadedStarted
+    });
     return (
       <div className="hub-upload">
-        <div>
+        <div className={uploadClass}>
           <AudioUploadZone />
         </div>
-        <div>
+        <div className={formClass}>
           <UploadFormContainer>
             <div className="playlist-details">
               <UploadArtwork />

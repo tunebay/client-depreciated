@@ -8,23 +8,61 @@
 }
 
 .uploaded-track {
-  input {
-    height: 35px;
-    width: 550px;
+  .track-name-input {
+    height: 30px;
+    width: 650px;
     border: 1px solid #D9D9D9;
     border-radius: 3px;
     padding-left: 10px;
+    color: #4d4d4d;
+    font-family: 'Avenir Next', sans-serif;
+    font-size: 14px;
   }
   height: 60px;
-  border: 1px solid #e1e1e1;
+  // border-bottom: 1px solid #e1e1e1;
   background-color: #fff;
   list-style: none;
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
 .uploaded-track-content {
   padding-left: 15px;
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  padding-top: 10px;
+  align-self: flex-start;
+}
+
+.drag-handle {
+  color: #CBCBCB;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 3px;
+  vertical-align: baseline;
+  &:hover {
+    cursor: move;
+  }
+}
+
+.remove-track-icon {
+  color: #CBCBCB;
+  padding-left: 15px;
+  padding-right: 15px;
+  vertical-align: baseline;
+  &:hover {
+    cursor: pointer;
+    color: #4d4d4d;
+  }
+}
+
+.playlist-position {
+  color: #4d4d4d;
+  font-family: 'Avenir Next', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  vertical-align: baseline;
 }

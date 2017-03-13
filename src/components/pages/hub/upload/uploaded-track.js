@@ -1,38 +1,49 @@
 import React, { Component } from 'react';
 import { SortableElement, SortableHandle } from 'react-sortable-hoc';
 import { connect } from 'react-redux';
-import { Circle as Progress } from 'rc-progress';
+import Icon from 'react-fontawesome';
+import { Line as Progress } from 'rc-progress';
 import * as actions from '../../../../actions/hub/upload-actions';
+import TrackNameInput from './track-name-input';
 import '../../../../styles/components/hub/uploaded-track.scss';
 
-const DragHandle = SortableHandle(() => <span>::</span>);
+const DragHandle = SortableHandle(() => {
+  return <span><Icon name="bars" size="lg" className="drag-handle" /></span>;
+});
 
 class UploadedTrack extends Component {
+  constructor(props) {
+    super(props);
+    const { playlistIndex, tracks } = this.props;
+    this.state = {
+      name: tracks[playlistIndex].name
+    };
+  }
+
   handleInputChange(e) {
     const { playlistIndex, tracks } = this.props;
     this.props.updateTrackName(tracks, playlistIndex, e.target.value);
+    // this.setState({ name: e.target.value });
   }
 
   render() {
     const { playlistIndex, tracks } = this.props;
     const playlistPosition = playlistIndex + 1;
     return (
-      <li className="uploaded-track">
+      <li className="uploaded-track" key={this.props.originalIndex}>
+        <Progress
+          strokeWidth="2"
+          trailWidth="2"
+          strokeColor={'#1596F5'}
+          strokeLinecap="square"
+          percent={tracks[playlistIndex].progress}
+          style={{ height: 2, width: '100%' }}
+        />
         <div className="uploaded-track-content">
-          <Progress
-            strokeWidth="10"
-            trailWidth="10"
-            strokeColor={'#1596F5'}
-            percent={tracks[playlistIndex].progress}
-            style={{ height: 25 }}
-          />
-          {playlistPosition}
+          <div className="playlist-position">{playlistPosition}</div>
           <DragHandle />
-          <input
-            type="text"
-            value={tracks[playlistIndex].name}
-            onChange={this.handleInputChange.bind(this)}
-          />
+          <TrackNameInput playlistIndex={playlistIndex} />
+          <Icon name="times-circle" size="1x" className="remove-track-icon" />
         </div>
       </li>
     );

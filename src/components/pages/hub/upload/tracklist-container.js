@@ -6,7 +6,9 @@ const TracklistContainer = () => {
   return (
     <div className="tracklist-container">
       <UploadTracklist />
-      <div className="add-another-track" />
+      <div className="add-another-track">
+        <div className="add-another-track-text">Add another track</div>
+      </div>
     </div>
   );
 };
