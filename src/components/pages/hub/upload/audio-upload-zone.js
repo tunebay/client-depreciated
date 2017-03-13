@@ -7,7 +7,7 @@ import '../../../../styles/components/hub/upload.scss';
 class AudioUploadZone extends Component {
   onDrop(files, rejectedFiles) {
     console.log('Rejected:', rejectedFiles);
-    this.props.uploadAudioToS3(files);
+    console.log('Accepted:', files);
   }
 
   onOpenClick() {
@@ -32,19 +32,8 @@ class AudioUploadZone extends Component {
           </div>
         </Dropzone>
       </div>
-        // {this.renderAudioForm()}
     );
   }
 }
 
-const mapStateToProps = ({ upload, currentUser }) => {
-  if (!currentUser) { return {}; }
-  return {
-    progress: upload.percentCompleted,
-    uploadComplete: upload.uploadComplete,
-    uploadStarted: upload.uploadStarted,
-    userId: currentUser.id
-  };
-};
-
-export default connect(mapStateToProps, actions)(AudioUploadZone);
+export default connect(null, actions)(AudioUploadZone);
