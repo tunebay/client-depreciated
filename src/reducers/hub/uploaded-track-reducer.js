@@ -1,4 +1,8 @@
-import { ADD_TRACK, UPDATE_TRACK_NAME } from '../../actions/types';
+import {
+  ADD_TRACK,
+  UPDATE_TRACK_NAME,
+  UPDATE_TRACK_PROGRESS
+} from '../../actions/types';
 
 export const INITIAL_STATE = {
   name: '',
@@ -23,6 +27,9 @@ export default (state = INITIAL_STATE, action) => {
     case UPDATE_TRACK_NAME:
       if (state.trackId !== action.trackId) return state;
       return { ...state, name: action.payload };
+    case UPDATE_TRACK_PROGRESS:
+      if (state.trackId !== action.trackId) return state;
+      return { ...state, progress: action.payload };
     default:
       return state;
   }

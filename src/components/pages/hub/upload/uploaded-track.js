@@ -16,6 +16,7 @@ class UploadedTrack extends Component {
 
   render() {
     const { track } = this.props;
+    console.log(track);
     return (
       <li key={`track-${track.trackId}`}>
         {track.playlistPosition}
@@ -25,6 +26,7 @@ class UploadedTrack extends Component {
           onChange={this.handleInputChange.bind(this)}
           value={track.name}
         />
+        {track.progress}
       </li>
     );
   }
