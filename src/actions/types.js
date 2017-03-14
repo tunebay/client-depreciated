@@ -19,3 +19,4 @@ export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 // hub/upload actions
 export const ADD_TRACK = 'ADD_TRACK';
 export const UPDATE_TRACK_NAME = 'UPDATE_TRACK_NAME';
+export const UPDATE_PLAYLIST_POSITIONS = 'UPDATE_PLAYLIST_POSITIONS';
