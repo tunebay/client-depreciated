@@ -4,6 +4,7 @@ import * as actions from '../../../../actions/hub/uploaded-track-actions';
 
 class UploadedTrack extends Component {
   handleInputChange(e) {
+    console.log(e.target.value);
     this.props.updateTrackName(e.target.value, this.props.track.trackId);
   }
 
@@ -14,6 +15,7 @@ class UploadedTrack extends Component {
         <input
           type="text"
           onChange={this.handleInputChange.bind(this)}
+          value={this.props.track.name}
         />
       </li>
     );

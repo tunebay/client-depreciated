@@ -8,9 +8,9 @@ export default (state = INITIAL_STATE, action) => {
     case ADD_TRACK:
       return [...state, UploadedTrackReducer(null, action)];
     case UPDATE_TRACK_NAME:
-      return state.map((track) => {
-        return UploadedTrackReducer(track, action);
-      });
+      return state.map(track =>
+        UploadedTrackReducer(track, action)
+      );
     default:
       return state;
   }
