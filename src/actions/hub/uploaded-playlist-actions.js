@@ -1,6 +1,7 @@
 import { ADD_TRACK } from '../types';
 
 let playlistPosition = 0;
+let trackId = 0;
 
 export const addTrack = (file) => {
   return (dispatch) => {
@@ -10,6 +11,7 @@ export const addTrack = (file) => {
       const track = {
         name: file.name,
         playlistPosition: playlistPosition += 1,
+        trackId: trackId += 1,
         duration: Math.round(audio.duration),
         file
       };

@@ -1,4 +1,4 @@
-import { ADD_TRACK } from '../../actions/types';
+import { ADD_TRACK, UPDATE_TRACK_NAME } from '../../actions/types';
 import UploadedTrackReducer from './uploaded-track-reducer';
 
 const INITIAL_STATE = [];
@@ -6,8 +6,11 @@ const INITIAL_STATE = [];
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_TRACK:
-      console.log('Playlist reducer', action);
       return [...state, UploadedTrackReducer(null, action)];
+    case UPDATE_TRACK_NAME:
+      return state.map((track) => {
+        return UploadedTrackReducer(track, action);
+      });
     default:
       return state;
   }

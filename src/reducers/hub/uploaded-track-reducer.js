@@ -1,6 +1,9 @@
+import { ADD_TRACK, UPDATE_TRACK_NAME } from '../../actions/types';
+
 export const INITIAL_STATE = {
   name: '',
   duration: null,
+  trackId: null,
   size: null,
   location: '',
   file: null,
@@ -9,14 +12,21 @@ export const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'ADD_TRACK':
+    case ADD_TRACK:
       console.log('Track reducer', action.payload);
       return {
         name: action.payload.name,
+        trackId: action.payload.trackId,
         duration: action.payload.duration,
         file: action.payload.file,
         playlistPosition: action.payload.playlistPosition
       };
+    case UPDATE_TRACK_NAME:
+      if (state.id !== action.trackId) {
+        return state;
+      }
+
+      return { ...state, name: action.payload };
     default:
       return state;
   }
