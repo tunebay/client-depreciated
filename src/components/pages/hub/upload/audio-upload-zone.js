@@ -9,9 +9,9 @@ import UploadedPlaylist from './uploaded-playlist';
 class AudioUploadZone extends Component {
   onDrop(files, rejectedFiles) {
     console.log('Rejected:', rejectedFiles);
-    console.log('Accepted:', files);
-    const track = files[0];
-    this.props.addTrack(track);
+    files.forEach((file) => {
+      this.props.addTrack(file);
+    });
   }
 
   onOpenClick() {

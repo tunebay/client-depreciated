@@ -9,7 +9,7 @@ export const addTrack = (file) => {
     audio.addEventListener('loadedmetadata', () => {
       const track = {
         name: file.name,
-        playlistPosition: playlistPosition + 1,
+        playlistPosition: playlistPosition += 1,
         duration: Math.round(audio.duration),
         file
       };
