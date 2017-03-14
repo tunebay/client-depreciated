@@ -11,7 +11,7 @@ class UploadedTrack extends Component {
   render() {
     console.log(this.props);
     return (
-      <li>
+      <li key={`track-${this.props.track.trackId}`}>
         <input
           type="text"
           onChange={this.handleInputChange.bind(this)}

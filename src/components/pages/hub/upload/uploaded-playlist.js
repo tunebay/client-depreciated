@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import v4 from 'node-uuid';
 import { connect } from 'react-redux';
 import UploadedTrack from './uploaded-track';
 import * as actions from '../../../../actions/hub/uploaded-playlist-actions';
@@ -10,7 +9,7 @@ class UploadedPlaylist extends Component {
     return (
       <ul>
         {this.props.playlist.map((track, index) =>
-          <UploadedTrack track={track} key={v4()} index={index} />
+          <UploadedTrack track={track} key={track.trackId} index={index} />
         )}
       </ul>
     );
