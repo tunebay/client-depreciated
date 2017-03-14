@@ -7,7 +7,7 @@ export default (state = INITIAL_STATE, action) => {
   console.log(action.type);
   switch (action.type) {
     case ADD_TRACK:
-      return [...state, UploadedTrackReducer(null, action)];
+      return [...state, UploadedTrackReducer(action.payload, action)];
     default:
       return state;
   }

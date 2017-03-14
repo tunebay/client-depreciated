@@ -6,6 +6,7 @@ import * as actions from '../../../../actions/hub/uploaded-playlist-actions';
 
 class UploadedPlaylist extends Component {
   render() {
+    console.log(this.props.playlist);
     return (
       <ul>
         {this.props.playlist.map((track, index) =>

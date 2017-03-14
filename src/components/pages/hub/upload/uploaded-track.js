@@ -4,10 +4,10 @@ import * as actions from '../../../../actions/hub/uploaded-track-actions';
 
 class UploadedTrack extends Component {
   render() {
-    console.log(this.props.updateTrackName('Hello'));
+    console.log('track props', this.props);
     return (
       <li>
-        <input type="text" />
+        <div>Track name: </div>
       </li>
     );
   }
