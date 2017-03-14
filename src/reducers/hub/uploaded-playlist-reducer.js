@@ -7,7 +7,7 @@ export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_TRACK:
       console.log('Playlist reducer', action);
-      return [...state, UploadedTrackReducer(action.payload, action)];
+      return [...state, UploadedTrackReducer(null, action)];
     default:
       return state;
   }
