@@ -1,7 +1,12 @@
 import { arrayMove } from 'react-sortable-hoc';
 import axios from 'axios';
 import v4 from 'node-uuid';
-import { ADD_TRACK, UPDATE_PLAYLIST_POSITIONS, UPDATE_TRACK_PROGRESS } from '../types';
+import {
+  ADD_TRACK,
+  UPDATE_PLAYLIST_POSITIONS,
+  UPDATE_TRACK_PROGRESS,
+  ADD_TRACK_LOCATION
+} from '../types';
 
 const API_URL = 'http://localhost:3000';
 
@@ -39,6 +44,7 @@ export const updateTrackPosition = (playlist, oldIndex, newIndex) => {
 
 // Helpers
 const uploadFilesToS3 = (playlist, dispatch) => {
+  let uploadCounter = 0;
   playlist.forEach((track) => {
     const filename = `users/music/${v4()}`;
     axios.get(`${API_URL}/upload/s3/sign`, {
@@ -54,7 +60,7 @@ const uploadFilesToS3 = (playlist, dispatch) => {
         headers: { 'Content-Type': track.file.type },
         onUploadProgress: (progress) => {
           const percentCompleted = Math.round((progress.loaded * 100) / progress.total);
-          console.log(track.file.name, percentCompleted);
+          // console.log(track.file.name, percentCompleted);
           dispatch({ type: UPDATE_TRACK_PROGRESS, payload: percentCompleted, trackId: track.trackId });
         }
       };
@@ -62,14 +68,18 @@ const uploadFilesToS3 = (playlist, dispatch) => {
       return axios.put(signedURL, track.file, config);
     })
     .then((res) => {
-      // uploadCounter += 1;
-      // console.log(`${uploadCounter} / ${playlist.length}`);
+      uploadCounter += 1;
+      console.log(`${uploadCounter} / ${playlist.length}`);
       console.log('track upload complete:', res);
-      // if (uploadCounter === playlist.length) {
-      //   dispatch({ type: FULL_UPLOAD_COMPLETE });
-      // }
+      const location = res.config.url.split('?')[0];
+      dispatch({ type: ADD_TRACK_LOCATION, payload: location, trackId: track.trackId });
+      if (uploadCounter === playlist.length) {
+        console.log('full upload complete');
+        // dispatch({ type: FULL_UPLOAD_COMPLETE });
+      }
     })
     .catch((err) => {
+      console.log(err);
       // dispatch({ type: UPLOAD_ERROR, payload: err });
     });
   });

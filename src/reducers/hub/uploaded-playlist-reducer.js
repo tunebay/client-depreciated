@@ -2,7 +2,8 @@ import {
   ADD_TRACK,
   UPDATE_TRACK_NAME,
   UPDATE_PLAYLIST_POSITIONS,
-  UPDATE_TRACK_PROGRESS
+  UPDATE_TRACK_PROGRESS,
+  ADD_TRACK_LOCATION
 } from '../../actions/types';
 import UploadedTrackReducer from './uploaded-track-reducer';
 
@@ -17,6 +18,10 @@ export default (state = INITIAL_STATE, action) => {
         UploadedTrackReducer(track, action)
       );
     case UPDATE_TRACK_PROGRESS:
+      return state.map(track =>
+        UploadedTrackReducer(track, action)
+      );
+    case ADD_TRACK_LOCATION:
       return state.map(track =>
         UploadedTrackReducer(track, action)
       );

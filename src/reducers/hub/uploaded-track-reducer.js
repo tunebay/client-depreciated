@@ -1,7 +1,8 @@
 import {
   ADD_TRACK,
   UPDATE_TRACK_NAME,
-  UPDATE_TRACK_PROGRESS
+  UPDATE_TRACK_PROGRESS,
+  ADD_TRACK_LOCATION
 } from '../../actions/types';
 
 export const INITIAL_STATE = {
@@ -30,6 +31,9 @@ export default (state = INITIAL_STATE, action) => {
     case UPDATE_TRACK_PROGRESS:
       if (state.trackId !== action.trackId) return state;
       return { ...state, progress: action.payload };
+    case ADD_TRACK_LOCATION:
+      if (state.trackId !== action.trackId) return state;
+      return { ...state, location: action.payload };
     default:
       return state;
   }
