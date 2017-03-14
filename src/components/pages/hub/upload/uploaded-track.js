@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { SortableElement, SortableHandle } from 'react-sortable-hoc';
 import * as actions from '../../../../actions/hub/uploaded-track-actions';
 
 class UploadedTrack extends Component {
@@ -20,4 +21,4 @@ class UploadedTrack extends Component {
   }
 }
 
-export default connect(null, actions)(UploadedTrack);
+export default connect(null, actions)(SortableElement(UploadedTrack));

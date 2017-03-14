@@ -11,6 +11,14 @@ export default (state = INITIAL_STATE, action) => {
       return state.map(track =>
         UploadedTrackReducer(track, action)
       );
+    case 'UPDATE_PLAYLIST_ORDER':
+      console.log('IN HERE THO');
+      return action.payload.map((track, index) =>
+        UploadedTrackReducer({
+          ...track,
+          playlistPosition: index + 1 }, action
+        )
+      );
     default:
       return state;
   }

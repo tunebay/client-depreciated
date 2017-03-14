@@ -1,3 +1,4 @@
+import { arrayMove } from 'react-sortable-hoc';
 import { ADD_TRACK } from '../types';
 
 let playlistPosition = 0;
@@ -19,4 +20,9 @@ export const addTrack = (file) => {
       dispatch({ type: ADD_TRACK, payload: track });
     });
   };
+};
+
+export const updateTrackPosition = (playlist, oldIndex, newIndex) => {
+  const newOrderPlaylist = arrayMove(playlist, oldIndex, newIndex);
+  return { type: 'UPDATE_PLAYLIST_ORDER', payload: newOrderPlaylist };
 };
