@@ -13,16 +13,8 @@ export const USERNAME_ERROR = 'USERNAME_ERROR';
 export const MOUNT_USER = 'MOUNT_USER';
 export const LOADING_USER = 'LOADING_USER';
 
-// Hub actions
-export const UPDATE_UPLOAD_PROGRESS = 'UPDATE_UPLOAD_PROGRESS';
-export const TRACK_UPLOAD_COMPLETE = 'TRACK_UPLOAD_COMPLETE';
-export const UPLOAD_ERROR = 'UPLOAD_ERROR';
-export const UPLOAD_STARTED = 'UPLOAD_STARTED';
-export const FULL_UPLOAD_COMPLETE = 'FULL_UPLOAD_COMPLETE';
-export const UPDATE_PLAYLIST_ORDER = 'UPDATE_PLAYLIST_ORDER';
-
-export const STOP_UPDATING_PROGRESS = 'STOP_UPDATING_PROGRESS';
-export const START_UPDATING_PROGRESS = 'START_UPDATING_PROGRESS';
-
-// current user
+// current user actions
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+
+// hub/upload actions
+export const ADD_TRACK = 'ADD_TRACK';

@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
-import * as actions from '../../../../actions/hub/upload-actions';
+import * as actions from '../../../../actions/hub/uploaded-playlist-actions';
 import '../../../../styles/components/hub/upload.scss';
 
 class AudioUploadZone extends Component {
   onDrop(files, rejectedFiles) {
     console.log('Rejected:', rejectedFiles);
     console.log('Accepted:', files);
+    const track = files[0];
+    this.props.addTrack(track);
   }
 
   onOpenClick() {
