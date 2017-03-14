@@ -4,12 +4,10 @@ import * as actions from '../../../../actions/hub/uploaded-track-actions';
 
 class UploadedTrack extends Component {
   handleInputChange(e) {
-    console.log(e.target.value);
     this.props.updateTrackName(e.target.value, this.props.track.trackId);
   }
 
   render() {
-    console.log(this.props);
     return (
       <li key={`track-${this.props.track.trackId}`}>
         <input

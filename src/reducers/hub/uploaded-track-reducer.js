@@ -13,7 +13,6 @@ export const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_TRACK:
-      console.log('Track reducer', action.payload);
       return {
         name: action.payload.name,
         trackId: action.payload.trackId,
@@ -22,11 +21,7 @@ export default (state = INITIAL_STATE, action) => {
         playlistPosition: action.payload.playlistPosition
       };
     case UPDATE_TRACK_NAME:
-      if (state.trackId !== action.trackId) {
-        console.log('Dont update name');
-        return state;
-      }
-      console.log('UPDATE NAME');
+      if (state.trackId !== action.trackId) return state;
       return { ...state, name: action.payload };
     default:
       return state;
