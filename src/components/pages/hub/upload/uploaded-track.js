@@ -1,18 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 
-class UploadedTrack extends Component {
-  render() {
-    return (
-      <div>{this.props.track.name}</div>
-    );
-  }
-}
-
-const mapStateToProps = (state) => {
-  return {
-    track: state.uploadedTrack
-  };
+const UploadedTrack = ({ track }) => {
+  return (
+    <li>Uploaded track. key: {track.name}</li>
+  );
 };
 
-export default connect(mapStateToProps)(UploadedTrack);
+export default UploadedTrack;

@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import * as actions from '../../../../actions/hub/uploaded-playlist-actions';
 import '../../../../styles/components/hub/upload.scss';
 
+import UploadedPlaylist from './uploaded-playlist';
+
 class AudioUploadZone extends Component {
   onDrop(files, rejectedFiles) {
     console.log('Rejected:', rejectedFiles);
@@ -33,6 +35,7 @@ class AudioUploadZone extends Component {
             <button className="choose-file-btn"onClick={this.onOpenClick.bind(this)}>Choose files</button>
           </div>
         </Dropzone>
+        <UploadedPlaylist />
       </div>
     );
   }
