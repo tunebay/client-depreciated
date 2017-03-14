@@ -27,7 +27,7 @@ class UploadedPlaylist extends Component {
       <SortablePlaylist
         playlist={playlist}
         onSortEnd={this.onSortEnd.bind(this)}
-        // useDragHandle
+        useDragHandle
         axis="y"
         lockAxis="y"
         lockToContainerEdge

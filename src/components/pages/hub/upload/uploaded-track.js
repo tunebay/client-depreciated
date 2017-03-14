@@ -10,17 +10,20 @@ const DragHandle = SortableHandle(() => {
 
 class UploadedTrack extends Component {
   handleInputChange(e) {
-    this.props.updateTrackName(e.target.value, this.props.track.trackId);
+    const { track } = this.props;
+    this.props.updateTrackName(e.target.value, track.trackId);
   }
 
   render() {
+    const { track } = this.props;
     return (
-      <li key={`track-${this.props.track.trackId}`}>
+      <li key={`track-${track.trackId}`}>
+        {track.playlistPosition}
         <DragHandle />
         <input
           type="text"
           onChange={this.handleInputChange.bind(this)}
-          value={this.props.track.name}
+          value={track.name}
         />
       </li>
     );
