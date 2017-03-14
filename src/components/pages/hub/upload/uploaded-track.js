@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../../../actions/hub/uploaded-track-actions';
 
-const UploadedTrack = ({ track }) => {
-  return (
-    <li>Uploaded track. key: {track.name}</li>
-  );
-};
+class UploadedTrack extends Component {
+  render() {
+    console.log(this.props.updateTrackName('Hello'));
+    return (
+      <li>
+        <input type="text" />
+      </li>
+    );
+  }
+}
 
-export default UploadedTrack;
+export default connect(null, actions)(UploadedTrack);

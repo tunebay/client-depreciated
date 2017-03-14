@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import v4 from 'node-uuid';
 import { connect } from 'react-redux';
 import UploadedTrack from './uploaded-track';
+import * as actions from '../../../../actions/hub/uploaded-playlist-actions';
 
 class UploadedPlaylist extends Component {
   render() {
     return (
       <ul>
-        {this.props.playlist.map(track =>
-          <UploadedTrack track={track} key={v4()} />
+        {this.props.playlist.map((track, index) =>
+          <UploadedTrack track={track} key={v4()} index={index} />
         )}
       </ul>
     );
@@ -21,4 +22,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(UploadedPlaylist);
+export default connect(mapStateToProps, actions)(UploadedPlaylist);
