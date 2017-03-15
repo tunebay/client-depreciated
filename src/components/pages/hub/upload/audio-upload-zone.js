@@ -18,7 +18,6 @@ class AudioUploadZone extends Component {
   }
 
   render() {
-    console.log(this.props.currentUser);
     return (
       <div className="audio-upload-zone">
         <Dropzone
@@ -35,7 +34,6 @@ class AudioUploadZone extends Component {
             <button className="choose-file-btn"onClick={this.onOpenClick.bind(this)}>Choose files</button>
           </div>
         </Dropzone>
-        <UploadedPlaylist />
       </div>
     );
   }
