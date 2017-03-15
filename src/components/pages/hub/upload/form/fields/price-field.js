@@ -11,7 +11,7 @@ const PriceField = (props) => {
           {...props.input}
           type="number"
           step="0.01"
-          min="0.00"
+          // min="0.00"
           value={props.input.value}
         />
         <button className="pricing-guide">Pricing guide</button>

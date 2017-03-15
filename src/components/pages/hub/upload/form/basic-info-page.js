@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import validate from './validate';
 import UploadedPlaylist from '../uploaded-playlist';
 import TitleField from './fields/title-field';
 import DescriptionField from './fields/description-field';
@@ -46,5 +47,6 @@ export default reduxForm({
   ],
   destroyOnUnmount: false,        // <------ preserve form data
   forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
-  initialValues: { price: parseFloat(0.00).toFixed(2), canPayMore: true }
+  initialValues: { price: parseFloat(0.00).toFixed(2), canPayMore: true },
+  validate
 })(BasicInfoPage);

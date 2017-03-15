@@ -2,7 +2,6 @@ import React from 'react';
 // import '../../../../styles/components/hub/upload-form-fields.scss';
 
 const CanPayMoreField = (props) => {
-  console.log('INPUT VALUE:', props.input.value);
   return (
     <div className="can-pay-more-field">
       <input

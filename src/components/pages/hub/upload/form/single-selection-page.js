@@ -29,5 +29,5 @@ const SingleSelectionPage = (props) => {
 export default reduxForm({
   form: 'audioUpload',                 // <------ same form name
   destroyOnUnmount: false,        // <------ preserve form data
-  forceUnregisterOnUnmount: true  // <------ unregister fields on unmount
+  forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
 })(SingleSelectionPage);
