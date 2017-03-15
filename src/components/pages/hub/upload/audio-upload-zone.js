@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import * as actions from '../../../../actions/hub/uploaded-playlist-actions';
 import '../../../../styles/components/hub/upload.scss';
 
-import UploadedPlaylist from './uploaded-playlist';
-
 class AudioUploadZone extends Component {
   onDrop(files, rejectedFiles) {
     const { addTracksToPlaylist, currentUser } = this.props;

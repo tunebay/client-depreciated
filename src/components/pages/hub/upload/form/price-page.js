@@ -1,7 +1,9 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import UploadedPlaylist from '../uploaded-playlist';
-import renderField from './render-field';
+import PriceField from './fields/price-field';
+import CanPayMoreField from './fields/can-pay-more-field';
+
 
 const PricePage = (props) => {
   const { handleSubmit, previousPage } = props;
@@ -10,7 +12,8 @@ const PricePage = (props) => {
       <div className="upload-playlist-detail">
         <div className="artwork-section" />
         <div className="upload-form-fields">
-          <Field name="title" type="text" component={renderField} label="First Name" />
+          <Field name="price" type="number" component={PriceField} label="Price" />
+          <Field name="canPayMORE" type="checkbox" component={CanPayMoreField} />
         </div>
       </div>
       <div className="uploaded-playlist-con">
@@ -30,5 +33,6 @@ const PricePage = (props) => {
 export default reduxForm({
   form: 'audioUpload',                 // <------ same form name
   destroyOnUnmount: false,        // <------ preserve form data
-  forceUnregisterOnUnmount: true  // <------ unregister fields on unmount
+  forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
+  initialValues: { price: 0.00 }
 })(PricePage);
