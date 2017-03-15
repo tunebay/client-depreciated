@@ -8,8 +8,9 @@ import UploadedPlaylist from './uploaded-playlist';
 
 class AudioUploadZone extends Component {
   onDrop(files, rejectedFiles) {
+    const { addTracksToPlaylist, currentUser } = this.props;
     console.log('Rejected:', rejectedFiles);
-    this.props.addTracksToPlaylist(files);
+    addTracksToPlaylist(files, currentUser.id);
   }
 
   onOpenClick() {
@@ -17,6 +18,7 @@ class AudioUploadZone extends Component {
   }
 
   render() {
+    console.log(this.props.currentUser);
     return (
       <div className="audio-upload-zone">
         <Dropzone
@@ -39,4 +41,10 @@ class AudioUploadZone extends Component {
   }
 }
 
-export default connect(null, actions)(AudioUploadZone);
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser
+  };
+};
+
+export default connect(mapStateToProps, actions)(AudioUploadZone);
