@@ -4,6 +4,7 @@ import UploadedPlaylist from '../uploaded-playlist';
 import TitleField from './fields/title-field';
 import DescriptionField from './fields/description-field';
 import GenreField from './fields/genre-field';
+import PlaylistTypeField from './fields/playlist-type-field';
 
 const BasicInfoPage = (props) => {
   const { handleSubmit } = props;
@@ -13,6 +14,7 @@ const BasicInfoPage = (props) => {
         <div className="artwork-section" />
         <div className="upload-form-fields">
           <Field name="title" type="text" component={TitleField} label="Title" />
+          <Field name="playlistType" component={PlaylistTypeField} label="Playlist type" />
           <Field name="genre" component={GenreField} label="Genre" />
           <Field name="genre2" component={GenreField} label="Additional genre" />
           <Field name="genre3" component={GenreField} label="Additional genre" />
@@ -34,6 +36,15 @@ const BasicInfoPage = (props) => {
 
 export default reduxForm({
   form: 'audioUpload',                 // <------ same form name
+  fields: [
+    'title',
+    'playlistType',
+    'genre',
+    'genre2',
+    'genre3',
+    'description'
+  ],
   destroyOnUnmount: false,        // <------ preserve form data
-  forceUnregisterOnUnmount: true  // <------ unregister fields on unmount
+  forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
+  initialValues: { price: parseFloat(0.00).toFixed(2), canPayMore: true }
 })(BasicInfoPage);

@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import UploadedPlaylist from '../uploaded-playlist';
 import PriceField from './fields/price-field';
 import CanPayMoreField from './fields/can-pay-more-field';
+import PurchaseMessageField from './fields/purchase-message-field';
 
 
 const PricePage = (props) => {
@@ -14,6 +15,7 @@ const PricePage = (props) => {
         <div className="upload-form-fields">
           <Field name="price" type="number" component={PriceField} label="Price" />
           <Field name="canPayMore" type="checkbox" component={CanPayMoreField} />
+          <Field name="purchaseMessage" type="textarea" component={PurchaseMessageField} />
         </div>
       </div>
       <div className="uploaded-playlist-con">
@@ -31,8 +33,13 @@ const PricePage = (props) => {
 };
 
 export default reduxForm({
-  form: 'audioUpload',                 // <------ same form name
+  form: 'audioUpload',
+  fields: [
+    'price',
+    'canPayMore',
+    'purchaseMessage'
+  ],             // <------ same form name
   destroyOnUnmount: false,        // <------ preserve form data
   forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
-  initialValues: { price: 0.00, canPayMore: true }
+  // initialValues: { price: parseFloat(0.00).toFixed(2), canPayMore: true }
 })(PricePage);
