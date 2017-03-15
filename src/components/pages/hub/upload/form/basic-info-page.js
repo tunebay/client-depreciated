@@ -14,6 +14,8 @@ const BasicInfoPage = (props) => {
         <div className="upload-form-fields">
           <Field name="title" type="text" component={TitleField} label="Title" />
           <Field name="genre" component={GenreField} label="Genre" />
+          <Field name="genre2" component={GenreField} label="Additional genre" />
+          <Field name="genre3" component={GenreField} label="Additional genre" />
           <Field name="description" component={DescriptionField} label="Description" />
         </div>
       </div>

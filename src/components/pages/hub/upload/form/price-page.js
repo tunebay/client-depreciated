@@ -13,7 +13,7 @@ const PricePage = (props) => {
         <div className="artwork-section" />
         <div className="upload-form-fields">
           <Field name="price" type="number" component={PriceField} label="Price" />
-          <Field name="canPayMORE" type="checkbox" component={CanPayMoreField} />
+          <Field name="canPayMore" type="checkbox" component={CanPayMoreField} />
         </div>
       </div>
       <div className="uploaded-playlist-con">
@@ -34,5 +34,5 @@ export default reduxForm({
   form: 'audioUpload',                 // <------ same form name
   destroyOnUnmount: false,        // <------ preserve form data
   forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
-  initialValues: { price: 0.00 }
+  initialValues: { price: 0.00, canPayMore: true }
 })(PricePage);
