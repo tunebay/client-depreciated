@@ -4,17 +4,9 @@ import 'react-select/dist/react-select.css';
 // import '../../../../../../styles/components/hub/upload-form-fields.scss';
 
 class GenreField extends Component {
-  renderLabel() {
-    if (this.props.label !== 'Genre') {
-      return <label className="upload-label" htmlFor={this.props.label}>Additional genre</label>;
-    }
-    return (
-      <label className="upload-label" htmlFor={this.props.label}>Genre<span>*</span></label>
-    );
-  }
-
   render() {
-    const { input, label, meta: { touched, error } } = this.props
+    const { input, label, meta: { touched, error } } = this.props;
+    const genresSelected = input.value.length;
     const options = [
       // DO NOT CHANGE
       // values represent ids in database
@@ -62,15 +54,20 @@ class GenreField extends Component {
 
     return (
       <div className="playlist-type-field">
-        <label className="upload-label" htmlFor={this.props.label}>{this.renderLabel()}</label>
+        <label className="upload-label" htmlFor={this.props.label}>{label}</label>
         <div>
           <Select
             className="upload-dropdown"
             {...input}
-            placeholder="Choose"
-            value={this.props.input.value || ''}
-            options={options}
+            placeholder="Select upto 3 genres"
+            value={input.value}
+            options={
+              genresSelected >= 3 ?
+                input.values :
+                options
+            }
             clearable={false}
+            multi
             onBlur={() => input.onBlur(input.value)}
           />
           {touched && error && <span>{error}</span>}

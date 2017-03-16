@@ -22,7 +22,6 @@ class UploadedPlaylist extends Component {
 
   render() {
     const { playlist } = this.props;
-    // console.log('PLAYLIST:', playlist);
     return (
       <SortablePlaylist
         playlist={playlist}

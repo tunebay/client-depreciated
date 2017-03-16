@@ -6,6 +6,7 @@ import TitleField from './fields/title-field';
 import DescriptionField from './fields/description-field';
 import GenreField from './fields/genre-field';
 import PlaylistTypeField from './fields/playlist-type-field';
+import ReleaseDateField from './fields/release-date-field';
 
 const BasicInfoPage = (props) => {
   const { handleSubmit } = props;
@@ -16,9 +17,8 @@ const BasicInfoPage = (props) => {
         <div className="upload-form-fields">
           <Field name="title" type="text" component={TitleField} label="Title" />
           <Field name="playlistType" component={PlaylistTypeField} label="Playlist type" />
-          <Field name="genre" component={GenreField} label="Genre" />
-          <Field name="genre2" component={GenreField} label="Additional genre" />
-          <Field name="genre3" component={GenreField} label="Additional genre" />
+          <Field name="releaseDate" component={ReleaseDateField} label="Playlist type" />
+          <Field name="genres" component={GenreField} label="Genre(s)" />
           <Field name="description" component={DescriptionField} label="Description" />
         </div>
       </div>
@@ -40,9 +40,8 @@ export default reduxForm({
   fields: [
     'title',
     'playlistType',
-    'genre',
-    'genre2',
-    'genre3',
+    'releaseDate',
+    'genres',
     'description'
   ],
   destroyOnUnmount: false,        // <------ preserve form data
