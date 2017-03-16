@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import '../../../../../../styles/components/hub/upload/form-fields.scss';
 
 class ReleaseDateField extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: ''
+      date: null
     };
   }
 

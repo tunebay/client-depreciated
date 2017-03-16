@@ -5,14 +5,16 @@ import validate from './validate';
 import PriceField from './fields/price-field';
 import CanPayMoreField from './fields/can-pay-more-field';
 import PurchaseMessageField from './fields/purchase-message-field';
-
+import '../../../../../styles/components/hub/upload/upload-form.scss';
 
 const PricePage = (props) => {
   const { handleSubmit, previousPage } = props;
   return (
     <form onSubmit={handleSubmit}>
       <div className="upload-playlist-detail">
-        <div className="artwork-section" />
+        <div className="artwork-section">
+          <div className="artwork-placeholder" />
+        </div>
         <div className="upload-form-fields">
           <Field name="price" type="number" component={PriceField} label="Price" />
           <Field name="canPayMore" type="checkbox" component={CanPayMoreField} />
@@ -23,10 +25,10 @@ const PricePage = (props) => {
         <UploadedPlaylist />
       </div>
       <div className="upload-form-footer">
-        <div>*Indicates required field</div>
-        <div className="uploadform-action-btns">
-          <button type="button" className="previous" onClick={previousPage}>Previous</button>
-          <button type="submit" className="next">Next</button>
+        <div className="required-field-note">*Indicates required field</div>
+        <div className="upload-form-action-btns">
+          <button type="button" className="previous-btn" onClick={previousPage}>Back</button>
+          <button type="submit" className="next-btn">Next</button>
         </div>
       </div>
     </form>

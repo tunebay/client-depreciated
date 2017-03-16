@@ -19,8 +19,10 @@ const BasicInfoPage = (props) => {
         </div>
         <div className="upload-form-fields">
           <Field name="title" type="text" component={TitleField} label="Title" />
-          <Field name="playlistType" component={PlaylistTypeField} label="Playlist type" />
-          <Field name="releaseDate" component={ReleaseDateField} label="Playlist type" />
+          <div className="side-by-side-fields">
+            <Field name="playlistType" component={PlaylistTypeField} label="Playlist type" />
+            <Field name="releaseDate" component={ReleaseDateField} label="Release date" />
+          </div>
           <Field name="genres" component={GenreField} label="Genre(s)" />
           <Field name="description" component={DescriptionField} label="Description" />
         </div>
@@ -29,9 +31,9 @@ const BasicInfoPage = (props) => {
         <UploadedPlaylist />
       </div>
       <div className="upload-form-footer">
-        <div>*Indicates required field</div>
-        <div className="uploadform-action-btns">
-          <button type="submit" className="next">Next</button>
+        <div className="required-field-note">*Indicates required field</div>
+        <div className="upload-form-action-btns">
+          <button type="submit" className="next-btn">Next</button>
         </div>
       </div>
     </form>

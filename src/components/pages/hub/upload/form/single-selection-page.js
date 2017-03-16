@@ -1,13 +1,16 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
 import UploadedPlaylist from '../uploaded-playlist';
+import '../../../../../styles/components/hub/upload/upload-form.scss';
 
 const SingleSelectionPage = (props) => {
   const { handleSubmit, previousPage } = props;
   return (
     <form onSubmit={handleSubmit}>
       <div className="upload-playlist-detail">
-        <div className="artwork-section" />
+        <div className="artwork-section">
+          <div className="artwork-placeholder" />
+        </div>
         <div className="upload-form-fields">
           <p>No fields actuallyo n this page</p>
         </div>
@@ -16,10 +19,10 @@ const SingleSelectionPage = (props) => {
         <UploadedPlaylist />
       </div>
       <div className="upload-form-footer">
-        <div>*Indicates required field</div>
-        <div className="uploadform-action-btns">
-          <button type="button" className="previous" onClick={previousPage}>Previous</button>
-          <button type="submit" className="next">Next</button>
+        <div className="required-field-note" />
+        <div className="upload-form-action-btns">
+          <button type="button" className="previous-btn" onClick={previousPage}>back</button>
+          <button type="submit" className="next-btn">Release</button>
         </div>
       </div>
     </form>
