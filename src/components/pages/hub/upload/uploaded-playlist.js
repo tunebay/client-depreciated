@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { SortableContainer } from 'react-sortable-hoc';
 import UploadedTrack from './uploaded-track';
 import * as actions from '../../../../actions/hub/uploaded-playlist-actions';
+import '../../../../styles/components/hub/upload/uploaded-track.scss';
 
 const SortablePlaylist = SortableContainer(({ playlist }) => {
   return (
-    <ul>
+    <ul className="uploaded-track-con">
       {playlist.map((track, index) =>
         <UploadedTrack track={track} key={track.trackId} index={index} />
       )}

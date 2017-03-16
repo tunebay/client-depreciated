@@ -7,13 +7,16 @@ import DescriptionField from './fields/description-field';
 import GenreField from './fields/genre-field';
 import PlaylistTypeField from './fields/playlist-type-field';
 import ReleaseDateField from './fields/release-date-field';
+import '../../../../../styles/components/hub/upload/upload-form.scss';
 
 const BasicInfoPage = (props) => {
   const { handleSubmit } = props;
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="audio-upload-form" onSubmit={handleSubmit}>
       <div className="upload-playlist-detail">
-        <div className="artwork-section" />
+        <div className="artwork-section">
+          <div className="artwork-placeholder" />
+        </div>
         <div className="upload-form-fields">
           <Field name="title" type="text" component={TitleField} label="Title" />
           <Field name="playlistType" component={PlaylistTypeField} label="Playlist type" />

@@ -1,6 +1,5 @@
 const validate = (values) => {
   const errors = {};
-  console.log(values.genres);
   if (!values.title) {
     errors.title = 'Your playlist must have a title';
   }
