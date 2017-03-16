@@ -15,7 +15,7 @@ const PriceField = ({ input, label, meta: { touched, error } }) => {
           value={input.value}
         />
         <button className="pricing-guide">Pricing guide</button>
-        {touched && error && <span>{error}</span>}
+        {touched && error && <div className="field-error">{error}</div>}
       </div>
     </div>
   );

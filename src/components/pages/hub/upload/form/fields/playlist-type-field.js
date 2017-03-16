@@ -32,7 +32,7 @@ class PlaylistTypeField extends Component {
             options={options}
             clearable={false}
           />
-          {touched && error && <span>{error}</span>}
+          {touched && error && <div className="field-error">{error}</div>}
         </div>
       </div>
     );

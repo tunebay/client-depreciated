@@ -91,7 +91,7 @@ $font-stack: 'Avenir Next', sans-serif;
     width: 100%;
     border-radius: 3px;
     font-size: 16px;
-    border-color: #D4D4D4;
+    border-color: #ccc;
     line-height: 20px;
     border-width: 1px;
     font-weight: 400;
@@ -113,10 +113,18 @@ $font-stack: 'Avenir Next', sans-serif;
 
 .upload-label {
   font-size: 17px;
-  font-family: 'Avenir Next';
+  font-family: 'Avenir Next', sans-serif;
   font-weight: 500;
   color: #4A4A4A;
   span {
     color: #D0011B;
   }
+}
+
+.field-error {
+  color: #D0011B;
+  padding: 5px 0px;
+  font-family: 'Avenir Next', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
 }

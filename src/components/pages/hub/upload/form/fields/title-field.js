@@ -7,7 +7,7 @@ const TitleField = ({ input, label, type, meta: { touched, error } }) => (
     <div>
       <input {...input} placeholder={label} type={type} />
     </div>
-    {touched && error && <span>{error}</span>}
+    {touched && error && <div className="field-error">{error}</div>}
   </div>
 );
 

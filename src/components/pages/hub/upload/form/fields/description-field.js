@@ -5,7 +5,7 @@ const DescriptionField = ({ input, label, type, meta: { touched, error } }) => (
     <label className="upload-label" htmlFor={label}>{label}</label>
     <div>
       <textarea {...input} placeholder="Add a short description" type={type} />
-      {touched && error && <span>{error}</span>}
+      {touched && error && <div className="field-error">{error}</div>}
     </div>
   </div>
 );

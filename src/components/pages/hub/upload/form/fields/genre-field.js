@@ -70,7 +70,7 @@ class GenreField extends Component {
             multi
             onBlur={() => input.onBlur(input.value)}
           />
-          {touched && error && <span>{error}</span>}
+          {touched && error && <div className="field-error">{error}</div>}
         </div>
       </div>
     );
