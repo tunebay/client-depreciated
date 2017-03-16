@@ -6,6 +6,8 @@ import 'react-select/dist/react-select.css';
 
 class PlaylistTypeField extends Component {
   render() {
+    const { input, label, meta: { touched, error } } = this.props;
+
     const options = [
       { value: 'album', label: 'Album' },
       { value: 'EP', label: 'EP' },
@@ -17,19 +19,20 @@ class PlaylistTypeField extends Component {
       <div className="playlist-type-field">
         <label
           className="upload-label"
-          htmlFor={this.props.label}
+          htmlFor={label}
         >Playlist type<span>*</span>
         </label>
         <div>
           <Select
             className="upload-dropdown"
-            {...this.props.input}
+            {...input}
             searchable={false}
             placeholder="Choose"
-            value={this.props.input.value.value || ''}
+            value={input.value.value || ''}
             options={options}
             clearable={false}
           />
+          {touched && error && <span>{error}</span>}
         </div>
       </div>
     );

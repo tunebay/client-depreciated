@@ -14,7 +14,7 @@ class GenreField extends Component {
   }
 
   render() {
-    const { label, input } = this.props;
+    const { input, label, meta: { touched, error } } = this.props
     const options = [
       // DO NOT CHANGE
       // values represent ids in database
@@ -73,6 +73,7 @@ class GenreField extends Component {
             clearable={false}
             onBlur={() => input.onBlur(input.value)}
           />
+          {touched && error && <span>{error}</span>}
         </div>
       </div>
     );
