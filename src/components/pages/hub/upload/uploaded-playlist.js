@@ -21,17 +21,28 @@ class UploadedPlaylist extends Component {
     this.props.updateTrackPosition(playlist, oldIndex, newIndex);
   }
 
+  handleAddAnotherClick() {
+    console.log('Add another track here');
+  }
+
   render() {
     const { playlist } = this.props;
     return (
-      <SortablePlaylist
-        playlist={playlist}
-        onSortEnd={this.onSortEnd.bind(this)}
-        useDragHandle
-        axis="y"
-        lockAxis="y"
-        lockToContainerEdge
-      />
+      <div>
+        <SortablePlaylist
+          playlist={playlist}
+          onSortEnd={this.onSortEnd.bind(this)}
+          useDragHandle
+          axis="y"
+          lockAxis="y"
+          lockToContainerEdge
+        />
+        <button
+          type="button"
+          className="add-another-track"
+          onClick={this.handleAddAnotherClick.bind(this)}
+        >Add another track</button>
+      </div>
     );
   }
 }
