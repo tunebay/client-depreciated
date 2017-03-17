@@ -47,6 +47,29 @@ export const updateTrackPosition = (playlist, oldIndex, newIndex) => {
   return { type: UPDATE_PLAYLIST_POSITIONS, payload: newOrderPlaylist };
 };
 
+export const releasePlaylist = (playlistDetails, playlistTracks) => {
+  const durationArray = playlistTracks.map((track) => {
+    return track.duration;
+  });
+  const playlistDuration = durationArray.reduce((a, b) => { return a + b; });
+
+  const playlistToPost = {
+    // required
+    title: playlistDetails.title,
+    playlistType: playlistDetails.playlistType,
+    price: playlistDetails.price,
+    canPayMore: playlistDetails.canPayMore,
+    numberOfTracks: playlistTracks.length,
+    duration: playlistDuration,
+    // not required
+    releaseDate: playlistDetails.releaseDate || null,
+    description: playlistDetails.description || null,
+    purchaseMessage: playlistDetails.purchaseMessage || null
+  };
+  console.log(playlistToPost);
+  return {};
+};
+
 // Helpers
 const uploadFilesToS3 = (playlist, dispatch, userId) => {
   dispatch({ type: AUDIO_UPLOAD_STARTED });
@@ -75,7 +98,7 @@ const uploadFilesToS3 = (playlist, dispatch, userId) => {
       const location = res.config.url.split('?')[0];
       dispatch({ type: ADD_TRACK_LOCATION, payload: location, trackId: track.trackId });
       if (uploadCounter === playlist.length) {
-        dispatch({ type: AUDIO_UPLOAD_FINISHED })
+        dispatch({ type: AUDIO_UPLOAD_FINISHED });
       }
     })
     .catch((err) => {
