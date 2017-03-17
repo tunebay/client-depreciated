@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Editor from 'react-avatar-editor';
 import Icon from 'react-fontawesome';
 import * as actions from '../../../../../actions/hub/uploaded-artwork-actions';
-import '../../../../../styles/components/hub/upload.scss';
+import '../../../../../styles/components/hub/upload/upload.scss';
 
 
 class UploadArtwork extends Component {

@@ -181,12 +181,6 @@ canvas {
   align-items: center;
 }
 
-.track-list-container {
-  width: 100%;
-  height: auto;
-  // border: 1px solid orange;
-}
-
 .add-another-track {
   height: 60px;
   width: 100%;
@@ -210,12 +204,6 @@ canvas {
   flex-direction: row;
   align-items: center;
   // justify-content: center;
-}
-
-@media screen and (max-width: 1350px) {
-  .form-progress-con {
-    display: none;
-  }
 }
 
 .fa-icon {
