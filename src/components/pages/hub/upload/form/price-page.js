@@ -17,8 +17,9 @@ const PricePage = (props) => {
         </div>
         <div className="upload-form-fields">
           <Field name="price" type="number" component={PriceField} label="Price" />
+          <p className="pricing-note"><span>Note: </span>{`Leave the price at zero if you intend for this ${'playlistType.value'} to be a free download. People can still decide to donate towards free downloads if you let them.`}</p>
           <Field name="canPayMore" type="checkbox" component={CanPayMoreField} />
-          <Field name="purchaseMessage" type="textarea" component={PurchaseMessageField} />
+          <Field name="purchaseMessage" type="textarea" component={PurchaseMessageField} label="Purchase Message" />
         </div>
       </div>
       <div className="uploaded-playlist-con">

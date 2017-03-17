@@ -7,7 +7,7 @@ const PriceField = ({ input, label, meta: { touched, error } }) => {
     <div className="price-field">
       <label className="upload-label" htmlFor={label}>Price<span>*</span></label>
       <div className="upload-price-input-zone">
-        <div className="currency-symbol">£</div>
+        <div className="currency-con"><Icon name="gbp" className="currency" /></div>
         <input
           {...input}
           type="number"

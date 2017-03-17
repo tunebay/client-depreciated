@@ -111,9 +111,115 @@ $font-stack: 'Avenir Next', sans-serif;
   }
 }
 
+.price-field {
+  margin-top: 10px;
+  .upload-price-input-zone {
+    margin: 5px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    input {
+      border-radius: 3px;
+      font-size: 18px;
+      border-color: #D4D4D4;
+      line-height: 20px;
+      border-width: 1px;
+      font-weight: 500;
+      padding-left: 10px;
+      height: 40px;
+      width: 100px;
+      font-family: $font-stack;
+      color: $black;
+      border-style: solid;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left: none;
+      &:focus {
+        outline: none;
+      }
+    }
+    .currency-con{
+      height: 44px;
+      width: 40px;
+      background-color: $logo-blue;
+      border-width: 1px;
+      border-color: $logo-blue;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      display: flex;
+      font-size: 18px;
+      font-weight: 600;
+      align-items: center;
+      justify-content: center;
+      .currency {
+        color: #fff;
+      }
+    }
+    .pricing-guide {
+      background:none!important;
+      border:none;
+      padding:0!important;
+      font: inherit;
+      color: $light-blue;
+      margin-left: 10px;
+      font-family: $font-stack;
+      font-size: 14px;
+      /*border is optional*/
+      // border-bottom:1px solid #444;
+      cursor: pointer;
+    }
+  }
+}
+
+.can-pay-more-field {
+  display: flex;
+  flex-direction: row;
+  .can-pay-more-text {
+    color: $black;
+    font-family: $font-stack;
+    margin-left: 10px;
+    font-size: 14px;
+  }
+}
+
+.purchase-message-field {
+  margin-top: 15px;
+  textarea {
+    height: 100px;
+    width: 510px;
+    border-radius: 3px;
+    font-size: 16px;
+    border-color: #D4D4D4;
+    // line-height: 20px;
+    border-width: 1px;
+    font-weight: 400;
+    resize: none;
+    border-style: solid;
+    font-family: $font-stack;
+    color: $black;
+    // think about mixin
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    padding: 10px;
+    &:focus {
+      outline: none;
+    }
+  }
+  .purchase-message-text {
+    color: $black;
+    font-family: $font-stack;
+    font-size: 14px;
+  }
+}
+
 .upload-label {
   font-size: 17px;
-  font-family: 'Avenir Next', sans-serif;
+  font-family: 'Avenir Next';
   font-weight: 500;
   color: #4A4A4A;
   span {
