@@ -9,7 +9,8 @@ import '../../../../../styles/components/hub/upload.scss';
 
 class UploadArtwork extends Component {
   onImageDrop(image) {
-    this.props.setImagePreview(image);
+    console.log('IMAGE', image);
+    this.props.uploadImageToS3(image[0]);
   }
 
   changeImageScale(e) {
@@ -18,19 +19,20 @@ class UploadArtwork extends Component {
   }
 
   renderImage() {
-    if (this.props.uploadedArtwork.image === null) {
+    if (this.props.uploadedArtwork.location === null) {
       return (
         <div className="artwork-upload">
           <div className="add-artwork">Add arwork</div>
         </div>
       );
     }
+    console.log(this.props.uploadedArtwork.locaiton);
 
     return (
       <Editor
         className="artwork-dragger"
         ref={(node) => { this.editor = node; }}
-        image={this.props.uploadedArtwork.image[0].preview}
+        image={this.props.uploadedArtwork.location}
         width={260}
         height={260}
         border={0}
@@ -45,7 +47,7 @@ class UploadArtwork extends Component {
     // console.log('EDITOR', this.editor);
     // const scaledImage = this.editor.getImageScaledToCanvas();
     // this.props.setScaledImage(scaledImage);
-    if (this.props.uploadedArtwork.image === null) return <div />;
+    if (!this.props.uploadedArtwork.location) return <div />;
     if (this.props.uploadPage !== 1) return <div />;
     return (
       <div className="artwork-editor">
