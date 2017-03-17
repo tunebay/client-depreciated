@@ -38,7 +38,7 @@ class UploadedTrack extends Component {
             onChange={this.handleInputChange.bind(this)}
             value={track.name}
           />
-          <Icon name="times-circle" className="remove-track-icon" />
+          <Icon name="trash-o" className="remove-track-icon" />
         </div>
       </li>
     );

@@ -10,7 +10,7 @@
 .uploaded-track {
   .track-name-input {
     height: 30px;
-    width: 650px;
+    width: 680px;
     border: 1px solid #D9D9D9;
     border-radius: 3px;
     padding-left: 10px;
@@ -18,7 +18,7 @@
     font-family: 'Avenir Next', sans-serif;
     font-size: 14px;
   }
-  height: 58px;
+  height: 60px;
   // border-bottom: 1px solid #e1e1e1;
   background-color: #fff;
   list-style: none;
@@ -33,7 +33,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-top: 10px;
+  padding-top: 12px;
   align-self: flex-start;
 }
 
@@ -49,7 +49,8 @@
 }
 
 .remove-track-icon {
-  color: #CBCBCB;
+  // cbcbcb
+  color: #cbcbcb;
   padding-left: 15px;
   padding-right: 15px;
   vertical-align: baseline;
@@ -77,7 +78,7 @@
   font-size: 16px;
   justify-content: center;
   width: 100%;
-  height: 58px;
+  height: 60px;
   border: none;
   outline: none;
 }

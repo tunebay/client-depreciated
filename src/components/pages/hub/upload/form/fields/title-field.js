@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from 'react-fontawesome';
 import '../../../../../../styles/components/hub/upload/form-fields.scss';
 
 const TitleField = ({ input, label, type, meta: { touched, error } }) => (
@@ -7,7 +8,10 @@ const TitleField = ({ input, label, type, meta: { touched, error } }) => (
     <div>
       <input {...input} placeholder={label} type={type} />
     </div>
-    {touched && error && <div className="field-error">{error}</div>}
+    {touched && error &&
+      <div className="field-error">
+        <Icon name="exclamation-circle" /> {error}
+      </div>}
   </div>
 );
 

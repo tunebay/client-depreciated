@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from 'react-fontawesome';
 // import '../../../../styles/components/hub/upload-form-fields.scss';
 
 const PriceField = ({ input, label, meta: { touched, error } }) => {
@@ -15,7 +16,10 @@ const PriceField = ({ input, label, meta: { touched, error } }) => {
           value={input.value}
         />
         <button className="pricing-guide">Pricing guide</button>
-        {touched && error && <div className="field-error">{error}</div>}
+        {touched && error &&
+          <div className="field-error">
+            <Icon name="exclamation-circle" /> {error}
+          </div>}
       </div>
     </div>
   );

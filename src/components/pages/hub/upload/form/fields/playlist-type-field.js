@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import Icon from 'react-fontawesome';
 
 // import '../../../../styles/components/hub/upload-form-fields.scss';
 
@@ -32,7 +33,10 @@ class PlaylistTypeField extends Component {
             options={options}
             clearable={false}
           />
-          {touched && error && <div className="field-error">{error}</div>}
+          {touched && error &&
+            <div className="field-error">
+              <Icon name="exclamation-circle" /> {error}
+            </div>}
         </div>
       </div>
     );
