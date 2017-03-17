@@ -15,7 +15,7 @@ const BasicInfoPage = (props) => {
   return (
     <form className="audio-upload-form" onSubmit={handleSubmit}>
       <div className="upload-playlist-detail">
-        <UploadArtwork />
+        <UploadArtwork uploadPage={1} />
         <div className="upload-form-fields">
           <Field name="title" type="text" component={TitleField} label="Title" />
           <div className="side-by-side-fields">

@@ -1,10 +1,11 @@
-import { SET_IMAGE, SET_SCALE, SET_SCALED_IMAGE } from '../../actions/types';
+import { SET_IMAGE, SET_SCALE, SET_SCALED_IMAGE, UPDATE_IMAGE_POSITION } from '../../actions/types';
 
 const INITIAL_STATE = {
   image: null,
   disableClick: false,
   scale: 1.0,
-  scaledImage: null
+  scaledImage: null,
+  position: { x: 0.5, y: 0.5 }
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -15,6 +16,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, scale: action.payload };
     case SET_SCALED_IMAGE:
       return { ...state, scaledImage: action.payload };
+    case UPDATE_IMAGE_POSITION:
+      return { ...state, position: action.payload }
     default:
       return state;
   }

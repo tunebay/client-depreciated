@@ -9,7 +9,6 @@ import '../../../../../styles/components/hub/upload.scss';
 
 class UploadArtwork extends Component {
   onImageDrop(image) {
-    // const canvasScaled = this.editor.getImageScaledToCanvas();
     this.props.setImagePreview(image);
   }
 
@@ -36,12 +35,18 @@ class UploadArtwork extends Component {
         height={260}
         border={0}
         scale={this.props.uploadedArtwork.scale}
+        onPositionChange={e => this.props.updatePosition(e)}
+        position={this.props.uploadedArtwork.position}
       />
     );
   }
 
   renderImageEditor() {
+    // console.log('EDITOR', this.editor);
+    // const scaledImage = this.editor.getImageScaledToCanvas();
+    // this.props.setScaledImage(scaledImage);
     if (this.props.uploadedArtwork.image === null) return <div />;
+    if (this.props.uploadPage !== 1) return <div />;
     return (
       <div className="artwork-editor">
         <div className="upload-slider-con">
