@@ -182,6 +182,7 @@ $font-stack: 'Avenir Next', sans-serif;
     color: $black;
     font-family: $font-stack;
     margin-left: 10px;
+    font-weight: 500;
     font-size: 14px;
   }
 }
@@ -189,8 +190,8 @@ $font-stack: 'Avenir Next', sans-serif;
 .purchase-message-field {
   margin-top: 15px;
   textarea {
-    height: 100px;
-    width: 510px;
+    height: 130px;
+    width: 100%;
     border-radius: 3px;
     font-size: 16px;
     border-color: #D4D4D4;
@@ -212,6 +213,7 @@ $font-stack: 'Avenir Next', sans-serif;
   }
   .purchase-message-text {
     color: $black;
+    margin: 10px 0px;
     font-family: $font-stack;
     font-size: 14px;
   }

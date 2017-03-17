@@ -4,7 +4,7 @@ import '../../../../../../styles/components/hub/upload/form-fields.scss';
 const PurchaseMessageField = ({ input, label, type, playlistType }) => (
   <div className="purchase-message-field">
     <label className="upload-label" htmlFor={label}>{label}</label>
-    <p className="purchase-message-text">{`Leave a short message or thank you for people when they download your ${'playlistType'}.`}</p>
+    <p className="purchase-message-text">{`Leave a short message or thank you for people when they download your ${playlistType}.`}</p>
     <div>
       <textarea
         {...input}
