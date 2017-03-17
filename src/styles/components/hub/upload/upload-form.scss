@@ -85,6 +85,9 @@ $font-stack: 'Avenir Next', sans-serif;
       outline: none;
       border: none;
       background-color: #1596F5;
+      -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.27);
+      -moz-box-shadow:    1px 1px 5px 0px rgba(50, 50, 50, 0.27);
+      box-shadow:         1px 1px 5px 0px rgba(50, 50, 50, 0.27);
       width: 95px;
       font-family: 'Avenir Next', sans-serif;
       border-radius: 3px;
@@ -92,7 +95,7 @@ $font-stack: 'Avenir Next', sans-serif;
       font-size: 16px;
       &:hover {
         cursor: pointer;
-        background-color: darken(#1596F5, 10%);
+        background-color: darken(#1596F5, 5%);
       }
     }
     .previous-btn {

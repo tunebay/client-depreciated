@@ -48,8 +48,12 @@ canvas {
     margin-top: 10px;
     border: none;
     outline: none;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.27);
+    -moz-box-shadow:    1px 1px 5px 0px rgba(50, 50, 50, 0.27);
+    box-shadow:         1px 1px 5px 0px rgba(50, 50, 50, 0.27);
     &:hover {
       cursor: pointer;
+      background: desaturate($light-blue, 10%);
     }
   }
   .upload-icon {
