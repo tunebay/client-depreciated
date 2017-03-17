@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
 import UploadedPlaylist from '../uploaded-playlist';
+import UploadArtwork from './upload-artwork';
 import TitleField from './fields/title-field';
 import DescriptionField from './fields/description-field';
 import GenreField from './fields/genre-field';
@@ -14,9 +15,7 @@ const BasicInfoPage = (props) => {
   return (
     <form className="audio-upload-form" onSubmit={handleSubmit}>
       <div className="upload-playlist-detail">
-        <div className="artwork-section">
-          <div className="artwork-placeholder" />
-        </div>
+        <UploadArtwork />
         <div className="upload-form-fields">
           <Field name="title" type="text" component={TitleField} label="Title" />
           <div className="side-by-side-fields">

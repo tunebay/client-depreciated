@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import UploadedPlaylist from '../uploaded-playlist';
 import validate from './validate';
+import UploadArtwork from './upload-artwork';
 import PriceField from './fields/price-field';
 import CanPayMoreField from './fields/can-pay-more-field';
 import PurchaseMessageField from './fields/purchase-message-field';
@@ -14,9 +15,7 @@ const PricePage = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="upload-playlist-detail">
-        <div className="artwork-section">
-          <div className="artwork-placeholder" />
-        </div>
+        <UploadArtwork />
         <div className="upload-form-fields">
           <h1 className="upload-playlist-title">{uploadForm.values.title}</h1>
           {renderGenres(uploadForm.values.genres)}

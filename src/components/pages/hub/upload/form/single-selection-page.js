@@ -1,6 +1,7 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
 import UploadedPlaylist from '../uploaded-playlist';
+import UploadArtwork from './upload-artwork';
 import '../../../../../styles/components/hub/upload/upload-form.scss';
 
 const SingleSelectionPage = (props) => {
@@ -8,9 +9,7 @@ const SingleSelectionPage = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="upload-playlist-detail">
-        <div className="artwork-section">
-          <div className="artwork-placeholder" />
-        </div>
+        <UploadArtwork />
         <div className="upload-form-fields">
           <p>No fields actuallyo n this page</p>
         </div>
