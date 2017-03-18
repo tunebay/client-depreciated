@@ -1,6 +1,6 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
-import UploadedPlaylist from '../uploaded-playlist';
+import SingleSelection from '../single-selection';
 import UploadArtwork from './upload-artwork';
 import '../../../../../styles/components/hub/upload/upload-form.scss';
 
@@ -15,7 +15,7 @@ const SingleSelectionPage = (props) => {
         </div>
       </div>
       <div className="uploaded-playlist-con">
-        <UploadedPlaylist />
+        <SingleSelection />
       </div>
       <div className="upload-form-footer">
         <div className="required-field-note" />

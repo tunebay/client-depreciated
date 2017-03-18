@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
 import UploadedPlaylist from '../uploaded-playlist';
+import SingleSelection from '../single-selection';
 import UploadArtwork from './upload-artwork';
 import TitleField from './fields/title-field';
 import DescriptionField from './fields/description-field';
@@ -27,7 +28,8 @@ const BasicInfoPage = (props) => {
         </div>
       </div>
       <div className="uploaded-playlist-con">
-        <UploadedPlaylist />
+        {/* <UploadedPlaylist /> */}
+        <SingleSelection />
       </div>
       <div className="upload-form-footer">
         <div className="required-field-note">*Indicates required field</div>
