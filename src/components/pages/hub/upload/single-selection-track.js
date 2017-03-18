@@ -14,7 +14,7 @@ class SingleSelectionTrack extends Component {
     console.log('LI CLASS:', liClass);
     const formattedTime = moment('2015-01-01').startOf('day')
     .seconds(track.duration)
-    .format('H:mm:ss');
+    .format('HH:mm:ss');
     return (
       <li className={liClass}>
         <div id="position">{track.playlistPosition}</div>
