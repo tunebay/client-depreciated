@@ -10,7 +10,7 @@ import '../../../../../styles/components/hub/upload/upload.scss';
 class UploadArtwork extends Component {
   onImageDrop(image) {
     console.log('IMAGE', image);
-    this.props.uploadImageToS3(image[0]);
+    // this.props.uploadImageToS3(image[0]);
   }
 
   changeImageScale(e) {
