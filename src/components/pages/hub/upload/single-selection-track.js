@@ -32,7 +32,7 @@ class SingleSelectionTrack extends Component {
       'box-active': track.isASingle
     });
 
-    console.log('TRACK:', track);
+    console.log('TRACK price:', track.price);
     return (
       <li className={liClass}>
         <div id="position">{track.playlistPosition}</div>

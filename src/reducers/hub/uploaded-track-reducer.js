@@ -29,7 +29,7 @@ export default (state = INITIAL_STATE, action) => {
         file: action.payload.file,
         playlistPosition: action.payload.playlistPosition,
         isASingle: false,
-        price: null
+        price: parseFloat(0.00).toFixed(2)
       };
     case UPDATE_TRACK_NAME:
       if (state.trackId !== action.trackId) return state;
@@ -42,11 +42,7 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, location: action.payload };
     case UPDATE_SINGLE_STATUS:
       if (state.trackId !== action.trackId) return state;
-      return {
-        ...state,
-        isASingle: action.payload,
-        price: action.payload ? 0.00 : null
-      };
+      return { ...state, isASingle: action.payload };
     case UPDATE_TRACK_PRICE:
       if (state.trackId !== action.trackId) return state;
       return { ...state, price: action.payload };

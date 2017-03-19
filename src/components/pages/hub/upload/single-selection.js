@@ -13,6 +13,7 @@ const dummyPlaylist = [
 class SingleSelection extends Component {
   render() {
     const { playlist } = this.props;
+    console.log(playlist);
     return (
       <div>
         <ul className="single-selection-headers">
