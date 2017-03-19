@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import Icon from 'react-fontawesome';
 import formatSeconds from '../../../../util/format-seconds';
 import '../../../../styles/components/hub/upload/single-selection-track.scss';
 
@@ -18,7 +19,10 @@ class SingleSelectionTrack extends Component {
         <div id="name"><div>{track.name}</div></div>
         <div id="time">{formatSeconds(track.duration)}</div>
         <div id="single"><input type="checkbox" /></div>
-        <div id="price"><input type="text" /></div>
+        <div id="price">
+          <div id="currency-box"><Icon id="currency" name="gbp" /></div>
+          <input type="number" step="0.01" />
+        </div>
       </li>
     );
   }

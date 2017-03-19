@@ -12,7 +12,9 @@ export const INITIAL_STATE = {
   size: null,
   location: '',
   file: null,
-  playlistPosition: null
+  playlistPosition: null,
+  isASingle: false,
+  price: null
 };
 
 export default (state = INITIAL_STATE, action) => {
