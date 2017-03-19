@@ -13,7 +13,6 @@ const dummyPlaylist = [
 class SingleSelection extends Component {
   render() {
     const { playlist } = this.props;
-    console.log('IN sing', playlist);
     return (
       <div>
         <ul className="single-selection-headers">
@@ -23,7 +22,7 @@ class SingleSelection extends Component {
           <li id="price" className="single-selection-header">Price</li>
         </ul>
         <ul className="single-selection-con">
-          {dummyPlaylist.map((track, index) =>
+          {playlist.map((track, index) =>
             <SingleSelectionTrack track={track} key={track.trackId} index={index} />
           )}
         </ul>

@@ -93,7 +93,6 @@ class UploadArtwork extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('ARTWORK:', state.uploadedArtwork);
   return {
     uploadedArtwork: state.uploadedArtwork
   };

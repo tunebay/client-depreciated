@@ -31,12 +31,18 @@
     font-size: 20px;
   }
   #price {
-    display: flex;
-    flex-direction: row;
+    .playlist-only {
+      display: flex;
+      align-items: center;
+    }
+    .price-input {
+      display: flex;
+      flex-direction: row;
+    }
     input {
-      width: 50px;
-      height: 30px;
-      padding-left: 10px;
+      width: 55px;
+      height: 28px;
+      padding-left: 5px;
       border: 1px solid #e1e1e1;
       border-top-left-radius: 0px;
       border-bottom-left-radius: 0px;
@@ -47,14 +53,23 @@
       font-family: 'Avenir Next', sans-serif;
       font-weight: 500;
       color: #4a4a4a;
+      &:disabled {
+        background-color: #EAE7E7;
+        color: #B5B5B5;
+      }
     }
-    #currency-box {
-      height: 34px;
-      width: 30px;
+    .box-disabled {
+      background-color: #bbb;
+    }
+    .box-active {
+      background-color: #1596F5;
+    }
+    .currency-box {
+      height: 32px;
+      width: 32px;
       align-items: center;
       justify-content: center;
       display: flex;
-      background-color: #1596F5;
       margin: 0;
       padding: 0;
       border-top-left-radius: 3px;

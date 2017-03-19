@@ -2,7 +2,9 @@ import {
   ADD_TRACK,
   UPDATE_TRACK_NAME,
   UPDATE_TRACK_PROGRESS,
-  ADD_TRACK_LOCATION
+  ADD_TRACK_LOCATION,
+  UPDATE_SINGLE_STATUS,
+  UPDATE_TRACK_PRICE
 } from '../../actions/types';
 
 export const INITIAL_STATE = {
@@ -25,7 +27,9 @@ export default (state = INITIAL_STATE, action) => {
         trackId: action.payload.trackId,
         duration: action.payload.duration,
         file: action.payload.file,
-        playlistPosition: action.payload.playlistPosition
+        playlistPosition: action.payload.playlistPosition,
+        isASingle: false,
+        price: null
       };
     case UPDATE_TRACK_NAME:
       if (state.trackId !== action.trackId) return state;
@@ -36,6 +40,16 @@ export default (state = INITIAL_STATE, action) => {
     case ADD_TRACK_LOCATION:
       if (state.trackId !== action.trackId) return state;
       return { ...state, location: action.payload };
+    case UPDATE_SINGLE_STATUS:
+      if (state.trackId !== action.trackId) return state;
+      return {
+        ...state,
+        isASingle: action.payload,
+        price: action.payload ? 0.00 : null
+      };
+    case UPDATE_TRACK_PRICE:
+      if (state.trackId !== action.trackId) return state;
+      return { ...state, price: action.payload };
     default:
       return state;
   }
