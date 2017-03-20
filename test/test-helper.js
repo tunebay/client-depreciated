@@ -1,36 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import jsdom from 'jsdom';
-import _$ from 'jquery';
-import ReactTestUtils from 'react-addons-test-utils';
-import chai, { expect } from 'chai';
-import chaiJquery from 'chai-jquery';
-import { Provider } from 'react-redux';
-// import store from '../src'
-import { createStore } from 'redux';
-import reducers from '../src/reducers';
+require('babel-register')();
+const jsdom = require('jsdom').jsdom;
 
-global.document = jsdom.jsdom('<!doctype html><html><body></div></body></html>');
-global.window = global.document.defaultView;
-const $ = _$(global.window);
-console.log('***************');
+const exposedProperties = ['window', 'navigator', 'document'];
 
-const renderComponent = (ComponentClass, props, state) => {
-  const componentInstance = ReactTestUtils.renderIntoDocument(
-    <Provider store={createStore(reducers, state)}>
-      <ComponentClass {...props} />
-    </Provider>
-  );
-  return $(ReactDOM.findDOMNode(componentInstance));
-};
+global.document = jsdom('<!doctype html><html><body><div id="root" /></body></html>');
+global.window = document.defaultView;
 
-$.fn.simulate = (eventName, value) => {
-  if (value) {
-    this.val(value);
+Object.keys(document.defaultView).forEach((property) => {
+  if (typeof global[property] === 'undefined') {
+    exposedProperties.push(property);
+    global[property] = document.defaultView[property];
   }
-  ReactTestUtils.Simulate[eventName](this[0]);
+});
+
+// global.localStorage = storageMock();
+
+global.navigator = {
+  userAgent: 'node.js'
 };
 
-chaiJquery(chai, chai.util, $);
-
-export { renderComponent, expect };
+// <!doctype html><html><body><div id="root" /></body></html>
+documentRef = document;
