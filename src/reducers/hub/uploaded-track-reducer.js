@@ -29,7 +29,8 @@ export default (state = INITIAL_STATE, action) => {
         file: action.payload.file,
         playlistPosition: action.payload.playlistPosition,
         isASingle: false,
-        price: parseFloat(0.00).toFixed(2)
+        price: parseFloat(0.00).toFixed(2),
+        fielType: action.payload.fileType
       };
     case UPDATE_TRACK_NAME:
       if (state.trackId !== action.trackId) return state;

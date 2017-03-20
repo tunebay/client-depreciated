@@ -25,8 +25,9 @@ export const addTracksToPlaylist = (files, userId) => {
       audio.src = file.preview;
       audio.addEventListener('loadedmetadata', () => {
         const track = {
-          name: file.name,
+          name: file.name.substr(0, file.name.lastIndexOf('.')) || file.name,
           playlistPosition: playlistPosition += 1,
+          fileType: file.type,
           trackId: trackId += 1,
           duration: Math.round(audio.duration),
           file
