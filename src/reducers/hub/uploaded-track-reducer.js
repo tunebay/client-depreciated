@@ -14,9 +14,11 @@ export const INITIAL_STATE = {
   size: null,
   location: '',
   file: null,
+  filename: null,
   playlistPosition: null,
   isASingle: false,
-  price: null
+  price: null,
+  fileType: null
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -24,13 +26,14 @@ export default (state = INITIAL_STATE, action) => {
     case ADD_TRACK:
       return {
         name: action.payload.name,
+        filename: action.payload.file.name,
         trackId: action.payload.trackId,
         duration: action.payload.duration,
         file: action.payload.file,
         playlistPosition: action.payload.playlistPosition,
         isASingle: false,
         price: parseFloat(0.00).toFixed(2),
-        fielType: action.payload.fileType
+        fileType: action.payload.fileType
       };
     case UPDATE_TRACK_NAME:
       if (state.trackId !== action.trackId) return state;
@@ -40,7 +43,7 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, progress: action.payload };
     case ADD_TRACK_LOCATION:
       if (state.trackId !== action.trackId) return state;
-      return { ...state, location: action.payload };
+      return { ...state, location: action.payload, file: null };
     case UPDATE_SINGLE_STATUS:
       if (state.trackId !== action.trackId) return state;
       return { ...state, isASingle: action.payload };

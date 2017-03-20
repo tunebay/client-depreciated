@@ -19,7 +19,6 @@ class UploadedTrack extends Component {
   render() {
     const { track } = this.props;
     console.log(track);
-    const placeholder = track.file.name.substr(0, track.file.name.lastIndexOf('.')) || track.file.name;
     return (
       <li className="uploaded-track" key={`track-${track.trackId}`}>
         <Progress
@@ -38,7 +37,7 @@ class UploadedTrack extends Component {
             type="text"
             onChange={this.handleInputChange.bind(this)}
             value={track.name}
-            placeholder={placeholder}
+            placeholder={track.filename}
             required
           />
           <Icon name="trash-o" className="remove-track-icon" />

@@ -49,26 +49,49 @@ export const updateTrackPosition = (playlist, oldIndex, newIndex) => {
 };
 
 export const releasePlaylist = (playlistDetails, playlistTracks) => {
-  const durationArray = playlistTracks.map((track) => {
-    return track.duration;
-  });
-  const playlistDuration = durationArray.reduce((a, b) => { return a + b; });
+  return (dispatch) => {
+    // dispatch({ type: SUBMITTING_PLAYLIST });
+    const durationArray = playlistTracks.map((track) => {
+      return track.duration;
+    });
+    const playlistDuration = durationArray.reduce((a, b) => { return a + b; });
+    let genre2Id;
+    let genre3Id;
+    if (playlistDetails.genres[1]) {
+      genre2Id = playlistDetails.genres[1].value;
+    }
+    if (playlistDetails.genres[2]) {
+      genre3Id = playlistDetails.genres[2].value;
+    }
+    const playlistToPost = {
+      // required
+      playlistTracks,
 
-  const playlistToPost = {
-    // required
-    title: playlistDetails.title,
-    playlistType: playlistDetails.playlistType,
-    price: playlistDetails.price,
-    canPayMore: playlistDetails.canPayMore,
-    numberOfTracks: playlistTracks.length,
-    duration: playlistDuration,
-    // not required
-    releaseDate: playlistDetails.releaseDate || null,
-    description: playlistDetails.description || null,
-    purchaseMessage: playlistDetails.purchaseMessage || null
+      title: playlistDetails.title,
+      playlistType: playlistDetails.playlistType.value,
+      price: playlistDetails.price,
+      canPayMore: playlistDetails.canPayMore,
+      numberOfTracks: playlistTracks.length,
+      lengthInSeconds: playlistDuration,
+      genre1Id: playlistDetails.genres[0].value,
+      // not required
+      genre2Id: genre2Id || null,
+      genre3Id: genre3Id || null,
+      releaseDate: playlistDetails.releaseDate || null,
+      description: playlistDetails.description || null,
+      purchaseMessage: playlistDetails.purchaseMessage || null
+    };
+
+    const config = { headers: { Authorization: localStorage.getItem('token') } };
+    console.log(playlistToPost);
+    axios.post(`${API_URL}/playlists/new`, playlistToPost, config)
+      .then((res) => {
+        console.log('RESPONSE', res);
+      })
+      .catch((err) => {
+        console.log('ERROR:', err);
+      });
   };
-  console.log(playlistToPost);
-  return {};
 };
 
 // Helpers
