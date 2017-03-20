@@ -12,7 +12,7 @@ const PricePill = ({ price }) => {
 };
 
 const renderPrice = (price) => {
-  if (!price || price === 0) return 'Free';
+  if (!price || price <= 0.01) return 'Free';
   return `£${price}`;
 };
 

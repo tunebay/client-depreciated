@@ -133,3 +133,23 @@ $font-stack: 'Avenir Next', sans-serif;
     color: $black;
   }
 }
+
+.single-selection-text {
+  color: $black;
+  font-family: $font-stack;
+  font-size: 14px;
+  line-height: 20px;
+  span {
+    font-weight: 500;
+    color: $black;
+  }
+}
+
+.title-pill-genre-con {
+  margin-bottom: 20px;
+  .title-pill-con {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
