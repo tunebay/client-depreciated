@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import PricePill from '../../src/components/common/price-pill';
+import PricePill from '../../../src/components/common/price-pill';
 
 describe('<PricePill />', () => {
   it('Displays Free for no price', () => {
