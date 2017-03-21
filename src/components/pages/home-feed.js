@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-import Header from '../header/header';
-import MainContent from '../main-content';
+import Layout from '../../layout';
 
 class HomeFeed extends Component {
   render() {
     document.title = 'Tunebay';
     return (
-      <div className="home-feed-con">
-        <Header />
-        <MainContent>
-          {/* <div>Hello {this.props.currentUser.displayName}</div> */}
-          <div>Home feed</div>
-        </MainContent>
-      </div>
+      <Layout showHeader page={'HomeFeed'}>
+        <div>Home feed</div>
+      </Layout>
     );
   }
 }

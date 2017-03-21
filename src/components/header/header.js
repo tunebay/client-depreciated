@@ -9,6 +9,10 @@ import HeaderControl from './header-control';
 import HeaderPlayer from './header-player';
 
 class Header extends Component {
+  componentWillMount() {
+    console.log('rendering header...');
+  }
+
   render() {
     return (
       <div className="header-con">
