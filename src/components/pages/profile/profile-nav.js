@@ -1,10 +1,10 @@
 import React from 'react';
 import '../../../styles/components/profile/profile-nav.scss';
 
-const ProfileCover = () => {
+const ProfileNav = () => {
   return (
-    <div className="profile-nav" />
+    <div id="profile-nav" onScroll={e => console.log(e)} />
   );
 };
 
-export default ProfileCover;
+export default ProfileNav;

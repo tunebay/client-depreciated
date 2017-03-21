@@ -1,7 +1,9 @@
-.profile-nav {
+#profile-nav {
   height: 50px;
   width: 100%;
   display: flex;
   background-color: #fff;
+  border-bottom: 1px solid #e1e1e1;
   flex-direction: row;
+  // position: fixed;
 }

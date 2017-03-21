@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/header/header';
 
-
 class Layout extends Component {
   renderHeader() {
     if (this.props.showHeader) {
@@ -11,7 +10,7 @@ class Layout extends Component {
 
   render() {
     return (
-      <div>
+      <div className="layout">
         {this.renderHeader()}
         {this.props.children}
       </div>
