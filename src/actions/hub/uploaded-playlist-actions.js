@@ -66,7 +66,7 @@ export const releasePlaylist = (playlistDetails, playlistTracks) => {
     }
     const playlistToPost = {
       // required
-      playlistTracks: tracksToPost,
+      tracks: tracksToPost,
 
       title: playlistDetails.title,
       playlistType: playlistDetails.playlistType.value,
