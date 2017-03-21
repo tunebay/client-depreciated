@@ -19,8 +19,9 @@ class Profile extends Component {
   render() {
     const { user } = this.props;
     if (!this.props.loading) {
-      document.title = `${user.display_name} | Tunebay`;
+      document.title = `${user.displayName} | Tunebay`;
     }
+
     return (
       <Layout showHeader page={'Profile'}>
         <ProfileCover />
@@ -39,6 +40,7 @@ class Profile extends Component {
 const mapStateToProps = (state) => {
   return {
     user: state.profile.user,
+    playlists: state.profile.playlists,
     loading: state.profile.loading
   };
 };

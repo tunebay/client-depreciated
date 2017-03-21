@@ -10,17 +10,10 @@ export const loadUser = (username) => {
   return (dispatch) => {
     axios.get(`${API_URL}/users/${username}`)
     .then((res) => {
-      dispatch({ type: MOUNT_USER, payload: res.data.user });
+      dispatch({ type: MOUNT_USER, user: res.data.user, playlists: res.data.playlists });
     })
     .catch((err) => {
       console.log(err.response.data.error);
     });
   };
 };
-
-// const user = {
-//   id: 54,
-//   displayName: 'Mali Michael',
-//   username: 'malimichael',
-//   playlists: []
-// };
