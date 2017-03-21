@@ -50,7 +50,8 @@ export const updateTrackPosition = (playlist, oldIndex, newIndex) => {
 
 export const releasePlaylist = (playlistDetails, playlistTracks) => {
   return (dispatch) => {
-    // dispatch({ type: SUBMITTING_PLAYLIST });
+    // dispatch({ type: POST_NEW_PLAYLIST });
+    const tracksToPost = processTracks(playlistTracks);
     const durationArray = playlistTracks.map((track) => {
       return track.duration;
     });
@@ -65,7 +66,7 @@ export const releasePlaylist = (playlistDetails, playlistTracks) => {
     }
     const playlistToPost = {
       // required
-      playlistTracks,
+      playlistTracks: tracksToPost,
 
       title: playlistDetails.title,
       playlistType: playlistDetails.playlistType.value,
@@ -130,4 +131,18 @@ const uploadFilesToS3 = (playlist, dispatch, userId) => {
       dispatch({ type: AUDIO_UPLOAD_ERROR, payload: err });
     });
   });
+};
+
+const processTracks = (tracks) => {
+  tracks.map((track) => {
+    if (!track.isASingle) {
+      track.price = null;
+    }
+    delete track.file;
+    delete track.trackId;
+    delete track.filename;
+    delete track.progress;
+    return track;
+  });
+  return tracks;
 };
