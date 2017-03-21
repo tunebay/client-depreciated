@@ -13,6 +13,7 @@ export default (state = INITITAL_STATE, action) => {
     case LOADING_USER:
       return { ...INITITAL_STATE, loading: true };
     case MOUNT_USER:
+      console.log('PAYLOAD:', action.payload);
       return { ...INITITAL_STATE, user: action.payload, loading: false };
     default:
       return state;

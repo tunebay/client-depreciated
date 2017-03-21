@@ -13,10 +13,14 @@ import Layout from '../../../layout';
 
 class Profile extends Component {
   componentWillMount() {
-    // this.props.loadUser(this.props.params.username);
+    this.props.loadUser(this.props.params.username);
   }
 
   render() {
+    const { user } = this.props;
+    if (!this.props.loading) {
+      document.title = `${user.display_name} | Tunebay`;
+    }
     return (
       <Layout showHeader page={'Profile'}>
         <ProfileCover />
