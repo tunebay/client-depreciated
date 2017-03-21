@@ -17,8 +17,8 @@ class Profile extends Component {
   }
 
   render() {
-    const { user } = this.props;
-    if (!this.props.loading) {
+    const { user, loading } = this.props;
+    if (!loading) {
       document.title = `${user.displayName} | Tunebay`;
     }
 
@@ -29,7 +29,7 @@ class Profile extends Component {
         <ProfileDetailContent>
           <ProfileDetail>
             <ProfileActivity />
-            <ProfileUser />
+            <ProfileUser loading={loading} user={user} />
           </ProfileDetail>
         </ProfileDetailContent>
       </Layout>
