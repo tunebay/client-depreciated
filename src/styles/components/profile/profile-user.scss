@@ -15,7 +15,7 @@ $font-stack: 'Avenir Next', sans-serif;
   align-items: center;
   flex-direction: column;
   // position: fixed;
-  .profile-picture {
+  .profile-picture-placeholder {
     width: 320px;
     height: 220px;
     background-color: #e1e1e1;
@@ -33,9 +33,22 @@ $font-stack: 'Avenir Next', sans-serif;
     }
     #username {
       font-family: $font-stack;
-      color: lighten($black, 20%);
+      color: lighten($black, 10%);
       font-size: 16px;
       font-weight: 400;
+    }
+    .follow-btn-placeholder {
+      height: 35px;
+      width: 200px;
+      border: 1px solid $logo-blue;
+      color: $logo-blue;
+      border-radius: 100px;
+      background-color: #fff;
+      &:hover {
+        -webkit-box-shadow: inset -19px -141px 180px -136px rgba(0,0,0,0.14);
+        -moz-box-shadow: inset -19px -141px 180px -136px rgba(0,0,0,0.14);
+        box-shadow: inset -19px -141px 180px -136px rgba(0,0,0,0.14);
+      }
     }
   }
 }

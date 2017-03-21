@@ -8,10 +8,11 @@ const ProfileUser = ({ user, loading }) => {
   }
   return (
     <div className="profile-user">
-      <div className="profile-picture" />
+      <div className="profile-picture-placeholder" />
       <div className="user-details">
         <div id="display-name">{user.displayName}</div>
         <div id="username">@{user.username}</div>
+        <button className="follow-btn-placeholder">Follow</button>
       </div>
     </div>
   );
