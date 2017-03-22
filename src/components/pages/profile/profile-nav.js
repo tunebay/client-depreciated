@@ -8,7 +8,15 @@ const ProfileNav = (props) => {
   });
 
   return (
-    <div id="profile-nav" className={navClass} />
+    <div id="profile-nav" className={navClass}>
+      <ul className="profile-nav-ul">
+        <li className="profile-nav-li selected">Music</li>
+        <li className="profile-nav-li">Videos</li>
+        <li className="profile-nav-li">Timeline</li>
+        <li className="profile-nav-li">Following</li>
+        <li className="profile-nav-li">Followers</li>
+      </ul>
+    </div>
   );
 };
 

@@ -1,11 +1,46 @@
+$black: #252C30;
+$logo-blue: #1596F5;
+$placeholder: #a1a1a1;
+$e4: #e4e4e4;
+$light-blue: #34bfed;
+$font-stack: 'Avenir Next', sans-serif;
+
 #profile-nav {
   height: 50px;
   width: 100%;
   display: flex;
   background-color: #fff;
   border-bottom: 1px solid #e1e1e1;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   // position: fixed;
+  .profile-nav-ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    width: 1180px;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    .profile-nav-li {
+      height: 50px;
+      display: flex;
+      width: 90px;
+      justify-content: center;
+      align-items: center;
+      color: #686D72;
+      font-family: $font-stack;
+      font-size: 16px;
+      font-weight: 400;
+    }
+    .selected {
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      border-bottom: 4px solid $logo-blue;
+      color: $black;
+    }
+  }
 }
 
 .profile-nav-fixed {
