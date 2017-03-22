@@ -65,11 +65,13 @@ class Profile extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state.currentUser);
   return {
     user: state.profile.user,
     playlists: state.profile.playlists,
     loading: state.profile.loading,
-    scrollY: state.profile.scrollY
+    scrollY: state.profile.scrollY,
+    currentUser: state.currentUser
   };
 };
 
