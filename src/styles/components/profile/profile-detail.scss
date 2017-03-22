@@ -1,9 +1,16 @@
 .profile-detail {
   margin-top: 10px;
-  width: 1170px;
+  width: 1180px;
   height: auto;
   display: flex;
   justify-content: space-between;
-  background-color: #f1f1f1;
-  position: relative;
+  // background-color: #eff3f5;
+  // position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 1198px) {
+  .profile-detail {
+    justify-content: center;
+  }
 }

@@ -1,5 +1,10 @@
 .profile-activity {
-  width: 820px;
-  min-height: 100vh;
-  background-color: #d4d4d4;
+  width: 815px;
+  // min-height: 100vh;
+  height: auto;
+  min-height: calc(100vh - 112px); // no content gits profile nav
+  // background-color: #eff3f5;
+  // background-color: #fff;
+  // border: 1px solid #e4e4e4;
+  border-radius: 2px;
 }

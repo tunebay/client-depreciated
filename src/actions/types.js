@@ -12,6 +12,7 @@ export const USERNAME_ERROR = 'USERNAME_ERROR';
 // profile actions
 export const MOUNT_USER = 'MOUNT_USER';
 export const LOADING_USER = 'LOADING_USER';
+export const UPDATE_SCROLL_POSITION = 'UPDATE_SCROLL_POSITION';
 
 // current user actions
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';

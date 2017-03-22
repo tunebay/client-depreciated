@@ -1,0 +1,27 @@
+.music-tab-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.playlist-display {
+  width: 100%;
+  background-color: #fff;
+  height: 280px;
+  border: 1px solid #e4e4e4;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  .artwork-detail-con {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    .artwork {
+      height: 260px;
+      width: 260px;
+      // padding: 10px;
+      background-color: #e1e1e1;
+    }
+  }
+}

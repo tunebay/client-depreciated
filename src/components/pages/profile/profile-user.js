@@ -1,14 +1,22 @@
 import React from 'react';
+import className from 'classnames';
 import '../../../styles/components/profile/profile-user.scss';
 
-const ProfileUser = ({ user, loading }) => {
+const ProfileUser = ({ user, loading, scrollY }) => {
+  const profileUserClass = className({
+    'profile-user': true,
+    'profile-user-fixed': scrollY >= 300
+  });
+
   if (loading) {
-    console.log('loading...');
-    return <div className="profile-user" />;
+    return <div className={profileUserClass} />;
   }
   return (
-    <div className="profile-user">
-      <div className="profile-picture-placeholder" />
+    <div className={profileUserClass}>
+      <img
+        alt="default-profile"
+        src="../../../../assets/images/default-profile-picture.png" className="profile-picture-placeholder"
+      />
       <div className="user-details">
         <div id="display-name">{user.displayName}</div>
         <div id="username">@{user.username}</div>

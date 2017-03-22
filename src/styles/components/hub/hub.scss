@@ -1,4 +1,4 @@
-$background: #f1f1f1;
+$background: #EFF3F5;
 
 .hub-container {
   display: flex;
@@ -34,7 +34,7 @@ $background: #f1f1f1;
 
 .hub-header {
   height: 60px;
-  background-color: #f1f1f1;
+  background-color: $background;
   display: flex;
   align-items: center;
   float: right;

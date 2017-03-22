@@ -9,27 +9,54 @@ import ProfileDetail from './profile-detail';
 import ProfileActivity from './profile-activity';
 import ProfileUser from './profile-user';
 
+import MusicTab from './tabs/music';
+
 import Layout from '../../../layout';
 
+// document.addEventListener('scroll', (e) => {
+//   console.log('scrolling', e);
+// });
+
 class Profile extends Component {
-  componentWillMount() {
+  constructor(props) {
+    super(props);
+    this.handleScroll = this.handleScroll.bind(this);
     this.props.loadUser(this.props.params.username);
   }
 
+  componentDidMount() {
+    document.addEventListener('scroll', this.handleScroll);
+    console.log('scrolling to...');
+    // this.layout.addEventListener('scroll', this.handleScroll.bind(this));
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll() {
+    const doc = document.documentElement;
+    const left = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
+    const top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+    this.props.updateScrollPosition(left, top);
+  }
+
   render() {
-    const { user, loading } = this.props;
+    const { user, loading, scrollY, playlists } = this.props;
     if (!loading) {
       document.title = `${user.displayName} | Tunebay`;
     }
-
+    console.log(scrollY);
     return (
-      <Layout showHeader page={'Profile'}>
+      <Layout ref={(n) => { this.layout = n; }} showHeader page={'Profile'}>
         <ProfileCover />
-        <ProfileNav />
-        <ProfileDetailContent>
+        <ProfileNav scrollY={scrollY} />
+        <ProfileDetailContent scrollY={scrollY}>
           <ProfileDetail>
-            <ProfileActivity />
-            <ProfileUser loading={loading} user={user} />
+            <ProfileActivity>
+              <MusicTab playlists={playlists} loading={loading} />
+            </ProfileActivity>
+            <ProfileUser loading={loading} user={user} scrollY={scrollY} />
           </ProfileDetail>
         </ProfileDetailContent>
       </Layout>
@@ -41,7 +68,8 @@ const mapStateToProps = (state) => {
   return {
     user: state.profile.user,
     playlists: state.profile.playlists,
-    loading: state.profile.loading
+    loading: state.profile.loading,
+    scrollY: state.profile.scrollY
   };
 };
 
