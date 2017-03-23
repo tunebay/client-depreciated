@@ -6,11 +6,14 @@ $light-blue: #34bfed;
 $font-stack: 'Avenir Next', sans-serif;
 
 .upload-form-container {
-  width: 820px;
+  margin-top: 30px;
   height: auto;
-  border: 1px solid #e1e1e1;
+  width: 820px;
   background-color: #fff;
+  border: 1px solid #e4e4e4;
+  margin-top: 20px;
   display: flex;
+  flex-direction: column;
 }
 
 .important-terms {

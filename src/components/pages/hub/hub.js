@@ -12,7 +12,7 @@ class Hub extends Component {
       <Layout showHeader page={'Hub'}>
         <HubContainer>
           <HubSideNav />
-          <div className="hub-header"><h3 className="hub-title">Upload</h3></div>
+          {/* <div className="hub-header"><h3 className="hub-title">Upload</h3></div> */}
           <HubContent>
             <div className="hub-content-wrapper">
               <HubUpload />
