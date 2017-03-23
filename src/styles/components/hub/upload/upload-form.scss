@@ -14,6 +14,7 @@ $font-stack: 'Avenir Next', sans-serif;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
+  transition: all 1000ms ease-out;
 }
 
 .important-terms {
