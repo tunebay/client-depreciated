@@ -23,8 +23,8 @@ class HubUpload extends Component {
     return (
       <div>
         <AudioUploadZone currentUser={currentUser} uploadStarted={uploadStarted} />
-        <AudioUploadForm currentUser={currentUser} onSubmit={this.handleFormSubmit.bind(this)} />
-        {/* {this.renderForm()} */}
+        {/* <AudioUploadForm currentUser={currentUser} onSubmit={this.handleFormSubmit.bind(this)} /> */}
+        {this.renderForm()}
         <p className="important-terms">
           Important: By uploading, you confirm that your audio complies with our Terms of use and you don’t infringe anyone else’s rights. If in doubt, check our Copyright information pages and FAQs before uploading.
         </p>

@@ -101,3 +101,12 @@
   opacity: 0;
   transition: opacity 3000ms ease-out;
 }
+
+.slide-appear {
+  opacity: 0;
+}
+
+.slide-appear-active {
+  opacity: 1;
+  transition: opacity 3000ms ease-in;
+}
