@@ -11,6 +11,21 @@ canvas {
   }
 }
 
+.slide-up {
+  animation: slideUp 300ms ease-in forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    position: absolute;
+  }
+  100% {
+    transform: translateY(-500px);
+    position: absolute;
+  }
+}
+
 .dropzone {
   height: 300px;
   width: 820px;

@@ -26,7 +26,7 @@ class AudioUploadForm extends Component {
     const { onSubmit } = this.props;
     const { page } = this.state;
     return (
-      <div className="upload-form-container">
+      <div className="upload-form-container fade-in">
         {page === 1 && <BasicInfoPage onSubmit={this.nextPage} />}
         {page === 2 && <PricePage previousPage={this.previousPage} onSubmit={this.nextPage} />}
         {page === 3 && <SingleSelectionPage previousPage={this.previousPage} onSubmit={onSubmit} />}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
+import className from 'classnames';
 import { connect } from 'react-redux';
 import * as actions from '../../../../actions/hub/uploaded-playlist-actions';
 import '../../../../styles/components/hub/upload/upload.scss';
@@ -16,8 +17,13 @@ class AudioUploadZone extends Component {
   }
 
   render() {
+    const dropClass = className({
+      'audio-upload-zone': true,
+      'slide-up': this.props.uploadStarted
+    });
+
     return (
-      <div className="audio-upload-zone">
+      <div className={dropClass}>
         <Dropzone
           ref={(node) => { this.dropzone = node; }}
           onDrop={this.onDrop.bind(this)}

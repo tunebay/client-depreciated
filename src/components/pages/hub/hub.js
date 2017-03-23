@@ -8,6 +8,7 @@ import '../../../styles/components/hub/hub.scss';
 
 class Hub extends Component {
   render() {
+    document.title = 'Tunebay | Hub';
     return (
       <Layout showHeader page={'Hub'}>
         <HubContainer>
