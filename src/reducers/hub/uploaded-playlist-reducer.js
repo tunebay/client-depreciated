@@ -6,7 +6,8 @@ import {
   ADD_TRACK_LOCATION,
   UPDATE_SINGLE_STATUS,
   UPDATE_TRACK_PRICE,
-  ADD_ANOTHER_TRACK
+  ADD_ANOTHER_TRACK,
+  DELETE_TRACK
 } from '../../actions/types';
 import UploadedTrackReducer from './uploaded-track-reducer';
 
@@ -38,6 +39,11 @@ export default (state = INITIAL_STATE, action) => {
       );
     case UPDATE_PLAYLIST_POSITIONS:
       return action.payload.map((track, index) =>
+        UploadedTrackReducer({ ...track, playlistPosition: index + 1 }, action)
+      );
+    case DELETE_TRACK:
+      return state.filter(track => track.trackId !== action.payload)
+      .map((track, index) =>
         UploadedTrackReducer({ ...track, playlistPosition: index + 1 }, action)
       );
     case ADD_ANOTHER_TRACK:

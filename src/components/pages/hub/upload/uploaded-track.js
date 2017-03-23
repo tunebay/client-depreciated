@@ -16,6 +16,11 @@ class UploadedTrack extends Component {
     this.props.updateTrackName(e.target.value, track.trackId);
   }
 
+  handleBinClick() {
+    const { trackId } = this.props.track;
+    this.props.deleteTrack(trackId);
+  }
+
   render() {
     console.log('PROPS', this.props);
     const { track } = this.props;
@@ -42,7 +47,7 @@ class UploadedTrack extends Component {
             placeholder={track.filename}
             required
           />
-          <Icon name="trash-o" className="remove-track-icon" />
+          <Icon name="trash-o" className="remove-track-icon" onClick={this.handleBinClick.bind(this)} />
         </div>
       </li>
     );
