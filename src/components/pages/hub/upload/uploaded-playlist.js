@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SortableContainer } from 'react-sortable-hoc';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import UploadedTrack from './uploaded-track';
 import * as actions from '../../../../actions/hub/uploaded-playlist-actions';
 import '../../../../styles/components/hub/upload/uploaded-track.scss';
 
 const SortablePlaylist = SortableContainer(({ playlist }) => {
   return (
-    <ul className="uploaded-track-con">
-      {playlist.map((track, index) =>
-        <UploadedTrack track={track} key={track.trackId} index={index} />
-      )}
-    </ul>
+    <ReactCSSTransitionGroup>
+      <ul className="uploaded-track-con">
+        {playlist.map((track, index) =>
+          <UploadedTrack track={track} key={track.trackId} index={index} />
+        )}
+      </ul>
+    </ReactCSSTransitionGroup>
   );
 });
 
@@ -22,7 +25,7 @@ class UploadedPlaylist extends Component {
   }
 
   handleAddAnotherClick() {
-    console.log('Add another track here');
+    
   }
 
   render() {
