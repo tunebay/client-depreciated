@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import BasicInfoPage from './basic-info-page';
 import PricePage from './price-page';
 import SingleSelectionPage from './single-selection-page';
@@ -23,16 +24,22 @@ class AudioUploadForm extends Component {
   }
 
   render() {
-    const { onSubmit } = this.props;
+    const { onSubmit, uploadInProgress } = this.props;
     const { page } = this.state;
     return (
       <div className="upload-form-container fade-in">
-        {page === 1 && <BasicInfoPage onSubmit={this.nextPage} />}
-        {page === 2 && <PricePage previousPage={this.previousPage} onSubmit={this.nextPage} />}
+        {page === 1 && <BasicInfoPage uploadInProgress={uploadInProgress} onSubmit={this.nextPage} />}
+        {page === 2 && <PricePage uploadInProgress={uploadInProgress} previousPage={this.previousPage} onSubmit={this.nextPage} />}
         {page === 3 && <SingleSelectionPage previousPage={this.previousPage} onSubmit={onSubmit} />}
       </div>
     );
   }
 }
 
-export default AudioUploadForm;
+const mapStateToProps = (state) => {
+  return {
+    uploadInProgress: state.audioUpload.uploadInProgress
+  };
+};
+
+export default connect(mapStateToProps)(AudioUploadForm);

@@ -100,6 +100,13 @@ $font-stack: 'Avenir Next', sans-serif;
         cursor: pointer;
         background-color: darken(#1596F5, 5%);
       }
+      &:disabled {
+        background-color: #B5B5B5;
+        color: darken(#B5B5B5, 20%);
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+      }
     }
     .previous-btn {
       background: none;

@@ -1,4 +1,5 @@
 import React from 'react';
+import Tooltip from 'react-tooltip';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import UploadedPlaylist from '../uploaded-playlist';
@@ -10,8 +11,8 @@ import PurchaseMessageField from './fields/purchase-message-field';
 import '../../../../../styles/components/hub/upload/upload-form.scss';
 
 const PricePage = (props) => {
-  console.log(props);
-  const { handleSubmit, previousPage, uploadForm } = props;
+  const { handleSubmit, previousPage, uploadForm, uploadInProgress } = props;
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="upload-playlist-detail">
@@ -32,7 +33,8 @@ const PricePage = (props) => {
         <div className="required-field-note">*Indicates required field</div>
         <div className="upload-form-action-btns">
           <button type="button" className="previous-btn" onClick={previousPage}>Back</button>
-          <button type="submit" className="next-btn">Next</button>
+          <button type="submit" className="next-btn" disabled={uploadInProgress}><div data-tip data-for="next-btn">Next</div></button>
+          {uploadInProgress && <Tooltip id="next-btn" type="info">Please wait for files to finish uploading</Tooltip>}
         </div>
       </div>
     </form>

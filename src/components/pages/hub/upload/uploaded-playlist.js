@@ -11,9 +11,15 @@ const SortablePlaylist = SortableContainer(({ playlist }) => {
   console.log(playlist);
   return (
     <ul className="uploaded-track-con">
-      {playlist.map((track, index) =>
-        <UploadedTrack track={track} key={track.trackId} index={index} />
-      )}
+      <ReactCSSTransitionGroup
+        transitionName="slide"
+        transitionEnterTimeout={3000}
+        transitionLeaveTimeout={3000}
+      >
+        {playlist.map((track, index) =>
+          <UploadedTrack track={track} key={track.trackId} index={index} />
+        )}
+      </ReactCSSTransitionGroup>
     </ul>
   );
 });

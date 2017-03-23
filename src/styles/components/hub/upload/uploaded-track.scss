@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 100%;
 }
 
 .uploaded-track {
@@ -22,7 +23,7 @@
   // border-bottom: 1px solid #e1e1e1;
   background-color: #fff;
   list-style: none;
-  width: 100%;
+  width: 820px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,4 +82,22 @@
   height: 56px;
   border: none;
   outline: none;
+}
+
+.slide-enter {
+  opacity: 0;
+}
+
+.slide-enter-active {
+  opacity: 1;
+  transition: opacity 3000ms ease-in;
+}
+
+.slide-leave {
+  opacity: 1;
+}
+
+.slide-leave-active {
+  opacity: 0;
+  transition: opacity 3000ms ease-out;
 }

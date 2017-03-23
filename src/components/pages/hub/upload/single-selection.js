@@ -3,13 +3,6 @@ import { connect } from 'react-redux';
 import SingleSelectionTrack from './single-selection-track';
 import '../../../../styles/components/hub/upload/single-selection-track.scss';
 
-const dummyPlaylist = [
-  { name: 'Wings', duration: 18, playlistPosition: 1, trackId: 1 },
-  { name: 'Not Going Home', duration: 183, playlistPosition: 2, trackId: 2 },
-  { name: 'Shotgun', duration: 234, playlistPosition: 3, trackId: 3 },
-  { name: 'Best Of Me', duration: 180, playlistPosition: 4, trackId: 4 }
-];
-
 class SingleSelection extends Component {
   render() {
     const { playlist } = this.props;

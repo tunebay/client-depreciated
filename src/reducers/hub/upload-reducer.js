@@ -3,7 +3,8 @@ import {
   AUDIO_UPLOAD_STARTED,
   AUDIO_UPLOAD_FINISHED,
   UPLOAD_ANOTHER_TRACK,
-  ANOTHER_UPLOAD_FINISHED
+  ANOTHER_UPLOAD_FINISHED,
+  UPDATE_TRACK_PROGRESS
 } from '../../actions/types';
 
 const INITIAL_STATE = {
@@ -25,6 +26,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, uploadFinished: false, uploadInProgress: true };
     case ANOTHER_UPLOAD_FINISHED:
       return { ...state, uploadFinished: true, uploadInProgress: false };
+    case UPDATE_TRACK_PROGRESS:
+      return { ...state, uploadFinished: false, uploadInProgress: true };
     default:
       return state;
   }
