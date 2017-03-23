@@ -13,20 +13,16 @@ import MusicTab from './tabs/music';
 
 import Layout from '../../../layout';
 
-// document.addEventListener('scroll', (e) => {
-//   console.log('scrolling', e);
-// });
-
 class Profile extends Component {
   constructor(props) {
     super(props);
     this.handleScroll = this.handleScroll.bind(this);
     this.props.loadUser(this.props.params.username);
+    console.log('constructor');
   }
 
   componentDidMount() {
     document.addEventListener('scroll', this.handleScroll);
-    console.log('scrolling to...');
     // this.layout.addEventListener('scroll', this.handleScroll.bind(this));
   }
 
@@ -46,7 +42,6 @@ class Profile extends Component {
     if (!loading) {
       document.title = `${user.displayName} | Tunebay`;
     }
-    console.log(scrollY);
     return (
       <Layout ref={(n) => { this.layout = n; }} showHeader page={'Profile'}>
         <ProfileCover />
@@ -65,7 +60,6 @@ class Profile extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.currentUser);
   return {
     user: state.profile.user,
     playlists: state.profile.playlists,
