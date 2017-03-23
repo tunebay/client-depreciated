@@ -9,7 +9,11 @@ import {
   UPDATE_PLAYLIST_LENGTH,
   AUDIO_UPLOAD_ERROR,
   AUDIO_UPLOAD_STARTED,
-  AUDIO_UPLOAD_FINISHED
+  AUDIO_UPLOAD_FINISHED,
+  UPLOAD_ANOTHER_TRACK,
+  ADD_ANOTHER_TRACK,
+  ANOTHER_UPLOAD_STARTED,
+  ANOTHER_UPLOAD_FINISHED
 } from '../types';
 
 const API_URL = 'http://localhost:3000';
@@ -35,10 +39,29 @@ export const addTracksToPlaylist = (files, userId) => {
         trackProcessCounter += 1;
         dispatch({ type: ADD_TRACK, payload: track });
         if (trackProcessCounter === files.length) {
-          dispatch({ type: UPDATE_PLAYLIST_LENGTH, payload: trackProcessCounter });
+          dispatch({ type: UPDATE_PLAYLIST_LENGTH, payload: trackProcessCounter }); // not needed
           uploadFilesToS3(getState().uploadedPlaylist, dispatch, userId);
         }
       });
+    });
+  };
+};
+
+export const addAnotherTrack = (file, userId, currentPlaylist) => {
+  return (dispatch) => {
+    const audio = document.createElement('AUDIO');
+    audio.src = file.preview;
+    audio.addEventListener('loadedmetadata', () => {
+      const track = {
+        name: file.name.substr(0, file.name.lastIndexOf('.')) || file.name,
+        playlistPosition: currentPlaylist.length + 1,
+        fileType: file.type,
+        trackId: currentPlaylist.length + 1,
+        duration: Math.round(audio.duration),
+        file
+      };
+      uploadAnotherFileToS3(track, dispatch, userId);
+      dispatch({ type: ADD_ANOTHER_TRACK, payload: track });
     });
   };
 };
@@ -130,6 +153,37 @@ const uploadFilesToS3 = (playlist, dispatch, userId) => {
       console.log('UPLOAD ERROR', err);
       dispatch({ type: AUDIO_UPLOAD_ERROR, payload: err });
     });
+  });
+};
+
+const uploadAnotherFileToS3 = (track, dispatch, userId) => {
+  dispatch({ type: UPLOAD_ANOTHER_TRACK });
+  const filename = `users/${userId}/music/${v4()}`;
+  axios.get(`${API_URL}/upload/s3/sign`, {
+    params: { filename, filetype: track.file.type }
+  })
+  .then((res) => {
+    const config = {
+      headers: { 'Content-Type': track.file.type },
+      onUploadProgress: (progress) => {
+        const percentCompleted = Math.round((progress.loaded * 100) / progress.total);
+        dispatch({
+          type: UPDATE_TRACK_PROGRESS,
+          payload: percentCompleted,
+          trackId: track.trackId
+        });
+      }
+    };
+    return axios.put(res.data.signedURL, track.file, config);
+  })
+  .then((res) => {
+    const location = res.config.url.split('?')[0];
+    dispatch({ type: ADD_TRACK_LOCATION, payload: location, trackId: track.trackId });
+    dispatch({ type: ANOTHER_UPLOAD_FINISHED });
+  })
+  .catch((err) => {
+    console.log('UPLOAD ERROR', err);
+    dispatch({ type: AUDIO_UPLOAD_ERROR, payload: err });
   });
 };
 

@@ -19,10 +19,12 @@ class HubUpload extends Component {
 
   render() {
     const { uploadStarted } = this.props.audioUpload;
+    const { currentUser } = this.props;
     return (
       <div>
-        <AudioUploadZone uploadStarted={uploadStarted} />
-        {this.renderForm()}
+        <AudioUploadZone currentUser={currentUser} uploadStarted={uploadStarted} />
+        <AudioUploadForm currentUser={currentUser} onSubmit={this.handleFormSubmit.bind(this)} />
+        {/* {this.renderForm()} */}
         <p className="important-terms">
           Important: By uploading, you confirm that your audio complies with our Terms of use and you don’t infringe anyone else’s rights. If in doubt, check our Copyright information pages and FAQs before uploading.
         </p>
@@ -35,7 +37,8 @@ const mapStateToProps = (state) => {
   return {
     uploadForm: state.form.audioUpload,
     uploadedPlaylist: state.uploadedPlaylist,
-    audioUpload: state.audioUpload
+    audioUpload: state.audioUpload,
+    currentUser: state.currentUser
   };
 };
 

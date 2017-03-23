@@ -43,10 +43,4 @@ class AudioUploadZone extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    currentUser: state.currentUser
-  };
-};
-
-export default connect(mapStateToProps, actions)(AudioUploadZone);
+export default connect(null, actions)(AudioUploadZone);

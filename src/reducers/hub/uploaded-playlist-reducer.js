@@ -5,7 +5,8 @@ import {
   UPDATE_TRACK_PROGRESS,
   ADD_TRACK_LOCATION,
   UPDATE_SINGLE_STATUS,
-  UPDATE_TRACK_PRICE
+  UPDATE_TRACK_PRICE,
+  ADD_ANOTHER_TRACK
 } from '../../actions/types';
 import UploadedTrackReducer from './uploaded-track-reducer';
 
@@ -39,6 +40,8 @@ export default (state = INITIAL_STATE, action) => {
       return action.payload.map((track, index) =>
         UploadedTrackReducer({ ...track, playlistPosition: index + 1 }, action)
       );
+    case ADD_ANOTHER_TRACK:
+      return [...state, UploadedTrackReducer(null, action)];
     default:
       return state;
   }

@@ -26,7 +26,6 @@ class UploadedTrack extends Component {
           strokeWidth="3"
           trailWidth="3"
           strokeColor={'#1596F5'}
-          trailColo={'red'}
           strokeLinecap="square"
           percent={track.progress || 0}
           style={{ height: 3, width: '100%' }}

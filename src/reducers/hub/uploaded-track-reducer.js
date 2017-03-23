@@ -4,7 +4,8 @@ import {
   UPDATE_TRACK_PROGRESS,
   ADD_TRACK_LOCATION,
   UPDATE_SINGLE_STATUS,
-  UPDATE_TRACK_PRICE
+  UPDATE_TRACK_PRICE,
+  ADD_ANOTHER_TRACK
 } from '../../actions/types';
 
 export const INITIAL_STATE = {
@@ -24,6 +25,18 @@ export const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_TRACK:
+      return {
+        name: action.payload.name,
+        filename: action.payload.file.name,
+        trackId: action.payload.trackId,
+        duration: action.payload.duration,
+        file: action.payload.file,
+        playlistPosition: action.payload.playlistPosition,
+        isASingle: false,
+        price: parseFloat(0.00).toFixed(2),
+        fileType: action.payload.fileType
+      };
+    case ADD_ANOTHER_TRACK:
       return {
         name: action.payload.name,
         filename: action.payload.file.name,
