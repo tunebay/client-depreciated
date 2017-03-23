@@ -19,15 +19,17 @@ class UploadedTrack extends Component {
   render() {
     const { track } = this.props;
     console.log(track);
+    console.log('PROGRESS', track.progress);
     return (
       <li className="uploaded-track" key={`track-${track.trackId}`}>
         <Progress
-          strokeWidth="2"
-          trailWidth="2"
+          strokeWidth="3"
+          trailWidth="3"
           strokeColor={'#1596F5'}
+          trailColo={'red'}
           strokeLinecap="square"
-          percent={track.progress}
-          style={{ height: 2, width: '100%' }}
+          percent={track.progress || 0}
+          style={{ height: 3, width: '100%' }}
         />
         <div className="uploaded-track-content">
           <div className="playlist-position">{track.playlistPosition}</div>
