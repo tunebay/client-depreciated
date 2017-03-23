@@ -12,14 +12,12 @@ import {
   AUDIO_UPLOAD_FINISHED,
   UPLOAD_ANOTHER_TRACK,
   ADD_ANOTHER_TRACK,
-  ANOTHER_UPLOAD_STARTED,
   ANOTHER_UPLOAD_FINISHED
 } from '../types';
 
 const API_URL = 'http://localhost:3000';
 
 let playlistPosition = 0;
-let trackId = 0;
 let trackProcessCounter = 0;
 
 export const addTracksToPlaylist = (files, userId) => {
@@ -32,7 +30,7 @@ export const addTracksToPlaylist = (files, userId) => {
           name: file.name.substr(0, file.name.lastIndexOf('.')) || file.name,
           playlistPosition: playlistPosition += 1,
           fileType: file.type,
-          trackId: trackId += 1,
+          trackId: v4(),
           duration: Math.round(audio.duration),
           file
         };
@@ -56,7 +54,7 @@ export const addAnotherTrack = (file, userId, currentPlaylist) => {
         name: file.name.substr(0, file.name.lastIndexOf('.')) || file.name,
         playlistPosition: currentPlaylist.length + 1,
         fileType: file.type,
-        trackId: currentPlaylist.length + 1,
+        trackId: v4(),
         duration: Math.round(audio.duration),
         file
       };

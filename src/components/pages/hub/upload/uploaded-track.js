@@ -18,7 +18,8 @@ class UploadedTrack extends Component {
 
   handleBinClick() {
     const { trackId } = this.props.track;
-    this.props.deleteTrack(trackId);
+    const answer = window.confirm('Do you really want to delete this track?');
+    if (answer) { this.props.deleteTrack(trackId); }
   }
 
   render() {
