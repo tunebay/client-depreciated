@@ -9,8 +9,14 @@ class Layout extends Component {
   }
 
   render() {
+    let styles;
+    if (this.props.showHeader) {
+      styles = { marginTop: 50 };
+    } else {
+      styles = {};
+    }
     return (
-      <div className="layout">
+      <div style={styles}>
         {this.renderHeader()}
         {this.props.children}
       </div>
