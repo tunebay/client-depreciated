@@ -31,14 +31,14 @@ class Header extends Component {
           <div className="header-control-section">
             <div className="avatar-section">
               <div className="header-avatar" />
+              <div className="display-name">The Keepsakes</div>
               <Icon name="angle-down" className="control-icon" />
             </div>
-            <Link to="/upload" className="header-link upload">Upload</Link>
             <div className="control-icons">
-              <Icon name="bell" size="lg" className="control-icon" />
-              <Icon name="commenting" size="lg" className="control-icon" />
+              <Link to="/hub" className="header-link upload">Upload</Link>
               <div className="pipe" />
-              <Icon name="question-circle" size="lg" className="control-icon" />
+              <Icon name="comments" size="lg" className="control-icon" />
+              <Icon name="bell" size="lg" className="control-icon" />
             </div>
           </div>
         </nav>
