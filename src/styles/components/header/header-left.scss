@@ -1,66 +1,66 @@
-$header-black: #2D2E2F;
-$hover-black: #191A1B;
-$font-stack: 'Open Sans', sans-serif;
-
-.header-left {
-  height: 50px;
-  margin-left: 30px;
-  margin-right: 5px;
-  align-items: center;
-  display: flex;
-  min-width: 330px;
-}
-
-.left-section {
-  align-items: center;
-}
-
-.logo {
-  flex: 1.3;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  margin: 0;
-  margin-right: 10px;
-}
-
-.tunebay-logo {
-  height: 30px;
-  display: block;
-}
-
-.home {
-  flex: 1;
-  background-color: $header-black;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  height: 50px;
-  &:hover {
-    background-color: $hover-black;
-  }
-}
-
-.header-link {
-  justify-content: center;
-  align-items: center;
-  font-family: $font-stack;
-  text-decoration: none;
-  font-size: 14px;
-  color: white;
-  &:visited {
-    color: white;
-  }
-}
-
-.discover {
-  flex: 1;
-  background-color: $header-black;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  height: 50px;
-  &:hover {
-    background-color: $hover-black;
-  }
-}
+// $header-black: #2D2E2F;
+// $hover-black: #191A1B;
+// $font-stack: 'Open Sans', sans-serif;
+//
+// .header-left {
+//   height: 50px;
+//   margin-left: 30px;
+//   margin-right: 5px;
+//   align-items: center;
+//   display: flex;
+//   min-width: 330px;
+// }
+//
+// .left-section {
+//   align-items: center;
+// }
+//
+// .logo {
+//   flex: 1.3;
+//   align-items: center;
+//   justify-content: center;
+//   display: flex;
+//   margin: 0;
+//   margin-right: 10px;
+// }
+//
+// .tunebay-logo {
+//   height: 30px;
+//   display: block;
+// }
+//
+// .home {
+//   flex: 1;
+//   background-color: $header-black;
+//   justify-content: center;
+//   align-items: center;
+//   display: flex;
+//   height: 50px;
+//   &:hover {
+//     background-color: $hover-black;
+//   }
+// }
+//
+// .header-link {
+//   justify-content: center;
+//   align-items: center;
+//   font-family: $font-stack;
+//   text-decoration: none;
+//   font-size: 14px;
+//   color: white;
+//   &:visited {
+//     color: white;
+//   }
+// }
+//
+// .discover {
+//   flex: 1;
+//   background-color: $header-black;
+//   justify-content: center;
+//   align-items: center;
+//   display: flex;
+//   height: 50px;
+//   &:hover {
+//     background-color: $hover-black;
+//   }
+// }

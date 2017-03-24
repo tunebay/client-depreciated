@@ -4,9 +4,8 @@ $font-stack: 'Open Sans', 'Avenir Next', sans-serif;
 
 
 .header-search {
-  margin-left: 5px;
-  margin-right: 5px;
   display: flex;
+  flex: 1;
   align-items: center;
 }
 
@@ -31,10 +30,6 @@ $font-stack: 'Open Sans', 'Avenir Next', sans-serif;
     border: none
   }
   margin: 0;
-}
-
-.search-icon {
-  height: 13px;
 }
 
 .icon-container {

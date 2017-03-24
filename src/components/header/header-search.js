@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Icon from 'react-fontawesome';
 
 import '../../styles/components/header/header-search.scss';
 
@@ -7,11 +8,7 @@ class HeaderSearch extends Component {
     return (
       <div className="header-search">
         <div className="icon-container">
-          <img
-            src="../../../assets/images/search-icon.png"
-            alt="search-icon"
-            className="search-icon"
-          />
+          <Icon name="search" className="search-icon" />
         </div>
         <input className="search-bar" type="text" placeholder="Search" />
       </div>
