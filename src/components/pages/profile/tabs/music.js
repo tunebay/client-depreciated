@@ -8,7 +8,7 @@ const MusicTab = ({ playlists, loading }) => {
   return (
     <ul className="music-tab-list">
       {playlists.map((playlist, index) =>
-        <PlaylistDisplay playlist={playlist} key={playlist.id} index={index} />
+        <PlaylistDisplay playlist={playlist} key={playlist.playlistId} index={index} />
       )}
     </ul>
   );
