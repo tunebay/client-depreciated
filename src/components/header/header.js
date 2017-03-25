@@ -31,14 +31,14 @@ class Header extends Component {
           <div className="header-control-section">
             <div className="avatar-section">
               <div className="header-avatar" />
-              <div className="display-name">The Keepsakes</div>
+              <div className="display-name">{this.props.currentUser.displayName}</div>
               <Icon name="angle-down" className="control-icon" />
             </div>
             <div className="control-icons">
               <Link to="/hub" className="header-link upload">Upload</Link>
               <div className="pipe" />
-              <Icon name="comments" size="lg" className="control-icon" />
-              <Icon name="bell" size="lg" className="control-icon" />
+              <Icon name="comments" size="lg" className="control-icon comments" />
+              <Icon name="bell" size="lg" className="control-icon bell" />
             </div>
           </div>
         </nav>
@@ -49,7 +49,8 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    isAuthenticated: state.auth.isAuthenticated
+    isAuthenticated: state.auth.isAuthenticated,
+    currentUser: state.currentUser
   };
 };
 
