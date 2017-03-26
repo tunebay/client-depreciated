@@ -5,7 +5,7 @@ $darker-black: #1E2325;
 $light-grey: #e4e4e4;
 $border-color: #424242;
 
-$font-stack: 'Open Sans', sans-serif;
+$font-stack: 'Avenir Next', sans-serif;
 
 $breakpoint-small: 768px;
 $breakpoint-medium: 992px;
@@ -69,12 +69,12 @@ $breakpoint-large: 1200px;
       border-right: 1px solid $border-color;
 
       .logo {
-        height: 34px;
-        width: 34px;
+        height: 32px;
+        width: 32px;
       }
 
       .logo-text {
-        width: 89px;
+        width: 80px;
         margin-top: 2px;
         margin-left: 10px;
       }
@@ -169,7 +169,7 @@ $breakpoint-large: 1200px;
       }
       .display-name {
         display: flex;
-        line-height: 1.4;
+        // line-height: 1.4;
         width: auto;
         font-family: $font-stack;
         font-size: 14px;
@@ -209,14 +209,14 @@ $breakpoint-large: 1200px;
         border-right: none;
 
         #hamburger {
-          height: 34px;
-          width: 34px;
+          height: 32px;
+          width: 32px;
           display: flex;
           justify-content: center;
           align-items: center;
           color: $light-grey;
           #fa-bars {
-            color: $light-blue
+            color: $blue;
           }
         }
       }
