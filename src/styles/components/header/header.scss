@@ -140,6 +140,44 @@ $breakpoint-large: 1200px;
       }
     }
 
+    .user {
+      height: 100%;
+      padding-left: 10px;
+      padding-right: 10px;
+      width: auto;
+      border-left: 1px solid $border-color;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      &:hover {
+        background-color: $darker-black;
+        cursor: pointer;
+        .fa-user, .fa-caret {
+          color: #fff;
+        }
+        .display-name {
+          color: #fff;
+        }
+      }
+      .fa-caret {
+        color: $light-grey;
+      }
+      .fa-user {
+        padding-right: 10px;
+        color: $light-grey;
+      }
+      .display-name {
+        display: flex;
+        line-height: 1.4;
+        width: auto;
+        font-family: $font-stack;
+        font-size: 14px;
+        padding-right: 10px;
+        color: $light-grey;
+        white-space: nowrap;
+      }
+    }
   }
 }
 
@@ -151,6 +189,13 @@ $breakpoint-large: 1200px;
       }
       .logo-text {
         display: none;
+      }
+    }
+    #header-right {
+      .user {
+        .display-name {
+          display: none;
+        }
       }
     }
   }
