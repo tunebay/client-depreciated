@@ -5,8 +5,6 @@ import Icon from 'react-fontawesome';
 
 import '../../styles/components/header/header.scss';
 
-import HeaderSearch from './header-search';
-
 class Header extends Component {
   componentWillMount() {
     console.log('rendering header...');
@@ -14,35 +12,29 @@ class Header extends Component {
 
   render() {
     return (
-      <div className="header-con">
-        <nav className="header">
-          <div className="header-left-section">
-            <img
-              src="../../../assets/images/header-logo.png"
-              alt="header-logo"
-              className="tunebay-logo"
-            />
-            <Link to="/" className="header-link">Home</Link>
-            <Link to="/malimichael" className="header-link">Discover</Link>
+      <nav id="top-nav">
+        <div className="logo-section">
+          <div id="hamburger">
+            <Icon name="bars" size="2x" id="fa-bars" />
           </div>
-          <div className="header-search-section">
-            <HeaderSearch />
-          </div>
-          <div className="header-control-section">
-            <div className="avatar-section">
-              <div className="header-avatar" />
-              <div className="display-name">{this.props.currentUser.displayName}</div>
-              <Icon name="angle-down" className="control-icon" />
-            </div>
-            <div className="control-icons">
-              <Link to="/hub" className="header-link upload">Upload</Link>
-              <div className="pipe" />
-              <Icon name="comments" size="lg" className="control-icon comments" />
-              <Icon name="bell" size="lg" className="control-icon bell" />
-            </div>
-          </div>
-        </nav>
-      </div>
+
+          <img
+            className="logo"
+            src="../../../assets/images/logo.png"
+            alt="logo"
+          />
+          <img
+            className="logo-text"
+            src="../../../assets/images/tunebay-text.png"
+            alt="logo-text"
+          />
+        </div>
+
+        <ul className="left-menu">
+          <li><Link className="nav-link" to="/">Home</Link></li>
+          <li><Link className="nav-link" to="/discover">Discover</Link></li>
+        </ul>
+      </nav>
     );
   }
 }

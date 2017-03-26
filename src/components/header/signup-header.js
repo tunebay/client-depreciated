@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import '../../styles/components/header/signup-header.scss';
+// import '../../styles/components/header/signup-header.scss';
 
 class SignupHeader extends Component {
   render() {
