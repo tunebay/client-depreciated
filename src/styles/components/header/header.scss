@@ -22,6 +22,39 @@ $breakpoint-large: 1200px;
   top: 0;
   position: fixed;
 
+  .nav-link {
+    height: 50px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid $border-color;
+    text-decoration: none;
+    color: $light-grey;
+    font-family: $font-stack;
+    font-size: 14px;
+    line-height: 1.4;
+    &:hover {
+      background-color: $darker-black;
+      color: #fff;
+    }
+  }
+
+  .icon-div {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .fa-search {
+      color: $light-grey;
+    }
+  }
+
+  .upload-link {
+    border-left: 1px solid $border-color;
+  }
+
   #header-left {
     display: flex;
     align-items: center;
@@ -58,43 +91,15 @@ $breakpoint-large: 1200px;
       align-items: center;
       margin: 0;
       padding: 0;
-
-      .nav-link {
-        height: 50px;
-        width: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-right: 1px solid $border-color;
-        text-decoration: none;
-        color: $light-grey;
-        font-family: $font-stack;
-        font-size: 14px;
-        line-height: 1.4;
-        &:hover {
-          background-color: $darker-black;
-          color: #fff;
-        }
-      }
     }
   }
 
   #header-search {
     height: 100%;
-    width: 100%;
+    width: 100%;;
     display: flex;
     flex-direction: row;
     align-items: center;
-    .icon-div {
-      width: 50px;
-      height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .fa-search {
-        color: $light-grey;
-      }
-    }
     .search-input {
       height: 35px;
       width: 100%;
@@ -108,6 +113,33 @@ $breakpoint-large: 1200px;
       color: $light-grey;
       // margin-top: 2px;
     }
+  }
+
+  #header-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    height: 100%;
+    width: auto;
+
+    .fa-bell, .fa-comment {
+      color: $light-grey;
+    }
+
+    .dropdown {
+      border-left: 1px solid $border-color;
+      &:hover {
+        cursor: pointer;
+        background-color: $darker-black;
+        color: #fff;
+        .fa-bell, .fa-comment {
+          color: #fff;
+        }
+      }
+    }
+
   }
 }
 

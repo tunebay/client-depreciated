@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Icon from 'react-fontawesome';
+import { Link } from 'react-router';
 
 import HeaderLeft from './header-left';
 
@@ -25,6 +26,16 @@ class Header extends Component {
             className="search-input"
             placeholder="Search"
           />
+        </div>
+
+        <div id="header-right">
+          <div className="icon-div dropdown">
+            <Icon className="fa-comment" name="comment" />
+          </div>
+          <div className="icon-div dropdown">
+            <Icon className="fa-bell" name="bell" />
+          </div>
+          <Link className="nav-link upload-link" to="/hub">Upload</Link>
         </div>
       </nav>
     );
