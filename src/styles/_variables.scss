@@ -1,0 +1,18 @@
+$black: #2D2E2F;
+$blue: #1596F5;
+$light-blue: #34bfed;
+$darker-black: #1E2325;
+$light-grey: #e4e4e4;
+$border-color: #424242;
+
+$font-stack: 'Avenir Next', sans-serif;
+
+$breakpoint-small: 768px;
+$breakpoint-medium: 992px;
+$breakpoint-large: 1200px;
+
+@mixin boxshadow {
+  -webkit-box-shadow: 2px 1px 6px 0 rgba(200,200,200,0.50);
+  -moz-box-shadow: 2px 1px 6px 0 rgba(200,200,200,0.50);
+  box-shadow: 2px 1px 6px 0 rgba(200,200,200,0.50);
+}

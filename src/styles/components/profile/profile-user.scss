@@ -5,17 +5,25 @@ $e4: #e4e4e4;
 $light-blue: #34bfed;
 $font-stack: 'Avenir Next', sans-serif;
 
+@mixin boxshadow {
+  -webkit-box-shadow: 2px 1px 6px 0 rgba(200,200,200,0.50);
+  -moz-box-shadow: 2px 1px 6px 0 rgba(200,200,200,0.50);
+  box-shadow: 2px 1px 6px 0 rgba(200,200,200,0.50);
+}
+
 .profile-user {
   height: 560px;
-  width: 350px;
+  width: 320px;
+  overflow: visible;
+  border-radius: 2px;
   background-color: #fff;
-  border: 1px solid #E4E4E4;
   display: flex;
   align-items: center;
+  @include boxshadow;
   flex-direction: column;
   .profile-picture-placeholder {
-    width: 330px;
-    height: 220px;
+    width: 300px;
+    height: 187px;
     background-color: #e1e1e1;
     margin-top: 10px;
     &:hover {
@@ -24,14 +32,14 @@ $font-stack: 'Avenir Next', sans-serif;
   }
   .user-details {
     height: 100px;
-    width: 330px;
+    width: 300px;
     margin: 10px;
     #display-name {
       font-family: $font-stack;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 700;
       color: $black;
-      padding-bottom: 2px;
+      padding-bottom: 3px;
     }
     #username {
       font-family: $font-stack;
@@ -42,7 +50,7 @@ $font-stack: 'Avenir Next', sans-serif;
     }
     .follow-btn-placeholder {
       height: 35px;
-      width: 180px;
+      width: 160px;
       font-weight: 500;
       color: #fff;
       background-color: $logo-blue;
@@ -65,14 +73,4 @@ $font-stack: 'Avenir Next', sans-serif;
   }
 }
 
-@media (max-width: 1130px) {
-  .profile-user {
-    display: none;
-  }
-}
-
-// .profile-user-fixed {
-//   right: 130px;
-//   top: 110px;
-//   position: fixed;
-// }
+/* Mask: */

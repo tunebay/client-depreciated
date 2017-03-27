@@ -1,15 +1,4 @@
-$black: #2D2E2F;
-$blue: #1596F5;
-$light-blue: #34bfed;
-$darker-black: #1E2325;
-$light-grey: #e4e4e4;
-$border-color: #424242;
-
-$font-stack: 'Avenir Next', sans-serif;
-
-$breakpoint-small: 768px;
-$breakpoint-medium: 992px;
-$breakpoint-large: 1200px;
+@import "../../variables";
 
 #top-nav {
   display: flex;
@@ -176,6 +165,16 @@ $breakpoint-large: 1200px;
         padding-right: 10px;
         color: $light-grey;
         white-space: nowrap;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-large) {
+  #top-nav {
+    #header-right {
+      .fa-bell {
+        color: red;
       }
     }
   }
