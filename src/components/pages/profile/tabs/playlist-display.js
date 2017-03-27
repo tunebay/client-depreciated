@@ -1,4 +1,5 @@
 import React from 'react';
+import PricePill from '../../../common/price-pill';
 import '../../../../styles/components/profile/music/index.scss';
 
 const PlaylistDisplay = ({ playlist }) => {
@@ -8,7 +9,7 @@ const PlaylistDisplay = ({ playlist }) => {
       <div className="artwork-detail-con">
         <div className="artwork" />
         <div className="detail">
-          {playlist.title}
+          <div className="playlist-title-pill">{playlist.title}<PricePill price={playlist.price} /></div>
           <ul>
             {tracks.map((track) => {
               return (
