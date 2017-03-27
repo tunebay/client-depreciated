@@ -23,3 +23,17 @@ $font-stack: 'Avenir Next', sans-serif;
     font-size: 13px;
   }
 }
+
+.pill-button {
+  margin-left: 0;
+  background-color: transparent;
+  border: 1px solid $logo-blue;
+  transition: background-color 150ms ease-in-out;
+  &:hover {
+    background-color: $logo-blue;
+    cursor: pointer;
+  }
+  .price-pill-text {
+    color: $logo-blue;
+  }
+}

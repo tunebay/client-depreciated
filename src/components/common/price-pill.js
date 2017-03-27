@@ -1,9 +1,15 @@
 import React from 'react';
+import className from 'classnames';
 import '../../styles/components/common/price-pill.scss';
 
-const PricePill = ({ price }) => {
+const PricePill = ({ price, button }) => {
+  const pillClass = className({
+    'price-pill': true,
+    'pill-button': button
+  });
+
   return (
-    <div className="price-pill">
+    <div className={pillClass}>
       <div className="price-pill-text">
         {renderPrice(price)}
       </div>
