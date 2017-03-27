@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import className from 'classnames';
+import { connect } from 'react-redux';
 import PricePill from '../../../common/price-pill';
 import formatSeconds from '../../../../util/format-seconds';
+import * as actions from '../../../../actions/player-actions';
 import '../../../../styles/components/profile/music/track.scss';
 
 class Track extends Component {
+  handlePlayClick() {
+    const { track, addTrackToPlayer } = this.props;
+    console.log(`Play ${track.name}`);
+    addTrackToPlayer(track);
+  }
+
   renderPriceOrPlaylistOnly() {
     const { track } = this.props;
     return track.single ?
       <div className="track-price"><PricePill button price={track.trackPrice} /></div> :
       <div className="track-price">{`${track.playlistType} only`}</div>;
-  }
-
-  handlePlayClick() {
-    const { track } = this.props;
-    console.log(`Play ${track.name}`);
-
   }
 
   render() {
@@ -38,4 +40,4 @@ class Track extends Component {
   }
 }
 
-export default Track;
+export default connect(null, actions)(Track);
