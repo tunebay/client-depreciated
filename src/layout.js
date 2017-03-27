@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/header/header';
+import Player from './components/player/player';
 
 class Layout extends Component {
   renderHeader() {
@@ -19,6 +20,7 @@ class Layout extends Component {
       <div style={styles}>
         {this.renderHeader()}
         {this.props.children}
+        <Player />
       </div>
     );
   }
