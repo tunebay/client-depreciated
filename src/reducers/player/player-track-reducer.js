@@ -5,9 +5,11 @@ import {
 const INITIAL_STATE = {
   name: null,
   location: null,
-  position: 300,
+  position: 0,
   duration: null,
   isPlaying: false,
+  miliPosition: 300,
+  miliDuration: 0,
   artist: ''
 };
 
@@ -18,8 +20,8 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         name: action.payload.name,
-        location: action.payload.location,
-        duration: action.payload.duration,
+        miliPosition: action.payload.miliPosition,
+        miliDuration: action.payload.miliDuration,
         artist: action.payload.displayName,
         isPlaying: true
       };

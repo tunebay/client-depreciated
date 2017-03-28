@@ -2,7 +2,8 @@ import playerTrack from './player-track-reducer';
 import playerPlaylist from './player-playlist-reducer';
 import {
   ADD_TRACK_TO_PLAYER,
-  UPDATE_TRACK_POSITION
+  UPDATE_TRACK_MILLISECONDS,
+  UPDATE_TRACK_MILI_POSITION
 } from '../../actions/types';
 
 const PLAYING = 'PLAYING';
@@ -35,12 +36,21 @@ export default (state = INITIAL_STATE, action) => {
         playStatus: PLAYING,
         isPlaying: true
       };
-    case UPDATE_TRACK_POSITION:
+    case UPDATE_TRACK_MILLISECONDS:
       return {
         ...state,
         currentTrack: playerTrack({
           ...state.currentTrack,
-          position: action.payload
+          miliPosition: action.position,
+          miliDuration: action.duration
+        }, action)
+      };
+    case UPDATE_TRACK_MILI_POSITION:
+      return {
+        ...state,
+        currentTrack: playerTrack({
+          ...state.currentTrack,
+          miliPosition: action.payload,
         }, action)
       };
     default:

@@ -1,22 +1,28 @@
+@import "../../variables";
+
 .player {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   width: 100%;
+  height: auto;
   bottom: 0;
   position: fixed;
+  background-color: #FDFEFF;
+
   .player-content {
     height: 50px;
-    background-color: #FDFEFF;
-    bottom: 0;
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
+
     .now-playing {
       display: flex;
       flex-direction: row;
       align-items: center;
       line-height: 1.4;
+
       .player-artwork {
         display: flex;
         justify-content: center;
@@ -31,6 +37,113 @@
           opacity: 0.8;
         }
       }
+
+      .now-playing-text {
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: $text-black;
+        font-family: $font-stack;
+        font-size: 14px;
+        line-height: 1.3;
+        vertical-align: baseline;
+        .playing-track {
+          font-weight: 500;
+        }
+        .playing-artist {
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  .ProgressBar,
+.VolumeSlider {
+  position: relative;
+  background: #eee;
+  border-radius: 4px;
+
+  &-elapsed,
+  &-value {
+    background: $light-grey;
+    border-radius: 4px;
+  }
+
+  &-seek {
+    position: absolute;
+    cursor: pointer;
+  }
+
+  &-handle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: $blue;
+    border-radius: 100%;
+    transform: scale(0);
+    transition: transform 0.2s;
+  }
+
+  &.isSeekable,
+  &.isEnabled {
+    &:hover {
+      .ProgressBar-handle,
+      .VolumeSlider-handle {
+        transform: scale(1);
+      }
+
+      .ProgressBar-intent,
+      .VolumeSlider-intent {
+        position: absolute;
+        background: rgba(0,0,0,0.05);
+      }
+    }
+
+    .ProgressBar-elapsed,
+    .VolumeSlider-value {
+      background: $blue;
+    }
+  }
+}
+
+  .ProgressBar {
+    height: 4px;
+    margin: 0;
+
+    &-elapsed {
+      height: 100%;
+    }
+
+    &-seek {
+      top: -6px;
+      right: 0;
+      bottom: -6px;
+      left: 0;
+    }
+
+    &-handle {
+      top: 0;
+      margin: -4px 0 0 -8px;
+    }
+
+    &.isSeekable {
+      &:hover {
+        .ProgressBar-handle {
+          transform: scale(1);
+        }
+
+        .ProgressBar-intent {
+          top: 0;
+          left: 0;
+          height: 100%;
+        }
+      }
+    }
+
+    &.isLoading {
+      opacity: 0.5;
+      background: #ccc;
+      animation: barLoading 2s infinite;
     }
   }
 }
