@@ -1,11 +1,11 @@
+import playerTrack from './player-track-reducer';
 import {
-  ADD_TRACK_TO_PLAYER
+  ADD_TRACK_TO_PLAYER,
+  UPDATE_TRACK_POSITION
 } from '../../actions/types';
 
 const PLAYING = 'PLAYING';
 const PAUSED = 'PAUSED';
-
-import playerTrack from './player-track-reducer';
 
 const INITIAL_STATE = {
   playlist: [],
@@ -29,6 +29,14 @@ export default (state = INITIAL_STATE, action) => {
         currentTrack: playerTrack(action.payload, action),
         playStatus: PLAYING,
         isPlaying: true
+      };
+    case UPDATE_TRACK_POSITION:
+      return {
+        ...state,
+        currentTrack: playerTrack({
+          ...state.currentTrack,
+          position: action.payload
+        }, action)
       };
     default:
       return state;

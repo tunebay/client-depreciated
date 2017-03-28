@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import Sound from 'react-sound';
 import { connect } from 'react-redux';
-import { ProgressBar, PlaybackControls } from 'react-player-controls';
+import * as actions from '../../actions/player-actions';
 import '../../styles/components/player/player.scss';
 
 class Player extends Component {
   handlePlaying(e) {
-    console.log(`${e.position} / ${e.duration}`);
+    this.props.updateTrackPosition(e.position);
   }
 
   renderSound(player) {
     if (!player.visable) return <div />;
+    console.log('POSITION', player.currentTrack.position);
     return (
       <Sound
         url={player.currentTrack.location}
         volume={player.volume}
         playStatus={player.playStatus}
-        playFromPosition={300}
-        // position={player.currentTrack.position}
+        position={player.currentTrack.position}
         onPlaying={this.handlePlaying.bind(this)}
       />
     );
@@ -31,7 +31,13 @@ class Player extends Component {
         {this.renderSound(player)}
 
         <div className="player-content">
-          <div className="player-artwork" />
+          <div className="now-playing">
+            <div className="player-artwork" />
+            <div className="playing-text">
+              <div className="playing-track">{player.currentTrack.name}</div>
+              <div className="playing-artist">{player.currentTrack.name}</div>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -44,4 +50,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Player);
+export default connect(mapStateToProps, actions)(Player);

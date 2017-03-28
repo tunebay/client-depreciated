@@ -5,7 +5,7 @@ import {
 const INITIAL_STATE = {
   name: null,
   location: null,
-  position: 300,
+  position: 0,
   duration: null,
   isPlaying: false
 };

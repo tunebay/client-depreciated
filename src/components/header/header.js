@@ -34,7 +34,7 @@ class Header extends Component {
 
           <ul className="left-menu">
             <li><Link className="nav-link" to="/">Home</Link></li>
-            <li><Link className="nav-link" to="/discover">Discover</Link></li>
+            <li><Link className="nav-link" to="/malimichael">Discover</Link></li>
           </ul>
         </div>
 
