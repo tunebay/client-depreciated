@@ -1,4 +1,5 @@
 import playerTrack from './player-track-reducer';
+import playerPlaylist from './player-playlist-reducer';
 import {
   ADD_TRACK_TO_PLAYER,
   UPDATE_TRACK_POSITION
@@ -23,10 +24,12 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_TRACK_TO_PLAYER:
+      console.log('TRACKS IN PLAYER', action.tracks);
       return {
         ...state,
         visable: true,
         currentTrack: playerTrack(action.payload, action),
+        playlist: playerPlaylist(action.tracks, action),
         playStatus: PLAYING,
         isPlaying: true
       };

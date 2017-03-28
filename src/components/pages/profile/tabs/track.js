@@ -8,9 +8,9 @@ import '../../../../styles/components/profile/music/track.scss';
 
 class Track extends Component {
   handlePlayClick() {
-    const { track, addTrackToPlayer } = this.props;
+    const { track, tracks, addTrackToPlayer } = this.props;
     console.log(`Play ${track.name}`);
-    addTrackToPlayer(track);
+    addTrackToPlayer(track, tracks);
   }
 
   renderPriceOrPlaylistOnly() {

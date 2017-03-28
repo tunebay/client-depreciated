@@ -12,7 +12,7 @@ const TrackList = ({ tracks }) => {
       </ul>
       <ul className="track-list">
         {tracks.map((track) => {
-          return <Track track={track} key={track.position} />;
+          return <Track track={track} key={track.position} tracks={tracks} />;
         })}
       </ul>
     </div>

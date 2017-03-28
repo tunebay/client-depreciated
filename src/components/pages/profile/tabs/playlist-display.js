@@ -4,7 +4,6 @@ import TrackList from './track-list';
 import SingleTrack from './single-track';
 import '../../../../styles/components/profile/music/index.scss';
 
-
 class PlaylistDisplay extends Component {
   renderTrackOrTrackList() {
     const { tracks } = this.props.playlist;
