@@ -3,7 +3,6 @@ import Sound from 'react-sound';
 import Icon from 'react-fontawesome';
 import { connect } from 'react-redux';
 import { ProgressBar } from 'react-player-controls';
-import { Progress } from 'rc-progress';
 import * as actions from '../../actions/player-actions';
 import '../../styles/components/player/player.scss';
 
@@ -13,8 +12,14 @@ class Player extends Component {
     this.props.updateTrackMilliseconds(e);
   }
 
+  togglePlayPause() {
+    const { player } = this.props;
+    const status = player.playStatus === 'PAUSED' ? 'PLAYING' : 'PAUSED';
+    this.props.updatePlayStatus(status);
+  }
+
   handleSeek(e) {
-    this.props.updateTrackMiliPosition(e)
+    this.props.updateTrackMiliPosition(e);
     console.log('Seek Position', e);
   }
 
@@ -55,6 +60,22 @@ class Player extends Component {
               <div className="playing-artist">{player.currentTrack.artist}</div>
             </div>
           </div>
+
+          <div className="playback-controls">
+            <Icon className="player-control" name="step-backward" size="lg" />
+            <Icon
+              onClick={this.togglePlayPause.bind(this)}
+              className="player-control"
+              name={player.playStatus === 'PLAYING' ? 'pause' : 'play'}
+              size="2x"
+            />
+            <Icon
+              className="player-control"
+              name="step-forward" size="lg"
+            />
+          </div>
+
+          <div className="buy-button" />
 
         </div>
       </div>

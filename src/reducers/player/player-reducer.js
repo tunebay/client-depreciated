@@ -3,7 +3,8 @@ import playerPlaylist from './player-playlist-reducer';
 import {
   ADD_TRACK_TO_PLAYER,
   UPDATE_TRACK_MILLISECONDS,
-  UPDATE_TRACK_MILI_POSITION
+  UPDATE_TRACK_MILI_POSITION,
+  UPDATE_PLAY_STATUS
 } from '../../actions/types';
 
 const PLAYING = 'PLAYING';
@@ -53,6 +54,8 @@ export default (state = INITIAL_STATE, action) => {
           miliPosition: action.payload,
         }, action)
       };
+    case UPDATE_PLAY_STATUS:
+      return { ...state, playStatus: action.payload };
     default:
       return state;
   }

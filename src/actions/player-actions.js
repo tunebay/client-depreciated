@@ -1,7 +1,8 @@
 import {
   ADD_TRACK_TO_PLAYER,
   UPDATE_TRACK_MILLISECONDS,
-  UPDATE_TRACK_MILI_POSITION
+  UPDATE_TRACK_MILI_POSITION,
+  UPDATE_PLAY_STATUS
 } from './types';
 
 export const addTrackToPlayer = (track, tracks) => {
@@ -21,4 +22,8 @@ export const updateTrackMiliPosition = (e) => {
     type: UPDATE_TRACK_MILI_POSITION,
     payload: e
   };
+};
+
+export const updatePlayStatus = (status) => {
+  return { type: UPDATE_PLAY_STATUS, payload: status };
 };

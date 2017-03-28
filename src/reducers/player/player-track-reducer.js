@@ -23,6 +23,8 @@ export default (state = INITIAL_STATE, action) => {
         miliPosition: action.payload.miliPosition,
         miliDuration: action.payload.miliDuration,
         artist: action.payload.displayName,
+        playlistType: action.payload.playlistType,
+        isAsingle: action.payload.single,
         isPlaying: true
       };
     default:
