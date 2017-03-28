@@ -61,12 +61,12 @@
 .VolumeSlider {
   position: relative;
   background: #eee;
-  border-radius: 4px;
+  // border-radius: 4px;
 
   &-elapsed,
   &-value {
     background: $light-grey;
-    border-radius: 4px;
+    // border-radius: 4px;
   }
 
   &-seek {
