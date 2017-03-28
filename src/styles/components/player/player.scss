@@ -18,11 +18,18 @@
       align-items: center;
       line-height: 1.4;
       .player-artwork {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         height: 50px;
         width: 50px;
         padding: 0;
         margin: 0;
         background-image: linear-gradient(45deg, #34BFED 0%, #8fc1fd 96%, #8fc1fd 100%);
+        .fa-music {
+          color: #fff;
+          opacity: 0.8;
+        }
       }
     }
   }
