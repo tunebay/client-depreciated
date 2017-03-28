@@ -21,8 +21,8 @@
     flex-direction: row;
     padding: 10px;
     .artwork {
-      height: 260px;
-      width: 260px;
+      height: 220px;
+      width: 220px;
       // padding: 10px;
         background-image: linear-gradient(45deg, #34BFED 0%, #8fc1fd 96%, #8fc1fd 100%);
     }
@@ -43,7 +43,7 @@
     }
   }
   .playlist-footer {
-    height: 60px;
+    height: 50px;
     border-top: 1px solid $light-grey;
     // background-color: red;
   }

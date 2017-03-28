@@ -1,14 +1,14 @@
 @import "../../../variables";
 
 .track-container {
-  height: 45px;
+  height: 40px;
   width: 100%;
   align-items: center;
   display: flex;
   flex-direction: row;
   font-weight: 500;
   font-family: $font-stack;
-  font-size: 14px;
+  font-size: 13px;
   color: $text-black;
   .track-position {
     color: #999;
