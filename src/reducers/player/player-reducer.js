@@ -13,6 +13,7 @@ const INITIAL_STATE = {
   currentTrack: {},
   nextTrack: {},
   previousTrack: {},
+  artist: '',
   playStatus: PAUSED,
   isPlaying: false,
   hasNext: false,
@@ -29,6 +30,7 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         visable: true,
         currentTrack: playerTrack(action.payload, action),
+        artist: action.payload.artist,
         playlist: playerPlaylist(action.tracks, action),
         playStatus: PLAYING,
         isPlaying: true

@@ -43,7 +43,7 @@ class Player extends Component {
             </div>
             <div className="playing-text">
               <div className="playing-track">{player.currentTrack.name}</div>
-              <div className="playing-artist">{player.currentTrack.name}</div>
+              <div className="playing-artist">{player.currentTrack.artist}</div>
             </div>
           </div>
         </div>
