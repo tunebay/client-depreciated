@@ -8,7 +8,12 @@
   height: auto;
   bottom: 0;
   position: fixed;
-  background-color: #f7f7f7;
+  background-color: rgba(246,246,246,1);
+  // -webkit-filter: blur(10px);
+  // -moz-filter: blur(10px);
+  // -o-filter: blur(10px);
+  // -ms-filter: blur(10px);
+  // filter: blur(10px);
 
   .player-content {
     height: 50px;
@@ -18,19 +23,56 @@
     align-items: center;
     justify-content: space-between;
 
-    .now-playing {
+    .player-left {
       display: flex;
       flex-direction: row;
-      width: auto;
+      width: 380px;
+      // background-color: red;
       align-items: center;
       line-height: 1.4;
+
+      .playback-controls {
+        margin-left: 10px;
+        margin-top: 2px;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        color: $black;
+        .icon-div {
+          width: 50px;
+          height: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .player-icon {
+            color: $text-black;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+        .repeat-icon {
+          width: 100px;
+        }
+      }
+
+      .elapsed-time {
+        margin-top: 2px;
+        width: 80px;
+        font-family: $font-stack;
+        color: $text-black;
+        font-size: 13px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
       .player-artwork {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 50px;
-        width: 50px;
+        width: 53px;
         padding: 0;
         margin: 0;
         background-image: linear-gradient(45deg, #34BFED 0%, #8fc1fd 96%, #8fc1fd 100%);
@@ -39,43 +81,92 @@
           opacity: 0.8;
         }
       }
-
-      .now-playing-text {
-        padding-left: 10px;
-        display: flex;
-        width: auto;
-        flex-direction: column;
-        justify-content: center;
-        align-items: baseline;
-        color: $text-black;
-        font-family: $font-stack;
-        font-size: 14px;
-        line-height: 1.3;
-        .playing-track {
-          font-weight: 600;
-        }
-        .playing-artist {
-          font-weight: 400;
-        }
-      }
     }
 
-    .playback-controls {
+    .player-center {
+      height: 20px;
+      width: 100%;
+      min-width: 100px;
+      font-family: $font-stack;
+      font-size: 14px;
       display: flex;
-      width: 150px;
-      justify-content: space-around;
+      flex-direction: row;
+      justify-content: center;
       align-items: center;
-      align-self: center;
-      .player-control {
-        color: $text-black;
-        transition: all 100ms ease-in;
-        &:hover {
-          cursor: pointer;
-          // color: $blue;
-        }
+      font-weight: 500;
+      color: $text-black;
+      overflow: hidden;
+      .seperator {
+        padding: 5px;
+      }
+      .playing-artist {
+        color: $blue;
+        font-weight: 400;
       }
     }
 
+    .player-right {
+      height: 50px;
+      width: 380px;
+      // background-color: purple;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .full-time {
+        margin-top: 2px;
+        width: 80px;
+        font-family: $font-stack;
+        color: $text-black;
+        font-size: 13px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .buy {
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .buy-btn {
+          width: 90px;
+          height: 30px;
+          background-color: $blue;
+          color: #fff;
+          border: none;
+          font-family: $font-stack;
+          font-weight: 500;
+          font-size: 14px;
+          border-radius: 3px;
+          outline: none;
+          transition: all 50ms ease-in;
+          &:hover {
+            cursor: pointer;
+            background-color: darken($blue, 10%);
+          }
+        }
+      }
+      .volume {
+        width: 200px;
+        // background-color: green;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin-left: 15px;
+        .icon {
+          color: $text-black;
+        }
+        .volume-up {
+          padding-right: 20px;
+        }
+        .slider {
+          height: 5px;
+          width: 110px;
+          border-radius: 50%;
+          background-color: red;
+        }
+      }
+    }
   } // player-content
 
   //////////////////// Progress bar ///////////
@@ -168,4 +259,42 @@
       animation: barLoading 2s infinite;
     }
   }
+
+  .VolumeSlider {
+    width: 110px;
+    height: 5px;
+    // margin: 10px 0;
+
+    &-value {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+
+    &-seek {
+      left: -6px;
+      top: 0;
+      right: -6px;
+      bottom: 0;
+    }
+
+    &-handle {
+      left: 0;
+      margin: 0 0 -8px -4px;
+    }
+
+    &.isEnabled {
+      &:hover {
+        .VolumeSlider-handle {
+          transform: scale(1);
+        }
+
+        .VolumeSlider-intent {
+          bottom: 0;
+          left: 0;
+          width: 100%;
+        }
+      }
+    }
+    }
 }
