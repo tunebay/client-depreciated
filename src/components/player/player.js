@@ -3,6 +3,7 @@ import Sound from 'react-sound';
 import Icon from 'react-fontawesome';
 import { connect } from 'react-redux';
 import { ProgressBar, VolumeSlider } from 'react-player-controls';
+import formatSeconds from '../../util/format-seconds';
 import * as actions from '../../actions/player-actions';
 import '../../styles/components/player/player.scss';
 
@@ -83,7 +84,7 @@ class Player extends Component {
             </div>
 
             <div className="elapsed-time">
-              2:25
+              {formatSeconds(Math.floor(player.currentTrack.miliPosition / 1000) || 0)}
             </div>
 
           </div>
@@ -95,7 +96,9 @@ class Player extends Component {
           </div>
 
           <div className="player-right">
-            <div className="full-time">4:23</div>
+            <div className="full-time">
+              {formatSeconds(player.currentTrack.duration || 0)}
+            </div>
             <div className="buy">
               <button onClick={() => console.log('buy')} className="buy-btn">
                 {`Buy ${player.currentTrack.playlistType}`}
