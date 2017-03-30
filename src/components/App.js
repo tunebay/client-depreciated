@@ -10,7 +10,7 @@ import PublicHomePage from './pages/welcome/';
 import Profile from './pages/profile/';
 import Hub from './pages/hub/hub';
 // import NotFound from './components/pages/not-found';
-// import RequireAuth from './components/hoc/require-auth';
+import RequireAuth from './hoc/require-auth';
 import Player from './player/player';
 import Header from './header/header';
 
@@ -30,7 +30,7 @@ class App extends Component {
                 <PublicHomePage />
               ))}
             />
-            <Route path="/hub" component={Hub} />
+            <Route path="/hub" component={RequireAuth(Hub)} />
             <Route path="/feed" component={HomeFeed} />
             <Route path="/:username" component={Profile} />
           </Switch>
