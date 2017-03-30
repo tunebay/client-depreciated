@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Icon from 'react-fontawesome';
-import { Link } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
 import '../../styles/components/header/header.scss';
 
 class Header extends Component {
   componentWillMount() {
     console.log('rendering header...');
+  }
+
+  isActiveFunc(match, location) {
+    console.log(match, location);
+    return match;
   }
 
   render() {
@@ -33,8 +38,8 @@ class Header extends Component {
           </div>
 
           <ul className="left-menu">
-            <li><Link className="nav-link" to="/">Home</Link></li>
-            <li><Link className="nav-link" to="/malimichael">Discover</Link></li>
+            <li><NavLink className="nav-link" to="/">Home</NavLink></li>
+            <li><NavLink className="nav-link" to="/malimichael">Discover</NavLink></li>
           </ul>
         </div>
 
@@ -61,7 +66,14 @@ class Header extends Component {
           <div className="icon-div dropdown">
             <Icon className="fa-comment" name="comment" />
           </div>
-          <Link className="nav-link upload-link" to="/hub">Upload</Link>
+          <NavLink
+            className="nav-link upload-link"
+            isActive={this.isActiveFunc.bind(this)}
+            activeStyle={{ backgroundColor: 'pink' }}
+            activeClassName="active"
+            to="/hub"
+          >
+          Upload</NavLink>
         </div>
       </nav>
     );

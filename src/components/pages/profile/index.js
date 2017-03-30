@@ -11,13 +11,13 @@ import ProfileUser from './profile-user';
 
 import MusicTab from './tabs/music';
 
-import Layout from '../../../layout';
+// import Layout from '../../../layout';
 
 class Profile extends Component {
   constructor(props) {
     super(props);
     this.handleScroll = this.handleScroll.bind(this);
-    this.props.loadUser(this.props.params.username);
+    this.props.loadUser(props.match.params.username);
     console.log('constructor');
   }
 
@@ -39,11 +39,13 @@ class Profile extends Component {
 
   render() {
     const { user, loading, scrollY, playlists } = this.props;
+    // console.log(scrollY);
     if (!loading) {
       document.title = `${user.displayName} | Tunebay`;
     }
+
     return (
-      <Layout ref={(n) => { this.layout = n; }} showHeader page={'Profile'}>
+      <div>
         <ProfileCover />
         <ProfileNav scrollY={scrollY} />
         <ProfileDetailContent scrollY={scrollY}>
@@ -54,7 +56,7 @@ class Profile extends Component {
             <ProfileUser loading={loading} user={user} scrollY={scrollY} />
           </ProfileDetail>
         </ProfileDetailContent>
-      </Layout>
+      </div>
     );
   }
 }

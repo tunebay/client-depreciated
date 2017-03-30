@@ -25,17 +25,17 @@ class Player extends Component {
   }
 
   renderSound(player) {
-    if (!player.visable) return <div />;
-    // console.log('POSITION', player.currentTrack.position);
-    return (
-      <Sound
-        url={player.currentTrack.location}
-        volume={player.volume}
-        playStatus={player.playStatus}
-        position={player.currentTrack.miliPosition}
-        onPlaying={this.handlePlaying.bind(this)}
-      />
-    );
+    if (player.visable) {
+      return (
+        <Sound
+          url={player.currentTrack.location}
+          volume={player.volume}
+          playStatus={player.playStatus}
+          position={player.currentTrack.miliPosition}
+          onPlaying={this.handlePlaying.bind(this)}
+        />
+      );
+    }
   }
 
   render() {

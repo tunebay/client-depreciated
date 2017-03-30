@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Layout from '../../../layout';
+// import Layout from '../../../layout';
 import HubContainer from './hub-container';
 import HubSideNav from './hub-side-nav';
 import HubContent from './hub-content';
@@ -10,17 +10,15 @@ class Hub extends Component {
   render() {
     document.title = 'Tunebay | Hub';
     return (
-      <Layout showHeader page={'Hub'}>
-        <HubContainer>
-          <HubSideNav />
-          {/* <div className="hub-header"><h3 className="hub-title">Upload</h3></div> */}
-          <HubContent>
-            <div className="hub-content-wrapper">
-              <HubUpload />
-            </div>
-          </HubContent>
-        </HubContainer>
-      </Layout>
+      <HubContainer>
+        <HubSideNav />
+        {/* <div className="hub-header"><h3 className="hub-title">Upload</h3></div> */}
+        <HubContent>
+          <div className="hub-content-wrapper">
+            <HubUpload />
+          </div>
+        </HubContent>
+      </HubContainer>
     );
   }
 }
