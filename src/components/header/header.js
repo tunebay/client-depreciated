@@ -7,12 +7,7 @@ import '../../styles/components/header/header.scss';
 
 class Header extends Component {
   componentWillMount() {
-    console.log('rendering header...');
-  }
-
-  isActiveFunc(match, location) {
-    console.log(match, location);
-    return match;
+    console.log('rendering header');
   }
 
   render() {
@@ -68,9 +63,6 @@ class Header extends Component {
           </div>
           <NavLink
             className="nav-link upload-link"
-            isActive={this.isActiveFunc.bind(this)}
-            activeStyle={{ backgroundColor: 'pink' }}
-            activeClassName="active"
             to="/hub"
           >
           Upload</NavLink>
