@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/auth-actions';
 
@@ -77,7 +77,7 @@ class LoginForm extends Component {
               </label>
             </div>
             <div className="need-help">
-              <Link className="help-link" onClick={() => console.log('modal')}>Need Help?</Link>
+              <a className="help-link" onClick={() => console.log('modal')}>Need Help?</a>
             </div>
           </div>
 

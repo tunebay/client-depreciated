@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 
 import HomeFeed from './pages/home-feed';
 import PublicHomePage from './pages/welcome/';
-// import Login from './components/pages/login';
-// import Signup from './components/pages/signup';
-// import Logout from './components/pages/logout';
+import Login from './pages/login';
+import Signup from './pages/signup';
+import Logout from './pages/logout';
 import Profile from './pages/profile/';
 import Hub from './pages/hub/hub';
 // import NotFound from './components/pages/not-found';
@@ -31,7 +31,24 @@ class App extends Component {
               ))}
             />
             <Route path="/hub" component={RequireAuth(Hub)} />
-            <Route path="/feed" component={HomeFeed} />
+            <Route
+              path="/login" render={() => (
+              this.props.isAuthenticated ? (
+                <Redirect to="/feed" />
+              ) : (
+                <Login />
+              ))}
+            />
+            <Route
+              path="/signup" render={() => (
+              this.props.isAuthenticated ? (
+                <Redirect to="/feed" />
+              ) : (
+                <Signup />
+              ))}
+            />
+            <Route path="/logout" component={Logout} />
+            <Route path="/feed" component={RequireAuth(HomeFeed)} />
             <Route path="/:username" component={Profile} />
           </Switch>
           <Player />

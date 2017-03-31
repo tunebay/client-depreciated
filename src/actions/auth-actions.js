@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { browserHistory } from 'react-router';
 import _ from 'lodash';
 import { store } from '../';
 import {
@@ -24,7 +23,6 @@ export const loginUser = ({ emailOrUsername, password }) => {
         localStorage.setItem('user', JSON.stringify(res.data.user));
         dispatch({ type: AUTH_USER });
         dispatch({ type: SET_CURRENT_USER, payload: res.data.user });
-        browserHistory.push('/');
       })
       .catch((err) => {
         console.log('In login action catch:', err);
@@ -47,7 +45,6 @@ export const signupUser = ({ displayName, email, password, username }) => {
         dispatch({ type: SET_CURRENT_USER, payload: res.data.user });
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('user', JSON.stringify(res.data.user));
-        browserHistory.push('/');
       })
       .catch((res) => {
         dispatch(authError(res.response.data.error));
@@ -55,27 +52,31 @@ export const signupUser = ({ displayName, email, password, username }) => {
   };
 };
 
-export const uniqueUsernameCheck = _.debounce(({ username }) => {
-  store.dispatch({ type: USERNAME_VALIDATING });
-  axios.post(`${API_URL}/signup/usernamecheck`, { username })
+export const uniqueUsernameCheck = ({ username }) => {
+  return (dispatch) => {
+    dispatch({ type: USERNAME_VALIDATING });
+    axios.post(`${API_URL}/signup/usernamecheck`, { username })
     .then((res) => {
-      store.dispatch({ type: USERNAME_ERROR, payload: res.data.error });
+      dispatch({ type: USERNAME_ERROR, payload: res.data.error });
     })
     .catch((error) => {
       console.log('In error:', error);
     });
-}, 500);
+  };
+};
 
-export const uniqueEmailCheck = _.debounce(({ email }) => {
-  store.dispatch({ type: EMAIL_VALIDATING });
-  axios.post(`${API_URL}/signup/emailcheck`, { email })
+export const uniqueEmailCheck = ({ email }) => {
+  return (dispatch) => {
+    dispatch({ type: EMAIL_VALIDATING });
+    axios.post(`${API_URL}/signup/emailcheck`, { email })
     .then((res) => {
-      store.dispatch({ type: EMAIL_ERROR, payload: res.data.error });
+      dispatch({ type: EMAIL_ERROR, payload: res.data.error });
     })
     .catch((error) => {
       console.log('In error:', error);
     });
-}, 500);
+  };
+};
 
 
 const authError = (error) => {
