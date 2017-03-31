@@ -1,0 +1,22 @@
+@import "../../variables";
+
+.signup-header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  height: 50px;
+  border-bottom: 2px solid $light-grey;
+  justify-content: space-between;
+  align-items: center;
+  .header-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 20px;
+  }
+  .header-left {
+    margin-left: 20px;
+  }
+}
