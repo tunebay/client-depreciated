@@ -9,7 +9,7 @@ import Signup from './pages/signup';
 import Logout from './pages/logout';
 import Profile from './pages/profile/';
 import Hub from './pages/hub/hub';
-// import NotFound from './components/pages/not-found';
+import NotFound from './pages/not-found';
 import RequireAuth from './hoc/require-auth';
 import Player from './player/player';
 import Header from './header/header';
@@ -55,6 +55,7 @@ class App extends Component {
             <Route path="/logout" component={Logout} />
             <Route path="/feed" component={RequireAuth(HomeFeed)} />
             <Route path="/:username" component={Profile} />
+            <Route path="*" component={NotFound} />
           </Switch>
           <Player />
         </div>
