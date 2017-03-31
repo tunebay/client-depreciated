@@ -1,5 +1,6 @@
 import React from 'react';
-import SignupForm from '../auth/signup-form';
+// import SignupForm from '../auth/signup-form';
+import SignupFlow from '../auth/signup-flow';
 import SignupHeader from '../auth/signup-header';
 import Content from './content';
 import '../../styles/components/login-page.scss';
@@ -10,7 +11,7 @@ const Signup = () => {
     <div>
       <SignupHeader />
       <Content>
-        <SignupForm />
+        <SignupFlow />
       </Content>
     </div>
   );

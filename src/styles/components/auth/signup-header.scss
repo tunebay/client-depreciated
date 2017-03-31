@@ -21,9 +21,36 @@
     flex-direction: row;
     align-items: center;
     margin-right: 20px;
+    font-size: 14px;
+    font-family: $font-stack;
+    color: $text-black;
+    .login-link {
+      text-decoration: none;
+      color: $blue;
+      border-radius: 3px;
+      width: 75px;
+      height: 35px;
+      background-color: #fff;
+      font-family: $font-stack;
+      border: 1px solid $light-grey;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      transition: all 100ms ease-out;
+      margin-left: 20px;
+      &:hover {
+        border: 1px solid #B6B6B6;
+      }
+    }
   }
   .header-left {
-    font-family: harabara;
     margin-left: 20px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    width: 135px;
+    .tunebay {
+      margin-top: 5px;
+    }
   }
 }

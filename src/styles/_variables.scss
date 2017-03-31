@@ -19,3 +19,9 @@ $breakpoint-large: 1200px;
   -moz-box-shadow: 2px 1px 6px 0 rgba(200,200,200,0.50);
   box-shadow: 2px 1px 6px 0 rgba(200,200,200,0.50);
 }
+
+@mixin borderBox {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

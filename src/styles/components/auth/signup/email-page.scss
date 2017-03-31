@@ -1,0 +1,64 @@
+@import "../../../variables";
+
+.signup-form-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $text-black;
+  font-family: $font-stack;
+  .terms {
+    width: 380px;
+    line-height: 1.4;
+    .terms-link {
+      text-decoration: none;
+      color: $blue;
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+  .hr {
+    width: 380px;
+    border-bottom: 1px solid $light-grey;
+    height: 0px;
+    margin: 20px 0;
+  }
+  .signup-button {
+    width: 380px;
+    height: 65px;
+    background-color: $green;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-family: $font-stack;
+    font-size: 16px;
+    font-weight: 500;
+    &:hover {
+      background-color: desaturate($green, 10%);
+      cursor: pointer;
+    }
+  }
+  .signup-email {
+    display: flex;
+    flex-direction: column;
+    .email-label {
+      font-size: 18px;
+      font-weight: 400;
+      padding-bottom: 10px;
+    }
+    .signup-email-input {
+      @include borderBox;
+      color: $text-black;
+      font-family: $font-stack;
+      width: 380px;
+      height: 45px;
+      border: 1px solid $light-grey;
+      border-radius: 3px;
+      font-size: 16px;
+      padding-left: 15px;
+      font-weight: 500;
+    }
+  }
+}

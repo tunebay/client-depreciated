@@ -6,11 +6,12 @@ const SignupHeader = () => {
   return (
     <nav className="signup-header">
       <div className="header-left">
-        <img src="../../../assets/images/Tunebay.svg" alt="tunebay" />
+        <img src="../../../assets/images/logo.svg" alt="logo" />
+        <img className="tunebay" src="../../../assets/images/Tunebay.svg" alt="tunebay" />
       </div>
       <div className="header-right">
         <div>Already have an account?</div>
-        <Link to="/login">Login</Link>
+        <Link className="login-link" to="/login">Login</Link>
       </div>
     </nav>
   );

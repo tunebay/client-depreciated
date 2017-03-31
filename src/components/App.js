@@ -57,7 +57,7 @@ class App extends Component {
             <Route path="/:username" component={Profile} />
             <Route path="*" component={NotFound} />
           </Switch>
-          <Player />
+          {/* <Player /> */}
         </div>
       </Router>
     );
