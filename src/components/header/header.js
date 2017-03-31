@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Icon from 'react-fontawesome';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import '../../styles/components/header/header.scss';
 
@@ -11,7 +11,7 @@ class Header extends Component {
   }
 
   render() {
-    const { displayName } = this.props.currentUser;
+    const { displayName, username } = this.props.currentUser;
     return (
       <nav id="top-nav">
         <div id="header-left">
@@ -50,11 +50,11 @@ class Header extends Component {
         </div>
 
         <div id="header-right">
-          <div className="user">
+          <Link to={`/${username}`} className="user-dropdown">
             <Icon name="user-circle-o" size="2x" className="fa-user" />
             <div className="display-name">{displayName}</div>
             <Icon name="caret-down" className="fa-caret" />
-          </div>
+          </Link>
           <div className="icon-div dropdown">
             <Icon className="fa-bell" name="bell" />
           </div>

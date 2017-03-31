@@ -17,8 +17,8 @@ class Profile extends Component {
   constructor(props) {
     super(props);
     this.handleScroll = this.handleScroll.bind(this);
-    this.props.loadUser(props.match.params.username);
     console.log('constructor');
+    this.props.loadUser(props.match.params.username);
   }
 
   componentDidMount() {
@@ -26,9 +26,19 @@ class Profile extends Component {
     // this.layout.addEventListener('scroll', this.handleScroll.bind(this));
   }
 
+  componentWillReceiveProps(props) {
+    const { loading } = this.props;
+    if (!loading) {
+      if (props.location.pathname !== `/${this.props.user.username}`) {
+        this.props.loadUser(props.match.params.username);
+      }
+    }
+  }
+
   componentWillUnmount() {
     document.removeEventListener('scroll', this.handleScroll);
   }
+
 
   handleScroll() {
     const doc = document.documentElement;
