@@ -1,6 +1,4 @@
 import axios from 'axios';
-import _ from 'lodash';
-import { store } from '../';
 import {
   AUTH_USER,
   AUTH_ERROR,
@@ -21,8 +19,8 @@ export const loginUser = ({ emailOrUsername, password }) => {
       .then((res) => {
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('user', JSON.stringify(res.data.user));
-        dispatch({ type: AUTH_USER });
         dispatch({ type: SET_CURRENT_USER, payload: res.data.user });
+        dispatch({ type: AUTH_USER });
       })
       .catch((err) => {
         console.log('In login action catch:', err);

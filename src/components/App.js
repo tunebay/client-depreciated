@@ -20,7 +20,12 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Header />
+          <Route
+            path="/" render={() => {
+              return this.props.isAuthenticated ?
+                <Header /> : <div />;
+            }}
+          />
           <Switch>
             <Route
               exact path="/" render={() => (
