@@ -5,7 +5,7 @@ import '../../../styles/components/profile/profile-user.scss';
 const ProfileUser = ({ user, loading, scrollY }) => {
   const profileUserClass = className({
     'profile-user': true,
-    'profile-user-fixed': scrollY >= 300
+    'profile-user-fixed': scrollY >= 250
   });
 
   if (loading) {

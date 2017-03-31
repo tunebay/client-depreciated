@@ -11,7 +11,7 @@ import ProfileUser from './profile-user';
 
 import MusicTab from './tabs/music';
 
-// import Layout from '../../../layout';
+import Content from '../content';
 
 class Profile extends Component {
   constructor(props) {
@@ -55,7 +55,7 @@ class Profile extends Component {
     }
 
     return (
-      <div>
+      <Content>
         <ProfileCover />
         <ProfileNav scrollY={scrollY} />
         <ProfileDetailContent scrollY={scrollY}>
@@ -66,7 +66,7 @@ class Profile extends Component {
             <ProfileUser loading={loading} user={user} scrollY={scrollY} />
           </ProfileDetail>
         </ProfileDetailContent>
-      </div>
+      </Content>
     );
   }
 }

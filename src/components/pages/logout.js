@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/auth-actions';
+import Content from './content';
 
 class Logout extends Component {
   componentDidMount() {
@@ -9,7 +10,9 @@ class Logout extends Component {
 
   render() {
     return (
-      <div>Log out page</div>
+      <Content>
+        <div>Log out page</div>
+      </Content>
     );
   }
 }

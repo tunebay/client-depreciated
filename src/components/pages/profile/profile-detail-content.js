@@ -5,7 +5,7 @@ import '../../../styles/components/profile/profile-detail-content.scss';
 const ProfileDetailContent = (props) => {
   const contentClass = className({
     'profile-detail-content': true,
-    'profile-detail-margin': props.scrollY >= 300
+    'profile-detail-margin': props.scrollY >= 250
   });
   return (
     <div className={contentClass}>

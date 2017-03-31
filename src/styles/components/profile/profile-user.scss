@@ -1,9 +1,4 @@
-$black: #252C30;
-$logo-blue: #1596F5;
-$placeholder: #a1a1a1;
-$e4: #e4e4e4;
-$light-blue: #34bfed;
-$font-stack: 'Avenir Next', sans-serif;
+@import "../../variables";
 
 @mixin boxshadow {
   -webkit-box-shadow: 2px 1px 6px 0 rgba(200,200,200,0.50);
@@ -38,12 +33,12 @@ $font-stack: 'Avenir Next', sans-serif;
       font-family: $font-stack;
       font-size: 22px;
       font-weight: 700;
-      color: $black;
+      color: $text-black;
       padding-bottom: 3px;
     }
     #username {
       font-family: $font-stack;
-      color: lighten($black, 10%);
+      color: lighten($text-black, 10%);
       font-size: 16px;
       font-weight: 400;
       margin-bottom: 7px;
@@ -53,17 +48,17 @@ $font-stack: 'Avenir Next', sans-serif;
       width: 160px;
       font-weight: 500;
       color: #fff;
-      background-color: $logo-blue;
+      background-color: $blue;
       border-radius: 100px;
-      border: 1px solid $logo-blue;
+      border: 1px solid $blue;
       outline: none;
       &:hover {
-        background-color: lighten($logo-blue, 10%);
-        border: 1px solid lighten($logo-blue, 10%);
+        background-color: lighten($blue, 10%);
+        border: 1px solid lighten($blue, 10%);
         cursor: pointer;
       }
       &:active {
-        outline-color: $logo-blue;
+        outline-color: $blue;
         -webkit-box-shadow: inset 10px -76px 300px -188px rgba(0,0,0,1);
         -moz-box-shadow: inset 10px -76px 300px -188px rgba(0,0,0,1);
         box-shadow: inset 10px -76px 300px -188px rgba(0,0,0,2);

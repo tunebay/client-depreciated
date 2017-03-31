@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import Layout from '../../layout';
+import Content from './content';
 
 class HomeFeed extends Component {
   render() {
     document.title = 'Tunebay';
     return (
-      // <Layout showHeader page={'HomeFeed'}>
-      <div>
+      <Content>
         <div>Home feed</div>
         <div>Home feed</div>
         <div>Home feed</div>
         <div>Home feed</div>
         <div>Home feed</div>
         <div>Home feed</div>
-      </div>
-      // </Layout>
+      </Content>
     );
   }
 }

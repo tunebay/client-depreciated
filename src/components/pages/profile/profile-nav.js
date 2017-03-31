@@ -4,7 +4,7 @@ import '../../../styles/components/profile/profile-nav.scss';
 
 const ProfileNav = (props) => {
   const navClass = className({
-    'profile-nav-fixed': props.scrollY >= 300
+    'profile-nav-fixed': props.scrollY >= 250
   });
 
   return (

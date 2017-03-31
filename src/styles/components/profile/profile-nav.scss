@@ -1,9 +1,4 @@
-$black: #252C30;
-$logo-blue: #1596F5;
-$placeholder: #a1a1a1;
-$e4: #e4e4e4;
-$light-blue: #34bfed;
-$font-stack: 'Avenir Next', sans-serif;
+@import "../../variables";
 
 #profile-nav {
   height: 50px;
@@ -37,7 +32,7 @@ $font-stack: 'Avenir Next', sans-serif;
       box-sizing: border-box;
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
-      border-bottom: 4px solid $logo-blue;
+      border-bottom: 4px solid $royal;
       color: $black;
     }
   }
