@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 export default function (ComposedComponent) {
   class Authentication extends Component {
     componentWillMount() {
       if (!this.props.isAuthenticated) {
-        this.context.router.push('/login');
+        this.props.history.replace('/login');
       }
     }
 
     componentWillUpdate(nextProps) {
       if (!nextProps.isAuthenticated) {
-        this.context.router.push('/login');
+        this.props.history.replace('/login');
       }
     }
 
@@ -28,5 +29,5 @@ export default function (ComposedComponent) {
     router: React.PropTypes.object
   };
 
-  return connect(mapStateToProps)(Authentication);
+  return connect(mapStateToProps)(withRouter(Authentication));
 }

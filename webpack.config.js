@@ -51,7 +51,7 @@ module.exports = {
         test: /\.(scss|css)$/
       },
       {
-        test: /\.(jpe?g|png|gif|svg|ico)$/,
+        test: /\.(jpe?g|png|gif|svg|ico|woff|ttf)$/,
         use: [
           {
             loader: 'url-loader',

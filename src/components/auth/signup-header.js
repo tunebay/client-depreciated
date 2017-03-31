@@ -5,7 +5,9 @@ import '../../styles/components/auth/signup-header.scss';
 const SignupHeader = () => {
   return (
     <nav className="signup-header">
-      <div className="header-left">Tunebay</div>
+      <div className="header-left">
+        <img src="../../../assets/images/Tunebay.svg" alt="tunebay" />
+      </div>
       <div className="header-right">
         <div>Already have an account?</div>
         <Link to="/login">Login</Link>
