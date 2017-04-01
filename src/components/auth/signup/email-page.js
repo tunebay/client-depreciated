@@ -2,9 +2,9 @@ import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import signupValidate from './signup-validate';
-import uniqueEmailCheck from './signup/unique-email-check';
-import emailField from './signup/email-field';
-import '../../styles/components/auth/signup/email-page.scss';
+import uniqueEmailCheck from './unique-email-check';
+import emailField from './email-field';
+import '../../../styles/components/auth/signup/email-page.scss';
 
 const EmailPage = (props) => {
   const { handleSubmit } = props;
