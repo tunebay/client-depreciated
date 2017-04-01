@@ -1,7 +1,7 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
-import signupValidate from './signup-validate';
+import validate from './validate';
 import uniqueEmailCheck from './unique-email-check';
 import emailField from './email-field';
 import '../../../styles/components/auth/signup/email-page.scss';
@@ -32,7 +32,7 @@ export default reduxForm({
   fields: ['email'],
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
-  validate: signupValidate
+  validate
   // asyncValidate,
   // asyncBlurFields: ['email']
 })(EmailPage);

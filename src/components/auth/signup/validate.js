@@ -1,4 +1,4 @@
-const signupValidate = (values) => {
+const validate = (values) => {
   const errors = {};
 
   if (!values.displayName) {
@@ -23,4 +23,4 @@ const signupValidate = (values) => {
   return errors;
 };
 
-export default signupValidate;
+export default validate;
