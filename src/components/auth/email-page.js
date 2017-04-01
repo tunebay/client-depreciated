@@ -2,13 +2,14 @@ import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import signupValidate from './signup-validate';
+import uniqueEmailCheck from './signup/unique-email-check';
 import emailField from './signup/email-field';
 import '../../styles/components/auth/signup/email-page.scss';
 
 const EmailPage = (props) => {
   const { handleSubmit } = props;
   return (
-    <form onSubmit={handleSubmit} className="signup-form-page">
+    <form onSubmit={handleSubmit(uniqueEmailCheck)} className="signup-form-page">
       <img className="email-icon" src="../../../assets/images/signup-email-icon.svg" alt="email-icon" />
       <h2 className="create-an-account">Create an account</h2>
       <Field
@@ -32,4 +33,6 @@ export default reduxForm({
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
   validate: signupValidate
+  // asyncValidate,
+  // asyncBlurFields: ['email']
 })(EmailPage);
