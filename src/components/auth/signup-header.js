@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Prompt, Link } from 'react-router-dom';
 import * as actions from '../../actions/auth-actions';
 import LoginModal from './login/login-modal';
 import '../../styles/components/auth/signup-header.scss';
@@ -15,10 +16,12 @@ class SignupHeader extends Component {
     console.log('HERE', this.props.loginModalVisable);
     return (
       <nav className="signup-header">
-        <div className="header-left">
+        {/* <div className="header-left"> */}
+        <Link className="header-left" to="/">
           <img src="../../../assets/images/logo.svg" alt="logo" />
           <img className="tunebay" src="../../../assets/images/Tunebay.svg" alt="tunebay" />
-        </div>
+        </Link>
+        {/* </div> */}
         <div className="header-right">
           <div>Already have an account?</div>
           <button
