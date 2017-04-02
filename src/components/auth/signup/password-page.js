@@ -6,7 +6,7 @@ import uniqueEmailCheck from './unique-email-check';
 import emailField from './email-field';
 import '../../../styles/components/auth/signup/email-page.scss';
 
-const EmailPage = (props) => {
+const PasswordPage = (props) => {
   const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit} className="signup-form-page">
@@ -29,10 +29,10 @@ const EmailPage = (props) => {
 
 export default reduxForm({
   form: 'wizardSignup',
-  // fields: ['email'],
+  fields: ['password', 'phoneNumber'],
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
-  validate
-  // asyncValidate,
+  validate,
+  asyncValidate: uniqueEmailCheck,
   // asyncBlurFields: ['email']
-})(EmailPage);
+})(PasswordPage);

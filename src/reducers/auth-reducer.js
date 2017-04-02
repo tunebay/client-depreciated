@@ -6,7 +6,8 @@ import {
   USERNAME_VALIDATING,
   EMAIL_VALIDATING,
   EMAIL_ERROR,
-  USERNAME_ERROR
+  USERNAME_ERROR,
+  NEXT_SIGNUP_PAGE,
 } from '../actions/types';
 
 const INITITAL_STATE = {
@@ -16,7 +17,8 @@ const INITITAL_STATE = {
   usernameError: '',
   emailError: '',
   usernameValidating: false,
-  emailValidating: false
+  emailValidating: false,
+  signupPage: 1
 };
 
 export default (state = INITITAL_STATE, action) => {
@@ -35,6 +37,8 @@ export default (state = INITITAL_STATE, action) => {
       return { ...INITITAL_STATE, usernameError: action.payload };
     case EMAIL_ERROR:
       return { ...INITITAL_STATE, emailError: action.payload };
+    case NEXT_SIGNUP_PAGE:
+      return { ...state, signupPage: action.payload };
     default:
       return state;
   }

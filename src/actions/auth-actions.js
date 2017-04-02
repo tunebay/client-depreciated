@@ -8,10 +8,16 @@ import {
   USERNAME_VALIDATING,
   USERNAME_ERROR,
   EMAIL_ERROR,
-  SET_CURRENT_USER
+  SET_CURRENT_USER,
+  NEXT_SIGNUP_PAGE
 } from './types';
 
 const API_URL = 'http://localhost:3000';
+
+export const nextSignupPage = (currentPage) => {
+  console.log('IN NEXT SIGN UP PAGE');
+  return { type: NEXT_SIGNUP_PAGE, payload: currentPage + 1 };
+};
 
 export const loginUser = ({ emailOrUsername, password }) => {
   return (dispatch) => {
