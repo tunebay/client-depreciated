@@ -34,12 +34,14 @@
       font-family: $font-stack;
       border: 1px solid $light-grey;
       justify-content: center;
+      outline: none;
       align-items: center;
       display: flex;
       transition: all 100ms ease-out;
       margin-left: 20px;
       &:hover {
         border: 1px solid #B6B6B6;
+        cursor: pointer;
       }
     }
   }

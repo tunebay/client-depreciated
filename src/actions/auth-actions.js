@@ -9,10 +9,20 @@ import {
   USERNAME_ERROR,
   EMAIL_ERROR,
   SET_CURRENT_USER,
-  NEXT_SIGNUP_PAGE
+  NEXT_SIGNUP_PAGE,
+  SHOW_LOGIN_MODAL,
+  HIDE_LOGIN_MODAL
 } from './types';
 
 const API_URL = 'http://localhost:3000';
+
+export const showLoginModal = () => {
+  console.log('in acitons');
+  return { type: SHOW_LOGIN_MODAL };
+};
+
+
+export const hideLoginModal = () => ({ type: HIDE_LOGIN_MODAL });
 
 export const nextSignupPage = (currentPage) => {
   console.log('IN NEXT SIGN UP PAGE');

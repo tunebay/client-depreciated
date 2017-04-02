@@ -1,6 +1,7 @@
 import React from 'react';
 import PageContainer from './page-container';
-import LoginForm from '../auth/login-form';
+// import LoginForm from '../auth/login-form';
+import LoginModal from '../auth/login/login-modal';
 import Content from './content';
 import '../../styles/components/login-page.scss';
 
@@ -10,7 +11,8 @@ const Login = () => {
     <Content>
       <PageContainer>
         <div className="main-content">
-          <LoginForm />
+          {/* <LoginForm /> */}
+          <LoginModal />
         </div>
       </PageContainer>
     </Content>
