@@ -99,6 +99,7 @@
     }
     .input-error {
       border: 1px solid $red;
+      background-color: lighten($red, 60%);
       &:focus {
         outline: none;
         border: 1px solid $red;

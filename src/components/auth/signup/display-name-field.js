@@ -14,6 +14,8 @@ const displayNameField = ({ input, label, meta: { touched, error } }) => {
         className={signupDisplayNameInputClass}
         type="text" {...input}
         value={input.value}
+        maxLength={24}
+        spellCheck={false}
       />
       {touched && error && <div className="field-error">{error}</div>}
     </div>
