@@ -1,38 +1,34 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-import { Link } from 'react-router-dom';
 import validate from './validate';
-import uniqueEmailCheck from './unique-email-check';
-import emailField from './email-field';
-import '../../../styles/components/auth/signup/email-page.scss';
+import passwordField from './password-field';
+import '../../../styles/components/auth/signup/password-page.scss';
 
 const PasswordPage = (props) => {
   const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit} className="signup-form-page">
-      <img className="email-icon" src="../../../assets/images/signup-email-icon.svg" alt="email-icon" />
-      <h2 className="create-an-account">Create an account</h2>
+      <img className="email-icon" src="../../../assets/images/signup-padlock-icon.svg" alt="email-icon" />
       <Field
-        label="Email address"
-        name="email"
-        type="email"
-        component={emailField}
+        label="Create a new password"
+        name="password"
+        type="password"
+        component={passwordField}
       />
       <div className="hr" />
       <button type="submit" className="signup-button">
-        Get started
+        Finish
       </button>
-      <p className="terms"><small>By signing up, I agree to Tunebay’s <Link className="terms-link" to="/terms" target="_blank">Terms of Service</Link>, <Link className="terms-link" to="/terms">Payments Terms of Service</Link> and <Link className="terms-link" to="/terms">Privacy Policy</Link>.</small></p>
     </form>
   );
 };
 
 export default reduxForm({
   form: 'wizardSignup',
-  fields: ['password', 'phoneNumber'],
-  destroyOnUnmount: false,
+  // fields: ['password', 'phoneNumber'],
+  destroyOnUnmount: true,
   forceUnregisterOnUnmount: true,
-  validate,
-  asyncValidate: uniqueEmailCheck,
+  validate
+  // asyncValidate: uniqueEmailCheck,
   // asyncBlurFields: ['email']
 })(PasswordPage);

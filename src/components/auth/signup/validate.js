@@ -16,8 +16,8 @@ const validate = (values) => {
   } else if (!/^[a-z][a-z0-9_]{0,24}$/i.test(values.username)) {
     errors.username = 'Your username can only contain letters, numbers and \'_\'';
   }
-  if (!values.password || values.password.length < 6) {
-    errors.password = 'Password must be atleast 6 characters long';
+  if (!values.password || (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(values.password))) {
+    errors.password = 'Password must be a minimum of 8 characters and contain at least one letter and number';
   }
   return errors;
 };
