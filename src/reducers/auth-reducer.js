@@ -15,7 +15,7 @@ const INITITAL_STATE = {
   loading: false,
   usernameValidating: false,
   emailValidating: false,
-  signupPage: 3
+  signupPage: 1
 };
 
 export default (state = INITITAL_STATE, action) => {
@@ -25,7 +25,7 @@ export default (state = INITITAL_STATE, action) => {
     case DEAUTH_USER:
       return { ...INITITAL_STATE };
     case AUTH_ERROR:
-      return { ...INITITAL_STATE, error: action.payload };
+      return { ...state, error: action.payload };
     case SIGNUP_ATTEMPT:
       return { ...state, loading: true };
     case USERNAME_VALIDATING:
