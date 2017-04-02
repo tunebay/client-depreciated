@@ -9,7 +9,7 @@ const AccountDetailsPage = (props) => {
   const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit} className="signup-form-page">
-      <img className="email-icon" src="../../../assets/images/signup-email-icon.svg" alt="email-icon" />
+      <img className="email-icon" src="../../../assets/images/signup-user-icon.svg" alt="email-icon" />
       <Field
         label="Email address"
         name="displayName"
@@ -19,7 +19,7 @@ const AccountDetailsPage = (props) => {
       />
       <Field
         label="Email address"
-        name="displayName"
+        name="username"
         type="text"
         maxLength={20}
         component={usernameField}

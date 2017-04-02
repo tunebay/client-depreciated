@@ -1,24 +1,13 @@
 @import "../../../variables";
 
 .signup-form-page {
+  width: 380px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: $text-black;
   font-family: $font-stack;
-  .terms {
-    width: 380px;
-    line-height: 1.4;
-    .terms-link {
-      text-decoration: none;
-      color: $blue;
-      &:hover {
-        text-decoration: underline;
-        cursor: pointer;
-      }
-    }
-  }
   .hr {
     width: 380px;
     border-bottom: 1px solid $light-grey;
@@ -40,15 +29,48 @@
       cursor: pointer;
     }
   }
-  .signup-email {
+  .signup-display-name {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
-    .email-label {
-      font-size: 18px;
-      font-weight: 400;
+    .field-info {
+      font-size: 14px;
+      margin: 0;
       padding-bottom: 10px;
     }
-    .signup-email-input {
+    .display-name-label {
+      font-size: 18px;
+      font-weight: 500;
+      padding-bottom: 10px;
+    }
+    .signup-display-name-input {
+      @include borderBox;
+      color: $text-black;
+      font-family: $font-stack;
+      width: 380px;
+      height: 45px;
+      border: 1px solid $light-grey;
+      border-radius: 3px;
+      font-size: 16px;
+      padding-left: 15px;
+      font-weight: 500;
+    }
+  }
+  .signup-username {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    .field-info {
+      font-size: 14px;
+      margin: 0;
+      padding-bottom: 10px;
+    }
+    .username-label {
+      font-size: 18px;
+      font-weight: 500;
+      padding-bottom: 10px;
+    }
+    .signup-username-input {
       @include borderBox;
       color: $text-black;
       font-family: $font-stack;
