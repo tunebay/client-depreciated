@@ -12,6 +12,7 @@ class SignupFlow extends Component {
     super(props);
     this.handleEmailPageSubmit = this.handleEmailPageSubmit.bind(this);
     this.handleAccountDetailsPageSubmit = this.handleAccountDetailsPageSubmit.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   handleEmailPageSubmit() {
@@ -22,8 +23,12 @@ class SignupFlow extends Component {
     this.props.nextSignupPage(this.props.page);
   }
 
+  handleFormSubmit() {
+    this.props.signupUser(this.props.newUser.values);
+  }
+
   render() {
-    const { onSubmit, page } = this.props;
+    const { page } = this.props;
     console.log('PAGE', page);
     return (
       <div style={{ width: '100vw', justifyContent: 'center', display: 'flex', marginTop: 80 }}>
@@ -34,20 +39,17 @@ class SignupFlow extends Component {
         >
           {page === 1 && <EmailPage onSubmit={this.handleEmailPageSubmit} />}
           {page === 2 && <AccountDetailsPage onSubmit={this.handleAccountDetailsPageSubmit} />}
-          {page === 3 && <PasswordPage onSubmit={onSubmit} />}
+          {page === 3 && <PasswordPage onSubmit={this.handleFormSubmit} />}
         </ReactCSSTransitionGroup>
       </div>
     );
   }
 }
 
-SignupFlow.propTypes = {
-  onSubmit: PropTypes.func.isRequired
-};
-
 const mapStateToProps = (state) => {
   return {
-    page: state.auth.signupPage
+    page: state.auth.signupPage,
+    newUser: state.form.wizardSignup
   };
 };
 

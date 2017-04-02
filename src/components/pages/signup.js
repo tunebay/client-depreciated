@@ -11,7 +11,7 @@ const Signup = () => {
     <div>
       <SignupHeader />
       <Content>
-        <SignupFlow onSubmit={() => console.log('Form submitted')} />
+        <SignupFlow />
       </Content>
     </div>
   );
