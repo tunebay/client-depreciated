@@ -11,9 +11,14 @@ class SignupFlow extends Component {
   constructor(props) {
     super(props);
     this.handleEmailPageSubmit = this.handleEmailPageSubmit.bind(this);
+    this.handleAccountDetailsPageSubmit = this.handleAccountDetailsPageSubmit.bind(this);
   }
 
   handleEmailPageSubmit() {
+    this.props.nextSignupPage(this.props.page);
+  }
+
+  handleAccountDetailsPageSubmit() {
     this.props.nextSignupPage(this.props.page);
   }
 
@@ -28,7 +33,7 @@ class SignupFlow extends Component {
           transitionLeaveTimeout={500}
         >
           {page === 1 && <EmailPage onSubmit={this.handleEmailPageSubmit} />}
-          {page === 2 && <AccountDetailsPage onSubmit={this.nextPage} />}
+          {page === 2 && <AccountDetailsPage onSubmit={this.handleAccountDetailsPageSubmit} />}
           {page === 3 && <PasswordPage onSubmit={onSubmit} />}
         </ReactCSSTransitionGroup>
       </div>

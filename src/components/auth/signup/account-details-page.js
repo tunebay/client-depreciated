@@ -3,6 +3,7 @@ import { reduxForm, Field } from 'redux-form';
 import validate from './validate';
 import displayNameField from './display-name-field';
 import usernameField from './username-field';
+import uniqueUsernameCheck from './unique-username-check';
 import '../../../styles/components/auth/signup/account-details-page.scss';
 
 const AccountDetailsPage = (props) => {
@@ -37,7 +38,7 @@ export default reduxForm({
   // fields: ['displayName', 'username'],
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
-  validate
-  // asyncValidate,
-  // asyncBlurFields: ['email']
+  validate,
+  asyncValidate: uniqueUsernameCheck,
+  asyncBlurFields: ['username']
 })(AccountDetailsPage);

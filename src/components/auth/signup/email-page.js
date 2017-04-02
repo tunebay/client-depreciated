@@ -34,5 +34,5 @@ export default reduxForm({
   forceUnregisterOnUnmount: true,
   validate,
   asyncValidate: uniqueEmailCheck,
-  // asyncBlurFields: ['email']
+  asyncBlurFields: ['email']
 })(EmailPage);
