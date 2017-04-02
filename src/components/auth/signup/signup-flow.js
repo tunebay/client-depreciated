@@ -8,11 +8,10 @@ import PasswordPage from './password-page';
 class SignupFlow extends Component {
   constructor(props) {
     super(props);
-    this.nextPage = this.nextPage.bind(this);
+    this.handleEmailPageSubmit = this.handleEmailPageSubmit.bind(this);
   }
 
-  nextPage() {
-    console.log('in next page', this.props.page);
+  handleEmailPageSubmit() {
     this.props.nextSignupPage(this.props.page);
   }
 
@@ -21,7 +20,7 @@ class SignupFlow extends Component {
     console.log('PAGE', page);
     return (
       <div style={{ width: '100vw', justifyContent: 'center', display: 'flex', marginTop: 80 }}>
-        {page === 1 && <EmailPage onSubmit={this.nextPage} />}
+        {page === 1 && <EmailPage onSubmit={this.handleEmailPageSubmit} />}
         {page === 2 && <AccountDetailsPage onSubmit={this.nextPage} />}
         {page === 3 && <PasswordPage onSubmit={onSubmit} />}
       </div>

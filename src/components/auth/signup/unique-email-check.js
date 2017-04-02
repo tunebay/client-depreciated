@@ -4,10 +4,10 @@ import { SubmissionError } from 'redux-form';
 const ROOT_URL = 'http://localhost:3000';
 
 const uniqueEmailCheck = (values) => {
-  axios.post(`${ROOT_URL}/signup/emailcheck`, { email: values.email })
+  return axios.post(`${ROOT_URL}/signup/emailcheck`, { email: values.email })
     .then((res) => {
       if (res.data.error) {
-        throw new SubmissionError({ email: 'Email already in use. Are you trying to log in?' });
+        return { email: 'Email already in use. Are you trying to log in?' };
       }
     })
     .catch((err) => {

@@ -32,7 +32,7 @@ export default reduxForm({
   // fields: ['email'],
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
-  validate
-  // asyncValidate,
+  validate,
+  asyncValidate: uniqueEmailCheck,
   // asyncBlurFields: ['email']
 })(EmailPage);
