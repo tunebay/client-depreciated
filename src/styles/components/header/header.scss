@@ -130,6 +130,24 @@ $header-height: 50px;
       }
     }
 
+    .login-link {
+      background-color: $black;
+      border: none;
+      border-left: 1px solid $border-color;
+      &:hover {
+        background-color: $darker-black;
+        cursor: pointer;
+      }
+    }
+
+    .signup-link {
+      background-color: $blue;
+      color: #fff;
+      &:hover {
+        background-color: darken($blue, 10%);
+      }
+    }
+
     .user-dropdown {
       height: 100%;
       text-decoration: none;

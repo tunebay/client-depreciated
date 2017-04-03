@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Icon from 'react-fontawesome';
 import { NavLink, Link } from 'react-router-dom';
@@ -6,12 +6,48 @@ import { NavLink, Link } from 'react-router-dom';
 import '../../styles/components/header/header.scss';
 
 class Header extends Component {
-  componentWillMount() {
-    console.log('rendering header');
+  renderRight() {
+    const { displayName, username } = this.props.currentUser;
+    console.log(this.props.unauth);
+    if (this.props.unauth) {
+      return (
+        <div id="header-right">
+          <div className="icon-div dropdown">
+            <Icon className="fa-bell" name="bell" />
+          </div>
+          <button
+            className="nav-link login-link"
+            to="/hub"
+          >Log In</button>
+          <NavLink
+            className="nav-link signup-link"
+            to="/signup"
+          >Sign Up</NavLink>
+        </div>
+      );
+    }
+    return (
+      <div id="header-right">
+        <Link to={`/${username}`} className="user-dropdown">
+          <Icon name="user-circle-o" size="2x" className="fa-user" />
+          <div className="display-name">{displayName}</div>
+          <Icon name="caret-down" className="fa-caret" />
+        </Link>
+        <div className="icon-div dropdown">
+          <Icon className="fa-bell" name="bell" />
+        </div>
+        <div className="icon-div dropdown">
+          <Icon className="fa-comment" name="comment" />
+        </div>
+        <NavLink
+          className="nav-link upload-link"
+          to="/hub"
+        >Upload</NavLink>
+      </div>
+    );
   }
 
   render() {
-    const { displayName, username } = this.props.currentUser;
     return (
       <nav id="top-nav">
         <div id="header-left">
@@ -49,28 +85,19 @@ class Header extends Component {
           />
         </div>
 
-        <div id="header-right">
-          <Link to={`/${username}`} className="user-dropdown">
-            <Icon name="user-circle-o" size="2x" className="fa-user" />
-            <div className="display-name">{displayName}</div>
-            <Icon name="caret-down" className="fa-caret" />
-          </Link>
-          <div className="icon-div dropdown">
-            <Icon className="fa-bell" name="bell" />
-          </div>
-          <div className="icon-div dropdown">
-            <Icon className="fa-comment" name="comment" />
-          </div>
-          <NavLink
-            className="nav-link upload-link"
-            to="/hub"
-          >
-          Upload</NavLink>
-        </div>
+        {this.renderRight()}
       </nav>
     );
   }
 }
+
+Header.PropTypes = {
+  unauth: PropTypes.boolean
+};
+
+Header.defaultProps = {
+  unauth: false
+};
 
 const mapStateToProps = (state) => {
   return {
