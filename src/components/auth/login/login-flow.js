@@ -2,6 +2,7 @@ import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import validate from './validate';
+import submit from './submit';
 import emailOrUsernameField from './email-username-field';
 import passwordField from './password-field';
 import '../../../styles/components/auth/login/login-flow.scss';
@@ -9,7 +10,7 @@ import '../../../styles/components/auth/login/login-flow.scss';
 const LoginFlow = (props) => {
   const { handleSubmit, closeModal } = props;
   return (
-    <form onSubmit={handleSubmit} className="login-form-page">
+    <form onSubmit={handleSubmit(submit)} className="login-form-page">
       <h2 className="create-an-account">Log In</h2>
       <Field
         label="Email address or username"
