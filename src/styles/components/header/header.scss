@@ -134,6 +134,7 @@ $header-height: 50px;
       background-color: $black;
       border: none;
       border-left: 1px solid $border-color;
+      outline: none;
       &:hover {
         background-color: $darker-black;
         cursor: pointer;

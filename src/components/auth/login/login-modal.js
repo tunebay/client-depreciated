@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
-import SignupFlow from '../signup/signup-flow';
+// import SignupFlow from '../signup/signup-flow';
+import LoginFlow from './login-flow';
 import '../../../styles/components/auth/login/login-modal.scss';
 
 const LoginModal = ({ isVisable, requestCloseFn }) => {
@@ -13,7 +14,11 @@ const LoginModal = ({ isVisable, requestCloseFn }) => {
       shouldCloseOnOverlayClick
       onRequestClose={requestCloseFn}
     >
-      <SignupFlow />
+      {/* <SignupFlow /> */}
+      <LoginFlow
+        closeModal={requestCloseFn}
+        onSubmit={() => console.log('log in')}
+      />
     </Modal>
   );
 };

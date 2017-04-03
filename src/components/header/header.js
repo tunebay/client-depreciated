@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Icon from 'react-fontawesome';
+import LoginModal from '../auth/login/login-modal';
+import * as actions from '../../actions/auth-actions';
 import { NavLink, Link } from 'react-router-dom';
 
 import '../../styles/components/header/header.scss';
@@ -16,9 +18,14 @@ class Header extends Component {
             <Icon className="fa-bell" name="bell" />
           </div>
           <button
+            onClick={this.props.showLoginModal}
             className="nav-link login-link"
             to="/hub"
           >Log In</button>
+          <LoginModal
+            isVisable={this.props.loginModalVisable}
+            requestCloseFn={this.props.hideLoginModal}
+          />
           <NavLink
             className="nav-link signup-link"
             to="/signup"
@@ -102,8 +109,9 @@ Header.defaultProps = {
 const mapStateToProps = (state) => {
   return {
     isAuthenticated: state.auth.isAuthenticated,
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    loginModalVisable: state.auth.loginModalVisable
   };
 };
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, actions)(Header);
