@@ -4,6 +4,10 @@ import * as actions from '../../actions/auth-actions';
 import Content from './content';
 
 class Logout extends Component {
+  componentWillMount() {
+    document.title = 'Tunebay | Goodbye!';
+  }
+
   componentDidMount() {
     this.props.logoutUser();
   }
