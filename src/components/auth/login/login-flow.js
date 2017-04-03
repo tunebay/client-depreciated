@@ -8,9 +8,9 @@ import passwordField from './password-field';
 import '../../../styles/components/auth/login/login-flow.scss';
 
 const LoginFlow = (props) => {
-  const { handleSubmit, closeModal } = props;
+  const { handleSubmit, closeModal, isValidating } = props;
   return (
-    <form onSubmit={handleSubmit} className="login-form-page">
+    <form onSubmit={handleSubmit(asyncValidate)} className="login-form-page">
       <h2 className="create-an-account">Log In</h2>
       <Field
         label="Email address or username"
@@ -24,8 +24,8 @@ const LoginFlow = (props) => {
         type="text"
         component={passwordField}
       />
-      <button type="submit" className="login-button">
-        Log In
+      <button disabled={isValidating} type="submit" className="login-button">
+        {isValidating ? 'Validating....' : 'Log In'}
       </button>
       <div className="hr" />
       <div className="signup-instead">
@@ -43,7 +43,7 @@ const LoginFlow = (props) => {
 
 export default reduxForm({
   form: 'wizardLogin',
-  validate,
-  asyncValidate,
-  asyncBlurFields: ['password']
+  validate
+  // asyncValidate,
+  // asyncBlurFields: ['password']
 })(LoginFlow);

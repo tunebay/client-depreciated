@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Prompt, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as actions from '../../actions/auth-actions';
 import LoginModal from './login/login-modal';
 import '../../styles/components/auth/signup-header.scss';
@@ -41,7 +41,8 @@ class SignupHeader extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    loginModalVisable: state.auth.loginModalVisable
+    loginModalVisable: state.auth.loginModalVisable,
+    loading: state.auth.loading
   };
 };
 

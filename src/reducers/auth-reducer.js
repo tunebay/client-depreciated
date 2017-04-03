@@ -15,6 +15,7 @@ import {
 const INITITAL_STATE = {
   isAuthenticated: false,
   loading: false,
+  isValidating: false,
   usernameValidating: false,
   emailValidating: false,
   signupPage: 1,
@@ -32,9 +33,9 @@ export default (state = INITITAL_STATE, action) => {
     case SIGNUP_ATTEMPT:
       return { ...state, loading: true };
     case USERNAME_VALIDATING:
-      return { ...state, usernameValidating: true };
+      return { ...state, usernameValidating: true, loading: true };
     case EMAIL_VALIDATING:
-      return { ...state, usernameValidating: true };
+      return { ...state, usernameValidating: true, loading: true };
     case USERNAME_ERROR:
       return { ...state, usernameError: action.payload };
     case EMAIL_ERROR:
@@ -45,6 +46,10 @@ export default (state = INITITAL_STATE, action) => {
       return { ...state, loginModalVisable: true };
     case HIDE_LOGIN_MODAL:
       return { ...state, loginModalVisable: false };
+    case 'VALIDATING':
+      return { ...state, isValidating: true };
+    case 'FINISH_VALIDATING':
+      return { ...state, isValidating: false };
     default:
       return state;
   }

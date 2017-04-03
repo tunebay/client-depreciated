@@ -8,11 +8,13 @@ import '../../../styles/components/auth/login/login-modal.scss';
 
 class LoginModal extends Component {
   handleFormSubmit(values) {
+    console.log('SUBMIT');
     this.props.loginUser(values);
   }
 
   render() {
-    const { isVisable, requestCloseFn } = this.props;
+    const { isVisable, requestCloseFn, isValidating } = this.props;
+    console.log('VALIDATING?', isValidating);
     return (
       <Modal
         isOpen={isVisable}
@@ -26,10 +28,17 @@ class LoginModal extends Component {
         <LoginFlow
           onSubmit={this.handleFormSubmit.bind(this)}
           closeModal={requestCloseFn}
+          isValidating={isValidating}
         />
       </Modal>
     );
   }
 }
 
-export default connect(null, actions)(LoginModal);
+const mapStateToProps = (state) => {
+  return {
+    isValidating: state.auth.isValidating
+  };
+};
+
+export default connect(mapStateToProps, actions)(LoginModal);
