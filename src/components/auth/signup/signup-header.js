@@ -13,7 +13,6 @@ class SignupHeader extends Component {
   }
 
   render() {
-    console.log('HERE', this.props.loginModalVisable);
     return (
       <nav className="signup-header">
         {/* <div className="header-left"> */}

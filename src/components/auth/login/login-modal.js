@@ -8,13 +8,11 @@ import '../../../styles/components/auth/login/login-modal.scss';
 
 class LoginModal extends Component {
   handleFormSubmit(values) {
-    console.log('SUBMIT');
     this.props.loginUser(values);
   }
 
   render() {
     const { isVisable, requestCloseFn, isValidating } = this.props;
-    console.log('VALIDATING?', isValidating);
     return (
       <Modal
         isOpen={isVisable}
