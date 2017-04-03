@@ -35,3 +35,7 @@
     transform: translateY(0%);
   }
 }
+
+.ReactModal__Body--open {
+    overflow: hidden;
+}
