@@ -7,8 +7,8 @@ import LoginFlow from './login-flow';
 import '../../../styles/components/auth/login/login-modal.scss';
 
 class LoginModal extends Component {
-  handleFormSubmit() {
-    console.log('Submit here');
+  handleFormSubmit(values) {
+    this.props.loginUser(values);
   }
 
   render() {
