@@ -1,7 +1,7 @@
 import React from 'react';
 // import SignupForm from '../auth/signup-form';
 import SignupFlow from '../auth/signup/signup-flow';
-import SignupHeader from '../auth/signup-header';
+import SignupHeader from '../auth/signup/signup-header';
 import Content from './content';
 import '../../styles/components/login-page.scss';
 

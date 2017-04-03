@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import SignupForm from '../../auth/signup-form';
-import LoginForm from '../../auth/login-form';
+import SignupForm from '../../auth/signup/signup-flow';
+import LoginForm from '../../auth/login/login-flow';
 import '../../../styles/components/welcome/jumbotron.scss';
 
 class FormContainer extends Component {

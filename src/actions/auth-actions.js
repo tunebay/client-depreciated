@@ -4,10 +4,6 @@ import {
   AUTH_ERROR,
   DEAUTH_USER,
   SIGNUP_ATTEMPT,
-  EMAIL_VALIDATING,
-  USERNAME_VALIDATING,
-  USERNAME_ERROR,
-  EMAIL_ERROR,
   SET_CURRENT_USER,
   NEXT_SIGNUP_PAGE,
   SHOW_LOGIN_MODAL,
@@ -65,33 +61,6 @@ export const signupUser = ({ displayName, email, password, username }) => {
       });
   };
 };
-
-export const uniqueUsernameCheck = ({ username }) => {
-  return (dispatch) => {
-    dispatch({ type: USERNAME_VALIDATING });
-    axios.post(`${API_URL}/signup/usernamecheck`, { username })
-    .then((res) => {
-      dispatch({ type: USERNAME_ERROR, payload: res.data.error });
-    })
-    .catch((error) => {
-      console.log('In error:', error);
-    });
-  };
-};
-
-export const uniqueEmailCheck = ({ email }) => {
-  return (dispatch) => {
-    dispatch({ type: EMAIL_VALIDATING });
-    axios.post(`${API_URL}/signup/emailcheck`, { email })
-    .then((res) => {
-      dispatch({ type: EMAIL_ERROR, payload: res.data.error });
-    })
-    .catch((error) => {
-      console.log('In error:', error);
-    });
-  };
-};
-
 
 const authError = (error) => {
   return {

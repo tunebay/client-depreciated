@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import * as actions from '../../actions/auth-actions';
-import LoginModal from './login/login-modal';
-import '../../styles/components/auth/signup-header.scss';
-import '../../styles/components/auth/login/login-modal.scss';
+import * as actions from '../../../actions/auth-actions';
+import LoginModal from '../login/login-modal';
+import '../../../styles/components/auth/signup-header.scss';
+import '../../../styles/components/auth/login/login-modal.scss';
 
 
 class SignupHeader extends Component {
