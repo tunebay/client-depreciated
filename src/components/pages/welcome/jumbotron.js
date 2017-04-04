@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Icon from 'react-fontawesome';
 // import Shoutout from './shoutout';
 // import FormContainer from './form-container';
 import '../../../styles/components/welcome/jumbotron.scss';
 
 const Jumbotron = () => {
+  console.log('rendering');
   return (
     <div id="jumbo-con">
       <div className="logo-con">
@@ -21,8 +23,33 @@ const Jumbotron = () => {
             <Link className="sell-your-own-btn" to="/">Sell your own</Link>
           </div>
         </div>
-        <div className="call-to-action">
-
+        <div className="auth-container">
+          <div className="auth-con-header">
+            <button className="login-btn">Log In</button>
+          </div>
+          <div className="auth-content">
+            <h2 className="auth-title">Create an account</h2>
+            <p className="auth-tag">Join the fastest growing community of music makers and music lovers today.</p>
+            <button className="fb-btn">
+              <Icon className="fb-logo" name="facebook" size="lg" />
+              <div className="btn-txt">
+                Continue with Facebook
+              </div>
+            </button>
+            <button className="google-btn">
+              <img className="google-logo" src="../../../../assets/images/g.svg" alt="google" />
+              <div className="btn-txt">
+                Continue with Google
+              </div>
+            </button>
+            <div className="or">
+              <div className="hr" />
+              or
+              <div className="hr" />
+            </div>
+            <Link className="signup-email-btn" to="/signup">Continue with Email</Link>
+            <p className="terms"><small>By signing up, I agree to Tunebay’s <Link className="terms-link" to="/terms" target="_blank">Terms of Service</Link>, <Link className="terms-link" to="/terms">Payments Terms of Service</Link> and <Link className="terms-link" to="/terms">Privacy Policy</Link>.</small></p>
+          </div>
         </div>
       </div>
     </div>
