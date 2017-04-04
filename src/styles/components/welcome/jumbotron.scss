@@ -5,6 +5,7 @@
   height: 500px;
   background: url('../../../../assets/images/jumbotron.png');
   background-size: cover;
+  position: absolute;
   // animation: 200s scroll linear;
   .logo-con {
     position: absolute;
@@ -26,7 +27,7 @@
     }
   }
   .overlay {
-    position: fixed;
+    position: relative;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -203,6 +204,7 @@
           align-items: center;
           justify-content: space-between;
           color: $text-black;
+          font-size: 14px;
           .hr {
             margin: 20px 0;
             width: 160px;
