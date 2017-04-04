@@ -1,123 +1,108 @@
-$font-stack: 'Avenir Next', sans-serif;
-$light-blue: #34BFED;
+@import "../../variables";
 
 #jumbo-con {
   width: 100%;
-  height: 550px;
-  background-image: url('../../../../assets/images/jumbo-background.jpg');
-  background-position: 0px 0px;
-  overflow: hidden;
-  display: flex;
+  height: 500px;
+  background: url('../../../../assets/images/jumbotron.png');
   background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-}
-
-#jumbo-logo {
-  height: 40px;
-  width: auto;
-  padding-top: 15px;
-  padding-left: 24px;
-  position: absolute;
-}
-
-#shoutout-con {
-  width: 550px;
-  #shout-h {
-    color: white;
-    font-size: 48px;
-    font-family: $font-stack;
-    font-weight: bold;
-    margin: 0;
+  // animation:200s scroll infinite linear;
+  .logo-con {
+    position: absolute;
+    z-index: 1;
+    align-self: flex-start;
+    align-items: center;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 15px;
+    .logo {
+      height: 40px;
+      width: 50px;
+    }
+    .tunebay {
+      margin-top: 4px;
+      padding-left: 3px;
+    }
   }
-  #shout-p {
-    color: white;
-    font-size: 24px;
-    font-family: $font-stack;
-    font-weight: 400;
-  }
-  #shout-btn {
-    width: 150px;
-    height: 45px;
-    border-radius: 100px;
-    background: none;
-    color: white;
-    border: solid 2px #E9E8E8;
-    font-family: $font-stack;
-    &:hover {
-      cursor: pointer;
-      background-color: rgba(255,255,255,0.1);
-      border-color: white;
+  .overlay {
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    height: 500px;
+    background-image: linear-gradient(135deg, #4299FF 0%, #3CC8EB 0%, #048BFF 31%, #4EE9FF 100%);
+    opacity: 0.95;
+
+    .shout-out {
+      margin: 0 20px;
+      width: 500px;
+      color: #fff;
+      font-family: $font-stack;
+      .title {
+        font-size: 38px;
+      }
+      .tag {
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 1.4;
+      }
+      .action-buttons {
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        // justify-content: center;
+        .discover-btn {
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 120px;
+          height: 40px;
+          border-radius: 100px;
+          border: 1px solid #fff;
+          color: #fff;
+        }
+        .discover-btn {
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 120px;
+          height: 40px;
+          border-radius: 100px;
+          border: 1px solid #fff;
+          color: #fff;
+          font-weight: 500;
+          margin-right: 15px;
+        }
+        .sell-your-own-btn {
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 150px;
+          height: 40px;
+          border-radius: 100px;
+          border: 1px solid #fff;
+          background-color: #fff;
+          color: $blue;
+          font-weight: 500;
+        }
+      }
+    }
+    .call-to-action {
+      margin-right: 20px;
+      width: 420px;
+      height: 500px;
+      background-color: #fff;
     }
   }
 }
 
-#jumbo-main {
-  display: flex;
-  width: 1080px !important;
-  margin: 0 auto !important;
-  position: relative;
-  padding: 0 24px;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.form-container {
-  height: 550px !important;
-  border-radius: 0px !important;
-  border-radius: 0px !important;
-  margin: 0 !important;
-}
-
-.form-con-btns {
-  height: 50px;
-  background-color: #e1e1e1;
-  flex-direction: row;
-  display: flex;
-}
-
-.welcome-signup-btn {
-  border: none;
-  height: 50px;
-  flex: 1;
-  background-color: $light-blue;
-  color: white;
-  outline: none;
-  -webkit-box-shadow: inset -4px -3px 5px 0px rgba(0,0,0,0.05);
-  -moz-box-shadow: inset -4px -3px 5px 0px rgba(0,0,0,0.05);
-  box-shadow: inset -4px -3px 5px 0px rgba(0,0,0,0.05);
-  &:hover {
-    cursor: pointer;
+@keyframes scroll{
+  100%{
+    background-position: -3000px 0;
   }
 }
-
-.welcome-login-btn {
-  border: none;
-  height: 50px;
-  flex: 1;
-  background-color: $light-blue;
-  color: white;
-  outline: none;
-  -webkit-box-shadow: inset 4px -3px 5px 0px rgba(0,0,0,0.05);
-  -moz-box-shadow: inset 4px -3px 5px 0px rgba(0,0,0,0.05);
-  box-shadow: inset 4px -3px 5px 0px rgba(0,0,0,0.05);
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.auth-btn-active {
-  background-color: white;
-  color: $light-blue;
-  outline: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  &:hover {
-    cursor: default;
-  }
-}
-
-
-
-// background-image: url('../../../../assets/images/jumbo-background.jpg');

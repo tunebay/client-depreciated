@@ -1,6 +1,6 @@
 import React from 'react';
 import Jumbotron from './jumbotron';
-import HotRightNow from './hot-right-now';
+// import HotRightNow from './hot-right-now';
 // import Layout from '../../../layout';
 
 const Welcome = () => {
@@ -8,7 +8,6 @@ const Welcome = () => {
   return (
     <div>
       <Jumbotron />
-      <HotRightNow />
     </div>
   );
 };
