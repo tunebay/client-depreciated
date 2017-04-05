@@ -13,7 +13,7 @@ class Welcome extends Component {
   render() {
     const { loginModalVisable, hideLoginModal, showLoginModal } = this.props;
     return (
-      <div style={{ backgroundColor: '#fff', height: 1000 }}>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Jumbotron
           loginModalVisable={loginModalVisable}
           hideLoginModal={hideLoginModal}

@@ -5,7 +5,7 @@
   height: 500px;
   background: url('../../../../assets/images/jumbotron.png');
   background-size: cover;
-  position: absolute;
+  position: relative;
   // animation: 200s scroll linear;
   .logo-con {
     @include browserFlex;
