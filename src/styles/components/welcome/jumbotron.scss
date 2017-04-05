@@ -8,11 +8,13 @@
   position: absolute;
   // animation: 200s scroll linear;
   .logo-con {
-    position: absolute;
+    @include browserFlex;
+    @include justifyCenter;
+    @include alignCenter;
     z-index: 1;
+    position: absolute;
     align-self: flex-start;
     align-items: center;
-    display: flex;
     height: 40px;
     justify-content: center;
     margin-top: 20px;
@@ -23,12 +25,14 @@
     }
     .tunebay {
       margin-top: 4px;
+      height: 26px;
       padding-left: 3px;
     }
   }
+
   .overlay {
     position: relative;
-    display: flex;
+    @include browserFlex;
     justify-content: space-around;
     flex-direction: row;
     height: 500px;
@@ -42,7 +46,7 @@
 
     .shout-out {
       margin: 0 20px;
-      width: 550px;
+      width: 570px;
       color: #fff;
       font-family: $font-stack;
       .title {
@@ -56,13 +60,13 @@
       }
       .action-buttons {
         width: auto;
-        display: flex;
+        @include browserFlex;
         flex-direction: row;
         align-items: center;
         // justify-content: center;
         .discover-btn {
           text-decoration: none;
-          display: flex;
+          @include browserFlex;
           align-items: center;
           justify-content: center;
           width: 120px;
@@ -78,7 +82,7 @@
         }
         .sell-your-own-btn {
           text-decoration: none;
-          display: flex;
+          @include browserFlex;
           align-items: center;
           justify-content: center;
           width: 150px;
@@ -94,6 +98,7 @@
         }
       }
     }
+
     .auth-container {
       margin-right: 20px;
       border-bottom: 1px solid $light-grey;
@@ -102,7 +107,7 @@
       background-color: #fff;
       .auth-con-header {
         @include borderBox;
-        display: flex;
+        @include browserFlex;
         align-items: center;
         justify-content: flex-end;
         padding: 0 20px;
@@ -110,14 +115,14 @@
         width: 100%;
         // background-color: #f1f1f1;
         .login-btn {
+          @include browserFlex;
+          @include alignCenter;
+          @include justifyCenter;
           height: 35px;
           font-weight: 400;
           font-family: $font-stack;
           width: 100px;
           outline: none;
-          display: flex;
-          align-items: center;
-          justify-content: center;
           color: #fff;
           background-color: $blue;
           border: none;
@@ -149,7 +154,7 @@
         .fb-btn {
           width: 380px;
           height: 65px;
-          display: flex;
+          @include browserFlex;
           flex-direction: row;
           background-color: #39579A;
           font-family: $font-stack;
@@ -164,7 +169,7 @@
           .btn-txt {
             width: 100%;
             align-self: center;
-            display: flex;
+            @include browserFlex;
             justify-content: center;
             align-items: center;
           }
@@ -173,10 +178,10 @@
           }
         }
         .google-btn {
-          display: flex;
+          @include browserFlex;
           flex-direction: row;
           margin-top: 10px;
-          display: flex;
+          @include browserFlex;
           align-items: center;
           width: 380px;
           height: 65px;
@@ -189,7 +194,7 @@
           .btn-txt {
             width: 100%;
             align-self: center;
-            display: flex;
+            @include browserFlex;
             justify-content: center;
             align-items: center;
           }
@@ -203,7 +208,7 @@
           }
         }
         .or {
-          display: flex;
+          @include browserFlex;
           flex-direction: row;
           align-items: center;
           justify-content: space-between;
@@ -217,10 +222,9 @@
           }
         }
         .signup-email-btn {
-          display: flex;
+          @include browserFlex;
           text-decoration: none;
           flex-direction: row;
-          display: flex;
           align-items: center;
           justify-content: center;
           width: 380px;
