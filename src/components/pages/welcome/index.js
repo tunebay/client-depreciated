@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Jumbotron from './jumbotron';
 import HotRightNow from './hot-right-now';
+import hotPlaylists from './hot-playlists';
 import * as actions from '../../../actions/auth-actions';
 // import Layout from '../../../layout';
 
@@ -19,7 +20,7 @@ class Welcome extends Component {
           hideLoginModal={hideLoginModal}
           showLoginModal={showLoginModal}
         />
-        <HotRightNow />
+        <HotRightNow hotPlaylists={hotPlaylists} />
       </div>
     );
   }

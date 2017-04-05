@@ -2,7 +2,7 @@
 
 #jumbo-con {
   width: 100%;
-  height: 500px;
+  height: 490px;
   background: url('../../../../assets/images/jumbotron.png');
   background-size: cover;
   position: relative;
@@ -35,7 +35,7 @@
     @include browserFlex;
     justify-content: space-around;
     flex-direction: row;
-    height: 500px;
+    height: 490px;
     background-image: linear-gradient(
       135deg,
       rgba(66, 153, 255, 1) 0%,
@@ -103,7 +103,7 @@
       margin-right: 20px;
       border-bottom: 1px solid $light-grey;
       width: 420px;
-      height: 500px;
+      height: 490px;
       background-color: #fff;
       .auth-con-header {
         @include borderBox;
