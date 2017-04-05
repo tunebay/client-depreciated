@@ -9,7 +9,7 @@ const displayNameField = ({ input, label, meta: { touched, error } }) => {
   return (
     <div className="signup-display-name">
       <label className="display-name-label" htmlFor="displayName">Display name</label>
-      <p className="field-info">{'You\'re full name or artist name will do just fine.'}</p>
+      <p className="field-info">{'Your full name or artist name will do just fine.'}</p>
       <input
         className={signupDisplayNameInputClass}
         type="text" {...input}

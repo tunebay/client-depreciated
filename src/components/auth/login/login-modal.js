@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
 import * as actions from '../../../actions/auth-actions';
@@ -22,7 +22,6 @@ class LoginModal extends Component {
         shouldCloseOnOverlayClick
         onRequestClose={requestCloseFn}
       >
-        {/* <SignupFlow /> */}
         <LoginFlow
           onSubmit={this.handleFormSubmit.bind(this)}
           closeModal={requestCloseFn}
@@ -32,6 +31,12 @@ class LoginModal extends Component {
     );
   }
 }
+
+LoginModal.PropTypes = {
+  isVisable: PropTypes.bool.isRequired,
+  requestCloseFn: PropTypes.func.isRequired,
+  isValidating: PropTypes.bool.isRequired
+};
 
 const mapStateToProps = (state) => {
   return {

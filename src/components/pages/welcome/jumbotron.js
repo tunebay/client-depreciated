@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Icon from 'react-fontawesome';
-// import Shoutout from './shoutout';
-// import FormContainer from './form-container';
+import LoginModal from '../../auth/login/login-modal';
 import '../../../styles/components/welcome/jumbotron.scss';
 
-const Jumbotron = () => {
+const Jumbotron = (props) => {
+  const { hideLoginModal, showLoginModal, loginModalVisable } = props;
   console.log('rendering');
   return (
     <div id="jumbo-con">
@@ -13,6 +13,7 @@ const Jumbotron = () => {
         <img src="../../../../assets/images/logo.svg" alt="logo" className="logo" />
         <img src="../../../../assets/images/tunebay-light.svg" alt="logo" className="tunebay" />
       </div>
+      <LoginModal isVisable={loginModalVisable} requestCloseFn={hideLoginModal} />
       <div className="overlay">
 
         <div className="shout-out">
@@ -25,7 +26,7 @@ const Jumbotron = () => {
         </div>
         <div className="auth-container">
           <div className="auth-con-header">
-            <button className="login-btn">Log In</button>
+            <button onClick={showLoginModal} className="login-btn">Log In</button>
           </div>
           <div className="auth-content">
             <h2 className="auth-title">Create an account</h2>
