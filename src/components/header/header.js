@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Icon from 'react-fontawesome';
 import LoginModal from '../auth/login/login-modal';
 import * as actions from '../../actions/auth-actions';
-import { NavLink, Link } from 'react-router-dom';
 
 import '../../styles/components/header/header.scss';
 

@@ -44,6 +44,7 @@ $header-height: 50px;
   .upload-button {
     background-color: $blue;
     border: none;
+    color: #fff;
     &:hover {
       cursor: pointer;
       background-color: darken($blue, 5%);
@@ -150,7 +151,7 @@ $header-height: 50px;
       background-color: $blue;
       color: #fff;
       &:hover {
-        background-color: darken($blue, 10%);
+        background-color: darken($blue, 5%);
       }
     }
 
@@ -196,15 +197,15 @@ $header-height: 50px;
   }
 }
 
-@media (max-width: $breakpoint-large) {
-  #top-nav {
-    #header-right {
-      .fa-bell {
-        color: red;
-      }
-    }
-  }
-}
+// @media (max-width: $breakpoint-large) {
+//   #top-nav {
+//     #header-right {
+//       .fa-bell {
+//         color: red;
+//       }
+//     }
+//   }
+// }
 
 @media (max-width: $breakpoint-medium) {
   #top-nav {
@@ -217,7 +218,7 @@ $header-height: 50px;
       }
     }
     #header-right {
-      .user {
+      .user-dropdown {
         .display-name {
           display: none;
         }
