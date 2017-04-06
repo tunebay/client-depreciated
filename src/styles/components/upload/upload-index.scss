@@ -5,6 +5,7 @@
   @include browserFlex;
   @include alignCenter;
   @include justifyCenter;
+  flex-direction: column;
   flex: 1;
   width: 100%;
   .n-dropzone {
@@ -14,56 +15,92 @@
     @include justifyCenter;
     margin-top: 100px;
     width: 810px;
-    height: 310px;
+    height: 320px;
     background-color: #fff;
     border: 2px dashed $light-grey;
+    border-radius: 3px;
     .n-inner-drop {
+      margin-top: 50px;
       @include browserFlex;
       @include alignCenter;
       @include justifyCenter;
       flex-direction: column;
+      height: 100%;
       font-family: $font-stack;
       color: $text-black;
-      .n-title {
-        margin: 0;
-        font-size: 30px;
-      }
-      .n-or-section {
-        width: 450px;
-        margin: 15px 0;
+
+      .n-inner-drop-main {
         @include browserFlex;
         @include alignCenter;
-        justify-content: space-between;
-        flex-direction: row;
+        @include justifyCenter;
+        flex-direction: column;
+        .n-title {
+          margin: 0;
+          font-size: 30px;
+        }
+        .n-or-section {
+          width: 450px;
+          margin: 15px 0;
+          @include browserFlex;
+          @include alignCenter;
+          justify-content: space-between;
+          flex-direction: row;
 
-        .n-hr {
+          .n-or {
+            font-weight: 500;
+            color: #666;
+          }
+
+          .n-hr {
+            width: 200px;
+            height: 1px;
+            background-color: $light-grey;
+          }
+        }
+
+        .n-choose-files-btn {
           width: 200px;
-          height: 1px;
-          background-color: $light-grey;
+          height: 50px;
+          background-color: $blue;
+          font-weight: 500;
+          font-size: 18px;
+          font-family: $font-stack;
+          color: #fff;
+          border: none;
+          border-radius: 3px;
+          transition: all 75ms ease-out;
+          outline: none;
+          &:hover {
+            cursor: pointer;
+            background-color: darken($blue, 5%);
+          }
         }
       }
-
-      .n-choose-files-btn {
-        width: 200px;
-        height: 50px;
-        background-color: $blue;
-        font-weight: 500;
-        font-size: 18px;
-        font-family: $font-stack;
-        color: #fff;
-        border: none;
-        border-radius: 3px;
-        transition: all 75ms ease-out;
-        outline: none;
-        &:hover {
-          cursor: pointer;
-          background-color: darken($blue, 5%);
+      .n-upload-note {
+        color: #666;
+        font-size: 14px;
+        padding-top: 50px;
+        font-weight: 400;
+        .n-note {
+          font-weight: 600;
         }
       }
-
-      // .n-upload-note {
-      //   padding-top: 50px;
-      // }
+    }
+  }
+  .n-upload-terms {
+    margin-top: 30px;
+    width: 800px;
+    font-size: 14;
+    font-family: $font-stack;
+    font-weight: 400;
+    text-align: center;
+    color: #666;
+    .n-important {
+      color: $red;
+      font-weight: 600;
+    }
+    .n-terms-link {
+      color: $blue;
     }
   }
 }
