@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
+import className from 'classnames';
 
 class AudioDropzone extends Component {
   handleDrop(files) {
@@ -17,28 +18,40 @@ class AudioDropzone extends Component {
         onDrop={this.handleDrop.bind(this)}
         className="n-dropzone"
         disableClick
+        accept={'audio/*'}
+        maxSize={1000000000} // 1gb
       >
-        <div className="n-inner-drop">
-          <div className="n-inner-drop-main">
-            <h1 className="n-title">
-              Drag and drop audio files here
-            </h1>
-            <div className="n-or-section">
-              <div className="n-hr" />
-              <div className="n-or">or</div>
-              <div className="n-hr" />
+        {({ isDragActive, isDragReject }) => {
+          const innerDropClass = className({
+            'n-inner-drop': true,
+            'n-inner-drop-active': isDragActive,
+            'n-inner-drop-reject': isDragReject
+          });
+
+          return (
+            <div className={innerDropClass}>
+              <div className="n-inner-drop-main">
+                <h1 className="n-title">
+                  Drag and drop audio files here
+                </h1>
+                <div className="n-or-section">
+                  <div className="n-hr" />
+                  <div className="n-or">or</div>
+                  <div className="n-hr" />
+                </div>
+                <button
+                  className="n-choose-files-btn"
+                  onClick={this.handleButtonClick.bind(this)}
+                >
+                  Choose files
+                </button>
+              </div>
+              <div className="n-upload-note">
+                <span className="n-note">Note:</span> Select multiple files if you are uploading an EP or album.
+              </div>
             </div>
-            <button
-              className="n-choose-files-btn"
-              onClick={this.handleButtonClick.bind(this)}
-            >
-              Choose files
-            </button>
-          </div>
-          <div className="n-upload-note">
-            <span className="n-note">Note:</span> Select multiple files if you are uploading an EP or album.
-          </div>
-        </div>
+          );
+        }}
       </Dropzone>
     );
   }

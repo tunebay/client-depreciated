@@ -8,7 +8,7 @@
   flex-direction: column;
   flex: 1;
   width: 100%;
-  min-width: $breakpoint-medium;
+  min-width: 850px;
   .n-dropzone {
     @include boxShadow;
     @include browserFlex;
@@ -16,21 +16,25 @@
     @include justifyCenter;
     margin-top: 100px;
     width: 810px;
-    height: 350px;
+    // min-width: 500px;
+    height: 330px;
     background-color: #fff;
-    border: 2px dashed $light-grey;
+    // border: 1px solid $light-grey;
     border-radius: 3px;
     .n-inner-drop {
-      margin-top: 80px;
+      // margin-top: 60px;
       @include browserFlex;
+      @include borderBox;
       @include alignCenter;
       @include justifyCenter;
       flex-direction: column;
       height: 100%;
+      width: 100%;
       font-family: $font-stack;
       color: $text-black;
 
       .n-inner-drop-main {
+        margin-top: 60px;
         @include browserFlex;
         @include alignCenter;
         @include justifyCenter;
@@ -40,8 +44,8 @@
           font-size: 32px;
         }
         .n-or-section {
-          width: 450px;
-          margin: 15px 0;
+          width: 470px;
+          margin: 20px 0;
           @include browserFlex;
           @include alignCenter;
           justify-content: space-between;
@@ -53,7 +57,7 @@
           }
 
           .n-hr {
-            width: 200px;
+            width: 210px;
             height: 1px;
             background-color: $light-grey;
           }
@@ -86,6 +90,14 @@
           font-weight: 600;
         }
       }
+    }
+    .n-inner-drop-active {
+      border: 1px solid $green;
+      border-radius: 3px;
+    }
+    .n-inner-drop-reject {
+      border: 1px solid $red;
+      border-radius: 3px;
     }
   }
   .n-upload-terms {
