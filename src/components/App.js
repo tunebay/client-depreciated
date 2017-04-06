@@ -10,6 +10,7 @@ import Logout from './pages/logout';
 import Profile from './pages/profile/';
 import Hub from './pages/hub/hub';
 import NotFound from './pages/not-found';
+import Upload from './pages/upload/';
 import RequireAuth from './hoc/require-auth';
 import Player from './player/player';
 import Header from './header/header';
@@ -20,12 +21,12 @@ class App extends Component {
     return (
       <Router>
         <div>
-          {/* <Route
+          <Route
             path="/" render={() => {
               return this.props.isAuthenticated ?
                 <Header /> : <Header unauth />;
             }}
-          /> */}
+          />
           <Switch>
             <Route
               exact path="/" render={() => (
@@ -53,6 +54,7 @@ class App extends Component {
               ))}
             />
             <Route path="/logout" component={Logout} />
+            <Route path="/upload" component={RequireAuth(Upload)} />
             <Route path="/feed" component={RequireAuth(HomeFeed)} />
             <Route path="/:username" component={Profile} />
             <Route path="*" component={NotFound} />

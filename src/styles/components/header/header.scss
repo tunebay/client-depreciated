@@ -41,8 +41,13 @@ $header-height: 50px;
     }
   }
 
-  .upload-link {
-    border-left: 1px solid $border-color;
+  .upload-button {
+    background-color: $blue;
+    border: none;
+    &:hover {
+      cursor: pointer;
+      background-color: darken($blue, 5%);
+    }
   }
 
   #header-left {

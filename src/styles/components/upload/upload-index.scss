@@ -1,0 +1,69 @@
+@import "../../variables";
+
+
+.n-upload-container {
+  @include browserFlex;
+  @include alignCenter;
+  @include justifyCenter;
+  flex: 1;
+  width: 100%;
+  .n-dropzone {
+    @include boxShadow;
+    @include browserFlex;
+    @include alignCenter;
+    @include justifyCenter;
+    margin-top: 100px;
+    width: 810px;
+    height: 310px;
+    background-color: #fff;
+    border: 2px dashed $light-grey;
+    .n-inner-drop {
+      @include browserFlex;
+      @include alignCenter;
+      @include justifyCenter;
+      flex-direction: column;
+      font-family: $font-stack;
+      color: $text-black;
+      .n-title {
+        margin: 0;
+        font-size: 30px;
+      }
+      .n-or-section {
+        width: 450px;
+        margin: 15px 0;
+        @include browserFlex;
+        @include alignCenter;
+        justify-content: space-between;
+        flex-direction: row;
+
+        .n-hr {
+          width: 200px;
+          height: 1px;
+          background-color: $light-grey;
+        }
+      }
+
+      .n-choose-files-btn {
+        width: 200px;
+        height: 50px;
+        background-color: $blue;
+        font-weight: 500;
+        font-size: 18px;
+        font-family: $font-stack;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        transition: all 75ms ease-out;
+        outline: none;
+        &:hover {
+          cursor: pointer;
+          background-color: darken($blue, 5%);
+        }
+      }
+
+      // .n-upload-note {
+      //   padding-top: 50px;
+      // }
+    }
+  }
+}

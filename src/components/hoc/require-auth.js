@@ -2,21 +2,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-export default function (ComposedComponent) {
+export default function (ComposedComponent, match) {
   class Authentication extends Component {
     componentWillMount() {
+      console.log('History', this.props.history);
       if (!this.props.isAuthenticated) {
         this.props.history.replace('/login');
       }
     }
 
     componentWillUpdate(nextProps) {
+      console.log('History', this.props.history);
       if (!nextProps.isAuthenticated) {
         this.props.history.replace('/login');
       }
     }
 
     render() {
+      console.log('MATCH', match);
       return <ComposedComponent {...this.props} />;
     }
   }

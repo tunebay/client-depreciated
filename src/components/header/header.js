@@ -47,8 +47,8 @@ class Header extends Component {
           <Icon className="fa-comment" name="comment" />
         </div>
         <NavLink
-          className="nav-link upload-link"
-          to="/hub"
+          className="nav-link upload-button"
+          to="/upload"
         >Upload</NavLink>
       </div>
     );
