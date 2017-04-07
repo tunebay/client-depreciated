@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
+import { connect } from 'react-redux';
 import className from 'classnames';
+import * as actions from '../../../actions/upload-actions';
 
 class AudioDropzone extends Component {
   handleDrop(files) {
+    this.props.processAudio(files);
     console.log(files);
   }
 
@@ -12,16 +15,23 @@ class AudioDropzone extends Component {
   }
 
   render() {
+    const { isVisable } = this.props;
+    const dropzoneClass = className({
+      'n-dropzone': true,
+      'n-dropzone-fade': !isVisable
+    });
+
     return (
       <Dropzone
         ref={(node) => { this.ndropzone = node; }}
         onDrop={this.handleDrop.bind(this)}
-        className="n-dropzone"
+        className={dropzoneClass}
         disableClick
         accept={'audio/*'}
         maxSize={1000000000} // 1gb
       >
-        {({ isDragActive, isDragReject }) => {
+        {({ isDragActive, isDragReject, rejectedFiles }) => {
+          console.log(rejectedFiles);
           const innerDropClass = className({
             'n-inner-drop': true,
             'n-inner-drop-active': isDragActive,
@@ -57,4 +67,10 @@ class AudioDropzone extends Component {
   }
 }
 
-export default AudioDropzone;
+// const mapStateToProps = (state) => {
+//   return {
+//
+//   }
+// };
+
+export default connect(null, actions)(AudioDropzone);

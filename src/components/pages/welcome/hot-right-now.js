@@ -5,7 +5,7 @@ class HotRightNow extends Component {
   render() {
     return (
       <div id="hot-right-now-con">
-        <h3 className="section-header">Hot Right Now:</h3>
+        <h3 className="section-header">Hot right now</h3>
         <ul className="playlists">
           {this.props.hotPlaylists.map((playlist) => {
             return (

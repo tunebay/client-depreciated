@@ -4,7 +4,8 @@ import authReducer from './auth-reducer';
 import profileReducer from './profile/profile-reducer';
 import uploadedPlaylistReducer from './hub/uploaded-playlist-reducer';
 import uploadedArtworkReducer from './hub/uploaded-artwork-reducer';
-import audioUploadReducer from './hub/upload-reducer';
+// import audioUploadReducer from './hub/upload-reducer'; old
+import audioUploadReducer from './upload-reducer';
 import currentUserReducer from './current-user-reducer';
 import playerReducer from './player/player-reducer';
 
