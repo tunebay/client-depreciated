@@ -40,7 +40,7 @@ class AudioDropzone extends Component {
           });
 
           return (
-            <div className={innerDropClass} data-tip data-for="drag-active" data-evet="drag">
+            <div className={innerDropClass}>
               <div className="n-inner-drop-main">
                 <h1 className="n-title">
                   Drag and drop audio files here
@@ -57,7 +57,7 @@ class AudioDropzone extends Component {
                   Choose files
                 </button>
               </div>
-              <ToolTip globalEventOff="drag" type="success" id="drag-active">Bet this sounds great!</ToolTip>
+              {/* <ToolTip globalEventOff="drag" type="success" id="drag-active">Bet this sounds great!</ToolTip> */}
               <div className="n-upload-note">
                 <span className="n-note">Tip:</span> you can select multiple files to start uploading an EP or album.
               </div>
