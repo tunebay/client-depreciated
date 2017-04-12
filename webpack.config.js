@@ -13,7 +13,6 @@ const VENDOR_LIBS = [
   'node-uuid',
   'rc-progress',
   'react',
-  'react-addons-css-transition-group',
   'react-datepicker',
   'redux',
   'react-dropzone',

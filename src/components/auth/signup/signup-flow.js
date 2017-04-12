@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import '../../../styles/components/auth/signup/signup-flow.scss';
 import * as actions from '../../../actions/auth-actions';
 import EmailPage from './email-page';
@@ -32,7 +32,7 @@ class SignupFlow extends Component {
     console.log('PAGE', page);
     return (
       <div style={{ width: '100vw', justifyContent: 'center', display: 'flex', marginTop: 80 }}>
-        <ReactCSSTransitionGroup
+        <CSSTransitionGroup
           transitionName="slide"
           transitionEnterTimeout={500}
           transitionLeaveTimeout={500}
@@ -40,7 +40,7 @@ class SignupFlow extends Component {
           {page === 1 && <EmailPage onSubmit={this.handleEmailPageSubmit} />}
           {page === 2 && <AccountDetailsPage onSubmit={this.handleAccountDetailsPageSubmit} />}
           {page === 3 && <PasswordPage onSubmit={this.handleFormSubmit} />}
-        </ReactCSSTransitionGroup>
+        </CSSTransitionGroup>
       </div>
     );
   }

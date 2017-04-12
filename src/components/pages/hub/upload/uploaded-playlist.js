@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SortableContainer } from 'react-sortable-hoc';
 import Dropzone from 'react-dropzone';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import UploadedTrack from './uploaded-track';
 import * as actions from '../../../../actions/hub/uploaded-playlist-actions';
 import '../../../../styles/components/hub/upload/uploaded-track.scss';
@@ -11,7 +11,7 @@ const SortablePlaylist = SortableContainer(({ playlist }) => {
   console.log(playlist);
   return (
     <ul className="uploaded-track-con">
-      <ReactCSSTransitionGroup
+      <CSSTransitionGroup
         transitionName="anim"
         transitionEnterTimeout={350}
         transitionLeaveTimeout={350}
@@ -19,7 +19,7 @@ const SortablePlaylist = SortableContainer(({ playlist }) => {
         {playlist.map((track, index) =>
           <UploadedTrack track={track} key={track.trackId} index={index} />
         )}
-      </ReactCSSTransitionGroup>
+      </CSSTransitionGroup>
     </ul>
   );
 });
