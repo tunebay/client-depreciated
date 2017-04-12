@@ -66,6 +66,12 @@
       font-weight: 500;
       padding-bottom: 10px;
     }
+    .field-error {
+      color: $red;
+      font-weight: 500;
+      font-size: 14px;
+      margin-top: 5px;
+    }
     .login-email-username-input {
       @include borderBox;
       color: $text-black;
@@ -95,6 +101,12 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
+    .field-error {
+      color: $red;
+      font-weight: 500;
+      font-size: 14px;
+      margin-top: 5px;
+    }
     .password-label {
       font-size: 16px;
       font-weight: 500;
