@@ -22,7 +22,6 @@ const VENDOR_LIBS = [
   'react-sortable-hoc',
   'react-sound',
   'react-redux',
-  'react-spinner',
   'react-tooltip',
   'react-router',
   'react-dom',

@@ -61,7 +61,6 @@
     "rc-progress": "^2.0.6",
     "react": "^15.5.0",
     "react-addons-css-transition-group": "^15.5.0",
-    "react-avatar-cropper": "^0.1.3a",
     "react-avatar-editor": "^8.0.1",
     "react-bootstrap": "^0.30.8",
     "react-datepicker": "^0.44.0",
@@ -76,12 +75,9 @@
     "react-select": "^1.0.0-rc.3",
     "react-sortable-hoc": "^0.6.2",
     "react-sound": "^0.5.2",
-    "react-spinkit": "^2.1.1",
-    "react-spinner": "^0.2.6",
     "react-tooltip": "^3.2.2",
     "redux": "^3.6.0",
     "redux-form": "^6.6.2",
-    "redux-persist": "^4.3.0",
     "redux-thunk": "^2.1.0"
   }
 }
