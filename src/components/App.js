@@ -8,7 +8,7 @@ import Login from './pages/login';
 import Signup from './pages/signup';
 import Logout from './pages/logout';
 import Profile from './pages/profile/';
-import Hub from './pages/hub/hub';
+// import Hub from './pages/hub/hub';
 import NotFound from './pages/not-found';
 import Upload from './pages/upload/';
 import RequireAuth from './hoc/require-auth';
