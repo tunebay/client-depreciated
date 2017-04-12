@@ -105,7 +105,6 @@ export const releasePlaylist = (playlistDetails, playlistTracks) => {
     };
 
     const config = { headers: { Authorization: localStorage.getItem('token') } };
-    console.log(playlistToPost);
     axios.post(`${API_URL}/playlists/new`, playlistToPost, config)
       .then((res) => {
         console.log('RESPONSE', res);

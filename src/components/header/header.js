@@ -11,7 +11,6 @@ import '../../styles/components/header/header.scss';
 class Header extends Component {
   renderRight() {
     const { displayName, username } = this.props.currentUser;
-    console.log(this.props.unauth);
     if (this.props.unauth) {
       return (
         <div id="header-right">

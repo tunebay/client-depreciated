@@ -29,7 +29,6 @@ class SignupFlow extends Component {
 
   render() {
     const { page } = this.props;
-    console.log('PAGE', page);
     return (
       <div style={{ width: '100vw', justifyContent: 'center', display: 'flex', marginTop: 80 }}>
         <CSSTransitionGroup

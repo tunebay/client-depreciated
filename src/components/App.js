@@ -18,7 +18,6 @@ import Header from './header/header';
 class App extends Component {
   renderRoute(ComponentToRender) {
     return (match) => {
-      console.log(match);
       if (!this.props.isAuthenticated) {
         return (
           <div>
@@ -37,7 +36,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('renderingggg app....');
     return (
       <Router>
         <div>

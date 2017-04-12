@@ -9,7 +9,6 @@ import '../../styles/components/player/player.scss';
 
 class Player extends Component {
   handlePlaying(e) {
-    // console.log(Math.round((e.position / 1000)));
     this.props.updateTrackMilliseconds(e);
   }
 
@@ -21,7 +20,6 @@ class Player extends Component {
 
   handleSeek(e) {
     this.props.updateTrackMiliPosition(e);
-    // console.log('Seek Position', e);
   }
 
   renderSound(player) {
