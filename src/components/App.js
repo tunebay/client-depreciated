@@ -16,17 +16,31 @@ import Player from './player/player';
 import Header from './header/header';
 
 class App extends Component {
+  renderRoute(ComponentToRender) {
+    return (match) => {
+      console.log(match);
+      if (!this.props.isAuthenticated) {
+        return (
+          <div>
+            <Header unauth />
+            <ComponentToRender {...match} />
+          </div>
+        );
+      }
+      return (
+        <div>
+          <Header />
+          <ComponentToRender {...match} />
+        </div>
+      );
+    };
+  }
+
   render() {
     console.log('renderingggg app....');
     return (
       <Router>
         <div>
-          {/* <Route
-            path="/" render={() => {
-              return this.props.isAuthenticated ?
-                <Header /> : <Header unauth />;
-            }}
-          /> */}
           <Switch>
             <Route
               exact path="/" render={() => (
@@ -36,13 +50,16 @@ class App extends Component {
                 <PublicHomePage />
               ))}
             />
-            <Route path="/hub" component={RequireAuth(Hub)} />
+            {/* <Route path="/hub" component={RequireAuth(Hub)} /> */}
             <Route
               path="/login" render={() => (
               this.props.isAuthenticated ? (
                 <Redirect to="/feed" />
               ) : (
-                <Login />
+                <div>
+                  <Header unauth />
+                  <Login />
+                </div>
               ))}
             />
             <Route
@@ -53,13 +70,13 @@ class App extends Component {
                 <Signup />
               ))}
             />
-            <Route path="/logout" component={Logout} />
-            <Route path="/upload" component={RequireAuth(Upload)} />
-            <Route path="/feed" component={RequireAuth(HomeFeed)} />
-            <Route path="/:username" component={Profile} />
+            <Route path="/logout" component={this.renderRoute(Logout)} />
+            <Route path="/upload" component={this.renderRoute(RequireAuth(Upload))} />
+            <Route path="/feed" component={this.renderRoute(RequireAuth(HomeFeed))} />
+            <Route path="/:username" render={this.renderRoute(Profile)} />
             <Route path="*" component={NotFound} />
           </Switch>
-          {/* <Player /> */}
+          <Player />
         </div>
       </Router>
     );
