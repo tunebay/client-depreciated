@@ -1,17 +1,29 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import titleField from './fields/title-field';
+import playlistTypeField from './fields/playlist-type-field';
+import releaseDateField from './fields/release-date-field';
+import genreField from './fields/genre-field';
 import '../../../styles/components/upload/basic-info-page.scss';
 
-const BasicInfoPage = () => {
+const BasicInfoPage = ({ formType }) => {
   return (
     <form className="basic-info-page">
       <div className="artwork-section" />
       <div className="field-section">
         <Field name="title" component={titleField} />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
+        <div className="playlist-type-release-date">
+          <Field
+            name="playlistType"
+            formType={formType}
+            component={playlistTypeField}
+          />
+          <Field
+            name="releaseDate"
+            component={releaseDateField}
+          />
+        </div>
+        <Field name="genres" component={genreField} />
       </div>
     </form>
   );

@@ -53,12 +53,13 @@ class GenreField extends Component {
     ];
 
     return (
-      <div className="playlist-genre-field">
-        <label className="upload-label" htmlFor={this.props.label}>{label}<span>*</span></label>
+      <div className="genre-field">
+        <label className="field-label" htmlFor={this.props.label}>Genre(s)<span className="required">*</span></label>
         <div>
           <Select
-            className="upload-dropdown"
+            className="genre-field-select"
             {...input}
+            placeholder="Select upto 3 genres"
             value={input.value}
             options={
               genresSelected >= 3 ?
