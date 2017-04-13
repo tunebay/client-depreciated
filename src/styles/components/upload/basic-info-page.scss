@@ -1,0 +1,70 @@
+@import "../../variables";
+
+.basic-info-page {
+  @include boxShadow;
+  @include browserFlex;
+  // @include alignCenter;
+  @include borderBox;
+  // @include justifyCenter;
+  padding: 20px;
+  margin-top: 100px;
+  width: 810px;
+  height: auto;
+  background-color: #fff;
+  border-radius: 3px;
+  .artwork-section {
+    min-width: 260px;
+    min-height: 260px;
+    background-color: $light-blue;
+  }
+
+  .field-section {
+    // background-color: red;
+    @include browserFlex;
+    @include borderBox;
+    height: auto;
+    width: 100%;
+    color: $text-black;
+    font-family: $font-stack;
+    padding-left: 20px;
+    // @include alignCenter;
+    flex-direction: column;
+
+    .field-label {
+      font-size: 16px;
+      // letter-spacing: 0.2px;
+      font-weight: 500;
+      padding-bottom: 10px;
+      .required {
+        color: $red;
+      }
+    }
+
+    .field-error {
+      color: $red;
+      font-weight: 500;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .title-field {
+      @include browserFlex;
+      flex-direction: column;
+      .title-field-input {
+        @include borderBox;
+        color: $text-black;
+        font-family: $font-stack;
+        height: 40px;
+        border: 1px solid $light-grey;
+        border-radius: 3px;
+        font-size: 16px;
+        padding-left: 15px;
+        font-weight: 500;
+        &:focus {
+          outline: none;
+          border: 1px solid $blue;
+        }
+      }
+    }
+  }
+}

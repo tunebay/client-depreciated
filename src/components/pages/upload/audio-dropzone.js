@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
-import ToolTip from 'react-tooltip';
 import className from 'classnames';
 import * as actions from '../../../actions/upload-actions';
+import '../../../styles/components/upload/dropzone.scss';
 
 class AudioDropzone extends Component {
   handleDrop(files) {

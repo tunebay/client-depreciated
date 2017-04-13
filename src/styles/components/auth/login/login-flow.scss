@@ -73,10 +73,10 @@
       margin-top: 5px;
     }
     .login-email-username-input {
+      width: 380px;
       @include borderBox;
       color: $text-black;
       font-family: $font-stack;
-      width: 380px;
       height: 45px;
       border: 1px solid $light-grey;
       border-radius: 3px;
