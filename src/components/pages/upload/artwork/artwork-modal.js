@@ -9,12 +9,12 @@ const ArtworkModal = ({ isVisable, requestCloseFn, preview }) => {
       isOpen={isVisable}
       className="artwork-modal"
       overlayClassName="overlay"
-      contentLabel="loginModal"
+      contentLabel="artworkModal"
       shouldCloseOnOverlayClick
       onRequestClose={requestCloseFn}
     >
-      <div className="canvas-mask">
-        <img className="artwork-preview" src={preview} alt="artwork-preview" />
+      <div id="canvas-mask">
+        <img src={preview} className="artwork-preview" alt="artwork-preview" />
       </div>
     </Modal>
   );

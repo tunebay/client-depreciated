@@ -15,13 +15,13 @@
   animation: slideDown 300ms ease-out;
   // @include boxshadow;
   transition: all 200ms ease-in;
-  .canvas-mask {
+  #canvas-mask {
     width: 480px;
     height: 480px;
-    color: $light-blue;
+    // color: $light-blue;
     overflow: scroll;
     .artwork-preview {
-
+      max-width: 100%;
     }
   }
 }
