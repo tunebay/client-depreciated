@@ -10,7 +10,9 @@ import '../../../styles/components/upload/basic-info-page.scss';
 const BasicInfoPage = ({ formType }) => {
   return (
     <form className="basic-info-page">
-      <div className="artwork-section" />
+      <div className="artwork-section">
+        <div className="artwork-placeholder" />
+      </div>
       <div className="field-section">
         <Field name="title" component={titleField} formType={formType} />
         <div className="playlist-type-release-date">

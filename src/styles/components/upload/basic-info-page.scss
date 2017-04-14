@@ -12,10 +12,13 @@
   height: auto;
   background-color: #fff;
   border-radius: 3px;
+
   .artwork-section {
-    min-width: 260px;
-    height: 260px;
-    background-color: $light-blue;
+    .artwork-placeholder {
+      min-width: 260px;
+      height: 260px;
+      background-color: $light-blue;
+    }
   }
 
   .field-section {
