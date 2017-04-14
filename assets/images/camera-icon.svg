@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="160px" height="126px" viewBox="0 0 160 126" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-381.000000, -80.000000)" stroke-width="9" stroke="#FFFFFF">
+            <g id="Group" transform="translate(386.000000, 85.000000)">
+                <g id="Oval-16">
+                    <path d="M45,16 C45,13.2901784 45.3103056,12.3758474 45.3103056,12.3758474 C46.243498,5.54085564 52.6000357,0 59.4977918,0 L90.5022082,0 C97.404548,0 103.739044,5.55600892 104.61438,12.3964854 C104.61438,12.3964854 105,14.8103363 105,16 L131.999672,16 C141.940979,16 150,24.0564999 150,33.9934895 L150,98.0065105 C150,107.94404 141.935349,116 131.999672,116 L18.0003281,116 C8.05902138,116 0,107.9435 0,98.0065105 L0,33.9934895 C0,24.0559596 8.06465149,16 18.0003281,16 L45,16 Z M76,93 C89.8071187,93 101,81.8071187 101,68 C101,54.1928813 89.8071187,43 76,43 C62.1928813,43 51,54.1928813 51,68 C51,81.8071187 62.1928813,93 76,93 Z" id="Combined-Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

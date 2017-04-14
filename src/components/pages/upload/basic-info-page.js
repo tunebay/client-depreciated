@@ -5,13 +5,14 @@ import playlistTypeField from './fields/playlist-type-field';
 import releaseDateField from './fields/release-date-field';
 import genreField from './fields/genre-field';
 import descriptionField from './fields/description-field';
+import UploadArtworkZone from './artwork/upload-artwork-zone';
 import '../../../styles/components/upload/basic-info-page.scss';
 
 const BasicInfoPage = ({ formType }) => {
   return (
     <form className="basic-info-page">
       <div className="artwork-section">
-        <div className="artwork-placeholder" />
+        <UploadArtworkZone />
       </div>
       <div className="field-section">
         <Field name="title" component={titleField} formType={formType} />
