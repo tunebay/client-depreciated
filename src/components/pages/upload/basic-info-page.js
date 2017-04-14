@@ -4,6 +4,7 @@ import titleField from './fields/title-field';
 import playlistTypeField from './fields/playlist-type-field';
 import releaseDateField from './fields/release-date-field';
 import genreField from './fields/genre-field';
+import descriptionField from './fields/description-field';
 import '../../../styles/components/upload/basic-info-page.scss';
 
 const BasicInfoPage = ({ formType }) => {
@@ -11,7 +12,7 @@ const BasicInfoPage = ({ formType }) => {
     <form className="basic-info-page">
       <div className="artwork-section" />
       <div className="field-section">
-        <Field name="title" component={titleField} />
+        <Field name="title" component={titleField} formType={formType} />
         <div className="playlist-type-release-date">
           <Field
             name="playlistType"
@@ -24,6 +25,7 @@ const BasicInfoPage = ({ formType }) => {
           />
         </div>
         <Field name="genres" component={genreField} />
+        <Field name="description" component={descriptionField} />
       </div>
     </form>
   );

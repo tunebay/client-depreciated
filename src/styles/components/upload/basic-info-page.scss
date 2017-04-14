@@ -14,7 +14,7 @@
   border-radius: 3px;
   .artwork-section {
     min-width: 260px;
-    min-height: 260px;
+    height: 260px;
     background-color: $light-blue;
   }
 
@@ -34,7 +34,7 @@
       font-size: 16px;
       // letter-spacing: 0.2px;
       font-weight: 500;
-      padding-bottom: 5px;
+      padding-bottom: 10px;
       .required {
         color: $red;
       }
@@ -137,6 +137,29 @@
       width: 100%;
       margin-top: 10px;
       flex-direction: column;
+    }
+
+    .description-field {
+      width: 100%;
+      margin-top: 10px;
+      @include browserFlex;
+      flex-direction: column;
+      .description-field-input {
+        @include borderBox;
+        color: $text-black;
+        font-family: $font-stack;
+        padding: 10px;
+        height: 130px;
+        line-height: 1.4;
+        border-radius: 3px;
+        font-weight: 400;
+        resize: none;
+        border: 1px solid $light-grey;
+        &:focus {
+          outline: none;
+          border: 1px solid #ccc;
+        }
+      }
     }
   }
 }
