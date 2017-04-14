@@ -1,0 +1,53 @@
+@import "../../variables";
+
+.artwork-modal {
+  @include browserFlex;
+  // @include justifyCenter;
+  @include borderBox;
+  padding: 20px;
+  width: 520px;
+  height: 620px;
+  // align-items: center;
+  position: absolute;
+  background-color: #fff;
+  outline: none;
+  border-radius: 3px;
+  animation: slideDown 300ms ease-out;
+  // @include boxshadow;
+  transition: all 200ms ease-in;
+  .canvas-mask {
+    width: 480px;
+    height: 480px;
+    color: $light-blue;
+    overflow: scroll;
+    .artwork-preview {
+
+    }
+  }
+}
+
+.overlay {
+  background-color: rgba(23,23,23,0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 200ms ease-in;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.ReactModal__Body--open {
+    overflow: hidden;
+}
