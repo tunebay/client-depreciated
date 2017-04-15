@@ -48,7 +48,7 @@ class ArtworkModal extends Component {
         <div className="artwork-modal-bottom">
           <div className="image-quality" />
           <div className="artwork-modal-btns">
-            <button className="cancel-btn" onClick={requestCloseFn}>cancel</button>
+            <button className="cancel-btn" onClick={requestCloseFn}>Cancel</button>
             <button className="save-btn" onClick={this.handleCropAndSave.bind(this)}>Save</button>
           </div>
         </div>
