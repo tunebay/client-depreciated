@@ -28,7 +28,6 @@ const BasicInfoPage = ({ formType }) => {
           />
         </div>
         <Field name="genres" component={genreField} />
-        <Field name="description" component={descriptionField} />
       </div>
     </form>
   );
