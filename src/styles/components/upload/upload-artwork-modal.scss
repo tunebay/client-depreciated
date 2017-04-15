@@ -7,6 +7,7 @@
   padding: 20px;
   width: 520px;
   height: 620px;
+  flex-direction: column;
   // align-items: center;
   position: absolute;
   background-color: #fff;
@@ -18,10 +19,12 @@
   #canvas-mask {
     width: 480px;
     height: 480px;
-    // color: $light-blue;
+    background-color: $light-blue;
     overflow: scroll;
-    .artwork-preview {
-      max-width: 100%;
+  }
+  .editor {
+    &:hover {
+      cursor: pointer;
     }
   }
 }
