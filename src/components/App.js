@@ -18,6 +18,7 @@ import Header from './header/header';
 class App extends Component {
   renderRoute(ComponentToRender) {
     return (match) => {
+      console.log('Is authd?', this.props.isAuthenticated);
       if (!this.props.isAuthenticated) {
         return (
           <div>

@@ -10,7 +10,6 @@ import '../../styles/components/header/header.scss';
 
 class Header extends Component {
   renderRight() {
-    const { displayName, username } = this.props.currentUser;
     if (this.props.unauth) {
       return (
         <div id="header-right">
@@ -33,6 +32,7 @@ class Header extends Component {
         </div>
       );
     }
+    const { displayName, username } = this.props.currentUser; // must happen after unauth
     return (
       <div id="header-right">
         <Link to={`/${username}`} className="user-dropdown">
