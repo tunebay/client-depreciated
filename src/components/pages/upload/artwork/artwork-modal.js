@@ -11,7 +11,8 @@ class ArtworkModal extends Component {
   }
 
   handleCropAndSave() {
-    const artwork = this.editor.getImage();
+    // const artwork = this.editor.getImageScaledToCanvas();
+    const artwork = this.editor.getImage(); // retains quality
     this.props.saveArtwork(artwork);
   }
 
