@@ -5,3 +5,7 @@ export const showArtworkModal = (image) => {
 export const hideArtworkModal = () => {
   return { type: 'HIDE_ARTWORK_MODAL' };
 };
+
+export const saveArtwork = (artwork) => {
+  return { type: 'SAVE_ARTWORK', payload: artwork };
+};

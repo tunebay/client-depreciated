@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 import AvatarEditor from 'react-avatar-editor';
+import { connect } from 'react-redux';
+import * as actions from '../../../../actions/uploaded-artwork-actions';
 import '../../../../styles/components/upload/upload-artwork-modal.scss';
 
 class ArtworkModal extends Component {
   getImage() {
     const artwork = this.editor.getImage();
-    console.log(artwork);
+    this.props.saveArtwork(artwork);
   }
 
   render() {
@@ -17,7 +19,7 @@ class ArtworkModal extends Component {
         className="artwork-modal"
         overlayClassName="overlay"
         contentLabel="artworkModal"
-        shouldCloseOnOverlayClick
+        shouldCloseOnOverlayClick={false}
         onRequestClose={requestCloseFn}
       >
         <AvatarEditor
@@ -28,7 +30,7 @@ class ArtworkModal extends Component {
           height={480}
           border={0}
           color={[255, 255, 255, 0.6]} // RGBA
-          scale={1.2}
+          scale={1}
           rotate={0}
         />
         <button onClick={this.getImage.bind(this)}>
@@ -39,4 +41,4 @@ class ArtworkModal extends Component {
   }
 }
 
-export default ArtworkModal;
+export default connect(null, actions)(ArtworkModal);

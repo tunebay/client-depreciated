@@ -14,6 +14,10 @@
   border-radius: 3px;
 
   .artwork-section {
+    .artwork {
+      height: 260px;
+      width: 260px;
+    }
     .upload-artwork-zone {
       @include browserFlex;
       @include justifyCenter;
