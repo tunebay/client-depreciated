@@ -10,11 +10,8 @@ class UploadArtworkZone extends Component {
   }
 
   render() {
-    if (this.props.artwork) {
-      const canvas = this.props.artwork;
-      const imgBlob = canvas.toDataURL('image/png');
-      console.log('IMGGGG', imgBlob);
-      return <img className="artwork" src={imgBlob} alt="artwork" />;
+    if (this.props.dataURL) {
+      return <img className="artwork" src={this.props.dataURL} alt="artwork" />;
     }
     return (
       <Dropzone
@@ -40,7 +37,7 @@ const mapStateToProps = (state) => {
   return {
     preview: state.uploadedArtwork.preview,
     artworkModalVisable: state.uploadedArtwork.artworkModalVisable,
-    artwork: state.uploadedArtwork.artwork
+    dataURL: state.uploadedArtwork.dataURL
   };
 };
 
