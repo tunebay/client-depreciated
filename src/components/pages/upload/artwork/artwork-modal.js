@@ -6,13 +6,17 @@ import * as actions from '../../../../actions/uploaded-artwork-actions';
 import '../../../../styles/components/upload/upload-artwork-modal.scss';
 
 class ArtworkModal extends Component {
-  getImage() {
+  updateImageScale(e) {
+    this.props.setScale(parseFloat(e.target.value));
+  }
+
+  handleCropAndSave() {
     const artwork = this.editor.getImage();
     this.props.saveArtwork(artwork);
   }
 
   render() {
-    const { isVisable, requestCloseFn, preview } = this.props;
+    const { isVisable, requestCloseFn, preview, scale } = this.props;
     return (
       <Modal
         isOpen={isVisable}
@@ -26,16 +30,28 @@ class ArtworkModal extends Component {
           ref={(node) => { this.editor = node; }}
           image={preview}
           width={480}
-          style={{ width: 480, height: 480 }}
+          style={{ width: 480, height: 480, marginBottom: 20 }}
           height={480}
           border={0}
-          color={[255, 255, 255, 0.6]} // RGBA
-          scale={1}
+          scale={scale}
           rotate={0}
         />
-        <button onClick={this.getImage.bind(this)}>
-          Get image
-        </button>
+        <input
+          type="range"
+          className="artwork-scale"
+          max={2}
+          min={1}
+          step={0.01}
+          value={scale}
+          onChange={this.updateImageScale.bind(this)}
+        />
+        <div className="artwork-modal-bottom">
+          <div className="image-quality" />
+          <div className="artwork-modal-btns">
+            <button className="cancel-btn" onClick={requestCloseFn}>cancel</button>
+            <button className="save-btn" onClick={this.handleCropAndSave.bind(this)}>Save</button>
+          </div>
+        </div>
       </Modal>
     );
   }

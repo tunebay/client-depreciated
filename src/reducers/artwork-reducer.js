@@ -1,8 +1,8 @@
 const INITIAL_STATE = {
   artworkModalVisable: false,
-  preview: '',
   dataURL: null,
-  image: null
+  image: null,
+  scale: 1
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -11,6 +11,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, artworkModalVisable: true, preview: action.payload };
     case 'HIDE_ARTWORK_MODAL':
       return { ...state, artworkModalVisable: false };
+    case 'SET_SCALE':
+      return { ...state, scale: action.payload };
     case 'SAVE_ARTWORK':
       return {
         ...state,

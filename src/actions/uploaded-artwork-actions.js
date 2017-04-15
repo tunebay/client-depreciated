@@ -7,6 +7,10 @@ export const showArtworkModal = (image) => {
   return { type: 'SHOW_ARTWORK_MODAL', payload: image.preview };
 };
 
+export const setScale = (scale) => {
+  return { type: 'SET_SCALE', payload: scale };
+};
+
 export const hideArtworkModal = () => {
   return { type: 'HIDE_ARTWORK_MODAL' };
 };

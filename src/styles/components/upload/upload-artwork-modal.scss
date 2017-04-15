@@ -16,15 +16,51 @@
   animation: slideDown 300ms ease-out;
   // @include boxshadow;
   transition: all 200ms ease-in;
-  #canvas-mask {
-    width: 480px;
-    height: 480px;
-    background-color: $light-blue;
-    overflow: scroll;
+  canvas:hover {
+    cursor: move;
   }
-  .editor {
-    &:hover {
-      cursor: pointer;
+  .artwork-modal-bottom {
+    margin-top: 20px;
+    @include browserFlex;
+    @include alignCenter;
+    justify-content: space-between;
+    .image-quality {
+      color: $text-black;
+      font-family: $font-stack;
+      font-weight: 500;
+      font-size: 12px;
+    }
+    .artwork-modal-btns {
+      .save-btn {
+        height: 40px;
+        width: 90px;
+        background-color: $blue;
+        border: none;
+        color: #fff;
+        border-radius: 3px;
+        font-family: $font-stack;
+        font-weight: 500;
+        transition: all 75ms ease-out;
+        &:hover {
+          cursor: pointer;
+          background-color: lighten($blue, 5%);
+        }
+      }
+      .cancel-btn {
+        height: 40px;
+        margin-right: 10px;
+        width: 90px;
+        border: none;
+        color: $text-black;
+        font-family: $font-stack;
+        font-weight: 500;
+        border-radius: 3px;
+        border: 1px solid $light-grey;
+        background-color: #fff;
+        &:hover {
+          cursor: pointer;
+        }
+      }
     }
   }
 }
@@ -53,4 +89,92 @@
 
 .ReactModal__Body--open {
     overflow: hidden;
+}
+
+.artwork-modal {
+    input[type=range].artwork-scale {
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 7.5px 0;
+  }
+  input[type=range].artwork-scale:focus {
+    outline: none;
+  }
+  input[type=range].artwork-scale::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+    background: #e4e4e4;
+    border-radius: 0px;
+    border: 0px solid rgba(0, 0, 0, 0);
+  }
+  input[type=range].artwork-scale::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+    border: 0px solid rgba(0, 0, 0, 0);
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    background: #1596f5;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -7.5px;
+  }
+  input[type=range].artwork-scale:focus::-webkit-slider-runnable-track {
+    background: #eeeeee;
+  }
+  input[type=range].artwork-scale::-moz-range-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+    background: #e4e4e4;
+    border-radius: 0px;
+    border: 0px solid rgba(0, 0, 0, 0);
+  }
+  input[type=range].artwork-scale::-moz-range-thumb {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+    border: 0px solid rgba(0, 0, 0, 0);
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    background: #1596f5;
+    cursor: pointer;
+  }
+  input[type=range].artwork-scale::-ms-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type=range].artwork-scale::-ms-fill-lower {
+    background: #dadada;
+    border: 0px solid rgba(0, 0, 0, 0);
+    border-radius: 0px;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  }
+  input[type=range].artwork-scale::-ms-fill-upper {
+    background: #e4e4e4;
+    border: 0px solid rgba(0, 0, 0, 0);
+    border-radius: 0px;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  }
+  input[type=range].artwork-scale::-ms-thumb {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+    border: 0px solid rgba(0, 0, 0, 0);
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    background: #1596f5;
+    cursor: pointer;
+    height: 5px;
+  }
+  input[type=range].artwork-scale:focus::-ms-fill-lower {
+    background: #e4e4e4;
+  }
+  input[type=range].artwork-scale:focus::-ms-fill-upper {
+    background: #eeeeee;
+  }
 }

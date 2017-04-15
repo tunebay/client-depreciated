@@ -27,6 +27,7 @@ class UploadArtworkZone extends Component {
           isVisable={this.props.artworkModalVisable}
           requestCloseFn={this.props.hideArtworkModal}
           preview={this.props.preview}
+          scale={this.props.scale}
         />
       </Dropzone>
     );
@@ -37,7 +38,8 @@ const mapStateToProps = (state) => {
   return {
     preview: state.uploadedArtwork.preview,
     artworkModalVisable: state.uploadedArtwork.artworkModalVisable,
-    dataURL: state.uploadedArtwork.dataURL
+    dataURL: state.uploadedArtwork.dataURL,
+    scale: state.uploadedArtwork.scale
   };
 };
 
