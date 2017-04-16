@@ -3,6 +3,7 @@ import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
 import * as actions from '../../../../actions/uploaded-artwork-actions';
 import ArtworkModal from './artwork-modal';
+import '../../../../styles/components/upload/upload-artwork-zone.scss';
 
 class UploadArtworkZone extends Component {
   handleDrop(file) {
