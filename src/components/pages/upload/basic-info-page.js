@@ -10,24 +10,28 @@ import '../../../styles/components/upload/basic-info-page.scss';
 const BasicInfoPage = ({ formType }) => {
   return (
     <form className="basic-info-page">
-      <div className="artwork-section">
-        <UploadArtworkZone />
-      </div>
-      <div className="field-section">
-        <Field name="title" component={titleField} formType={formType} />
-        <div className="playlist-type-release-date">
-          <Field
-            name="playlistType"
-            formType={formType}
-            component={playlistTypeField}
-          />
-          <Field
-            name="releaseDate"
-            component={releaseDateField}
-          />
+      <div className="playlist-details">
+        <div className="artwork-section">
+          <UploadArtworkZone />
         </div>
-        <Field name="genres" component={genreField} />
+        <div className="field-section">
+          <Field name="title" component={titleField} formType={formType} />
+          <div className="playlist-type-release-date">
+            <Field
+              name="playlistType"
+              formType={formType}
+              component={playlistTypeField}
+            />
+            <Field
+              name="releaseDate"
+              component={releaseDateField}
+            />
+          </div>
+          <Field name="genres" component={genreField} />
+        </div>
       </div>
+      <div className="uploaded-playlist" />
+      <div className="upload-footer" />
     </form>
   );
 };

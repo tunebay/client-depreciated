@@ -6,155 +6,177 @@
   // @include alignCenter;
   @include borderBox;
   // @include justifyCenter;
-  padding: 20px;
+  // padding: 20px;
   margin-top: 50px;
   width: 810px;
   height: auto;
+  flex-direction: column;
   background-color: #fff;
   border-radius: 3px;
 
-  .field-section {
-    // background-color: red;
-    @include browserFlex;
-    @include borderBox;
-    height: auto;
+  .uploaded-playlist {
+    height: 500px;
     width: 100%;
-    color: $text-black;
-    font-family: $font-stack;
-    padding-left: 20px;
+    background-color: pink;
+  }
+
+  .upload-footer {
+    height: 60px;
+    width: 100%;
+    background-color: #fff;
+  }
+
+  .playlist-details {
+    padding: 20px;
+    width: 100%;
+    flex-direction: row;
+    @include browserFlex;
     // @include alignCenter;
-    flex-direction: column;
-
-    .field-label {
-      font-size: 16px;
-      // letter-spacing: 0.2px;
-      font-weight: 500;
-      padding-bottom: 10px;
-      .required {
-        color: $red;
-      }
-    }
-
-    .field-error {
-      color: $red;
-      font-weight: 500;
-      font-size: 14px;
-      margin-top: 5px;
-    }
-
-    .title-field {
+    @include borderBox;
+    .field-section {
+      // background-color: red;
       @include browserFlex;
+      @include borderBox;
+      height: auto;
+      width: 100%;
+      color: $text-black;
+      font-family: $font-stack;
+      padding-left: 20px;
+      // @include alignCenter;
       flex-direction: column;
-      .title-field-input {
-        @include borderBox;
-        color: $text-black;
-        font-family: $font-stack;
-        height: 40px;
-        border: 1px solid $light-grey;
-        border-radius: 3px;
+
+      .field-label {
         font-size: 16px;
-        line-height: 40px;
-        padding-left: 10px;
-        font-weight: 400;
-        &:focus {
-          outline: none;
-          border: 1px solid #ccc;
+        // letter-spacing: 0.2px;
+        font-weight: 500;
+        padding-bottom: 10px;
+        .required {
+          color: $red;
         }
       }
-    }
 
-    .playlist-type-release-date {
-      @include browserFlex;
-      flex-direction: row;
-      width: 100%;
-      justify-content: space-between;
+      .field-error {
+        color: $red;
+        font-weight: 500;
+        font-size: 14px;
+        margin-top: 5px;
+      }
 
-      .playlist-type-field {
-        width: 49%;
-        margin-top: 10px;
+      .title-field {
         @include browserFlex;
         flex-direction: column;
-        .playlist-type-field-select {
+        .title-field-input {
           @include borderBox;
           color: $text-black;
-          padding-left: 10px;
-          font-size: 16px;
-          font-weight: 400;
           font-family: $font-stack;
-          width: 100%;
-          background-color: #fff;
-          line-height: 40px;
-          border-radius: 3px;
           height: 40px;
           border: 1px solid $light-grey;
-          .playlist-option {
+          border-radius: 3px;
+          font-size: 16px;
+          line-height: 40px;
+          padding-left: 10px;
+          font-weight: 400;
+          &:focus {
+            outline: none;
+            border: 1px solid #ccc;
+          }
+        }
+      }
+
+      .playlist-type-release-date {
+        @include browserFlex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+
+        .playlist-type-field {
+          width: 49%;
+          margin-top: 10px;
+          @include browserFlex;
+          flex-direction: column;
+          .playlist-type-field-select {
+            @include borderBox;
+            color: $text-black;
+            padding-left: 10px;
+            font-size: 16px;
+            font-weight: 400;
+            font-family: $font-stack;
+            width: 100%;
+            background-color: #fff;
+            line-height: 40px;
+            border-radius: 3px;
+            height: 40px;
+            border: 1px solid $light-grey;
+            .playlist-option {
+              color: $text-black;
+              font-family: $font-stack;
+            }
+            &:disabled {
+              background-color: #f7f7f7;
+              color: #ccc;
+            }
+            &:focus {
+              outline: none;
+              border: 1px solid #ccc;
+            }
+          }
+        }
+
+        .release-date-field {
+          width: 49%;
+          margin-top: 10px;
+          @include browserFlex;
+          flex-direction: column;
+          .date-picker-input {
+            @include borderBox;
             color: $text-black;
             font-family: $font-stack;
-          }
-          &:disabled {
-            background-color: #f7f7f7;
-            color: #ccc;
-          }
-          &:focus {
-            outline: none;
-            border: 1px solid #ccc;
+            padding-left: 10px;
+            line-height: 40px;
+            border-radius: 3px;
+            font-weight: 400;
+            height: 40px;
+            border: 1px solid $light-grey;
+            width: 240px;
+            letter-spacing: 0.4px;
+            &:focus {
+              outline: none;
+              border: 1px solid #ccc;
+            }
           }
         }
       }
 
-      .release-date-field {
-        width: 49%;
+      .genre-field {
+        @include browserFlex;
+        width: 100%;
+        margin-top: 10px;
+        flex-direction: column;
+      }
+
+      .description-field {
+        width: 100%;
         margin-top: 10px;
         @include browserFlex;
         flex-direction: column;
-        .date-picker-input {
+        .description-field-input {
           @include borderBox;
           color: $text-black;
           font-family: $font-stack;
-          padding-left: 10px;
-          line-height: 40px;
+          padding: 10px;
+          height: 130px;
+          line-height: 1.4;
           border-radius: 3px;
           font-weight: 400;
-          height: 40px;
+          resize: none;
           border: 1px solid $light-grey;
-          width: 240px;
-          letter-spacing: 0.4px;
           &:focus {
             outline: none;
             border: 1px solid #ccc;
           }
-        }
-      }
-    }
-
-    .genre-field {
-      @include browserFlex;
-      width: 100%;
-      margin-top: 10px;
-      flex-direction: column;
-    }
-
-    .description-field {
-      width: 100%;
-      margin-top: 10px;
-      @include browserFlex;
-      flex-direction: column;
-      .description-field-input {
-        @include borderBox;
-        color: $text-black;
-        font-family: $font-stack;
-        padding: 10px;
-        height: 130px;
-        line-height: 1.4;
-        border-radius: 3px;
-        font-weight: 400;
-        resize: none;
-        border: 1px solid $light-grey;
-        &:focus {
-          outline: none;
-          border: 1px solid #ccc;
         }
       }
     }
   }
+
 }
