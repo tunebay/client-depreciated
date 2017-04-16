@@ -16,32 +16,38 @@ export const hideArtworkModal = () => {
 };
 
 export const saveArtwork = (artwork) => {
-  return (dispatch) => {
-    const dataURL = artwork.toDataURL('image/png');
-    const image = dataURLtoBlob(dataURL);
-    const filename = `users/artwork/${v4()}`;
-    axios.get(`${API_URL}/upload/s3/sign`, {
-      params: { filename, filetype: image.type }
-    })
-    .then((res) => {
-      const config = {
-        headers: { 'Content-Type': image.type },
-      };
-      return axios.put(res.data.signedURL, image, config);
-    })
-    .then((res) => {
-      console.log('ARTWORK RES', res);
-      const location = res.config.url.split('?')[0];
-      console.log('IMAGE LOCATION', location);
-      dispatch({ type: 'SAVE_ARTWORK', dataURL, image });
-      // dispatch({ type: ARTWORK_UPLOAD_COMPLETE, payload: location });
-    })
-    .catch((err) => {
-      console.log('UPLOAD ERROR', err);
-      // dispatch({ type: ARTWORK_UPLOAD_ERROR, payload: err });
-    });
-  };
+  const dataURL = artwork.toDataURL('image/png');
+  const image = dataURLtoBlob(dataURL);
+  return { type: 'SAVE_ARTWORK', dataURL, image };
 };
+
+// export const saveArtwork = (artwork) => {
+//   return (dispatch) => {
+//     const dataURL = artwork.toDataURL('image/png');
+//     const image = dataURLtoBlob(dataURL);
+//     const filename = `users/artwork/${v4()}`;
+//     axios.get(`${API_URL}/upload/s3/sign`, {
+//       params: { filename, filetype: image.type }
+//     })
+//     .then((res) => {
+//       const config = {
+//         headers: { 'Content-Type': image.type },
+//       };
+//       return axios.put(res.data.signedURL, image, config);
+//     })
+//     .then((res) => {
+//       console.log('ARTWORK RES', res);
+//       const location = res.config.url.split('?')[0];
+//       console.log('IMAGE LOCATION', location);
+//       dispatch({ type: 'SAVE_ARTWORK', dataURL, image });
+//       // dispatch({ type: ARTWORK_UPLOAD_COMPLETE, payload: location });
+//     })
+//     .catch((err) => {
+//       console.log('UPLOAD ERROR', err);
+//       // dispatch({ type: ARTWORK_UPLOAD_ERROR, payload: err });
+//     });
+//   };
+// };
 
 // private
 
