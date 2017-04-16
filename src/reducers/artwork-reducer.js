@@ -15,7 +15,7 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, scale: action.payload };
     case 'SAVE_ARTWORK':
       return {
-        ...state,
+        ...INITIAL_STATE,
         artworkModalVisable: false,
         dataURL: action.dataURL,
         image: action.image

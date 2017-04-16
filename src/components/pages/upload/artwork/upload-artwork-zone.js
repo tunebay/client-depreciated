@@ -9,20 +9,36 @@ class UploadArtworkZone extends Component {
     this.props.showArtworkModal(file[0]);
   }
 
-  render() {
-    if (this.props.dataURL) {
-      return <img className="artwork" src={this.props.dataURL} alt="artwork" />;
+  renderArtwork() {
+    if (!this.props.dataURL) {
+      return (
+        <div className="upload-artwork">
+          <img
+            src="../../../../../assets/images/camera-icon.svg"
+            alt="camera"
+            className="camera-icon"
+          />
+          <div className="add-artwork">Add artwork</div>
+        </div>
+      );
     }
+    return (
+      <div className="artwork-blob-con">
+        <img className="artwork-blob" src={this.props.dataURL} alt="artwork" />
+        <div className="artwork-overlay">
+          <div className="change-artwork">Change artwork</div>
+        </div>
+      </div>
+    );
+  }
+
+  render() {
     return (
       <Dropzone
         className="upload-artwork-zone"
         onDrop={this.handleDrop.bind(this)}
       >
-        <img
-          src="../../../../../assets/images/camera-icon.svg" alt="camera"
-          className="camera-icon"
-        />
-        <div className="add-artwork">Add artwork</div>
+        {this.renderArtwork()}
         <ArtworkModal
           isVisable={this.props.artworkModalVisable}
           requestCloseFn={this.props.hideArtworkModal}
