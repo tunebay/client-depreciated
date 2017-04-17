@@ -9,7 +9,7 @@ const SINGLE_SELECTION_PAGE = 'SINGLE_SELECTION_PAGE';
 const INITIAL_STATE = {
   uploadZoneVisable: true,
   formType: '',
-  formPage: BASIC_INFO_PAGE
+  formPage: UPLOAD_PAGE
 };
 
 export default (state = INITIAL_STATE, action) => {

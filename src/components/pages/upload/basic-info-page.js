@@ -5,6 +5,7 @@ import playlistTypeField from './fields/playlist-type-field';
 import releaseDateField from './fields/release-date-field';
 import genreField from './fields/genre-field';
 import UploadArtworkZone from './artwork/upload-artwork-zone';
+import UploadedPlaylist from './uploaded-playlist';
 import '../../../styles/components/upload/basic-info-page.scss';
 
 const BasicInfoPage = ({ formType }) => {
@@ -30,7 +31,7 @@ const BasicInfoPage = ({ formType }) => {
           <Field name="genres" component={genreField} />
         </div>
       </div>
-      <div className="uploaded-playlist" />
+      <UploadedPlaylist />
       <div className="upload-footer" />
     </form>
   );

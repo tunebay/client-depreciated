@@ -4,8 +4,8 @@ import { SortableContainer } from 'react-sortable-hoc';
 import Dropzone from 'react-dropzone';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import UploadedTrack from './uploaded-track';
-import * as actions from '../../../../actions/hub/uploaded-playlist-actions';
-import '../../../../styles/components/hub/upload/uploaded-track.scss';
+import * as actions from '../../../actions/upload-actions';
+import '../../../styles/components/hub/upload/uploaded-track.scss';
 
 const SortablePlaylist = SortableContainer(({ playlist }) => {
   console.log(playlist);

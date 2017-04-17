@@ -1,45 +1,44 @@
-.uploaded-track-con {
+@import "../../../variables";
+
+.uploaded-track-ul {
+  @include browserFlex;
+  @include alignCenter;
   padding: 0px;
   margin: 0px;
   background-color: #F7F7F7;
-  display: flex;
   align-items: center;
   flex-direction: column;
   width: 100%;
 }
 
 .uploaded-track {
+  @include browserFlex;
+  @include alignCenter;
+  // @include justifyCenter;
+  @include borderBox;
+  height: 50px;
+  width: 810px;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid $light-grey;
+  background-color: #fff;
+  list-style: none;
+  // padding-left: 15px;
   .track-name-input {
     height: 30px;
-    width: 680px;
-    border: 1px solid #D9D9D9;
+    width: 600px;
+    border: 1px solid $light-grey;
     border-radius: 3px;
+    font-weight: 400;
     padding-left: 10px;
-    color: #4d4d4d;
+    color: $text-black;
     font-family: 'Avenir Next', sans-serif;
     font-size: 14px;
   }
-  height: 58px;
-  // border-bottom: 1px solid #e1e1e1;
-  background-color: #fff;
-  list-style: none;
-  width: 820px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.uploaded-track-content {
-  padding-left: 15px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding-top: 10px;
-  align-self: flex-start;
 }
 
 .drag-handle {
-  color: #CBCBCB;
+  color: #ccc;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 3px;
@@ -51,18 +50,18 @@
 
 .remove-track-icon {
   // cbcbcb
-  color: #cbcbcb;
+  color: #ccc;
   padding-left: 15px;
   padding-right: 15px;
   vertical-align: baseline;
   &:hover {
     cursor: pointer;
-    color: #4d4d4d;
+    color: $text-black;
   }
 }
 
 .playlist-position {
-  color: #4d4d4d;
+  color: $text-black;
   font-family: 'Avenir Next', sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -71,7 +70,7 @@
 
 .add-another-track {
   background-color: #f7f7f7;
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 1px solid $light-grey;
   display: flex;
   align-items: center;
   color: #A2A2A2;
