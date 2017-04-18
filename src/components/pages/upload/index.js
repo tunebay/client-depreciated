@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AudioDropzone from './audio-dropzone';
 import BasicInfoPage from './basic-info-page';
+import PricePage from './price-page';
 import Content from '../content';
 import '../../../styles/components/upload/upload-index.scss';
 
@@ -15,6 +16,10 @@ class UploadAudioFlow extends Component {
     document.title = 'Tunebay | Upload';
   }
 
+  handleCancel() {
+    console.log('confirm cancel then reset form');
+  }
+
   handleBasicInfoSubmit() {
     console.log('basic info submit');
   }
@@ -26,7 +31,20 @@ class UploadAudioFlow extends Component {
         <div className="n-upload-container">
 
           {formPage === UPLOAD_PAGE && <AudioDropzone />}
-          {formPage === BASIC_INFO_PAGE && <BasicInfoPage onSubmit={this.handleBasicInfoSubmit.bind(this)} />}
+
+          {formPage === BASIC_INFO_PAGE &&
+            <BasicInfoPage
+              onSubmit={this.handleBasicInfoSubmit.bind(this)}
+              handleCancel={this.handleCancel.bind(this)}
+            />
+          }
+
+          {formPage === PRICE_PAGE &&
+            <PricePage
+              onSubmit={this.handleBasicInfoSubmit.bind(this)}
+              handleCancel={this.handleCancel.bind(this)}
+            />
+          }
 
           <p className="n-upload-terms"><small><span className="n-important">Important:</span> By uploading, you confirm that your audio complies with our <span className="n-terms-link">Terms of Use</span> and that you are not infringing anyone else’s rights. If in doubt, read our <span className="n-terms-link">Copyright Information Page</span> and <span className="n-terms-link">FAQ’s</span> before uploading.</small></p>
         </div>

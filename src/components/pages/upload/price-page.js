@@ -1,35 +1,19 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-import titleField from './fields/title-field';
-import playlistTypeField from './fields/playlist-type-field';
-import releaseDateField from './fields/release-date-field';
-import genreField from './fields/genre-field';
+import priceField from './fields/price-field';
 import UploadArtworkZone from './artwork/upload-artwork-zone';
 import UploadedPlaylist from './uploaded-playlist';
-import basicInfoValidate from './basic-info-validate';
 import '../../../styles/components/upload/basic-info-page.scss';
 
-const BasicInfoPage = ({ formType, handleSubmit, handleCancel }) => {
+const PricePage = ({ formType, handleSubmit, handleCancel }) => {
   return (
-    <form onSubmit={handleSubmit} className="basic-info-page">
+    <form onSubmit={handleSubmit} className="price-page">
       <div className="playlist-details">
         <div className="artwork-section">
           <UploadArtworkZone />
         </div>
         <div className="field-section">
-          <Field name="title" component={titleField} formType={formType} />
-          <div className="playlist-type-release-date">
-            <Field
-              name="playlistType"
-              formType={formType}
-              component={playlistTypeField}
-            />
-            <Field
-              name="releaseDate"
-              component={releaseDateField}
-            />
-          </div>
-          <Field name="genres" component={genreField} />
+          <Field name="price" component={priceField} formType={formType} />
         </div>
       </div>
       <UploadedPlaylist />
@@ -47,6 +31,6 @@ const BasicInfoPage = ({ formType, handleSubmit, handleCancel }) => {
 export default reduxForm({
   form: 'audioUploadForm',
   destroyOnUnmount: false,
-  forceUnregisterOnUnmount: true,
-  validate: basicInfoValidate
-})(BasicInfoPage);
+  forceUnregisterOnUnmount: true
+  // validate: PriceValidate
+})(PricePage);
