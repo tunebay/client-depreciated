@@ -1,6 +1,12 @@
 import React from 'react';
+import className from 'classnames';
 
 const titleField = ({ input, meta: { touched, error } }) => {
+  const inputClass = className({
+    'title-field-input': true,
+    'input-error': touched && error
+  });
+  console.log(inputClass);
   return (
     <div className="title-field">
       <label
@@ -9,7 +15,7 @@ const titleField = ({ input, meta: { touched, error } }) => {
         Title<span className="required">*</span>
       </label>
       <input
-        className="title-field-input"
+        className={inputClass}
         {...input}
         type="text"
       />

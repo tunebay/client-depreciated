@@ -40,7 +40,7 @@
     margin-right: 15px;
     width: auto;
     &:hover {
-      cursor: ns-resize;
+      cursor: move;
     }
   }
   .track-name-input {
@@ -79,49 +79,6 @@
     }
   }
 }
-
-// .track-name-input {
-//   height: 30px;
-//   width: 600px;
-//   border: 1px solid $light-grey;
-//   border-radius: 3px;
-//   font-weight: 400;
-//   padding-left: 10px;
-//   color: $text-black;
-//   font-family: 'Avenir Next', sans-serif;
-//   font-size: 14px;
-// }
-
-// .drag-handle {
-//   color: #ccc;
-//   padding-left: 15px;
-//   padding-right: 15px;
-//   padding-top: 3px;
-//   vertical-align: baseline;
-//   &:hover {
-//     cursor: move;
-//   }
-// }
-
-// .remove-track-icon {
-//   // cbcbcb
-//   color: #ccc;
-//   padding-left: 15px;
-//   padding-right: 15px;
-//   vertical-align: baseline;
-//   &:hover {
-//     cursor: pointer;
-//     color: $text-black;
-//   }
-// }
-
-// .playlist-position {
-//   color: $text-black;
-//   font-family: 'Avenir Next', sans-serif;
-//   font-size: 14px;
-//   font-weight: 500;
-//   vertical-align: baseline;
-// }
 
 .add-another-track {
   background-color: #f7f7f7;

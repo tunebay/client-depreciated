@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import className from 'classnames';
 import 'react-select/dist/react-select.css';
 
 // import '../../../../styles/components/hub/upload-form-fields.scss';
@@ -14,6 +15,11 @@ class PlaylistTypeField extends Component {
       { value: 'album', label: 'Album' }
     ];
 
+    const inputClass = className({
+      'upload-dropdown': true,
+      'input-error': touched && error
+    });
+
     return (
       <div className="playlist-type-field">
         <label
@@ -23,7 +29,7 @@ class PlaylistTypeField extends Component {
         </label>
         <div>
           <Select
-            className="upload-dropdown"
+            className={inputClass}
             {...input}
             disabled={this.props.formType === 'SINGLE'}
             searchable={false}

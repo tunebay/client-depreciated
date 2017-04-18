@@ -6,11 +6,12 @@ import releaseDateField from './fields/release-date-field';
 import genreField from './fields/genre-field';
 import UploadArtworkZone from './artwork/upload-artwork-zone';
 import UploadedPlaylist from './uploaded-playlist';
+import basicInfoValidate from './basic-info-validate';
 import '../../../styles/components/upload/basic-info-page.scss';
 
-const BasicInfoPage = ({ formType }) => {
+const BasicInfoPage = ({ formType, handleSubmit }) => {
   return (
-    <form className="basic-info-page">
+    <form onSubmit={handleSubmit} className="basic-info-page">
       <div className="playlist-details">
         <div className="artwork-section">
           <UploadArtworkZone />
@@ -32,7 +33,13 @@ const BasicInfoPage = ({ formType }) => {
         </div>
       </div>
       <UploadedPlaylist />
-      <div className="upload-footer" />
+      <div className="upload-footer">
+        <div className="required-fields"><span className="required">*</span> Required feilds</div>
+        <div className="action-btns">
+          <button className="back-btn">Cancel</button>
+          <button className="next-btn">Next</button>
+        </div>
+      </div>
     </form>
   );
 };
@@ -41,4 +48,5 @@ export default reduxForm({
   form: 'audioUploadForm',
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
+  validate: basicInfoValidate
 })(BasicInfoPage);

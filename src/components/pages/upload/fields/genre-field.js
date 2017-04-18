@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import className from 'classnames';
 // import '../../../../../../styles/components/hub/upload-form-fields.scss';
 
 class GenreField extends Component {
   render() {
     const { input, label, meta: { touched, error } } = this.props;
     const genresSelected = input.value.length;
+    const inputClass = className({
+      'genre-field-select': true,
+      'input-error': touched && error
+    });
     const options = [
       // DO NOT CHANGE
       // values represent ids in database
@@ -57,7 +62,7 @@ class GenreField extends Component {
         <label className="field-label" htmlFor={this.props.label}>Genre(s)<span className="required">*</span></label>
         <div>
           <Select
-            className="genre-field-select"
+            className={inputClass}
             {...input}
             placeholder="Select upto 3 genres"
             value={input.value}
