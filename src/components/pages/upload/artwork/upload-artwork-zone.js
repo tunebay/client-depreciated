@@ -6,7 +6,9 @@ import ArtworkModal from './artwork-modal';
 import '../../../../styles/components/upload/upload-artwork-zone.scss';
 
 class UploadArtworkZone extends Component {
-  handleDrop(file) {
+  handleDrop(file, rejected) {
+    console.log('rejected artwork', rejected);
+    console.log('accepted', file);
     this.props.showArtworkModal(file[0]);
   }
 
@@ -37,6 +39,10 @@ class UploadArtworkZone extends Component {
     return (
       <Dropzone
         className="upload-artwork-zone"
+        preventDropOnDocument
+        multiple={false}
+        accept={'image/*'}
+        maxSize={2097152} // 2mb
         onDrop={this.handleDrop.bind(this)}
       >
         {this.renderArtwork()}

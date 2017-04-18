@@ -18,6 +18,7 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, uploadZoneVisable: false, formType: SINGLE, formPage: BASIC_INFO_PAGE };
     case 'MULTI_UPLOAD_STARTED':
       return { ...state, uploadZoneVisable: false, formType: MULTI, formPage: BASIC_INFO_PAGE };
+    case 'CANCEL_UPLOAD':
     default:
       return state;
   }
