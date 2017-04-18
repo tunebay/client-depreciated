@@ -14,7 +14,6 @@
 .uploaded-track {
   @include browserFlex;
   @include alignCenter;
-  // @include justifyCenter;
   @include borderBox;
   height: 50px;
   width: 810px;
@@ -23,65 +22,83 @@
   border-bottom: 1px solid $light-grey;
   background-color: #fff;
   list-style: none;
-  // padding-left: 15px;
-  .track-name-input {
-    height: 30px;
-    width: 600px;
-    border: 1px solid $light-grey;
-    border-radius: 3px;
-    font-weight: 400;
-    padding-left: 10px;
-    color: $text-black;
-    font-family: 'Avenir Next', sans-serif;
-    font-size: 14px;
-  }
-}
-
-.drag-handle {
-  color: #ccc;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 3px;
-  vertical-align: baseline;
-  &:hover {
-    cursor: move;
-  }
-}
-
-.remove-track-icon {
-  // cbcbcb
-  color: #ccc;
-  padding-left: 15px;
-  padding-right: 15px;
-  vertical-align: baseline;
-  &:hover {
-    cursor: pointer;
+  .playlist-position {
+    width: 30px;
+    padding-left: 30px;
+    background-color: red;
+    font-weight: 500;
+    font-family: $font-stack;
     color: $text-black;
   }
+  .drag-handle {
+    color: #ccc;
+    padding-top: 3px;
+    vertical-align: baseline;
+    height: 20px;
+    width: auto;
+    &:hover {
+      cursor: move;
+    }
+  }
 }
 
-.playlist-position {
-  color: $text-black;
-  font-family: 'Avenir Next', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  vertical-align: baseline;
-}
+// .track-name-input {
+//   height: 30px;
+//   width: 600px;
+//   border: 1px solid $light-grey;
+//   border-radius: 3px;
+//   font-weight: 400;
+//   padding-left: 10px;
+//   color: $text-black;
+//   font-family: 'Avenir Next', sans-serif;
+//   font-size: 14px;
+// }
 
-.add-another-track {
-  background-color: #f7f7f7;
-  border-bottom: 1px solid $light-grey;
-  display: flex;
-  align-items: center;
-  color: #A2A2A2;
-  font-family: 'Avenir Next', sans-serif;
-  font-size: 16px;
-  justify-content: center;
-  width: 100%;
-  height: 56px;
-  border: none;
-  outline: none;
-}
+// .drag-handle {
+//   color: #ccc;
+//   padding-left: 15px;
+//   padding-right: 15px;
+//   padding-top: 3px;
+//   vertical-align: baseline;
+//   &:hover {
+//     cursor: move;
+//   }
+// }
+
+// .remove-track-icon {
+//   // cbcbcb
+//   color: #ccc;
+//   padding-left: 15px;
+//   padding-right: 15px;
+//   vertical-align: baseline;
+//   &:hover {
+//     cursor: pointer;
+//     color: $text-black;
+//   }
+// }
+
+// .playlist-position {
+//   color: $text-black;
+//   font-family: 'Avenir Next', sans-serif;
+//   font-size: 14px;
+//   font-weight: 500;
+//   vertical-align: baseline;
+// }
+
+// .add-another-track {
+//   background-color: #f7f7f7;
+//   border-bottom: 1px solid $light-grey;
+//   display: flex;
+//   align-items: center;
+//   color: #A2A2A2;
+//   font-family: 'Avenir Next', sans-serif;
+//   font-size: 16px;
+//   justify-content: center;
+//   width: 100%;
+//   height: 56px;
+//   border: none;
+//   outline: none;
+// }
 
 .slide-enter {
   opacity: 0;

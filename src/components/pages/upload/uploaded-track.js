@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Icon from 'react-fontawesome';
 import { Circle as Progress } from 'rc-progress';
 import { SortableElement, SortableHandle } from 'react-sortable-hoc';
 import * as actions from '../../../actions/hub/uploaded-track-actions';
 // import '../../../../styles/components/hub/upload/uploaded-track.scss';
 
 const DragHandle = SortableHandle(() => {
-  return <span><Icon name="bars" size="lg" className="drag-handle" /></span>;
+  return (
+    <img
+      src="../../../../assets/images/bars.svg"
+      alt="drag"
+      className="drag-handle"
+    />
+  );
 });
 
 class UploadedTrack extends Component {
@@ -39,7 +44,23 @@ class UploadedTrack extends Component {
           placeholder={track.filename}
           required
         />
-        <Icon name="trash-o" className="remove-track-icon" onClick={this.handleBinClick.bind(this)} />
+        <Progress
+          strokeWidth="12"
+          trailWidth="12"
+          strokeColor={'#1596F5'}
+          strokeLinecap="circle"
+          percent={track.progress || 0}
+          style={{ height: 25, width: 25 }}
+        />
+        <button
+          onClick={this.handleBinClick.bind(this)}
+          type="button"
+        >
+          <img
+            src="../../../../assets/images/x-o.svg"
+            alt="delete track"
+          />
+        </button>
       </li>
     );
   }
