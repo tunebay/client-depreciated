@@ -50,13 +50,15 @@ class UploadedTrack extends Component {
           strokeColor={'#1596F5'}
           strokeLinecap="circle"
           percent={track.progress || 0}
-          style={{ height: 25, width: 25 }}
+          style={{ height: 30, width: 30 }}
         />
         <button
+          className="delete-track-button"
           onClick={this.handleBinClick.bind(this)}
           type="button"
         >
           <img
+            className="x-o"
             src="../../../../assets/images/x-o.svg"
             alt="delete track"
           />

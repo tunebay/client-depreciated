@@ -61,6 +61,7 @@
     "rc-progress": "^2.0.6",
     "react": "^15.5.0",
     "react-avatar-editor": "^9.0.1",
+    "react-circular-progressbar": "^0.1.3",
     "react-datepicker": "^0.44.0",
     "react-dom": "^15.4.2",
     "react-dropzone": "^3.12.4",
