@@ -93,9 +93,9 @@
       flex-direction: column;
 
       .field-label {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 500;
-        padding-bottom: 10px;
+        padding-bottom: 5px;
         .required {
           color: $red;
         }
@@ -111,6 +111,7 @@
       .title-field {
         @include browserFlex;
         flex-direction: column;
+        padding-bottom: 15px;
         .title-field-input {
           @include borderBox;
           color: $text-black;
@@ -143,10 +144,10 @@
         flex-direction: row;
         width: 100%;
         justify-content: space-between;
+        padding-bottom: 15px;
 
         .playlist-type-field {
           width: 49%;
-          margin-top: 10px;
           @include browserFlex;
           flex-direction: column;
           .playlist-type-field-select {
@@ -179,7 +180,6 @@
 
         .release-date-field {
           width: 49%;
-          margin-top: 10px;
           @include browserFlex;
           flex-direction: column;
           .date-picker-input {
@@ -205,32 +205,9 @@
       .genre-field {
         @include browserFlex;
         width: 100%;
-        margin-top: 10px;
         flex-direction: column;
       }
 
-      .description-field {
-        width: 100%;
-        margin-top: 10px;
-        @include browserFlex;
-        flex-direction: column;
-        .description-field-input {
-          @include borderBox;
-          color: $text-black;
-          font-family: $font-stack;
-          padding: 10px;
-          height: 130px;
-          line-height: 1.4;
-          border-radius: 3px;
-          font-weight: 400;
-          resize: none;
-          border: 1px solid $light-grey;
-          &:focus {
-            outline: none;
-            border: 1px solid #ccc;
-          }
-        }
-      }
       .input-error {
         border: 1px solid $red;
         border-radius: 3px;

@@ -22,7 +22,13 @@ class UploadAudioFlow extends Component {
   }
 
   handleBasicInfoSubmit() {
+    // window.scrollTo(0, 0);
     this.props.setPage(PRICE_PAGE);
+  }
+
+  handlePricePagePrevious() {
+    // window.scrollTo(0, 0);
+    this.props.setPage(BASIC_INFO_PAGE);
   }
 
   render() {
@@ -44,7 +50,7 @@ class UploadAudioFlow extends Component {
           {formPage === PRICE_PAGE &&
             <PricePage
               onSubmit={this.handleBasicInfoSubmit.bind(this)}
-              handleCancel={this.handleCancel.bind(this)}
+              handlePrevious={this.handlePricePagePrevious.bind(this)}
               formValues={audioUploadForm.values}
             />
           }

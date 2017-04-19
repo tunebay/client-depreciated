@@ -53,3 +53,19 @@ $breakpoint-large: 1200px;
   -webkit-align-items: center;
   align-items: center;
 }
+
+@mixin titleStyles {
+  font-family: $font-stack;
+  font-weight: 700;
+  font-size: 22px;
+  color: $text-black;
+  line-height: 1.4;
+}
+
+@mixin genreStyles {
+  line-height: 1.4;
+  font-size: 14px;
+  font-family: $font-stack;
+  color: #666;
+  font-weight: 500;
+}
