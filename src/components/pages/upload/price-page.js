@@ -17,7 +17,7 @@ const PricePage = ({ formValues, handleSubmit, handlePrevious }) => {
         <div className="field-section">
           <div className="basic-info-section">
             <div className="playlist-title">{formValues.title}</div>
-            <div className="genres">{renderGenres(formValues.genres)}</div>
+            {/* <div className="genres">{renderGenres(formValues.genres)}</div> */}
           </div>
           <Field name="price" playlistType={formValues.playlistType.value} component={priceField} />
           <Field name="canPayMore" component={canPayMoreField} />

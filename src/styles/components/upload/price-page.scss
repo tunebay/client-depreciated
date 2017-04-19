@@ -16,6 +16,8 @@
       .basic-info-section {
         padding-bottom: 10px;
         .playlist-title {
+          margin: 0;
+          padding: 0;
           @include titleStyles;
         }
         .genres {
@@ -101,10 +103,19 @@
 
       .can-pay-more-field {
         @include browserFlex;
+        @include alignCenter;
+        flex-direction: row;
+        height: 20px;
+        .info {
+          width: 15px;
+          height: 15px;
+        }
         // @include alignCenter;
-        flex-direction: column;
-        .can-pay-more-input {
-          width: 120px;
+        .can-pay-more-checkbox {
+          margin-right: 5px;
+          &:checked {
+            background-color: $blue;
+          }
         }
       }
 
