@@ -1,20 +1,28 @@
 import React from 'react';
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 
 const canPayMoreField = ({ input }) => {
   console.log('CHECKBOX', input);
+  const options = [
+    { value: true, label: 'Yes' },
+    { value: false, label: 'No' }
+  ];
+
   return (
     <div className="can-pay-more-field">
-      <div className="price-checkbox">
-        <input
-          {...input}
-          type="checkbox"
-          name="canPayMore"
-          checked={input.value}
-          value={input.value}
-        />
-        <label htmlFor="can-pay-more-field" />
-      </div>
-      <div className="pay-more-text">Allow people to pay more</div>
+      <label htmlFor="pay-more-text" className="field-label">
+        Allow people to pay more?<span className="required">*</span>
+      </label>
+      <Select
+        className="can-pay-more-input"
+        {...input}
+        // disabled={this.props.formType === 'SINGLE'}
+        searchable={false}
+        value={input.value}
+        options={options}
+        clearable={false}
+      />
     </div>
   );
 };

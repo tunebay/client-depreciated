@@ -1,10 +1,10 @@
 import React from 'react';
 
-const PriceField = ({ input, meta: { touched, error } }) => {
+const PriceField = ({ playlistType, input, meta: { touched, error } }) => {
   return (
     <div className="price-field">
       <label className="field-label" htmlFor="price">Price<span className="required">*</span></label>
-      <p className="field-info">Leave the price at zero if you intend for this playlist to be free. People can still pay more if you let them. View the Pricing Guide for more information.</p>
+      <p className="field-info">{`Leave the price at zero if you intend for this ${playlistType} to be free.`}</p>
       <div className="upload-price-input-zone">
         <div className="currency-con">£</div>
         <input
@@ -15,6 +15,7 @@ const PriceField = ({ input, meta: { touched, error } }) => {
           // min="0.00"
           value={input.value}
         />
+        <div className="pricing-guide">Pricing guide</div>
       </div>
       {touched && error && <div className="field-error">{error}</div>}
     </div>

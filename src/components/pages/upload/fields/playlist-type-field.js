@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-import className from 'classnames';
 import 'react-select/dist/react-select.css';
+import className from 'classnames';
 
 // import '../../../../styles/components/hub/upload-form-fields.scss';
 

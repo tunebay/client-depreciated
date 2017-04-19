@@ -7,6 +7,7 @@ import UploadedPlaylist from './uploaded-playlist';
 import '../../../styles/components/upload/price-page.scss';
 
 const PricePage = ({ formValues, handleSubmit, handlePrevious }) => {
+  console.log('form values', formValues);
   return (
     <form onSubmit={handleSubmit} className="price-page">
       <div className="playlist-details">
@@ -18,7 +19,7 @@ const PricePage = ({ formValues, handleSubmit, handlePrevious }) => {
             <div className="playlist-title">{formValues.title}</div>
             <div className="genres">{renderGenres(formValues.genres)}</div>
           </div>
-          <Field name="price" component={priceField} />
+          <Field name="price" playlistType={formValues.playlistType.value} component={priceField} />
           <Field name="canPayMore" component={canPayMoreField} />
         </div>
       </div>
