@@ -39,7 +39,7 @@ const renderGenres = (genresArray) => {
   const labels = genresArray.map(genre => genre.label);
   return (
     <div className="uploaded-genres">
-      {labels.join(' / ')}
+      {labels.join(' | ')}
     </div>
   );
 };
