@@ -48,5 +48,9 @@ export default reduxForm({
   form: 'audioUploadForm',
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
+  initialValues: {
+    price: parseFloat(0.00).toFixed(2),
+    canPayMore: true
+  },
   validate: basicInfoValidate
 })(BasicInfoPage);

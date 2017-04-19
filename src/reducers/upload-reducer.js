@@ -9,7 +9,7 @@ const SINGLE_SELECTION_PAGE = 'SINGLE_SELECTION_PAGE';
 const INITIAL_STATE = {
   uploadZoneVisable: true,
   formType: '',
-  formPage: BASIC_INFO_PAGE
+  formPage: UPLOAD_PAGE
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -18,7 +18,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, uploadZoneVisable: false, formType: SINGLE, formPage: BASIC_INFO_PAGE };
     case 'MULTI_UPLOAD_STARTED':
       return { ...state, uploadZoneVisable: false, formType: MULTI, formPage: BASIC_INFO_PAGE };
-    case 'CANCEL_UPLOAD':
+    case 'SET_PAGE':
+      return { ...state, formPage: action.payload };
     default:
       return state;
   }

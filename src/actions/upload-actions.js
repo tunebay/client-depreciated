@@ -26,6 +26,10 @@ export const processAudio = (files) => {
     addTracksToPlaylist(files);
 };
 
+export const setPage = (newPage) => {
+  return { type: 'SET_PAGE', payload: newPage };
+};
+
 const handleSingleUpload = (file) => {
   console.log(file);
   return { type: 'SINGLE_UPLOAD_STARTED' };

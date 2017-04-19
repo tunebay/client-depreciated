@@ -4,6 +4,7 @@ import AudioDropzone from './audio-dropzone';
 import BasicInfoPage from './basic-info-page';
 import PricePage from './price-page';
 import Content from '../content';
+import * as actions from '../../../actions/upload-actions';
 import '../../../styles/components/upload/upload-index.scss';
 
 const UPLOAD_PAGE = 'UPLOAD_PAGE';
@@ -21,11 +22,12 @@ class UploadAudioFlow extends Component {
   }
 
   handleBasicInfoSubmit() {
-    console.log('basic info submit');
+    this.props.setPage(PRICE_PAGE);
   }
 
   render() {
-    const { formPage } = this.props;
+    const { formPage, audioUploadForm } = this.props;
+    console.log(audioUploadForm);
     return (
       <Content>
         <div className="n-upload-container">
@@ -43,6 +45,7 @@ class UploadAudioFlow extends Component {
             <PricePage
               onSubmit={this.handleBasicInfoSubmit.bind(this)}
               handleCancel={this.handleCancel.bind(this)}
+              formValues={audioUploadForm.values}
             />
           }
 
@@ -57,8 +60,9 @@ const mapStateToProps = (state) => {
   return {
     uploadZoneVisable: state.audioUpload.uploadZoneVisable,
     formType: state.audioUpload.formType,
-    formPage: state.audioUpload.formPage
+    formPage: state.audioUpload.formPage,
+    audioUploadForm: state.form.audioUploadForm
   };
 };
 
-export default connect(mapStateToProps)(UploadAudioFlow);
+export default connect(mapStateToProps, actions)(UploadAudioFlow);

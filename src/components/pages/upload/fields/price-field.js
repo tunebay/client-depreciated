@@ -5,7 +5,7 @@ const PriceField = ({ input, label, meta: { touched, error } }) => {
     <div className="price-field">
       <label className="upload-label" htmlFor={label}>Price<span>*</span></label>
       <div className="upload-price-input-zone">
-        <div className="currency-con"><Icon name="gbp" className="currency" /></div>
+        <div className="currency-con">£</div>
         <input
           {...input}
           type="number"
@@ -15,10 +15,7 @@ const PriceField = ({ input, label, meta: { touched, error } }) => {
         />
         <button className="pricing-guide">Pricing guide</button>
       </div>
-      {touched && error &&
-        <div className="field-error">
-          <Icon name="exclamation-circle" /> {error}
-        </div>}
+      {touched && error && <div className="field-error">{error}</div>}
     </div>
   );
 };
