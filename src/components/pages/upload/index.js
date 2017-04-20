@@ -31,9 +31,12 @@ class UploadAudioFlow extends Component {
     this.props.setPage(BASIC_INFO_PAGE);
   }
 
+  handlePriceSubmit() {
+    this.props.setPage(SINGLE_SELECTION_PAGE);
+  }
+
   render() {
     const { formPage, audioUploadForm } = this.props;
-    console.log(audioUploadForm);
     return (
       <Content>
         <div className="n-upload-container">
@@ -49,7 +52,15 @@ class UploadAudioFlow extends Component {
 
           {formPage === PRICE_PAGE &&
             <PricePage
-              onSubmit={this.handleBasicInfoSubmit.bind(this)}
+              onSubmit={this.handlePriceSubmit.bind(this)}
+              handlePrevious={this.handlePricePagePrevious.bind(this)}
+              formValues={audioUploadForm.values}
+            />
+          }
+
+          {formPage === SINGLE_SELECTION_PAGE &&
+            <PricePage
+              onSubmit={this.handlePriceSubmit.bind(this)}
               handlePrevious={this.handlePricePagePrevious.bind(this)}
               formValues={audioUploadForm.values}
             />

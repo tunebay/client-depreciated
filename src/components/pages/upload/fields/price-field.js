@@ -1,14 +1,19 @@
 import React from 'react';
+import className from 'classnames';
 
-const PriceField = ({ playlistType, input, meta: { touched, error } }) => {
+const PriceField = ({ input, meta: { touched, error } }) => {
+  const inputClass = className({
+    'price-input': true,
+    'input-error': touched && error
+  });
+
   return (
     <div className="price-field">
       <label className="field-label" htmlFor="price">Price<span className="required">*</span></label>
-      {/* <p className="field-info">{`Leave the price at zero if you intend for this ${playlistType} to be a free download. People can still pay more if you let them. View the Pricing guide for more information.`}</p> */}
       <div className="upload-price-input-zone">
         <div className="currency-con">£</div>
         <input
-          className="price-input"
+          className={inputClass}
           {...input}
           type="number"
           step="0.01"

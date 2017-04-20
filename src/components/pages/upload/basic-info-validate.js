@@ -9,7 +9,6 @@ const basicInfoValidate = ({ title, playlistType, genres }) => {
   if (!genres || genres.length <= 0) {
     errors.genres = 'Select atleast one genre';
   }
-  console.log('IN VALIDATE', genres);
   return errors;
 };
 

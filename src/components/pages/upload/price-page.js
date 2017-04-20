@@ -5,6 +5,7 @@ import canPayMoreField from './fields/can-pay-more-field';
 import purchaseMessageField from './fields/purchase-message-field';
 import UploadArtworkZone from './artwork/upload-artwork-zone';
 import UploadedPlaylist from './uploaded-playlist';
+import priceValidate from './price-validate';
 import '../../../styles/components/upload/price-page.scss';
 
 const PricePage = ({ formValues, handleSubmit, handlePrevious }) => {
@@ -37,18 +38,18 @@ const PricePage = ({ formValues, handleSubmit, handlePrevious }) => {
   );
 };
 
-const renderGenres = (genresArray) => {
-  const labels = genresArray.map(genre => genre.label);
-  return (
-    <div className="uploaded-genres">
-      {labels.join(' | ')}
-    </div>
-  );
-};
+// const renderGenres = (genresArray) => {
+//   const labels = genresArray.map(genre => genre.label);
+//   return (
+//     <div className="uploaded-genres">
+//       {labels.join(' | ')}
+//     </div>
+//   );
+// };
 
 export default reduxForm({
   form: 'audioUploadForm',
   destroyOnUnmount: false,
-  forceUnregisterOnUnmount: true
-  // validate: PriceValidate
+  forceUnregisterOnUnmount: true,
+  validate: priceValidate
 })(PricePage);

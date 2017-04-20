@@ -2,8 +2,6 @@ import React from 'react';
 import 'react-select/dist/react-select.css';
 
 const canPayMoreField = ({ input }) => {
-  console.log('CHECKBOX', input);
-
   return (
     <div className="can-pay-more-field">
       <input

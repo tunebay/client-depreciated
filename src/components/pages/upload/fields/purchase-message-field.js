@@ -7,7 +7,7 @@ const PurchaseMessageField = ({ input }) => (
       className="purchase-message-input"
       {...input}
       rows="4"
-      placeholder="Leave a thank you for someone when they download your music."
+      placeholder="Leave a short message or thank you for someone when they download your music."
       cols="50"
     />
   </div>
