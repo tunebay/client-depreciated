@@ -1,12 +1,13 @@
 import React from 'react';
 
-const PurchaseMessageField = ({ input, playlistType }) => (
+const PurchaseMessageField = ({ input }) => (
   <div className="purchase-message-field">
     <label className="field-label" htmlFor="purchase-message">Purchase message</label>
-    <p className="purchase-message-text">{`Leave a short message or thank you for people when they download your ${playlistType}.`}</p>
     <textarea
+      className="purchase-message-input"
       {...input}
       rows="4"
+      placeholder="Leave a thank you for someone when they download your music."
       cols="50"
     />
   </div>

@@ -13,7 +13,7 @@ const canPayMoreField = ({ input }) => {
         checked={input.value}
         type="checkbox"
       />
-      <label htmlFor="can-pay-more" className="field-label">Let people pay more</label>
+      <label htmlFor="can-pay-more" className="can-pay-more-label">Let people pay more</label>
     </div>
   );
 };

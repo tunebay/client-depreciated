@@ -2,6 +2,7 @@ import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import priceField from './fields/price-field';
 import canPayMoreField from './fields/can-pay-more-field';
+import purchaseMessageField from './fields/purchase-message-field';
 import UploadArtworkZone from './artwork/upload-artwork-zone';
 import UploadedPlaylist from './uploaded-playlist';
 import '../../../styles/components/upload/price-page.scss';
@@ -21,6 +22,7 @@ const PricePage = ({ formValues, handleSubmit, handlePrevious }) => {
           </div>
           <Field name="price" playlistType={formValues.playlistType.value} component={priceField} />
           <Field name="canPayMore" component={canPayMoreField} />
+          <Field name="purchaseMessage" component={purchaseMessageField} />
         </div>
       </div>
       <UploadedPlaylist />
