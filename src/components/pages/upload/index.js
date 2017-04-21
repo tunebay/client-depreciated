@@ -18,6 +18,10 @@ class UploadAudioFlow extends Component {
     document.title = 'Tunebay | Upload';
   }
 
+  handleFormSubmit() {
+    console.log('Submitted', this.props.audioUploadForm.values);
+  }
+
   handleCancel() {
     console.log('confirm cancel then reset form');
   }
@@ -36,8 +40,12 @@ class UploadAudioFlow extends Component {
     this.props.setPage(SINGLE_SELECTION_PAGE);
   }
 
+  handleSingleSelectionPrevious() {
+    this.props.setPage(PRICE_PAGE);
+  }
+
   render() {
-    const { formPage, audioUploadForm } = this.props;
+    const { formPage, audioUploadForm, playlist } = this.props;
     return (
       <Content>
         <div className="n-upload-container">
@@ -61,8 +69,9 @@ class UploadAudioFlow extends Component {
 
           {formPage === SINGLE_SELECTION_PAGE &&
             <SingleSelectionPage
-              onSubmit={this.handlePriceSubmit.bind(this)}
-              handlePrevious={this.handlePricePagePrevious.bind(this)}
+              playlist={playlist}
+              onSubmit={this.handleFormSubmit.bind(this)}
+              handlePrevious={this.handleSingleSelectionPrevious.bind(this)}
               formValues={audioUploadForm.values}
             />
           }
@@ -79,7 +88,8 @@ const mapStateToProps = (state) => {
     uploadZoneVisable: state.audioUpload.uploadZoneVisable,
     formType: state.audioUpload.formType,
     formPage: state.audioUpload.formPage,
-    audioUploadForm: state.form.audioUploadForm
+    audioUploadForm: state.form.audioUploadForm,
+    playlist: state.uploadedPlaylist
   };
 };
 
