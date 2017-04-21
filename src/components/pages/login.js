@@ -10,7 +10,6 @@ const Login = () => {
     <Content>
       <PageContainer>
         <div className="main-content">
-          {/* <LoginForm /> */}
           <LoginModal />
         </div>
       </PageContainer>
