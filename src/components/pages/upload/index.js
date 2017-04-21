@@ -19,7 +19,9 @@ class UploadAudioFlow extends Component {
   }
 
   handleFormSubmit() {
-    console.log('Submitted', this.props.audioUploadForm.values);
+    console.log('in here');
+    const { audioUploadForm, playlist } = this.props;
+    this.props.releasePlaylist(audioUploadForm.values, playlist);
   }
 
   handleCancel() {

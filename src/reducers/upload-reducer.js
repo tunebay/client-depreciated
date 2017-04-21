@@ -3,8 +3,8 @@ const SINGLE = 'SINGLE';
 
 const UPLOAD_PAGE = 'UPLOAD_PAGE';
 const BASIC_INFO_PAGE = 'BASIC_INFO_PAGE';
-const PRICE_PAGE = 'PRICE_PAGE';
-const SINGLE_SELECTION_PAGE = 'SINGLE_SELECTION_PAGE';
+// const PRICE_PAGE = 'PRICE_PAGE';
+// const SINGLE_SELECTION_PAGE = 'SINGLE_SELECTION_PAGE';
 
 const INITIAL_STATE = {
   uploadZoneVisable: true,
@@ -20,6 +20,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, uploadZoneVisable: false, formType: MULTI, formPage: BASIC_INFO_PAGE };
     case 'SET_PAGE':
       return { ...state, formPage: action.payload };
+    case 'POST_NEW_PLAYLIST':
+      return INITIAL_STATE;
     default:
       return state;
   }

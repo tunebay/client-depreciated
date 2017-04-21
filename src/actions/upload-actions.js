@@ -85,8 +85,9 @@ export const updateTrackPosition = (playlist, oldIndex, newIndex) => {
 };
 
 export const releasePlaylist = (playlistDetails, playlistTracks) => {
+  console.log('playlistTracks', playlistTracks);
   return (dispatch) => {
-    // dispatch({ type: POST_NEW_PLAYLIST });
+    dispatch({ type: 'POST_NEW_PLAYLIST' });
     const tracksToPost = processTracks(playlistTracks);
     const durationArray = playlistTracks.map((track) => {
       return track.duration;

@@ -3,7 +3,6 @@ import { reduxForm } from 'redux-form';
 import UploadArtworkZone from './artwork/upload-artwork-zone';
 import PricePill from '../../common/price-pill';
 import SingleSelection from './single-selection';
-import priceValidate from './price-validate';
 import '../../../styles/components/upload/single-selection-page.scss';
 
 const SingleSelectionPage = ({ formValues, handleSubmit, handlePrevious, playlist }) => {
@@ -32,7 +31,7 @@ const SingleSelectionPage = ({ formValues, handleSubmit, handlePrevious, playlis
         <div className="required-fields"><span className="required">*</span> Required feilds</div>
         <div className="action-btns">
           <button onClick={handlePrevious} type="button" className="back-btn">Previous</button>
-          <button type="submit" className="next-btn">Next</button>
+          <button type="submit" className="next-btn">Release</button>
         </div>
       </div>
     </form>
@@ -50,7 +49,6 @@ const renderGenres = (genresArray) => {
 
 export default reduxForm({
   form: 'audioUploadForm',
-  destroyOnUnmount: false,
-  forceUnregisterOnUnmount: true,
-  validate: priceValidate
+  destroyOnUnmount: true,
+  forceUnregisterOnUnmount: true
 })(SingleSelectionPage);
