@@ -22,7 +22,7 @@ const SingleSelectionPage = (props) => {
           </div>
           <label className="upload-label" htmlFor="single-selection">Single Selection</label>
           <p className="single-selection-text">Marking a track as a single allows you to offer the given track independently from your album.  This is a great option for songs you wish to sell seperately.</p>
-          <p className="single-selection-text"><span>Note:</span> It may be tempting to mark all tracks as singles, however, this is not reccomend as it takes away the incentive to download the whole album. You can always mark tracks as singles at a later date.</p>
+          <p className="single-selection-text"><span>Note:</span> It may be tempting to mark all tracks as singles, however, this is not reccomended as it takes away the incentive to download the whole album. You can always mark tracks as singles at a later date.</p>
         </div>
       </div>
       <div className="uploaded-playlist-con">

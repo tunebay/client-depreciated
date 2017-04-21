@@ -19,7 +19,6 @@ const PricePage = ({ formValues, handleSubmit, handlePrevious }) => {
         <div className="field-section">
           <div className="basic-info-section">
             <div className="playlist-title">{formValues.title}</div>
-            {/* <div className="genres">{renderGenres(formValues.genres)}</div> */}
           </div>
           <Field name="price" playlistType={formValues.playlistType.value} component={priceField} />
           <Field name="canPayMore" component={canPayMoreField} />
@@ -37,15 +36,6 @@ const PricePage = ({ formValues, handleSubmit, handlePrevious }) => {
     </form>
   );
 };
-
-// const renderGenres = (genresArray) => {
-//   const labels = genresArray.map(genre => genre.label);
-//   return (
-//     <div className="uploaded-genres">
-//       {labels.join(' | ')}
-//     </div>
-//   );
-// };
 
 export default reduxForm({
   form: 'audioUploadForm',

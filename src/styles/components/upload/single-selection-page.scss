@@ -1,0 +1,132 @@
+@import "../../variables";
+
+.single-selection-page {
+  @include boxShadow;
+  @include browserFlex;
+  @include borderBox;
+  margin-top: 50px;
+  width: 810px;
+  height: auto;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 3px;
+
+  .upload-footer {
+    @include browserFlex;
+    @include alignCenter;
+    @include borderBox;
+    border-top: 1px solid $light-grey;
+    padding: 0 20px;
+    justify-content: space-between;
+    height: 60px;
+    width: 100%;
+    background-color: #fff;
+    .required-fields {
+      color: #666;
+      font-family: $font-stack;
+      font-weight: 400;
+      font-size: 14px;
+      .required {
+        color: $red;
+        font-weight: 500;
+      }
+    }
+    .action-btns {
+      .next-btn {
+        height: 40px;
+        width: 90px;
+        background-color: $green;
+        border: none;
+        color: #fff;
+        border-radius: 3px;
+        font-family: $font-stack;
+        font-weight: 500;
+        padding: 0;
+        font-size: 14px;
+        transition: all 75ms ease-out;
+        &:hover {
+          cursor: pointer;
+          background-color: lighten($green, 5%);
+        }
+      }
+      .back-btn {
+        height: 40px;
+        margin-right: 10px;
+        font-size: 14px;
+        width: 90px;
+        padding: 0;
+        border: none;
+        color: $text-black;
+        font-family: $font-stack;
+        font-weight: 500;
+        border-radius: 3px;
+        border: 1px solid $light-grey;
+        background-color: #fff;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .playlist-details {
+    padding: 20px;
+    width: 100%;
+    flex-direction: row;
+    @include browserFlex;
+    @include borderBox;
+    border-bottom: 1px solid $light-grey;
+    .field-section {
+      @include browserFlex;
+      @include borderBox;
+      height: auto;
+      width: 100%;
+      color: $text-black;
+      font-family: $font-stack;
+      padding-left: 20px;
+      flex-direction: column;
+      .single-label {
+        font-size: 15px;
+        font-weight: 600;
+        color: $text-black;
+        margin-bottom: 15px;
+        font-family: $font-stack;
+      }
+      .single-selection-text {
+        color: $text-black;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 14px;
+        font-family: $font-stack;
+        font-weight: 400;
+        line-height: 1.4;
+        .note {
+          font-weight: 500;
+        }
+        .pricing-guide {
+          color: $blue;
+        }
+      }
+
+      .basic-info-section {
+        .title-price {
+          @include browserFlex;
+          @include alignCenter;
+          flex-direction: row;
+          margin-bottom: 2px;
+          .playlist-title {
+            margin: 0;
+            padding: 0;
+            @include titleStyles;
+          }
+        }
+        padding-bottom: 10px;
+        .genres {
+          @include genreStyles;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+
+}

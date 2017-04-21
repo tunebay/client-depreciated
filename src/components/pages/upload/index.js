@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import AudioDropzone from './audio-dropzone';
 import BasicInfoPage from './basic-info-page';
 import PricePage from './price-page';
+import SingleSelectionPage from './single-selection-page';
 import Content from '../content';
 import * as actions from '../../../actions/upload-actions';
 import '../../../styles/components/upload/upload-index.scss';
@@ -59,7 +60,7 @@ class UploadAudioFlow extends Component {
           }
 
           {formPage === SINGLE_SELECTION_PAGE &&
-            <PricePage
+            <SingleSelectionPage
               onSubmit={this.handlePriceSubmit.bind(this)}
               handlePrevious={this.handlePricePagePrevious.bind(this)}
               formValues={audioUploadForm.values}
