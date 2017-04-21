@@ -5,7 +5,7 @@ import {
   updateTrackName,
   updateSingleStatus,
   updateTrackPrice
-} from '../../../src/actions/hub/uploaded-track-actions';
+} from '../../../src/actions/uploaded-track-actions';
 import {
   UPDATE_TRACK_NAME,
   UPDATE_SINGLE_STATUS,

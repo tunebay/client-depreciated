@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Circle as Progress } from 'rc-progress';
 import { SortableElement, SortableHandle } from 'react-sortable-hoc';
-import * as actions from '../../../actions/hub/uploaded-track-actions';
-// import '../../../../styles/components/hub/upload/uploaded-track.scss';
+import * as actions from '../../../actions/uploaded-track-actions';
 
 const DragHandle = SortableHandle(() => {
   return (

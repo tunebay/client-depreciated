@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 import formatSeconds from '../../../util/format-seconds';
-import * as actions from '../../../actions/hub/uploaded-track-actions';
-// import '../../../styles/components/upload/single-selection-track.scss';
+import * as actions from '../../../actions/uploaded-track-actions';
 
 class SingleSelectionTrack extends Component {
   handleCheckingBox(e) {
-    console.log('INPUT CHANGE', e.target.value);
     const { trackId } = this.props.track;
     this.props.updateSingleStatus(e.target.checked, trackId);
   }

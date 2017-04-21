@@ -3,8 +3,6 @@ import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import className from 'classnames';
 
-// import '../../../../styles/components/hub/upload-form-fields.scss';
-
 class PlaylistTypeField extends Component {
   render() {
     const { input, label, meta: { touched, error } } = this.props;

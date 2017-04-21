@@ -3,7 +3,7 @@ import {
   UPDATE_SINGLE_STATUS,
   UPDATE_TRACK_PRICE,
   DELETE_TRACK
-} from '../types';
+} from './types';
 
 export const updateTrackName = (input, trackId) => {
   return { type: UPDATE_TRACK_NAME, payload: input, trackId };

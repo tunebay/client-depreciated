@@ -57,7 +57,6 @@ class AudioDropzone extends Component {
                   Choose files
                 </button>
               </div>
-              {/* <ToolTip globalEventOff="drag" type="success" id="drag-active">Bet this sounds great!</ToolTip> */}
               <div className="n-upload-note">
                 <span className="n-note">Tip:</span> you can select multiple files to start uploading an EP or album.
               </div>

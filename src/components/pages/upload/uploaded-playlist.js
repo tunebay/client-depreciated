@@ -5,7 +5,7 @@ import Dropzone from 'react-dropzone';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import UploadedTrack from './uploaded-track';
 import * as actions from '../../../actions/upload-actions';
-import '../../../styles/components/hub/upload/uploaded-track.scss';
+import '../../../styles/components/upload/uploaded-track.scss';
 
 const SortablePlaylist = SortableContainer(({ playlist }) => {
   console.log(playlist);
