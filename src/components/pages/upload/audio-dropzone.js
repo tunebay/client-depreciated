@@ -6,9 +6,10 @@ import * as actions from '../../../actions/upload-actions';
 import '../../../styles/components/upload/dropzone.scss';
 
 class AudioDropzone extends Component {
-  handleDrop(files) {
+  handleDrop(files, rejected) {
+    console.log('rejected', rejected);
     this.props.processAudio(files);
-    console.log(files);
+    console.log('Accepted', files);
   }
 
   handleButtonClick() {

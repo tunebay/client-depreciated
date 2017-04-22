@@ -8,11 +8,15 @@ import {
   UPDATE_TRACK_PROGRESS,
   UPDATE_PLAYLIST_LENGTH,
   AUDIO_UPLOAD_ERROR,
-  AUDIO_UPLOAD_STARTED,
+  MULTI_UPLOAD_STARTED,
+  SINGLE_UPLOAD_STARTED,
   AUDIO_UPLOAD_FINISHED,
   UPLOAD_ANOTHER_TRACK,
   ADD_ANOTHER_TRACK,
-  ANOTHER_UPLOAD_FINISHED
+  ANOTHER_UPLOAD_FINISHED,
+  PLAYLIST_RELEASE_SUCESS,
+  PLAYLIST_RELEASE_STARTED,
+  SET_PAGE
 } from './types';
 
 const API_URL = 'http://localhost:3000';
@@ -21,21 +25,23 @@ let playlistPosition = 0;
 let trackProcessCounter = 0;
 
 export const processAudio = (files) => {
+  playlistPosition = 0;
+  trackProcessCounter = 0;
   return files.length === 1 ?
     handleSingleUpload(files[0]) :
     addTracksToPlaylist(files);
 };
 
 export const setPage = (newPage) => {
-  return { type: 'SET_PAGE', payload: newPage };
+  return { type: SET_PAGE, payload: newPage };
 };
 
 const handleSingleUpload = (file) => {
   console.log(file);
-  return { type: 'SINGLE_UPLOAD_STARTED' };
+  return { type: SINGLE_UPLOAD_STARTED };
 };
 
-const addTracksToPlaylist = (files, userId) => {
+const addTracksToPlaylist = (files) => {
   return (dispatch, getState) => {
     files.forEach((file) => {
       const audio = document.createElement('AUDIO');
@@ -53,7 +59,7 @@ const addTracksToPlaylist = (files, userId) => {
         dispatch({ type: ADD_TRACK, payload: track });
         if (trackProcessCounter === files.length) {
           dispatch({ type: UPDATE_PLAYLIST_LENGTH, payload: trackProcessCounter }); // not needed
-          uploadFilesToS3(getState().uploadedPlaylist, dispatch, userId);
+          uploadFilesToS3(getState().uploadedPlaylist, dispatch);
         }
       });
     });
@@ -85,9 +91,8 @@ export const updateTrackPosition = (playlist, oldIndex, newIndex) => {
 };
 
 export const releasePlaylist = (playlistDetails, playlistTracks) => {
-  console.log('playlistTracks', playlistTracks);
   return (dispatch) => {
-    dispatch({ type: 'POST_NEW_PLAYLIST' });
+    dispatch({ type: PLAYLIST_RELEASE_STARTED });
     const tracksToPost = processTracks(playlistTracks);
     const durationArray = playlistTracks.map((track) => {
       return track.duration;
@@ -123,6 +128,7 @@ export const releasePlaylist = (playlistDetails, playlistTracks) => {
     const config = { headers: { Authorization: localStorage.getItem('token') } };
     axios.post(`${API_URL}/playlists/new`, playlistToPost, config)
       .then((res) => {
+        dispatch({ type: PLAYLIST_RELEASE_SUCESS });
         console.log('RESPONSE', res);
       })
       .catch((err) => {
@@ -132,12 +138,11 @@ export const releasePlaylist = (playlistDetails, playlistTracks) => {
 };
 
 // Helpers
-const uploadFilesToS3 = (playlist, dispatch, userId) => {
-  dispatch({ type: AUDIO_UPLOAD_STARTED });
-  dispatch({ type: 'MULTI_UPLOAD_STARTED' });
+const uploadFilesToS3 = (playlist, dispatch) => {
+  dispatch({ type: MULTI_UPLOAD_STARTED });
   let uploadCounter = 0;
   playlist.forEach((track) => {
-    const filename = `users/${userId}/music/${v4()}`;
+    const filename = `users/music/${v4()}`;
     axios.get(`${API_URL}/upload/s3/sign`, {
       params: { filename, filetype: track.file.type }
     })
@@ -170,9 +175,9 @@ const uploadFilesToS3 = (playlist, dispatch, userId) => {
   });
 };
 
-const uploadAnotherFileToS3 = (track, dispatch, userId) => {
+const uploadAnotherFileToS3 = (track, dispatch) => {
   dispatch({ type: UPLOAD_ANOTHER_TRACK });
-  const filename = `users/${userId}/music/${v4()}`;
+  const filename = `users/music/${v4()}`;
   axios.get(`${API_URL}/upload/s3/sign`, {
     params: { filename, filetype: track.file.type }
   })

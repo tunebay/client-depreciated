@@ -7,7 +7,8 @@ import {
   UPDATE_SINGLE_STATUS,
   UPDATE_TRACK_PRICE,
   ADD_ANOTHER_TRACK,
-  DELETE_TRACK
+  DELETE_TRACK,
+  PLAYLIST_RELEASE_SUCESS
 } from '../../actions/types';
 import UploadedTrackReducer from './uploaded-track-reducer';
 
@@ -48,6 +49,8 @@ export default (state = INITIAL_STATE, action) => {
       );
     case ADD_ANOTHER_TRACK:
       return [...state, UploadedTrackReducer(null, action)];
+    case PLAYLIST_RELEASE_SUCESS:
+      return INITIAL_STATE;
     default:
       return state;
   }

@@ -6,7 +6,6 @@ import SingleSelection from './single-selection';
 import '../../../styles/components/upload/single-selection-page.scss';
 
 const SingleSelectionPage = ({ formValues, handleSubmit, handlePrevious, playlist }) => {
-  console.log('PLAYLIST', playlist);
   return (
     <form onSubmit={handleSubmit} className="single-selection-page">
       <div className="playlist-details">
@@ -49,6 +48,6 @@ const renderGenres = (genresArray) => {
 
 export default reduxForm({
   form: 'audioUploadForm',
-  destroyOnUnmount: true,
+  destroyOnUnmount: false,
   forceUnregisterOnUnmount: true
 })(SingleSelectionPage);
