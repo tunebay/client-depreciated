@@ -9,6 +9,9 @@ const priceValidate = ({ price, playlistType }) => {
   if (!(/^\d+(\.\d{2})?$/).test(price)) {
     errors.price = 'Invalid price';
   }
+  if (parseFloat(price) >= 1000) {
+    errors.price = 'This price is too large to process.';
+  }
   return errors;
 };
 
