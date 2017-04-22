@@ -3,7 +3,8 @@ import {
   PLAYLIST_RELEASE_STARTED,
   SET_PAGE,
   MULTI_UPLOAD_STARTED,
-  SINGLE_UPLOAD_STARTED
+  SINGLE_UPLOAD_STARTED,
+  TERMINATE_PLAYLIST_UPLOAD
 } from '../actions/types';
 
 const MULTI = 'MULTI';
@@ -44,6 +45,8 @@ export default (state = INITIAL_STATE, action) => {
     case PLAYLIST_RELEASE_STARTED:
       return { ...state, isReleasing: true };
     case PLAYLIST_RELEASE_SUCCESS:
+      return INITIAL_STATE;
+    case TERMINATE_PLAYLIST_UPLOAD:
       return INITIAL_STATE;
     default:
       return state;

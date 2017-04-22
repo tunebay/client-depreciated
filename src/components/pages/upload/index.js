@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import alert from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.css';
 import AudioDropzone from './audio-dropzone';
 import BasicInfoPage from './basic-info-page';
 import PricePage from './price-page';
@@ -25,7 +27,20 @@ class UploadAudioFlow extends Component {
   }
 
   handleCancel() {
-    console.log('confirm cancel then reset form');
+    alert({
+      title: 'Are you sure?',
+      text: 'Your upload will be stopped and all changes discarded.',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
+    })
+    .then(() => {
+      this.props.terminateUpload();
+    })
+    .catch(() => {
+      // do nothing //
+    });
   }
 
   handleBasicInfoSubmit() {

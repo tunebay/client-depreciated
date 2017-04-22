@@ -16,7 +16,8 @@ import {
   ANOTHER_UPLOAD_FINISHED,
   PLAYLIST_RELEASE_SUCCESS,
   PLAYLIST_RELEASE_STARTED,
-  SET_PAGE
+  SET_PAGE,
+  TERMINATE_PLAYLIST_UPLOAD
 } from './types';
 
 const API_URL = 'http://localhost:3000';
@@ -151,6 +152,10 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image) => {
       console.log('Release Playlist ERROR', err);
     });
   };
+};
+
+export const terminateUpload = () => {
+  return { type: TERMINATE_PLAYLIST_UPLOAD };
 };
 
 // Helpers
