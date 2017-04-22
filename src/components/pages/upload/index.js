@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import alert from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
+import alert from 'sweetalert2';
 import AudioDropzone from './audio-dropzone';
 import BasicInfoPage from './basic-info-page';
 import PricePage from './price-page';

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import 'sweetalert2/dist/sweetalert2.css';
+import alert from 'sweetalert2';
 import { Circle as Progress } from 'rc-progress';
 import { SortableElement, SortableHandle } from 'react-sortable-hoc';
 import * as actions from '../../../actions/uploaded-track-actions';
@@ -22,8 +24,20 @@ class UploadedTrack extends Component {
 
   handleBinClick() {
     const { trackId } = this.props.track;
-    const answer = window.confirm('Do you really want to delete this track?');
-    if (answer) { this.props.deleteTrack(trackId); }
+    alert({
+      title: 'Are you sure?',
+      text: 'Do you really want to delete this track?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
+    })
+    .then(() => {
+      this.props.deleteTrack(trackId);
+    })
+    .catch(() => {
+      // do nothing //
+    });
   }
 
   render() {
