@@ -11,15 +11,14 @@ const SINGLE = 'SINGLE';
 
 const UPLOAD_PAGE = 'UPLOAD_PAGE';
 const BASIC_INFO_PAGE = 'BASIC_INFO_PAGE';
-// const PRICE_PAGE = 'PRICE_PAGE';
-// const SINGLE_SELECTION_PAGE = 'SINGLE_SELECTION_PAGE';
 
 const INITIAL_STATE = {
   uploadZoneVisable: true,
   formType: '',
   formPage: UPLOAD_PAGE,
   isReleasing: false,
-  isUploading: false
+  isUploading: false,
+  error: ''
 };
 
 export default (state = INITIAL_STATE, action) => {
