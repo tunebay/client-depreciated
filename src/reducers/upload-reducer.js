@@ -1,5 +1,5 @@
 import {
-  PLAYLIST_RELEASE_SUCESS,
+  PLAYLIST_RELEASE_SUCCESS,
   PLAYLIST_RELEASE_STARTED,
   SET_PAGE,
   MULTI_UPLOAD_STARTED,
@@ -43,7 +43,7 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, formPage: action.payload };
     case PLAYLIST_RELEASE_STARTED:
       return { ...state, isReleasing: true };
-    case PLAYLIST_RELEASE_SUCESS:
+    case PLAYLIST_RELEASE_SUCCESS:
       return INITIAL_STATE;
     default:
       return state;

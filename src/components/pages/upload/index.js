@@ -20,8 +20,8 @@ class UploadAudioFlow extends Component {
 
   handleFormSubmit() {
     console.log('in here');
-    const { audioUploadForm, playlist } = this.props;
-    this.props.releasePlaylist(audioUploadForm.values, playlist);
+    const { audioUploadForm, playlist, artwork } = this.props;
+    this.props.releasePlaylist(audioUploadForm.values, playlist, artwork);
   }
 
   handleCancel() {
@@ -91,7 +91,8 @@ const mapStateToProps = (state) => {
     formType: state.audioUpload.formType,
     formPage: state.audioUpload.formPage,
     audioUploadForm: state.form.audioUploadForm,
-    playlist: state.uploadedPlaylist
+    playlist: state.uploadedPlaylist,
+    artwork: state.uploadedArtwork.image
   };
 };
 
