@@ -8,11 +8,13 @@ import audioUploadReducer from './upload-reducer'; // new
 import currentUserReducer from './current-user-reducer';
 import playerReducer from './player/player-reducer';
 
+import { PLAYLIST_RELEASE_SUCCESS } from '../actions/types';
+
 const rootReducer = combineReducers({
   form: formReducer.plugin({
     audioUploadForm: (state, action) => {
       switch (action.type) {
-        case 'PLAYLIST_RELEASE_SUCESS':
+        case PLAYLIST_RELEASE_SUCCESS:
           return undefined;
         default:
           return state;
