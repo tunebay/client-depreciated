@@ -11,12 +11,20 @@ class PlaylistDisplay extends Component {
       <SingleTrack track={tracks[0]} /> :
       <TrackList tracks={tracks} />;
   }
+
+  renderArtwork() {
+    const { artwork, title } = this.props.playlist;
+    if (artwork) {
+      return <img src={artwork} className="artwork" alt={title} />;
+    }
+    return <div className="no-artwork" />;
+  }
   render() {
     const { playlist } = this.props;
     return (
       <li className="playlist-display">
         <div className="artwork-detail-con">
-          <div className="artwork" />
+          {this.renderArtwork()}
           <div className="detail">
             <div className="playlist-title-pill">
               {playlist.title}<PricePill price={playlist.price} />
