@@ -81,6 +81,7 @@ class UploadAudioFlow extends Component {
           {formPage === PRICE_PAGE &&
             <PricePage
               playlist={playlist}
+              formType={formType}
               onSubmit={this.handlePriceSubmit.bind(this)}
               handlePrevious={this.handlePricePagePrevious.bind(this)}
               formValues={audioUploadForm.values}

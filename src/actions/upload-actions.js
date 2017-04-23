@@ -40,7 +40,6 @@ export const setPage = (newPage) => {
 
 const handleSingleUpload = (file) => {
   return (dispatch) => {
-    dispatch({ type: SINGLE_UPLOAD_STARTED });
     const audio = document.createElement('AUDIO');
     audio.src = file.preview;
     audio.addEventListener('loadedmetadata', () => {
@@ -52,12 +51,13 @@ const handleSingleUpload = (file) => {
         duration: Math.round(audio.duration),
         file
       };
+      dispatch({ type: ADD_TRACK, payload: track });
+      dispatch({ type: SINGLE_UPLOAD_STARTED });
       dispatch({
         type: SET_DEFAULT_VALUES,
-        title: track.name,
+        title: file.name.substr(0, file.name.lastIndexOf('.')) || file.name,
         playlistType: { label: 'Single', value: 'single' }
       });
-      dispatch({ type: ADD_TRACK, payload: track });
       uploadSingleToS3(track, dispatch);
     });
   };

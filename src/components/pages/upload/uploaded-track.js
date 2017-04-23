@@ -41,9 +41,7 @@ class UploadedTrack extends Component {
   }
 
   render() {
-    console.log('PROPS', this.props);
     const { track } = this.props;
-    console.log(track);
     console.log('PROGRESS', track.progress);
     return (
       <li className="uploaded-track" key={`track-${track.trackId}`}>

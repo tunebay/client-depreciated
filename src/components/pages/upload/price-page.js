@@ -5,10 +5,11 @@ import canPayMoreField from './fields/can-pay-more-field';
 import purchaseMessageField from './fields/purchase-message-field';
 import UploadArtworkZone from './artwork/upload-artwork-zone';
 import UploadedPlaylist from './uploaded-playlist';
+import UploadedSingle from './uploaded-single';
 import priceValidate from './price-validate';
 import '../../../styles/components/upload/price-page.scss';
 
-const PricePage = ({ formValues, handleSubmit, handlePrevious }) => {
+const PricePage = ({ formType, formValues, handleSubmit, handlePrevious }) => {
   console.log('form values', formValues);
   return (
     <form onSubmit={handleSubmit} className="price-page">
@@ -25,7 +26,7 @@ const PricePage = ({ formValues, handleSubmit, handlePrevious }) => {
           <Field name="purchaseMessage" component={purchaseMessageField} />
         </div>
       </div>
-      <UploadedPlaylist />
+      {renderPlaylist(formType)}
       <div className="upload-footer">
         <div className="required-fields"><span className="required">*</span> Required feilds</div>
         <div className="action-btns">
@@ -35,6 +36,13 @@ const PricePage = ({ formValues, handleSubmit, handlePrevious }) => {
       </div>
     </form>
   );
+};
+
+const renderPlaylist = (formType) => {
+  if (formType === 'SINGLE') {
+    return <UploadedSingle />;
+  }
+  return <UploadedPlaylist />;
 };
 
 export default reduxForm({

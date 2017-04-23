@@ -6,6 +6,7 @@ import releaseDateField from './fields/release-date-field';
 import genreField from './fields/genre-field';
 import UploadArtworkZone from './artwork/upload-artwork-zone';
 import UploadedPlaylist from './uploaded-playlist';
+import UploadedSingle from './uploaded-single';
 import basicInfoValidate from './basic-info-validate';
 import '../../../styles/components/upload/basic-info-page.scss';
 
@@ -46,7 +47,7 @@ const BasicInfoPage = ({ formType, handleSubmit, handleCancel }) => {
 
 const renderPlaylist = (formType) => {
   if (formType === 'SINGLE') {
-    return <div />;
+    return <UploadedSingle />;
   }
   return <UploadedPlaylist />;
 };
