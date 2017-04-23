@@ -11,6 +11,10 @@
   background-color: #fff;
   border-radius: 3px;
 
+  .multi-form-details {
+    border-bottom: 1px solid $light-grey;
+  }
+
   .playlist-details {
     .field-section {
       .basic-info-section {
@@ -159,11 +163,14 @@
     }
   }
 
+  .multi-footer {
+    border-top: 1px solid $light-grey;
+  }
+
   .upload-footer {
     @include browserFlex;
     @include alignCenter;
     @include borderBox;
-    border-top: 1px solid $light-grey;
     padding: 0 20px;
     justify-content: space-between;
     height: 60px;
@@ -223,7 +230,6 @@
     flex-direction: row;
     @include browserFlex;
     @include borderBox;
-    border-bottom: 1px solid $light-grey;
     .field-section {
       @include browserFlex;
       @include borderBox;

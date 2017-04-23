@@ -144,6 +144,7 @@ export const updateTrackPosition = (playlist, oldIndex, newIndex) => {
 };
 
 export const releasePlaylist = (playlistDetails, playlistTracks, image) => {
+  console.log('here');
   return (dispatch) => {
     dispatch({ type: PLAYLIST_RELEASE_STARTED });
     const tracksToPost = processTracks(playlistTracks);
