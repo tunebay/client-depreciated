@@ -1,5 +1,6 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
+import className from 'classnames';
 import titleField from './fields/title-field';
 import playlistTypeField from './fields/playlist-type-field';
 import releaseDateField from './fields/release-date-field';
@@ -11,9 +12,17 @@ import basicInfoValidate from './basic-info-validate';
 import '../../../styles/components/upload/basic-info-page.scss';
 
 const BasicInfoPage = ({ formType, handleSubmit, handleCancel }) => {
+  const detailClass = className({
+    'playlist-details': true,
+    'multi-form-details': formType === 'MULTI'
+  });
+  const footerClass = className({
+    'upload-footer': true,
+    'multi-footer': formType === 'MULTI'
+  });
   return (
     <form onSubmit={handleSubmit} className="basic-info-page">
-      <div className="playlist-details">
+      <div className={detailClass}>
         <div className="artwork-section">
           <UploadArtworkZone />
         </div>
@@ -34,7 +43,7 @@ const BasicInfoPage = ({ formType, handleSubmit, handleCancel }) => {
         </div>
       </div>
       {renderPlaylist(formType)}
-      <div className="upload-footer">
+      <div className={footerClass}>
         <div className="required-fields"><span className="required">*</span> Required feilds</div>
         <div className="action-btns">
           <button onClick={handleCancel} type="button" className="back-btn">Cancel</button>

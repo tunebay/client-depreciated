@@ -1,0 +1,9 @@
+.progress {
+  animation: smooth 0.3 linear;
+}
+
+@keyframes smooth {
+  to {
+    stroke-dashoffset: 100;
+  }
+}
