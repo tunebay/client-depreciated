@@ -32,7 +32,7 @@ const BasicInfoPage = ({ formType, handleSubmit, handleCancel }) => {
           <Field name="genres" component={genreField} />
         </div>
       </div>
-      <UploadedPlaylist />
+      {renderPlaylist(formType)}
       <div className="upload-footer">
         <div className="required-fields"><span className="required">*</span> Required feilds</div>
         <div className="action-btns">
@@ -44,13 +44,20 @@ const BasicInfoPage = ({ formType, handleSubmit, handleCancel }) => {
   );
 };
 
+const renderPlaylist = (formType) => {
+  if (formType === 'SINGLE') {
+    return <div />;
+  }
+  return <UploadedPlaylist />;
+};
+
 export default reduxForm({
   form: 'audioUploadForm',
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
   initialValues: {
     price: parseFloat(0.00).toFixed(2),
-    canPayMore: true
+    canPayMore: true,
   },
   validate: basicInfoValidate
 })(BasicInfoPage);

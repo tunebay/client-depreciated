@@ -62,7 +62,7 @@ class UploadAudioFlow extends Component {
   }
 
   render() {
-    const { formPage, audioUploadForm, playlist } = this.props;
+    const { formPage, audioUploadForm, playlist, formType } = this.props;
     return (
       <Content>
         <div className="n-upload-container">
@@ -71,6 +71,8 @@ class UploadAudioFlow extends Component {
 
           {formPage === BASIC_INFO_PAGE &&
             <BasicInfoPage
+              formType={formType}
+              playlist={playlist}
               onSubmit={this.handleBasicInfoSubmit.bind(this)}
               handleCancel={this.handleCancel.bind(this)}
             />
@@ -78,6 +80,7 @@ class UploadAudioFlow extends Component {
 
           {formPage === PRICE_PAGE &&
             <PricePage
+              playlist={playlist}
               onSubmit={this.handlePriceSubmit.bind(this)}
               handlePrevious={this.handlePricePagePrevious.bind(this)}
               formValues={audioUploadForm.values}
