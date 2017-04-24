@@ -42,29 +42,36 @@ class App extends Component {
         <div>
           <Switch>
             <Route
-              exact path="/" render={() => (
-              this.props.isAuthenticated ? (
-                <Redirect to="/feed" />
-              ) : (
-                <PublicHomePage />
-              ))}
+              exact path="/" render={(match) => {
+                console.log('MATCH', match);
+                // console.log('MATCH', match);
+                return (
+                !this.props.isAuthenticated ? (
+                  <PublicHomePage />
+                ) : (
+                  <div>
+                    <Header />
+                    <HomeFeed />
+                  </div>
+                ));
+              }}
             />
             {/* <Route path="/hub" component={RequireAuth(Hub)} /> */}
             <Route
               path="/login" render={() => (
-              this.props.isAuthenticated ? (
-                <Redirect to="/feed" />
-              ) : (
+              !this.props.isAuthenticated ? (
                 <div>
                   <Header unauth />
                   <Login />
                 </div>
+              ) : (
+                <Redirect to="/" />
               ))}
             />
             <Route
               path="/signup" render={() => (
               this.props.isAuthenticated ? (
-                <Redirect to="/feed" />
+                <Redirect to="/" />
               ) : (
                 <Signup />
               ))}

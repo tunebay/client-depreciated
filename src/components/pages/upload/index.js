@@ -20,6 +20,10 @@ class UploadAudioFlow extends Component {
     document.title = 'Tunebay | Upload';
   }
 
+  componentWillUnmount() {
+    this.handleCancel();
+  }
+
   handleFormSubmit() {
     console.log('in here');
     const { audioUploadForm, playlist, artwork } = this.props;
