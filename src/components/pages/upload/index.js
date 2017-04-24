@@ -16,13 +16,25 @@ const PRICE_PAGE = 'PRICE_PAGE';
 const SINGLE_SELECTION_PAGE = 'SINGLE_SELECTION_PAGE';
 
 class UploadAudioFlow extends Component {
-  componentWillMount() {
+  constructor(props) {
+    super(props);
+    // this.onUnload = this.onUnload.bind(this);
     document.title = 'Tunebay | Upload';
   }
 
-  componentWillUnmount() {
-    this.handleCancel();
-  }
+  // componentDidMount() {
+  //   window.addEventListener('beforeunload', this.onUnload);
+  // }
+  //
+  // componentWillUnmount() {
+  //   window.removeEventListener('beforeunload', this.onUnload);
+  //   this.handleCancel();
+  // }
+  //
+  // onUnload(event) {
+  //   event.returnValue = 'unloading';
+  //   return false;
+  // }
 
   handleFormSubmit() {
     console.log('in here');
