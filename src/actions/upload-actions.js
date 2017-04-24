@@ -144,7 +144,6 @@ export const updateTrackPosition = (playlist, oldIndex, newIndex) => {
 };
 
 export const releasePlaylist = (playlistDetails, playlistTracks, image) => {
-  console.log('here');
   return (dispatch) => {
     dispatch({ type: PLAYLIST_RELEASE_STARTED });
     const tracksToPost = processTracks(playlistTracks);
@@ -161,19 +160,51 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image) => {
       genre3Id = playlistDetails.genres[2].value;
     }
 
-    const filename = `users/artwork/${v4()}`;
+    if (image) {
+      const filename = `users/artwork/${v4()}`;
+      axios.get(`${API_URL}/upload/s3/sign`, {
+        params: { filename, filetype: image.type }
+      })
+      .then((res) => {
+        const artworkConfig = {
+          headers: { 'Content-Type': image.type },
+        };
+        return axios.put(res.data.signedURL, image, artworkConfig);
+      })
+      .then((res) => {
+        const artworkLocation = res.config.url.split('?')[0];
+        const playlistToPost = {
+          // required
+          tracks: tracksToPost,
+          title: playlistDetails.title,
+          playlistType: playlistDetails.playlistType.value,
+          price: playlistDetails.price,
+          canPayMore: playlistDetails.canPayMore,
+          numberOfTracks: playlistTracks.length,
+          lengthInSeconds: playlistDuration,
+          genre1Id: playlistDetails.genres[0].value,
+          // not required
+          artworkLocation: artworkLocation || null,
+          genre2Id: genre2Id || null,
+          genre3Id: genre3Id || null,
+          releaseDate: playlistDetails.releaseDate || null,
+          description: playlistDetails.description || null,
+          purchaseMessage: playlistDetails.purchaseMessage || null
+        };
 
-    axios.get(`${API_URL}/upload/s3/sign`, {
-      params: { filename, filetype: image.type }
-    })
-    .then((res) => {
-      const artworkConfig = {
-        headers: { 'Content-Type': image.type },
-      };
-      return axios.put(res.data.signedURL, image, artworkConfig);
-    })
-    .then((res) => {
-      const artworkLocation = res.config.url.split('?')[0];
+        const playlistConfig = { headers: { Authorization: localStorage.getItem('token') } };
+        console.log('POSTING PLAYLIST', playlistToPost);
+        axios.post(`${API_URL}/playlists/new`, playlistToPost, playlistConfig)
+        .then((data) => {
+          dispatch({ type: PLAYLIST_RELEASE_SUCCESS });
+          console.log('RESPONSE', data);
+        });
+      })
+      .catch((err) => {
+        console.log('Release Playlist ERROR', err);
+      });
+    } else {
+      const artworkLocation = null;
       const playlistToPost = {
         // required
         tracks: tracksToPost,
@@ -200,10 +231,7 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image) => {
         dispatch({ type: PLAYLIST_RELEASE_SUCCESS });
         console.log('RESPONSE', data);
       });
-    })
-    .catch((err) => {
-      console.log('Release Playlist ERROR', err);
-    });
+    }
   };
 };
 
@@ -284,6 +312,9 @@ const processTracks = (tracks) => {
   tracks.map((track) => {
     if (!track.isASingle) {
       track.price = null;
+    }
+    if (tracks.length === 1) {
+      track.isASingle = true;
     }
     delete track.file;
     delete track.trackId;

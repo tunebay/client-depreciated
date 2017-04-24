@@ -40,7 +40,9 @@ const PricePage = ({ formType, formValues, handleSubmit, handlePrevious }) => {
         <div className="required-fields"><span className="required">*</span> Required feilds</div>
         <div className="action-btns">
           <button onClick={handlePrevious} type="button" className="back-btn">Previous</button>
-          <button type="submit" className="next-btn">Next</button>
+          <button type="submit" className="next-btn">
+            {formType === 'MULTI' ? 'Next' : 'Release'}
+          </button>
         </div>
       </div>
     </form>
