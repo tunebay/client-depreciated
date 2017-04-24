@@ -1,41 +1,30 @@
 import React, { Component } from 'react';
-import moment from 'moment';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import 'react-dates/lib/css/_datepicker.css';
+import { SingleDatePicker } from 'react-dates';
 
 class ReleaseDateField extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: null
+      date: null,
+      focused: null
     };
-  }
-
-  handleDateChange(date) {
-    this.setState({ date });
   }
 
   render() {
     return (
       <div className="release-date-field">
-        <label
-          className="field-label"
-          htmlFor={this.props.label}
-        >Release date
-        </label>
-        <div>
-          <DatePicker
-            className="date-picker-input"
-            dateFormat="DD/MM/YYYY"
-            todayButton="Today"
-            {...this.props.input}
-            selected={this.state.date}
-            onChange={this.handleDateChange.bind(this)}
-            placeholderText="DD/MM/YYYY"
-            isClearable
-            maxDate={moment()}
-          />
-        </div>
+        <label htmlFor="release-date-field" className="field-label">Release date</label>
+        <SingleDatePicker
+          date={this.state.date} // momentPropTypes.momentObj or null
+          onDateChange={date => this.setState({ date })} // PropTypes.func.isRequired
+          focused={this.state.focused} // PropTypes.bool
+          onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
+          showClearDate
+          displayFormat="DD/MM/YYYY"
+          numberOfMonths={1}
+          placeholder={'DD/MM/YYYY'}
+        />
       </div>
     );
   }

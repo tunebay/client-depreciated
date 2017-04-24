@@ -39,7 +39,7 @@ class UploadedPlaylist extends Component {
   render() {
     const { playlist } = this.props;
     return (
-      <div>
+      <div className="sortable-list">
         <SortablePlaylist
           playlist={playlist}
           onSortEnd={this.onSortEnd.bind(this)}

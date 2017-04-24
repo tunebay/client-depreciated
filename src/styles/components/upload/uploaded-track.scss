@@ -9,6 +9,9 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
+  .sortable-list {
+    transition: height 350ms ease-in-out;
+  }
 }
 
 .uploaded-track {

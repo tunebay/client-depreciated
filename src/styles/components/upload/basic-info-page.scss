@@ -13,6 +13,7 @@
   flex-direction: column;
   background-color: #fff;
   border-radius: 3px;
+  transition: height 0.3s ease-in-out;
 
   .multi-footer {
     border-top: 1px solid $light-grey;
