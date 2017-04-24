@@ -8,7 +8,11 @@ import audioUploadReducer from './upload-reducer'; // new
 import currentUserReducer from './current-user-reducer';
 import playerReducer from './player/player-reducer';
 
-import { PLAYLIST_RELEASE_SUCCESS, SET_DEFAULT_VALUES } from '../actions/types';
+import {
+  PLAYLIST_RELEASE_SUCCESS,
+  SET_DEFAULT_VALUES,
+  TERMINATE_PLAYLIST_UPLOAD
+} from '../actions/types';
 
 const rootReducer = combineReducers({
   form: formReducer.plugin({
@@ -16,6 +20,8 @@ const rootReducer = combineReducers({
       console.log('FORM STATE', state);
       switch (action.type) {
         case PLAYLIST_RELEASE_SUCCESS:
+          return undefined;
+        case TERMINATE_PLAYLIST_UPLOAD:
           return undefined;
         case SET_DEFAULT_VALUES:
           return { ...state,
