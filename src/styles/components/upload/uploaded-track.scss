@@ -65,6 +65,11 @@
       border: 1px solid #ccc;
     }
   }
+  .progressbar {
+    @include browserFlex;
+    @include justifyCenter;
+    @include alignCenter;
+  }
   .delete-track-button {
     @include browserFlex;
     @include justifyCenter;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import 'sweetalert2/dist/sweetalert2.css';
 import alert from 'sweetalert2';
-import { Circle as Progress } from 'rc-progress';
+import { Circle } from 'react-progressbar.js';
 import { SortableElement, SortableHandle } from 'react-sortable-hoc';
 import * as actions from '../../../actions/uploaded-track-actions';
 
@@ -43,6 +43,17 @@ class UploadedTrack extends Component {
   render() {
     const { track } = this.props;
     console.log('PROGRESS', track.progress);
+
+    const options = {
+      strokeWidth: 11,
+      color: '#0089EE',
+      trailColor: '#e4e4e4'
+    };
+
+    const containerStyle = {
+      height: 30,
+      width: 30
+    };
     return (
       <li className="uploaded-track" key={`track-${track.trackId}`}>
         <div className="playlist-position">{track.playlistPosition}</div>
@@ -55,13 +66,12 @@ class UploadedTrack extends Component {
           placeholder={track.filename}
           required
         />
-        <Progress
-          strokeWidth="12"
-          trailWidth="12"
-          strokeColor={'#1596F5'}
-          strokeLinecap="round"
-          percent={track.progress || 0}
-          style={{ height: 30, width: 30 }}
+        <Circle
+          progress={track.progress / 100}
+          options={options}
+          initialAnimate={false}
+          containerStyle={containerStyle}
+          containerClassName={'progressbar'}
         />
         <button
           className="delete-track-button"
