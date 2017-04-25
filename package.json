@@ -58,7 +58,6 @@
     "moment": "^2.17.1",
     "node-uuid": "^1.4.7",
     "prop-types": "^15.5.8",
-    "rc-progress": "^2.1.1",
     "react": "^15.5.0",
     "react-addons-shallow-compare": "^15.5.2",
     "react-avatar-editor": "^9.1.1",
