@@ -7,19 +7,20 @@ class ReleaseDateField extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: null,
       focused: null
     };
   }
 
   render() {
     const maxDate = moment().add(1, 'day');
+    const { input } = this.props;
+    console.log('Input', input);
     return (
       <div className="release-date-field">
         <label htmlFor="release-date-field" className="field-label">Release date</label>
         <SingleDatePicker
-          date={this.state.date} // momentPropTypes.momentObj or null
-          onDateChange={date => this.setState({ date })} // PropTypes.func.isRequired
+          date={input.value || null} // momentPropTypes.momentObj or null
+          onDateChange={date => input.onChange(date)} // PropTypes.func.isRequired
           focused={this.state.focused} // PropTypes.bool
           onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
           showClearDate
