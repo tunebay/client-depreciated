@@ -176,12 +176,25 @@
               font-family: $font-stack;
             }
             &:disabled {
-              background-color: #aaa;
+              background-color: #999;
               color: #ccc;
             }
             &:focus {
               outline: none;
               border: 1px solid #ccc;
+            }
+            .input-error {
+              border: 1px solid $red;
+              border-radius: 3px;
+              .Select-control {
+                border: none;
+                height: 38px;
+              }
+              &:focus {
+                outline: none;
+                border: 1px solid $red;
+                border-radius: 3px;
+              }
             }
           }
         }

@@ -16,7 +16,7 @@ const BASIC_INFO_PAGE = 'BASIC_INFO_PAGE';
 const INITIAL_STATE = {
   uploadZoneVisable: true,
   formType: '',
-  formPage: BASIC_INFO_PAGE,
+  formPage: UPLOAD_PAGE,
   isReleasing: false,
   isUploading: false,
   error: ''

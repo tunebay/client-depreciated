@@ -10,7 +10,8 @@ class PlaylistTypeField extends Component {
     const options = [
       { value: 'single', label: 'Single' },
       { value: 'EP', label: 'EP' },
-      { value: 'album', label: 'Album' }
+      { value: 'album', label: 'Album' },
+      { value: 'playlist', label: 'Playlist' }
     ];
 
     const inputClass = className({
