@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'react-dates/lib/css/_datepicker.css';
+import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 
 class ReleaseDateField extends Component {
@@ -12,6 +13,7 @@ class ReleaseDateField extends Component {
   }
 
   render() {
+    const maxDate = moment().add(1, 'day');
     return (
       <div className="release-date-field">
         <label htmlFor="release-date-field" className="field-label">Release date</label>
@@ -21,6 +23,7 @@ class ReleaseDateField extends Component {
           focused={this.state.focused} // PropTypes.bool
           onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
           showClearDate
+          isOutsideRange={day => day.isAfter(maxDate)}
           displayFormat="DD/MM/YYYY"
           numberOfMonths={1}
           placeholder={'DD/MM/YYYY'}
