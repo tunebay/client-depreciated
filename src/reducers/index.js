@@ -17,7 +17,6 @@ import {
 const rootReducer = combineReducers({
   form: formReducer.plugin({
     audioUploadForm: (state, action) => {
-      console.log('FORM STATE', state);
       switch (action.type) {
         case PLAYLIST_RELEASE_SUCCESS:
           return undefined;

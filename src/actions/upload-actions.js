@@ -1,5 +1,6 @@
 import { arrayMove } from 'react-sortable-hoc';
 import axios from 'axios';
+import moment from 'moment';
 import v4 from 'node-uuid';
 import {
   ADD_TRACK,
@@ -173,6 +174,7 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image) => {
       })
       .then((res) => {
         const artworkLocation = res.config.url.split('?')[0];
+        const releaseDate = moment(playlistDetails.releaseDate).format('YYYY-MM-DD HH:mm:ss');
         const playlistToPost = {
           // required
           tracks: tracksToPost,
@@ -187,7 +189,7 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image) => {
           artworkLocation: artworkLocation || null,
           genre2Id: genre2Id || null,
           genre3Id: genre3Id || null,
-          releaseDate: playlistDetails.releaseDate || null,
+          releaseDate: releaseDate || null,
           description: playlistDetails.description || null,
           purchaseMessage: playlistDetails.purchaseMessage || null
         };
