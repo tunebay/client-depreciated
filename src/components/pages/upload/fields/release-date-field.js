@@ -12,7 +12,8 @@ class ReleaseDateField extends Component {
   }
 
   render() {
-    const maxDate = moment().add(1, 'day');
+    // const maxDate = moment().add(1, 'day');
+    // console.log(maxDate);
     const { input } = this.props;
     console.log('Input', input);
     return (
@@ -24,7 +25,7 @@ class ReleaseDateField extends Component {
           focused={this.state.focused} // PropTypes.bool
           onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
           showClearDate
-          isOutsideRange={day => day.isAfter(maxDate)}
+          isOutsideRange={day => day.isAfter(moment())}
           displayFormat="DD/MM/YYYY"
           numberOfMonths={1}
           placeholder={'DD/MM/YYYY'}
