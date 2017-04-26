@@ -9,8 +9,8 @@ class PlaylistTypeField extends Component {
 
     const options = [
       { value: 'single', label: 'Single' },
-      { value: 'EP', label: 'EP' },
-      { value: 'album', label: 'Album' },
+      { value: 'EP', label: 'EP', disabled: this.props.formType === 'SINGLE' },
+      { value: 'album', label: 'Album', disabled: this.props.formType === 'SINGLE' },
       { value: 'playlist', label: 'Playlist' }
     ];
 
@@ -30,7 +30,6 @@ class PlaylistTypeField extends Component {
           <Select
             className={inputClass}
             {...input}
-            disabled={this.props.formType === 'SINGLE'}
             searchable={false}
             placeholder="Choose"
             value={input.value.value || ''}
