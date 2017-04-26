@@ -40,10 +40,15 @@ class UploadedTrack extends Component {
     });
   }
 
-  render() {
-    const { track } = this.props;
-    console.log('PROGRESS', track.progress);
-
+  renderPorgress() {
+    const { progress } = this.props.track;
+    if (progress === 100) {
+      return (
+        <div className="check-container">
+          <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle className="checkmark__circle" cx="26" cy="26" r="25" fill="none" /><path className="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg>
+        </div>
+      );
+    }
     const options = {
       strokeWidth: 11,
       color: '#0089EE',
@@ -51,9 +56,23 @@ class UploadedTrack extends Component {
     };
 
     const containerStyle = {
-      height: 30,
-      width: 30
+      height: 32,
+      width: 32
     };
+    return (
+      <Circle
+        progress={progress / 100}
+        options={options}
+        initialAnimate={false}
+        containerStyle={containerStyle}
+        containerClassName={'progressbar'}
+      />
+    );
+  }
+
+  render() {
+    const { track } = this.props;
+    console.log('PROGRESS', track.progress);
     return (
       <li className="uploaded-track" key={`track-${track.trackId}`}>
         <div className="playlist-position">{track.playlistPosition}</div>
@@ -66,13 +85,7 @@ class UploadedTrack extends Component {
           placeholder={track.filename}
           required
         />
-        <Circle
-          progress={track.progress / 100}
-          options={options}
-          initialAnimate={false}
-          containerStyle={containerStyle}
-          containerClassName={'progressbar'}
-        />
+        {this.renderPorgress()}
         <button
           className="delete-track-button"
           onClick={this.handleBinClick.bind(this)}
