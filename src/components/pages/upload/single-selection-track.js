@@ -47,6 +47,7 @@ class SingleSelectionTrack extends Component {
             <input
               type="number"
               step="0.01"
+              required
               value={track.price}
               onChange={this.handleInputChange.bind(this)}
               disabled={!track.isASingle}
