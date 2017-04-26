@@ -5,12 +5,12 @@ import className from 'classnames';
 
 class PlaylistTypeField extends Component {
   render() {
-    const { input, label, meta: { touched, error } } = this.props;
+    const { formType, input, label, meta: { touched, error } } = this.props;
 
     const options = [
       { value: 'single', label: 'Single' },
-      { value: 'EP', label: 'EP', disabled: this.props.formType === 'SINGLE' },
-      { value: 'album', label: 'Album', disabled: this.props.formType === 'SINGLE' },
+      { value: 'EP', label: 'EP', disabled: formType === 'SINGLE' },
+      { value: 'album', label: 'Album', disabled: formType === 'SINGLE' },
       { value: 'playlist', label: 'Playlist' }
     ];
 
