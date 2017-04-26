@@ -25,6 +25,12 @@ const SortablePlaylist = SortableContainer(({ playlist }) => {
 });
 
 class UploadedPlaylist extends Component {
+  componentWillReceiveProps(props) {
+    if (props.playlist.length <= 0) {
+      this.props.terminateUpload();
+    }
+  }
+
   onSortEnd({ oldIndex, newIndex }) {
     const { playlist } = this.props;
     this.props.updateTrackPosition(playlist, oldIndex, newIndex);
