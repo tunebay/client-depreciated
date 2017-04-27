@@ -6,7 +6,7 @@
   }
   .modal-container {
     height: 300px;
-    width: 740px;
+    width: 780px;
     background-color: #fff;
     // box-shadow: 0 0 8px 0 #1596F5;
     outline: none;
@@ -24,6 +24,70 @@
       height: 260px;
       width: 260px;
       background-color: $blue;
+    }
+    .details {
+      @include browserFlex;
+      padding-left: 20px;
+      @include borderBox;
+      flex-direction: column;
+      height: 100%;
+      width: 480px;
+      .basic-info-section {
+        .title-price {
+          @include browserFlex;
+          @include alignCenter;
+          flex-direction: row;
+          margin-bottom: 2px;
+          .playlist-title {
+            margin: 0;
+            padding: 0;
+            @include titleStyles;
+          }
+        }
+        .genres {
+          @include genreStyles;
+          margin-bottom: 5px;
+        }
+      }
+      .permalink-section {
+        font-family: $font-stack;
+        font-weight: 400;
+        color: $text-black;
+        font-size: 16px;
+        .release-message {
+          margin: 20px 0px;
+          .congrats {
+            font-weight: 600;
+          }
+        }
+        .permalink-field {
+          @include borderBox;
+          @include browserFlex;
+          @include alignCenter;
+          line-height: 36px;
+          padding: 0px 10px;
+          padding-top: 2px;
+          width: 100%;
+          height: 40px;
+          font-weight: 500;
+          color: $text-black;
+          font-family: $font-stack;
+          overflow-y: hidden;
+          white-space: nowrap;
+          overflow-x: scroll;
+          font-size: 14px;
+          resize: none;
+          border-radius: 3px;
+          background-color: $background;
+          border: none;
+          &-webkit-scrollbar, &scrollbar {
+            display: none;
+          }
+          &:focus {
+            outline: none;
+          }
+        }
+      }
     }
   }
 }
