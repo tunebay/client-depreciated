@@ -20,8 +20,8 @@ export default (state = INITIAL_STATE, action) => {
         dataURL: action.dataURL,
         image: action.image
       };
-    case 'PLAYLIST_RELEASE_SUCCESS':
-      return INITIAL_STATE;
+    // case 'PLAYLIST_RELEASE_SUCCESS':
+    //   return INITIAL_STATE;
     default:
       return state;
   }

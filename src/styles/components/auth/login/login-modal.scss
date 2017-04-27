@@ -1,6 +1,6 @@
 @import "../../../variables";
 
-.modal {
+.login-modal {
   justify-content: center;
   width: 420px;
   align-items: center;
@@ -14,16 +14,17 @@
   transition: all 200ms ease-in;
 }
 
-.overlay {
-  background-color: rgba(23,23,23,0.7);
+.login-overlay {
+  background-color: rgba(0,0,0,0.4);
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include alignCenter;
+  @include browserFlex;
+  @include justifyCenter;
+  z-index: 2;
   transition: all 200ms ease-in;
 }
 

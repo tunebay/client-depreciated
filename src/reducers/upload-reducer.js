@@ -19,7 +19,8 @@ const INITIAL_STATE = {
   formPage: UPLOAD_PAGE,
   isReleasing: false,
   isUploading: false,
-  error: ''
+  error: '',
+  relasedModalVisable: false
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -43,9 +44,11 @@ export default (state = INITIAL_STATE, action) => {
     case SET_PAGE:
       return { ...state, formPage: action.payload };
     case PLAYLIST_RELEASE_STARTED:
-      return { ...state, isReleasing: true };
-    case PLAYLIST_RELEASE_SUCCESS:
+      return { ...state, releasedModalVisable: true, isReleasing: true };
+    case 'HIDE_RELEASED_MODAL':
       return INITIAL_STATE;
+    case PLAYLIST_RELEASE_SUCCESS:
+      return { ...state, releasedModalVisable: true, isReleasing: false };
     case TERMINATE_PLAYLIST_UPLOAD:
       return INITIAL_STATE;
     default:

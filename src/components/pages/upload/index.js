@@ -6,6 +6,7 @@ import AudioDropzone from './audio-dropzone';
 import BasicInfoPage from './basic-info-page';
 import PricePage from './price-page';
 import SingleSelectionPage from './single-selection-page';
+import ReleasedModal from './released-modal';
 import Content from '../content';
 import * as actions from '../../../actions/upload-actions';
 import '../../../styles/components/upload/upload-index.scss';
@@ -82,8 +83,21 @@ class UploadAudioFlow extends Component {
     this.props.setPage(PRICE_PAGE);
   }
 
+  renderModal() {
+    const { releasedModalVisable, audioUploadForm } = this.props;
+    if (true) {
+      return (
+        <ReleasedModal
+          playlistDetails={audioUploadForm}
+          isVisable={releasedModalVisable}
+        />
+      );
+    }
+  }
+
   render() {
     const { formPage, audioUploadForm, playlist, formType } = this.props;
+    console.log('FORM', audioUploadForm);
     return (
       <Content>
         <div className="n-upload-container">
@@ -120,6 +134,7 @@ class UploadAudioFlow extends Component {
 
           <p className="n-upload-terms"><small><span className="n-important">Important:</span> By uploading, you confirm that your audio complies with our <span className="n-terms-link">Terms of Use</span> and that you are not infringing anyone else’s rights. If in doubt, read our <span className="n-terms-link">Copyright Information Page</span> and <span className="n-terms-link">FAQ’s</span> before uploading.</small></p>
         </div>
+        {this.renderModal()}
       </Content>
     );
   }
@@ -130,6 +145,7 @@ const mapStateToProps = (state) => {
     uploadZoneVisable: state.audioUpload.uploadZoneVisable,
     formType: state.audioUpload.formType,
     formPage: state.audioUpload.formPage,
+    releasedModalVisable: state.audioUpload.releasedModalVisable,
     audioUploadForm: state.form.audioUploadForm,
     playlist: state.uploadedPlaylist,
     artwork: state.uploadedArtwork.image

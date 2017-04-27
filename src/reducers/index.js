@@ -18,8 +18,8 @@ const rootReducer = combineReducers({
   form: formReducer.plugin({
     audioUploadForm: (state, action) => {
       switch (action.type) {
-        case PLAYLIST_RELEASE_SUCCESS:
-          return undefined;
+        // case PLAYLIST_RELEASE_SUCCESS:
+        //   return undefined;
         case TERMINATE_PLAYLIST_UPLOAD:
           return undefined;
         case SET_DEFAULT_VALUES:

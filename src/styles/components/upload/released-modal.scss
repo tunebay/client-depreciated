@@ -1,0 +1,46 @@
+@import "../../variables";
+
+.released-modal {
+  &:focus {
+    outline: none;
+  }
+  .modal-container {
+    height: 300px;
+    width: 740px;
+    background-color: #fff;
+    // box-shadow: 0 0 8px 0 #1596F5;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    &:focus {
+      outline: none;
+    }
+    padding: 20px;
+    @include borderBox;
+    @include browserFlex;
+    flex-direction: row;
+    @include alignCenter;
+    .artwork {
+      height: 260px;
+      width: 260px;
+      background-color: $blue;
+    }
+  }
+}
+
+.ReactModal__Body--open {
+    overflow: hidden;
+}
+
+.released-overlay {
+  @include browserFlex;
+  @include alignCenter;
+  @include justifyCenter;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  z-index: 2;
+}

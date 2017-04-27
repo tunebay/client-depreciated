@@ -50,8 +50,8 @@ export default (state = INITIAL_STATE, action) => {
       );
     case ADD_ANOTHER_TRACK:
       return [...state, UploadedTrackReducer(null, action)];
-    case PLAYLIST_RELEASE_SUCCESS:
-      return INITIAL_STATE;
+    // case PLAYLIST_RELEASE_SUCCESS:
+    //   return INITIAL_STATE;
     case TERMINATE_PLAYLIST_UPLOAD:
       return INITIAL_STATE;
     default:

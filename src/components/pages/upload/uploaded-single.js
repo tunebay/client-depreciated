@@ -5,7 +5,7 @@ import { Line } from 'react-progressbar.js';
 class UploadedSingle extends Component {
   render() {
     const track = this.props.playlist[0];
-    console.log(track.progress);
+    // console.log(track.progress);
     const options = {
       strokeWidth: 0.5,
       color: '#0089EE',

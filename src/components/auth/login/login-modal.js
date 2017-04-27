@@ -17,11 +17,12 @@ class LoginModal extends Component {
     return (
       <Modal
         isOpen={isVisable}
-        className="modal"
-        overlayClassName="overlay"
+        className="login-modal"
+        overlayClassName="login-overlay"
         contentLabel="loginModal"
         shouldCloseOnOverlayClick
         onRequestClose={requestCloseFn}
+        parentSelector={() => document.body}
       >
         <LoginFlow
           onSubmit={this.handleFormSubmit.bind(this)}
