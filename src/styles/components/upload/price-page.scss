@@ -154,7 +154,7 @@
           line-height: 1.4;
           font-family: $font-stack;
           color: $text-black;
-          font-weight: 400;
+          font-weight: 500;
           &:focus {
             outline: none;
             border: 1px solid #ccc;
@@ -258,5 +258,14 @@
       }
     }
   }
-
 }
+
+textarea.purchase-message-input::-webkit-input-placeholder { color: #999; }
+textarea.purchase-message-input::-moz-placeholder { color: #999; }
+textarea.purchase-message-input:-ms-input-placeholder { color: #999; }
+textarea.purchase-message-input:-moz-placeholder { color: #999; }
+
+textarea:focus.purchase-message-input::-webkit-input-placeholder { color: #ccc; }
+textarea:focus.purchase-message-input::-moz-placeholder { color: #ccc; }
+textarea:focus.purchase-message-input:-ms-input-placeholder { color: #ccc; }
+textarea:focus.purchase-message-input:-moz-placeholder { color: #ccc; }
