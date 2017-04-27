@@ -5,7 +5,7 @@ import PricePill from '../../common/price-pill';
 import SingleSelection from './single-selection';
 import '../../../styles/components/upload/single-selection-page.scss';
 
-const SingleSelectionPage = ({ formValues, handleSubmit, handlePrevious, playlist }) => {
+const SingleSelectionPage = ({ formValues, handleSubmit, handlePrevious, playlist, isReleasing }) => {
   return (
     <form onSubmit={handleSubmit} className="single-selection-page">
       <div className="playlist-details">
@@ -30,7 +30,15 @@ const SingleSelectionPage = ({ formValues, handleSubmit, handlePrevious, playlis
         <div className="required-fields"><span className="required">*</span> Required feilds</div>
         <div className="action-btns">
           <button onClick={handlePrevious} type="button" className="back-btn">Previous</button>
-          <button type="submit" className="next-btn">Release</button>
+          <button type="submit" className="next-btn">
+            {isReleasing ?
+              <img
+                className="ring-loading"
+                src="../../../../assets/images/ring-loading.svg"
+                alt="loading"
+              /> : 'Release'
+            }
+          </button>
         </div>
       </div>
     </form>

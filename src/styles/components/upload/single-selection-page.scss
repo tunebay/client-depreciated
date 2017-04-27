@@ -32,21 +32,13 @@
       }
     }
     .action-btns {
+      @include browserFlex;
+      flex-direction: row;
       .next-btn {
-        height: 40px;
-        width: 90px;
-        background-color: $green;
-        border: none;
-        color: #fff;
-        border-radius: 3px;
-        font-family: $font-stack;
-        font-weight: 500;
-        padding: 0;
-        font-size: 14px;
-        transition: all 75ms ease-out;
-        &:hover {
-          cursor: pointer;
-          background-color: lighten($green, 5%);
+        @include greenButton;
+        .ring-loading {
+          width: 25px;
+          height: 25px;
         }
       }
       .back-btn {

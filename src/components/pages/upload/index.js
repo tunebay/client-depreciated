@@ -84,19 +84,20 @@ class UploadAudioFlow extends Component {
   }
 
   renderModal() {
-    const { releasedModalVisable, audioUploadForm } = this.props;
-    if (true) {
+    const { releasedModalVisable, audioUploadForm, dataURL } = this.props;
+    if (releasedModalVisable) {
       return (
         <ReleasedModal
           playlistDetails={audioUploadForm}
           isVisable={releasedModalVisable}
+          artwork={dataURL}
         />
       );
     }
   }
 
   render() {
-    const { formPage, audioUploadForm, playlist, formType } = this.props;
+    const { formPage, audioUploadForm, playlist, formType, isReleasing } = this.props;
     console.log('FORM', audioUploadForm);
     return (
       <Content>
@@ -120,6 +121,7 @@ class UploadAudioFlow extends Component {
               onSubmit={this.handlePriceSubmit.bind(this)}
               handlePrevious={this.handlePricePagePrevious.bind(this)}
               formValues={audioUploadForm.values}
+              isReleasing={isReleasing}
             />
           }
 
@@ -129,6 +131,7 @@ class UploadAudioFlow extends Component {
               onSubmit={this.handleFormSubmit.bind(this)}
               handlePrevious={this.handleSingleSelectionPrevious.bind(this)}
               formValues={audioUploadForm.values}
+              isReleasing={isReleasing}
             />
           }
 
@@ -146,9 +149,11 @@ const mapStateToProps = (state) => {
     formType: state.audioUpload.formType,
     formPage: state.audioUpload.formPage,
     releasedModalVisable: state.audioUpload.releasedModalVisable,
+    isReleasing: state.audioUpload.isReleasing,
     audioUploadForm: state.form.audioUploadForm,
     playlist: state.uploadedPlaylist,
-    artwork: state.uploadedArtwork.image
+    artwork: state.uploadedArtwork.image,
+    dataURL: state.uploadedArtwork.dataURL
   };
 };
 

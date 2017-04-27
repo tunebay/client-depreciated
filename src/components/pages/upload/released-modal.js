@@ -12,9 +12,20 @@ const playlist = {
 };
 
 class ReleasedModal extends Component {
+  componentWillMount() {
+    console.log('mounting....');
+  }
+
   handlePermaLinkFocus() {
     console.log('focused', this.permalinkField);
     this.permalinkField.select();
+  }
+
+  renderArtwork() {
+    if (this.props.artwork) {
+      return <img src={this.props.artwork} alt="artwork" className="artwork" />;
+    }
+    return <div className="artwork" />;
   }
 
   render() {
@@ -22,7 +33,7 @@ class ReleasedModal extends Component {
     // console.log('Playlist sent to modal', playlistDetails);
     return (
       <Modal
-        isOpen={true}
+        isOpen={isVisable}
         className="released-modal"
         overlayClassName="released-overlay"
         contentLabel="releasedModal"
@@ -31,14 +42,14 @@ class ReleasedModal extends Component {
         parentSelector={() => document.body}
       >
         <div className="modal-container">
-          <div className="artwork" />
+          {this.renderArtwork()}
           <div className="details">
             <div className="basic-info-section">
               <div className="title-price">
-                <div className="playlist-title">{playlist.title}</div>
-                <PricePill price={playlist.price} />
+                <div className="playlist-title">{playlistDetails.values.title}</div>
+                <PricePill price={playlistDetails.values.price} />
               </div>
-              <div className="genres">{renderGenres(playlist.genres)}</div>
+              <div className="genres">{renderGenres(playlistDetails.values.genres)}</div>
             </div>
             <div className="permalink-section">
               <p className="release-message"><span className="congrats">Congratulations on your new release!</span> Now it’s time to tell the whole world and your mother. </p>
@@ -49,6 +60,9 @@ class ReleasedModal extends Component {
                 readOnly
                 onFocus={this.handlePermaLinkFocus.bind(this)}
               />
+            </div>
+            <div className="btn-section">
+              <button className="done-btn">Done</button>
             </div>
           </div>
         </div>

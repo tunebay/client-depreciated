@@ -12,6 +12,10 @@
     outline: none;
     border: none;
     border-radius: 3px;
+    animation:
+      blueShadowGlow 1.5s infinite,
+      bigEntrance 1.5s ease-out
+    ;
     &:focus {
       outline: none;
     }
@@ -29,6 +33,7 @@
       @include browserFlex;
       padding-left: 20px;
       @include borderBox;
+      position: relative;
       flex-direction: column;
       height: 100%;
       width: 480px;
@@ -88,6 +93,18 @@
           }
         }
       }
+      .btn-section {
+        @include browserFlex;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        height: 40px;
+        justify-content: flex-end;
+        align-self: baseline;
+        .done-btn {
+          @include greenButton;
+        }
+      }
     }
   }
 }
@@ -107,4 +124,88 @@
   background-color: rgba(0, 0, 0, 0.4);
   position: absolute;
   z-index: 2;
+  animation: fadeIn 300ms ease-out;
+}
+
+@keyframes blueShadowGlow {
+  from {  -webkit-box-shadow: 0 0 5px $blue; }
+  50% {  -webkit-box-shadow: 0 0 15px $blue; }
+  to {  -webkit-box-shadow: 0 0 5px $blue; }
+}
+
+@-webkit-keyframes blueShadowGlow {
+  from {  -webkit-box-shadow: 0 0 5px $blue; }
+  50% {  -webkit-box-shadow: 0 0 15px $blue; }
+  to {  -webkit-box-shadow: 0 0 5px $blue; }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bigEntrance {
+	0% {
+		transform: scale(0.3) rotate(6deg) translateX(-30%) translateY(30%);
+		opacity: 0.2;
+	}
+	30% {
+		transform: scale(1.03) rotate(-2deg) translateX(2%) translateY(-2%);
+		opacity: 1;
+	}
+	45% {
+		transform: scale(0.98) rotate(1deg) translateX(0%) translateY(0%);
+		opacity: 1;
+	}
+	60% {
+		transform: scale(1.01) rotate(-1deg) translateX(0%) translateY(0%);
+		opacity: 1;
+	}
+	75% {
+		transform: scale(0.99) rotate(1deg) translateX(0%) translateY(0%);
+		opacity: 1;
+	}
+	90% {
+		transform: scale(1.01) rotate(0deg) translateX(0%) translateY(0%);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1) rotate(0deg) translateX(0%) translateY(0%);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes bigEntrance {
+	0% {
+		-webkit-transform: scale(0.3) rotate(6deg) translateX(-30%) translateY(30%);
+		opacity: 0.2;
+	}
+	30% {
+		-webkit-transform: scale(1.03) rotate(-2deg) translateX(2%) translateY(-2%);
+		opacity: 1;
+	}
+	45% {
+		-webkit-transform: scale(0.98) rotate(1deg) translateX(0%) translateY(0%);
+		opacity: 1;
+	}
+	60% {
+		-webkit-transform: scale(1.01) rotate(-1deg) translateX(0%) translateY(0%);
+		opacity: 1;
+	}
+	75% {
+		-webkit-transform: scale(0.99) rotate(1deg) translateX(0%) translateY(0%);
+		opacity: 1;
+	}
+	90% {
+		-webkit-transform: scale(1.01) rotate(0deg) translateX(0%) translateY(0%);
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: scale(1) rotate(0deg) translateX(0%) translateY(0%);
+		opacity: 1;
+	}
 }

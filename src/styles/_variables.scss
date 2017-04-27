@@ -10,7 +10,7 @@ $royal: #375b74;
 $green: #43AC6A;
 $aqua: #50E3C2;
 $red: #d0011b;
-$placeholder: #999; 
+$placeholder: #999;
 $background: #eff3f5;
 $yellow: #f8bb86;
 
@@ -69,4 +69,26 @@ $breakpoint-large: 1200px;
   font-family: $font-stack;
   color: #999;
   font-weight: 500;
+}
+
+@mixin greenButton {
+  height: 40px;
+  width: 90px;
+  background-color: $green;
+  border: none;
+  color: #fff;
+  border-radius: 3px;
+  font-family: $font-stack;
+  font-weight: 500;
+  padding: 0;
+  // margin: 0;
+  font-size: 14px;
+  transition: all 75ms ease-out;
+  &:hover {
+    cursor: pointer;
+    background-color: lighten($green, 5%);
+  }
+  &:focus {
+    outline: none;
+  }
 }

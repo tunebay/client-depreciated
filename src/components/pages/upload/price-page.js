@@ -10,7 +10,7 @@ import UploadedSingle from './uploaded-single';
 import priceValidate from './price-validate';
 import '../../../styles/components/upload/price-page.scss';
 
-const PricePage = ({ formType, formValues, handleSubmit, handlePrevious }) => {
+const PricePage = ({ formType, formValues, handleSubmit, handlePrevious, isReleasing }) => {
   const detailClass = className({
     'playlist-details': true,
     'multi-form-details': formType === 'MULTI'
@@ -19,6 +19,20 @@ const PricePage = ({ formType, formValues, handleSubmit, handlePrevious }) => {
     'upload-footer': true,
     'multi-footer': formType === 'MULTI'
   });
+
+  const renderPlaylist = () => {
+    if (formType === 'SINGLE') {
+      return <UploadedSingle />;
+    }
+    return <UploadedPlaylist />;
+  };
+
+  const renderButtonContent = () => {
+    if (isReleasing) {
+      return <img src="../../../../assets/images/ring-loading.svg" alt="loading" className="ring-loading" />;
+    }
+    return formType === 'MULTI' ? 'Next' : 'Release';
+  };
 
   return (
     <form onSubmit={handleSubmit} className="price-page">
@@ -35,25 +49,18 @@ const PricePage = ({ formType, formValues, handleSubmit, handlePrevious }) => {
           <Field name="purchaseMessage" component={purchaseMessageField} />
         </div>
       </div>
-      {renderPlaylist(formType)}
+      {renderPlaylist()}
       <div className={footerClass}>
         <div className="required-fields"><span className="required">*</span> Required feilds</div>
         <div className="action-btns">
           <button onClick={handlePrevious} type="button" className="back-btn">Previous</button>
           <button type="submit" className="next-btn">
-            {formType === 'MULTI' ? 'Next' : 'Release'}
+            {renderButtonContent()}
           </button>
         </div>
       </div>
     </form>
   );
-};
-
-const renderPlaylist = (formType) => {
-  if (formType === 'SINGLE') {
-    return <UploadedSingle />;
-  }
-  return <UploadedPlaylist />;
 };
 
 export default reduxForm({
