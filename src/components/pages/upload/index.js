@@ -91,6 +91,7 @@ class UploadAudioFlow extends Component {
           playlistDetails={audioUploadForm}
           isVisable={releasedModalVisable}
           artwork={dataURL}
+          requestCloseFn={this.props.terminateUpload}
         />
       );
     }

@@ -62,7 +62,10 @@ class ReleasedModal extends Component {
               />
             </div>
             <div className="btn-section">
-              <button className="done-btn">Done</button>
+              <button
+                onClick={requestCloseFn}
+                className="done-btn"
+              >Done</button>
             </div>
           </div>
         </div>
