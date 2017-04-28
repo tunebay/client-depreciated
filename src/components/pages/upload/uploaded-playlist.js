@@ -15,8 +15,8 @@ const SortablePlaylist = SortableContainer(({ playlist }) => {
         transitionName="anim"
         transitionEnterTimeout={500}
         transitionLeaveTimeout={300}
-        transitionLeave={true}
-        transitionEnter={true}
+        transitionLeave
+        transitionEnter
       >
         {playlist.map((track, index) =>
           <UploadedTrack track={track} key={track.trackId} index={index} />

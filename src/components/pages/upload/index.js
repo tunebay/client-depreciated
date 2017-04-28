@@ -110,8 +110,8 @@ class UploadAudioFlow extends Component {
             transitionName="anim"
             transitionEnterTimeout={500}
             transitionLeaveTimeout={300}
-            transitionLeave={true}
-            transitionEnter={true}
+            transitionLeave
+            transitionEnter
           >
             {formPage === UPLOAD_PAGE && <AudioDropzone />}
 
