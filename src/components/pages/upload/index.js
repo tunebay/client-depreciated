@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import 'sweetalert2/dist/sweetalert2.css';
 import alert from 'sweetalert2';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 import AudioDropzone from './audio-dropzone';
 import BasicInfoPage from './basic-info-page';
 import PricePage from './price-page';
@@ -24,7 +25,9 @@ class UploadAudioFlow extends Component {
   }
 
   // componentDidMount() {
-  //   window.addEventListener('beforeunload', this.onUnload);
+  //   console.log('in did mount');
+  //   // window.addEventListener('beforeunload', this.onUnload);
+  //
   // }
   //
   // componentWillUnmount() {
@@ -103,41 +106,49 @@ class UploadAudioFlow extends Component {
     return (
       <Content>
         <div className="n-upload-container">
+          <CSSTransitionGroup
+            transitionName="anim"
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={300}
+            transitionLeave={true}
+            transitionEnter={true}
+          >
+            {formPage === UPLOAD_PAGE && <AudioDropzone />}
 
-          {formPage === UPLOAD_PAGE && <AudioDropzone />}
+            {formPage === BASIC_INFO_PAGE &&
+              <BasicInfoPage
+                formType={formType}
+                playlist={playlist}
+                onSubmit={this.handleBasicInfoSubmit.bind(this)}
+                handleCancel={this.handleCancel.bind(this)}
+              />
+            }
 
-          {formPage === BASIC_INFO_PAGE &&
-            <BasicInfoPage
-              formType={formType}
-              playlist={playlist}
-              onSubmit={this.handleBasicInfoSubmit.bind(this)}
-              handleCancel={this.handleCancel.bind(this)}
-            />
-          }
+            {formPage === PRICE_PAGE &&
+              <PricePage
+                playlist={playlist}
+                formType={formType}
+                onSubmit={this.handlePriceSubmit.bind(this)}
+                handlePrevious={this.handlePricePagePrevious.bind(this)}
+                formValues={audioUploadForm.values}
+                isReleasing={isReleasing}
+              />
+            }
 
-          {formPage === PRICE_PAGE &&
-            <PricePage
-              playlist={playlist}
-              formType={formType}
-              onSubmit={this.handlePriceSubmit.bind(this)}
-              handlePrevious={this.handlePricePagePrevious.bind(this)}
-              formValues={audioUploadForm.values}
-              isReleasing={isReleasing}
-            />
-          }
-
-          {formPage === SINGLE_SELECTION_PAGE &&
-            <SingleSelectionPage
-              playlist={playlist}
-              onSubmit={this.handleFormSubmit.bind(this)}
-              handlePrevious={this.handleSingleSelectionPrevious.bind(this)}
-              formValues={audioUploadForm.values}
-              isReleasing={isReleasing}
-            />
-          }
+            {formPage === SINGLE_SELECTION_PAGE &&
+              <SingleSelectionPage
+                playlist={playlist}
+                onSubmit={this.handleFormSubmit.bind(this)}
+                handlePrevious={this.handleSingleSelectionPrevious.bind(this)}
+                formValues={audioUploadForm.values}
+                isReleasing={isReleasing}
+              />
+            }
+          </CSSTransitionGroup>
 
           <p className="n-upload-terms"><small><span className="n-important">Important:</span> By uploading, you confirm that your audio complies with our <span className="n-terms-link">Terms of Use</span> and that you are not infringing anyone else’s rights. If in doubt, read our <span className="n-terms-link">Copyright Information Page</span> and <span className="n-terms-link">FAQ’s</span> before uploading.</small></p>
         </div>
+
         {this.renderModal()}
       </Content>
     );

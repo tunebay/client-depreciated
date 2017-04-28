@@ -25,6 +25,7 @@ class ReleaseDateField extends Component {
           focused={this.state.focused} // PropTypes.bool
           onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
           showClearDate
+          // hideKeyboardShortcutsPanel
           isOutsideRange={day => day.isAfter(moment())}
           displayFormat="DD/MM/YYYY"
           numberOfMonths={1}

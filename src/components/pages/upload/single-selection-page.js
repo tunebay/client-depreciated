@@ -6,6 +6,7 @@ import SingleSelection from './single-selection';
 import '../../../styles/components/upload/single-selection-page.scss';
 
 const SingleSelectionPage = ({ formValues, handleSubmit, handlePrevious, playlist, isReleasing }) => {
+  window.scrollTo(0, 0);
   return (
     <form onSubmit={handleSubmit} className="single-selection-page">
       <div className="playlist-details">

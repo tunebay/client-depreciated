@@ -11,6 +11,7 @@ import priceValidate from './price-validate';
 import '../../../styles/components/upload/price-page.scss';
 
 const PricePage = ({ formType, formValues, handleSubmit, handlePrevious, isReleasing }) => {
+  window.scrollTo(0, 0);
   const detailClass = className({
     'playlist-details': true,
     'multi-form-details': formType === 'MULTI'
