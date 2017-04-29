@@ -1,9 +1,8 @@
-$logo-blue: #1596F5;
-$font-stack: 'Avenir Next', sans-serif;
+@import "../../variables.scss";
 
 .price-pill {
   margin-left: 10px;
-  background-color: $logo-blue;
+  background-color: $blue;
   min-width: 65px;
   width: auto;
   height: 20px;
@@ -27,13 +26,13 @@ $font-stack: 'Avenir Next', sans-serif;
 .pill-button {
   margin-left: 0;
   background-color: transparent;
-  border: 1px solid $logo-blue;
+  border: 1px solid $blue;
   transition: background-color 150ms ease-in-out;
   &:hover {
-    background-color: $logo-blue;
+    background-color: $blue;
     cursor: pointer;
   }
   .price-pill-text {
-    color: $logo-blue;
+    color: $blue;
   }
 }
