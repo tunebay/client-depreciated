@@ -15,8 +15,9 @@
     "no-param-reassign": ["error", { "props": false }]
   },
   "env": {
+    "es6": true,
     "node": true,
-    "mocha": true,
+    "jest": true,
     "browser": true
   },
   "plugins": ["react"]
