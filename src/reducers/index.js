@@ -9,7 +9,7 @@ import currentUserReducer from './current-user-reducer';
 import playerReducer from './player/player-reducer';
 
 import {
-  PLAYLIST_RELEASE_SUCCESS,
+  SET_PERMALINK,
   SET_DEFAULT_VALUES,
   TERMINATE_PLAYLIST_UPLOAD
 } from '../actions/types';
@@ -18,8 +18,6 @@ const rootReducer = combineReducers({
   form: formReducer.plugin({
     audioUploadForm: (state, action) => {
       switch (action.type) {
-        // case PLAYLIST_RELEASE_SUCCESS:
-        //   return undefined;
         case TERMINATE_PLAYLIST_UPLOAD:
           return undefined;
         case SET_DEFAULT_VALUES:
@@ -31,6 +29,8 @@ const rootReducer = combineReducers({
               playlistType: action.playlistType
             }
           };
+        case SET_PERMALINK:
+          return { ...state, values: { ...state.values, permalink: action.payload } };
         default:
           return state;
       }

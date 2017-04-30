@@ -2,6 +2,8 @@ import { arrayMove } from 'react-sortable-hoc';
 import axios from 'axios';
 import moment from 'moment';
 import v4 from 'node-uuid';
+import parameteriseString from '../util/parameterise-string';
+
 import {
   ADD_TRACK,
   ADD_TRACK_LOCATION,
@@ -18,13 +20,20 @@ import {
   PLAYLIST_RELEASE_STARTED,
   SET_PAGE,
   TERMINATE_PLAYLIST_UPLOAD,
-  SET_DEFAULT_VALUES
+  SET_DEFAULT_VALUES,
+  SET_PERMALINK
 } from './types';
 
 const API_URL = 'http://localhost:3000';
 
 let playlistPosition = 0;
 let trackProcessCounter = 0;
+
+export const setPermalink = (title, currentUser) => {
+  const parameterisedTitle = parameteriseString(title);
+  const permalink = `https://tunebay.com/${currentUser.username}/${parameterisedTitle}`;
+  return { type: SET_PERMALINK, payload: permalink };
+};
 
 export const processAudio = (files) => {
   playlistPosition = 0;
@@ -184,10 +193,11 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image) => {
           numberOfTracks: playlistTracks.length,
           lengthInSeconds: playlistDuration,
           genre1Id: playlistDetails.genres[0].value,
+          permalink: playlistDetails.permalink,
           // not required
-          artworkLocation: artworkLocation || null,
           genre2Id: genre2Id || null,
           genre3Id: genre3Id || null,
+          artworkLocation: artworkLocation || null,
           releaseDate: releaseDate || null,
           description: playlistDetails.description || null,
           purchaseMessage: playlistDetails.purchaseMessage || null

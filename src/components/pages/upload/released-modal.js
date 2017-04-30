@@ -4,13 +4,6 @@ import '../../../styles/components/upload/released-modal.scss';
 import PricePill from '../../common/price-pill';
 import renderGenres from '../../../util/render-genres';
 
-const playlist = {
-  title: 'Alchemy',
-  price: '7.99',
-  genres: [{ label: 'Soul', value: 32 }],
-  permalink: 'https://tunebay.com/malimichael/alchemy'
-};
-
 class ReleasedModal extends Component {
   componentWillMount() {
     console.log('mounting....');
@@ -55,7 +48,7 @@ class ReleasedModal extends Component {
               <p className="release-message"><span className="congrats">Congratulations on your new release!</span> Now it’s time to tell the whole world and your mother. </p>
               <textarea
                 ref={(n) => { this.permalinkField = n; }}
-                value={playlist.permalink}
+                value={playlistDetails.values.permalink}
                 className="permalink-field"
                 readOnly
                 onFocus={this.handlePermaLinkFocus.bind(this)}

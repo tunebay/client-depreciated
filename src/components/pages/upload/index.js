@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import 'sweetalert2/dist/sweetalert2.css';
 import alert from 'sweetalert2';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import AudioDropzone from './audio-dropzone';
 import BasicInfoPage from './basic-info-page';
 import PricePage from './price-page';
@@ -23,22 +23,6 @@ class UploadAudioFlow extends Component {
     // this.onUnload = this.onUnload.bind(this);
     document.title = 'Tunebay | Upload';
   }
-
-  // componentDidMount() {
-  //   console.log('in did mount');
-  //   // window.addEventListener('beforeunload', this.onUnload);
-  //
-  // }
-  //
-  // componentWillUnmount() {
-  //   window.removeEventListener('beforeunload', this.onUnload);
-  //   this.handleCancel();
-  // }
-  //
-  // onUnload(event) {
-  //   event.returnValue = 'unloading';
-  //   return false;
-  // }
 
   handleFormSubmit() {
     console.log('in here');
@@ -64,7 +48,9 @@ class UploadAudioFlow extends Component {
   }
 
   handleBasicInfoSubmit() {
+    const { audioUploadForm, currentUser } = this.props;
     // window.scrollTo(0, 0);
+    this.props.setPermalink(audioUploadForm.values.title, currentUser);
     this.props.setPage(PRICE_PAGE);
   }
 
@@ -167,7 +153,8 @@ const mapStateToProps = (state) => {
     audioUploadForm: state.form.audioUploadForm,
     playlist: state.uploadedPlaylist,
     artwork: state.uploadedArtwork.image,
-    dataURL: state.uploadedArtwork.dataURL
+    dataURL: state.uploadedArtwork.dataURL,
+    currentUser: state.currentUser
   };
 };
 
