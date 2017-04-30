@@ -1,41 +1,15 @@
 import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form';
 import authReducer from './auth-reducer';
 import profileReducer from './profile/profile-reducer';
 import uploadedPlaylistReducer from './hub/uploaded-playlist-reducer';
 import uploadedArtworkReducer from './artwork-reducer'; // new
+import formReducer from './redux-form-reducer';
 import audioUploadReducer from './upload-reducer'; // new
 import currentUserReducer from './current-user-reducer';
 import playerReducer from './player/player-reducer';
 
-import {
-  SET_PERMALINK,
-  SET_DEFAULT_VALUES,
-  TERMINATE_PLAYLIST_UPLOAD
-} from '../actions/types';
-
 const rootReducer = combineReducers({
-  form: formReducer.plugin({
-    audioUploadForm: (state, action) => {
-      switch (action.type) {
-        case TERMINATE_PLAYLIST_UPLOAD:
-          return undefined;
-        case SET_DEFAULT_VALUES:
-          return { ...state,
-            values: {
-              title: action.title,
-              canPayMore: true,
-              price: parseFloat(0.00).toFixed(2),
-              playlistType: action.playlistType
-            }
-          };
-        case SET_PERMALINK:
-          return { ...state, values: { ...state.values, permalink: action.payload } };
-        default:
-          return state;
-      }
-    }
-  }),
+  form: formReducer,
   auth: authReducer,
   profile: profileReducer,
   uploadedPlaylist: uploadedPlaylistReducer,

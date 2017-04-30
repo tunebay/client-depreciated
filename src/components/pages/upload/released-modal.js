@@ -23,7 +23,6 @@ class ReleasedModal extends Component {
 
   render() {
     const { requestCloseFn, playlistDetails, isVisable } = this.props;
-    // console.log('Playlist sent to modal', playlistDetails);
     return (
       <Modal
         isOpen={isVisable}
