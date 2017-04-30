@@ -192,6 +192,9 @@
       flex-direction: row;
       .next-btn {
         @include greenButton;
+        &:disabled {
+          background-color: #ccc;
+        }
         .ring-loading {
           width: 25px;
           height: 25px;

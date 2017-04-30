@@ -4,7 +4,10 @@ import {
   SET_PAGE,
   MULTI_UPLOAD_STARTED,
   SINGLE_UPLOAD_STARTED,
-  TERMINATE_PLAYLIST_UPLOAD
+  TERMINATE_PLAYLIST_UPLOAD,
+  UPDATE_TRACK_PROGRESS,
+  AUDIO_UPLOAD_FINISHED,
+  AUDIO_UPLOAD_ERROR
 } from '../actions/types';
 
 const MULTI = 'MULTI';
@@ -19,8 +22,8 @@ const INITIAL_STATE = {
   formPage: UPLOAD_PAGE,
   isReleasing: false,
   isUploading: false,
-  error: '',
-  relasedModalVisable: false
+  relasedModalVisable: false,
+  error: ''
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -56,6 +59,12 @@ export default (state = INITIAL_STATE, action) => {
       };
     case TERMINATE_PLAYLIST_UPLOAD:
       return INITIAL_STATE;
+    case UPDATE_TRACK_PROGRESS:
+      return { ...state, isUploading: true };
+    case AUDIO_UPLOAD_FINISHED:
+      return { ...state, isUploading: false };
+    case AUDIO_UPLOAD_ERROR:
+      return { ...state, error: action.payload };
     default:
       return state;
   }

@@ -14,7 +14,6 @@ import {
   AUDIO_UPLOAD_FINISHED,
   UPLOAD_ANOTHER_TRACK,
   ADD_ANOTHER_TRACK,
-  ANOTHER_UPLOAD_FINISHED,
   PLAYLIST_RELEASE_SUCCESS,
   PLAYLIST_RELEASE_STARTED,
   SET_PAGE,
@@ -302,7 +301,7 @@ const uploadAnotherFileToS3 = (track, dispatch) => {
   .then((res) => {
     const location = res.config.url.split('?')[0];
     dispatch({ type: ADD_TRACK_LOCATION, payload: location, trackId: track.trackId });
-    dispatch({ type: ANOTHER_UPLOAD_FINISHED });
+    dispatch({ type: AUDIO_UPLOAD_FINISHED });
   })
   .catch((err) => {
     console.log('UPLOAD ERROR', err);

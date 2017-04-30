@@ -101,7 +101,7 @@ class UploadAudioFlow extends Component {
   }
 
   render() {
-    const { formPage, audioUploadForm, playlist, formType, isReleasing } = this.props;
+    const { formPage, audioUploadForm, playlist, formType, isReleasing, isUploading } = this.props;
     console.log('FORM', audioUploadForm);
     return (
       <Content>
@@ -132,6 +132,7 @@ class UploadAudioFlow extends Component {
                 handlePrevious={this.handlePricePagePrevious.bind(this)}
                 formValues={audioUploadForm.values}
                 isReleasing={isReleasing}
+                isUploading={isUploading}
               />
             }
 
@@ -162,6 +163,7 @@ const mapStateToProps = (state) => {
     formPage: state.audioUpload.formPage,
     releasedModalVisable: state.audioUpload.releasedModalVisable,
     isReleasing: state.audioUpload.isReleasing,
+    isUploading: state.audioUpload.isUploading,
     audioUploadForm: state.form.audioUploadForm,
     playlist: state.uploadedPlaylist,
     artwork: state.uploadedArtwork.image,

@@ -12,7 +12,6 @@ import basicInfoValidate from './basic-info-validate';
 import '../../../styles/components/upload/basic-info-page.scss';
 
 const BasicInfoPage = ({ formType, handleSubmit, handleCancel }) => {
-  window.scrollTo(0, 0);
   const detailClass = className({
     'playlist-details': true,
     'multi-form-details': formType === 'MULTI'
