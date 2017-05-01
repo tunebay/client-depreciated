@@ -77,7 +77,9 @@ const UploadFooter = ({ formType, handlePrevious, singleProgress, isUploading, i
       <div className="required-fields"><span className="required">*</span> Required feilds</div>
       <div className="action-btns">
         {renderSingleProgress()}
-        <button onClick={handlePrevious} type="button" className="back-btn">Previous</button>
+        <button onClick={handlePrevious} type="button" className="back-btn">
+          {page === 'BASIC_INFO_PAGE' ? 'Cancel' : 'Previous'}
+        </button>
         <div data-tip data-for="nextBtn">
           <button
             type="submit"
