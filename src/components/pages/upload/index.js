@@ -106,7 +106,7 @@ class UploadAudioFlow extends Component {
                 formType={formType}
                 playlist={playlist}
                 onSubmit={this.handleBasicInfoSubmit.bind(this)}
-                handleCancel={this.handleCancel.bind(this)}
+                handlePrevious={this.handleCancel.bind(this)}
               />
             }
 

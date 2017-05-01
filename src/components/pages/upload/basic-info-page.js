@@ -7,19 +7,24 @@ import releaseDateField from './fields/release-date-field';
 import genreField from './fields/genre-field';
 import UploadArtworkZone from './artwork/upload-artwork-zone';
 import UploadedPlaylist from './uploaded-playlist';
-import UploadedSingle from './uploaded-single';
+import UploadFooter from './upload-footer';
 import basicInfoValidate from './basic-info-validate';
 import '../../../styles/components/upload/basic-info-page.scss';
 
-const BasicInfoPage = ({ formType, handleSubmit, handleCancel }) => {
+const BasicInfoPage = ({ formType, handleSubmit, handlePrevious, playlist }) => {
+  const singleProgress = playlist[0].progress;
+  console.log(singleProgress);
   const detailClass = className({
     'playlist-details': true,
     'multi-form-details': formType === 'MULTI'
   });
-  const footerClass = className({
-    'upload-footer': true,
-    'multi-footer': formType === 'MULTI'
-  });
+
+  const renderPlaylist = () => {
+    if (formType === 'MULTI') {
+      return <UploadedPlaylist />;
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit} className="basic-info-page">
       <div className={detailClass}>
@@ -42,23 +47,15 @@ const BasicInfoPage = ({ formType, handleSubmit, handleCancel }) => {
           <Field name="genres" component={genreField} />
         </div>
       </div>
-      {renderPlaylist(formType)}
-      <div className={footerClass}>
-        <div className="required-fields"><span className="required">*</span> Required feilds</div>
-        <div className="action-btns">
-          <button onClick={handleCancel} type="button" className="back-btn">Cancel</button>
-          <button type="submit" className="next-btn">Next</button>
-        </div>
-      </div>
+      {renderPlaylist()}
+      <UploadFooter
+        formType={formType}
+        handlePrevious={handlePrevious}
+        singleProgress={singleProgress}
+        page={'BASIC_INFO_PAGE'}
+      />
     </form>
   );
-};
-
-const renderPlaylist = (formType) => {
-  if (formType === 'SINGLE') {
-    return <UploadedSingle />;
-  }
-  return <UploadedPlaylist />;
 };
 
 export default reduxForm({

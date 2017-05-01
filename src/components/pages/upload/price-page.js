@@ -1,48 +1,25 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import className from 'classnames';
-import ReactTooltip from 'react-tooltip';
 import priceField from './fields/price-field';
 import canPayMoreField from './fields/can-pay-more-field';
 import purchaseMessageField from './fields/purchase-message-field';
 import UploadArtworkZone from './artwork/upload-artwork-zone';
 import UploadedPlaylist from './uploaded-playlist';
-import UploadedSingle from './uploaded-single';
+import UploadFooter from './upload-footer';
 import priceValidate from './price-validate';
 import '../../../styles/components/upload/price-page.scss';
 
-const PricePage = ({ formType, formValues, handleSubmit, handlePrevious, isReleasing, isUploading }) => {
-  console.log('UPLOADING', isUploading);
+const PricePage = ({ formType, formValues, playlist, handleSubmit, handlePrevious, isReleasing, isUploading }) => {
+  const singleProgress = playlist[0].progress;
   const detailClass = className({
     'playlist-details': true,
     'multi-form-details': formType === 'MULTI'
   });
-  const footerClass = className({
-    'upload-footer': true,
-    'multi-footer': formType === 'MULTI'
-  });
 
   const renderPlaylist = () => {
-    if (formType === 'SINGLE') {
-      return <UploadedSingle />;
-    }
-    return <UploadedPlaylist />;
-  };
-
-  const renderButtonContent = () => {
-    if (isReleasing) {
-      return <img src="../../../../assets/images/ring-loading.svg" alt="loading" className="ring-loading" />;
-    }
-    return formType === 'MULTI' ? 'Next' : 'Release';
-  };
-
-  const renderTooltip = () => {
-    if (isUploading) {
-      return (
-        <ReactTooltip id="nextBtn" type="dark" effect="solid">
-          <span className="tootip">Please wait for your upload to complete before continuing</span>
-        </ReactTooltip>
-      );
+    if (formType === 'MULTI') {
+      return <UploadedPlaylist />;
     }
   };
 
@@ -62,22 +39,14 @@ const PricePage = ({ formType, formValues, handleSubmit, handlePrevious, isRelea
         </div>
       </div>
       {renderPlaylist()}
-      <div className={footerClass}>
-        <div className="required-fields"><span className="required">*</span> Required feilds</div>
-        <div className="action-btns">
-          <button onClick={handlePrevious} type="button" className="back-btn">Previous</button>
-          <div data-tip data-for="nextBtn">
-            <button
-              type="submit"
-              disabled={isUploading || isReleasing}
-              className="next-btn"
-            >
-              {renderButtonContent()}
-            </button>
-          </div>
-          {renderTooltip()}
-        </div>
-      </div>
+      <UploadFooter
+        formType={formType}
+        handlePrevious={handlePrevious}
+        singleProgress={singleProgress}
+        isUploading={isUploading}
+        isReleasing={isReleasing}
+        page={'PRICE_PAGE'}
+      />
     </form>
   );
 };

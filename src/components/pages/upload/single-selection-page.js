@@ -3,6 +3,7 @@ import { reduxForm } from 'redux-form';
 import UploadArtworkZone from './artwork/upload-artwork-zone';
 import PricePill from '../../common/price-pill';
 import SingleSelection from './single-selection';
+import UploadFooter from './upload-footer';
 import '../../../styles/components/upload/single-selection-page.scss';
 
 const SingleSelectionPage = ({ formValues, handleSubmit, handlePrevious, playlist, isReleasing }) => {
@@ -26,21 +27,11 @@ const SingleSelectionPage = ({ formValues, handleSubmit, handlePrevious, playlis
         </div>
       </div>
       <SingleSelection playlist={playlist} />
-      <div className="upload-footer">
-        <div className="required-fields"><span className="required">*</span> Required feilds</div>
-        <div className="action-btns">
-          <button onClick={handlePrevious} type="button" className="back-btn">Previous</button>
-          <button type="submit" className="next-btn">
-            {isReleasing ?
-              <img
-                className="ring-loading"
-                src="../../../../assets/images/ring-loading.svg"
-                alt="loading"
-              /> : 'Release'
-            }
-          </button>
-        </div>
-      </div>
+      <UploadFooter
+        handlePrevious={handlePrevious}
+        isReleasing={isReleasing}
+        page={'SINGLE_SELECTION_PAGE'}
+      />
     </form>
   );
 };
