@@ -3,13 +3,20 @@ import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
 import * as actions from '../../../../actions/uploaded-artwork-actions';
 import ArtworkModal from './artwork-modal';
+import { showErrorBanner } from '../../../../actions/banner-actions';
 import '../../../../styles/components/upload/upload-artwork-zone.scss';
 
 class UploadArtworkZone extends Component {
   handleDrop(file, rejected) {
+    if (rejected.length > 0) {
+      this.props.showErrorBanner(
+        'The selected image is exceeds the 2MB size limit. Please resize accordingly.'
+      );
+    } else {
+      this.props.showArtworkModal(file[0]);
+    }
     console.log('rejected artwork', rejected);
     console.log('accepted', file);
-    this.props.showArtworkModal(file[0]);
   }
 
   renderArtwork() {
@@ -66,4 +73,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, actions)(UploadArtworkZone);
+export default connect(mapStateToProps, { ...actions, showErrorBanner })(UploadArtworkZone);
