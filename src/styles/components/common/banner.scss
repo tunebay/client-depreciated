@@ -13,7 +13,7 @@
   @include borderBox;
   @include browserFlex;
   @include alignCenter;
-  padding-bottom: 50px;
+  margin-bottom: 50px;
   .banner {
     color: #fff;
     font-size: 14px;
@@ -32,6 +32,23 @@
     width: 100%;
     min-width: $breakpoint-medium;
     background-color: $red;
+    .close-btn {
+      width: 75px;
+      height: 32px;
+      background-color: $red;
+      border: none;
+      outline: none;
+      line-height: 1.4;
+      border-radius: 3px;
+      color: #e4e4e4;
+      &:hover {
+        color: white;
+        cursor: pointer;
+      }
+      font-family: $font-stack;
+      font-weight: 500;
+      font-size: 14px;
+    }
     .banner-left {
       @include browserFlex;
       @include alignCenter;

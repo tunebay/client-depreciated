@@ -29,7 +29,10 @@ class Banner extends Component {
             />
             <div className="banner-message">{this.props.message}</div>
           </div>
-          <button onClick={this.handleClose.bind(this)}>Close</button>
+          <button
+            onClick={this.handleClose.bind(this)}
+            className="close-btn"
+          >Close</button>
         </div>
       </Modal>
     );
