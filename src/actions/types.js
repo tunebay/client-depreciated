@@ -1,3 +1,8 @@
+// app actions (reserved for actions that can be called anywhere in app)
+
+export const SHOW_ERROR_BANNER = 'SHOW_ERROR_BANNER';
+export const CLOSE_BANNER = 'CLOSE_BANNER';
+
 // auth acitons
 export const AUTH_USER = 'AUTH_USER';
 export const DEAUTH_USER = 'DEAUTH_USER';

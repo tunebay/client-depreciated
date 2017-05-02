@@ -88,11 +88,14 @@ class UploadAudioFlow extends Component {
   }
 
   render() {
-    const { formPage, audioUploadForm, playlist, formType, isReleasing, isUploading } = this.props;
+    const { formPage, audioUploadForm, playlist, formType, isReleasing, isUploading, banner } = this.props;
     console.log('FORM', audioUploadForm);
     return (
       <Content>
-        <Banner isVisable message={'Sup'} />
+        <Banner
+          isVisable={banner.isVisable}
+          message={banner.message}
+        />
         <div className="n-upload-container">
           <CSSTransitionGroup
             transitionName="anim"
@@ -156,7 +159,8 @@ const mapStateToProps = (state) => {
     playlist: state.uploadedPlaylist,
     artwork: state.uploadedArtwork.image,
     dataURL: state.uploadedArtwork.dataURL,
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    banner: state.banner
   };
 };
 

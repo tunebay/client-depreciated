@@ -1,6 +1,8 @@
 @import "../../variables.scss";
 
 .banner-modal {
+  outline: none;
+  animation: slideDown 300ms ease-out;
   &focus {
     outline: none;
   }
@@ -11,8 +13,13 @@
   @include borderBox;
   @include browserFlex;
   @include alignCenter;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
   .banner {
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.4;
+    font-family: $font-stack;
+    font-weight: 500;
     &focus {
       outline: none;
     }
@@ -24,7 +31,16 @@
     height: 50px;
     width: 100%;
     min-width: $breakpoint-medium;
-    background-color: $yellow;
+    background-color: $red;
+    .banner-left {
+      @include browserFlex;
+      @include alignCenter;
+      @include borderBox;
+      flex-direction: row;
+      .banner-icon {
+        padding-right: 16px;
+      }
+    }
   }
 }
 
@@ -39,4 +55,13 @@
 
 .ReactModal__Body--open {
     overflow: scroll;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }

@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import * as actions from '../../actions/banner-actions';
 import '../../styles/components/common/banner.scss';
 
 class Banner extends Component {
+  handleClose() {
+    this.props.closeBanner();
+  }
+
   render() {
     return (
       <Modal
@@ -17,10 +23,13 @@ class Banner extends Component {
       >
         <div className="banner">
           <div className="banner-left">
-            {/* <div className="banner-icon">{this.renderIcon()}</div> */}
+            <img
+              src="../../../assets/images/error-icon.svg" alt="exclamation-mark"
+              className="banner-icon"
+            />
             <div className="banner-message">{this.props.message}</div>
           </div>
-          <button onClick={this.props.onRequestClose}>Close</button>
+          <button onClick={this.handleClose.bind(this)}>Close</button>
         </div>
       </Modal>
     );
@@ -30,9 +39,9 @@ class Banner extends Component {
 Banner.PropTypes = {
   message: PropTypes.string.isRequired,
   position: PropTypes.oneOf(['Top', 'Bottom']).isRequired,
-  type: PropTypes.oneOf(['Info', 'Error', 'Warning']).isRequired,
+  type: PropTypes.oneOf(['Info', 'Error', 'Bug']).isRequired,
   isVisable: PropTypes.bool.isRequired,
   onRequestClose: PropTypes.func.isRequired
 };
 
-export default Banner;
+export default connect(null, actions)(Banner);

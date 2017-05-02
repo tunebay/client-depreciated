@@ -3,12 +3,19 @@ import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
 import className from 'classnames';
 import * as actions from '../../../actions/upload-actions';
+import { showErrorBanner } from '../../../actions/banner-actions';
 import '../../../styles/components/upload/dropzone.scss';
 
 class AudioDropzone extends Component {
   handleDrop(files, rejected) {
+    if (rejected.length > 0) {
+      this.props.showErrorBanner(
+        'Well this is awkward… One or more of your files is not in a supported format or is over 2GB.'
+      );
+    } else {
+      this.props.processAudio(files);
+    }
     console.log('rejected', rejected);
-    this.props.processAudio(files);
     console.log('Accepted', files);
   }
 
@@ -69,4 +76,4 @@ class AudioDropzone extends Component {
   }
 }
 
-export default connect(null, actions)(AudioDropzone);
+export default connect(null, { ...actions, showErrorBanner })(AudioDropzone);
