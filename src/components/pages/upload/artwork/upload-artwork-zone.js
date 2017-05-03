@@ -10,7 +10,7 @@ class UploadArtworkZone extends Component {
   handleDrop(file, rejected) {
     if (rejected.length > 0) {
       this.props.showErrorBanner(
-        'The selected image is exceeds the 2MB size limit. Please resize accordingly.'
+        'The selected image exceeds the 2MB size limit. Please resize accordingly.'
       );
     } else {
       this.props.showArtworkModal(file[0]);
