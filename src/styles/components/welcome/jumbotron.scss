@@ -51,11 +51,13 @@
       font-family: $font-stack;
       .title {
         font-size: 44px;
-        margin: 15px 0;
+        margin: 0;
       }
       .tag {
         font-size: 24px;
-        font-weight: 400;
+        font-weight: 500;
+        margin: 10px 0;
+        margin-bottom: 30px;
         line-height: 1.4;
       }
       .action-buttons {
