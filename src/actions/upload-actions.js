@@ -10,7 +10,6 @@ import {
   UPDATE_PLAYLIST_POSITIONS,
   UPDATE_TRACK_PROGRESS,
   UPDATE_PLAYLIST_LENGTH,
-  AUDIO_UPLOAD_ERROR,
   MULTI_UPLOAD_STARTED,
   SINGLE_UPLOAD_STARTED,
   AUDIO_UPLOAD_FINISHED,
@@ -21,7 +20,8 @@ import {
   SET_PAGE,
   TERMINATE_PLAYLIST_UPLOAD,
   SET_DEFAULT_VALUES,
-  SET_PERMALINK
+  SET_PERMALINK,
+  SHOW_ERROR_BANNER
 } from './types';
 
 const API_URL = 'http://localhost:3000';
@@ -124,7 +124,7 @@ const uploadSingleToS3 = (track, dispatch) => {
   })
   .catch((err) => {
     console.log('UPLOAD ERROR', err);
-    dispatch({ type: AUDIO_UPLOAD_ERROR, payload: err });
+    dispatch({ type: SHOW_ERROR_BANNER, payload: 'Well this is awkward... There was an issue with uploading one or more tracks. This is usually due to a network error' });
   });
 };
 
@@ -212,6 +212,7 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image) => {
         });
       })
       .catch((err) => {
+        dispatch({ type: SHOW_ERROR_BANNER, payload: 'Well this is awkward... There was an issue with posting your playlist. This is usually due to a network error' });
         console.log('Release Playlist ERROR', err);
       });
     } else {
@@ -283,7 +284,7 @@ const uploadFilesToS3 = (playlist, dispatch) => {
     })
     .catch((err) => {
       console.log('UPLOAD ERROR', err);
-      dispatch({ type: AUDIO_UPLOAD_ERROR, payload: err });
+      dispatch({ type: SHOW_ERROR_BANNER, payload: 'Well this is awkward... There was an issue with uploading one or more tracks. This is usually due to a network error' });
     });
   });
 };
@@ -315,7 +316,7 @@ const uploadAnotherFileToS3 = (track, dispatch) => {
   })
   .catch((err) => {
     console.log('UPLOAD ERROR', err);
-    dispatch({ type: AUDIO_UPLOAD_ERROR, payload: err });
+    dispatch({ type: SHOW_ERROR_BANNER, payload: 'Well this is awkward... There was an issue with uploading one or more tracks. This is usually due to a network error' });
   });
 };
 
