@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Icon from 'react-fontawesome';
-import LoginModal from '../../auth/login/login-modal';
 import '../../../styles/components/welcome/jumbotron.scss';
 
 const Jumbotron = (props) => {
-  const { hideLoginModal, showLoginModal, loginModalVisable } = props;
+  const { showLoginModal } = props;
   console.log('rendering');
   return (
     <div id="jumbo-con">
@@ -13,15 +12,14 @@ const Jumbotron = (props) => {
         <img src="../../../../assets/images/logo.svg" alt="logo" className="logo" />
         <img src="../../../../assets/images/tunebay-light.svg" alt="logo" className="tunebay" />
       </div>
-      <LoginModal isVisable={loginModalVisable} requestCloseFn={hideLoginModal} />
       <div className="overlay">
 
         <div className="shout-out">
           <h1 className="title">{'For the love of music!'}</h1>
-          <p className="tag">{'Connect with & directly support the music you love.'}</p>
+          <h2 className="tag">{'Connect with & directly support the music you love.'}</h2>
           <div className="action-buttons">
             <Link className="discover-btn" to="/discover">Discover</Link>
-            <Link className="sell-your-own-btn" to="/">Sell your own</Link>
+            <Link className="sell-your-own-btn" to="/">Sell Your Own</Link>
           </div>
         </div>
         <div className="auth-container">
