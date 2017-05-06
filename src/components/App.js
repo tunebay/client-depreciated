@@ -82,7 +82,7 @@ class App extends Component {
             <Route path="/:username" render={this.renderRoute(Profile)} />
             <Route path="*" component={NotFound} />
           </Switch>
-          <Player />
+          {/* <Player /> */}
         </div>
       </Router>
     );

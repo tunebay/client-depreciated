@@ -1,4 +1,13 @@
+@import "variables";
+
 body {
   background-color: #eff3f5;
   height: 100%;
+}
+
+.content {
+  // @include browserFlex;
+  // @include alignCenter;
+  height: calc(100vh - 50px);
+  padding-top: 50px;
 }

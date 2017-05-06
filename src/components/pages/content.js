@@ -1,7 +1,8 @@
 import React from 'react';
+import '../../styles/app.scss';
 
 const Content = props => (
-  <div style={{ paddingTop: 50, paddingBottom: 50 }}>
+  <div className="content">
     {props.children}
   </div>
 );
