@@ -6,8 +6,6 @@ body {
 }
 
 .content {
-  // @include browserFlex;
-  // @include alignCenter;
   height: calc(100vh - 50px);
   padding-top: 50px;
 }
