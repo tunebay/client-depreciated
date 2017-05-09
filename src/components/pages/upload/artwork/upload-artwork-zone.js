@@ -48,7 +48,7 @@ class UploadArtworkZone extends Component {
         className="upload-artwork-zone"
         preventDropOnDocument
         multiple={false}
-        accept={'image/*'}
+        accept={'image/png, image/jpg, image/jpeg'}
         maxSize={2097152} // 2mb
         onDrop={this.handleDrop.bind(this)}
       >

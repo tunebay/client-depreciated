@@ -5,7 +5,8 @@ import {
   ADD_TRACK_LOCATION,
   UPDATE_SINGLE_STATUS,
   UPDATE_TRACK_PRICE,
-  ADD_ANOTHER_TRACK
+  ADD_ANOTHER_TRACK,
+  ADD_TRACK_ERROR
 } from '../../actions/types';
 
 export const INITIAL_STATE = {
@@ -19,7 +20,8 @@ export const INITIAL_STATE = {
   playlistPosition: null,
   isASingle: false,
   price: null,
-  fileType: null
+  fileType: null,
+  isError: false
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -57,6 +59,9 @@ export default (state = INITIAL_STATE, action) => {
     case ADD_TRACK_LOCATION:
       if (state.trackId !== action.trackId) return state;
       return { ...state, location: action.payload, file: null };
+    case ADD_TRACK_ERROR:
+      if (state.trackId !== action.trackId) return state;
+      return { ...state, error: true };
     case UPDATE_SINGLE_STATUS:
       if (state.trackId !== action.trackId) return state;
       return { ...state, isASingle: action.payload };

@@ -12,7 +12,7 @@ import Profile from './pages/profile/';
 import NotFound from './pages/not-found';
 import Upload from './pages/upload/';
 import RequireAuth from './hoc/require-auth';
-import Player from './player/player';
+// import Player from './player/player';
 import Header from './header/header';
 
 class App extends Component {

@@ -16,6 +16,7 @@ class ReleaseDateField extends Component {
     // console.log(maxDate);
     const { input } = this.props;
     console.log('Input', input);
+    const tomorrow = moment().add(1, 'days').startOf('day');
     return (
       <div className="release-date-field">
         <label htmlFor="release-date-field" className="field-label">Release date</label>
@@ -26,7 +27,7 @@ class ReleaseDateField extends Component {
           onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
           showClearDate
           // hideKeyboardShortcutsPanel
-          isOutsideRange={day => day.isAfter(moment())}
+          isOutsideRange={day => day.isAfter(tomorrow)}
           displayFormat="DD/MM/YYYY"
           numberOfMonths={1}
           placeholder={'DD/MM/YYYY'}
