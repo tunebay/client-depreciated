@@ -21,7 +21,8 @@ export const INITIAL_STATE = {
   isASingle: false,
   price: null,
   fileType: null,
-  isError: false
+  hasError: false,
+  isCompleted: false
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -61,7 +62,7 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, location: action.payload, file: null };
     case ADD_TRACK_ERROR:
       if (state.trackId !== action.trackId) return state;
-      return { ...state, error: true };
+      return { ...state, hasError: true };
     case UPDATE_SINGLE_STATUS:
       if (state.trackId !== action.trackId) return state;
       return { ...state, isASingle: action.payload };

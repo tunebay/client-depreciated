@@ -1,8 +1,3 @@
-import axios from 'axios';
-import v4 from 'node-uuid';
-
-const API_URL = 'http://localhost:3000';
-
 export const showArtworkModal = (image) => {
   return { type: 'SHOW_ARTWORK_MODAL', payload: image.preview };
 };

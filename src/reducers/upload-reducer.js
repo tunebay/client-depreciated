@@ -22,6 +22,7 @@ const INITIAL_STATE = {
   formPage: UPLOAD_PAGE,
   isReleasing: false,
   isUploading: false,
+  isComplete: false,
   relasedModalVisable: false,
   error: ''
 };
