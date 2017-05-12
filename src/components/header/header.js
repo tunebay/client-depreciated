@@ -59,18 +59,14 @@ class Header extends Component {
       <nav id="top-nav">
         <div id="header-left">
           <div className="logo-section">
-            <div id="hamburger">
-              <Icon name="bars" size="2x" id="fa-bars" />
-            </div>
-
             <img
               className="logo"
-              src="../../../assets/images/logo.png"
+              src="../../../assets/images/logo.svg"
               alt="logo"
             />
             <img
               className="logo-text"
-              src="../../../assets/images/tunebay-text.png"
+              src="../../../assets/images/Tunebay.svg"
               alt="logo-text"
             />
           </div>
@@ -82,8 +78,12 @@ class Header extends Component {
         </div>
 
         <div id="header-search">
-          <div className="icon-div">
-            <Icon name="search" className="fa-search" />
+          <div className="search-icon-con">
+            <img
+              src="../../../assets/images/search.svg"
+              alt="search"
+              className="search-icon"
+            />
           </div>
           <input
             type="text"

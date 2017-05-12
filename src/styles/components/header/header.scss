@@ -1,33 +1,41 @@
 @import "../../variables";
-$header-height: 50px;
+$header-height: 48px;
 
 #top-nav {
   display: flex;
   align-items: center;
   height: $header-height;
   width: 100%;
-  background-color: $black;
+  background-color: #fff;
   margin: 0;
   padding: 0;
   top: 0;
   position: fixed;
   z-index: 1;
+  -webkit-box-shadow: 0px 2px 0px 0px rgba(228,228,228,1);
+  -moz-box-shadow: 0px 2px 0px 0px rgba(228,228,228,1);
+  box-shadow: 0px 2px 0px 0px rgba(228,228,228,1);
 
   .nav-link {
     height: $header-height;
-    width: 100px;
+    width: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid $border-color;
+    // border-right: 1px solid $border-color;
     text-decoration: none;
-    color: $light-grey;
+    color: lighten($text-black, 10%);
+    font-weight: 500;
     font-family: $font-stack;
     font-size: 14px;
     line-height: 1.4;
+    transition: all 100ms ease-out;
     &:hover {
-      background-color: $darker-black;
-      color: #fff;
+
+      // background-color: #e4e4e4;
+
+      color: $text-black;
+      border-bottom: 3px solid $blue;
     }
   }
 
@@ -55,17 +63,19 @@ $header-height: 50px;
   }
 
   #header-left {
-    display: flex;
+    @include browserFlex;
+    @include borderBox;
     align-items: center;
     height: 100%;
+    padding-left: 30px;
 
     .logo-section {
       height: 100%;
-      width: 174px;
+      padding-right: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-right: 1px solid $border-color;
+      // border-right: 1px solid $border-color;
 
       .logo {
         height: 32px;
@@ -73,13 +83,9 @@ $header-height: 50px;
       }
 
       .logo-text {
-        width: 80px;
-        margin-top: 2px;
+        width: 85px;
+        margin-top: 4px;
         margin-left: 10px;
-      }
-
-      #hamburger {
-        display: none;
       }
     }
 
@@ -94,23 +100,44 @@ $header-height: 50px;
   }
 
   #header-search {
+    padding-left: 15px;
     height: 100%;
-    width: 100%;;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
+    @include browserFlex;
+    .search-icon-con {
+      width: 36px;
+      height: 36px;
+      @include borderBox;
+      @include browserFlex;
+      @include justifyCenter;
+      @include alignCenter;
+      // padding: 0 5px;
+      border-radius: 3px;
+      border: 1px solid $light-grey;
+      border-right: none;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
     .search-input {
-      height: 35px;
+      @include borderBox;
+      border-radius: 3px;
+      border: 1px solid $light-grey;
+      border-left: none;
+      height: 36px;
       width: 100%;
-      background-color: $black;
-      border: none;
-      outline: none;
+      font-weight: 500;
       line-height: 1.4;
       font-family: $font-stack;
       font-size: 14px;
-      padding-left: 5px;
-      color: $light-grey;
+      outline: none;
+      // padding-left: 5px;
+      color: $text-black;
       // margin-top: 2px;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
     }
   }
 
@@ -266,12 +293,12 @@ $header-height: 50px;
 //   }
 // }
 
-input[type="text"].search-input::-webkit-input-placeholder { color: $light-grey; }
-input[type="text"].search-input::-moz-placeholder { color: $light-grey; }
-input[type="text"].search-input:-ms-input-placeholder { color: $light-grey; }
-input[type="text"].search-input:-moz-placeholder { color: $light-grey; }
+input[type="text"].search-input::-webkit-input-placeholder { color: #999; }
+input[type="text"].search-input::-moz-placeholder { color: #999; }
+input[type="text"].search-input:-ms-input-placeholder { color: #999; }
+input[type="text"].search-input:-moz-placeholder { color: #999; }
 
-input:focus[type="text"].search-input::-webkit-input-placeholder { color: #666; }
-input:focus[type="text"].search-input::-moz-placeholder { color: #666; }
-input:focus[type="text"].search-input:-ms-input-placeholder { color: #666; }
-input:focus[type="text"].search-input:-moz-placeholder { color: #666; }
+input:focus[type="text"].search-input::-webkit-input-placeholder { color: $light-grey; }
+input:focus[type="text"].search-input::-moz-placeholder { color: $light-grey; }
+input:focus[type="text"].search-input:-ms-input-placeholder { color: $light-grey; }
+input:focus[type="text"].search-input:-moz-placeholder { color: $light-grey; }
