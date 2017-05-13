@@ -179,22 +179,40 @@ $header-height: 48px;
       }
     }
 
-    .login-link {
-      background-color: $black;
-      border: none;
-      border-left: 1px solid $border-color;
-      outline: none;
+    .signup-link {
+      @include browserFlex;
+      @include justifyCenter;
+      @include alignCenter;
+      background-color: $blue;
+      width: 90px;
+      height: 32px;
+      border-radius: 100px;
+      margin-left: 16px;
+      font-family: $font-stack;
+      font-weight: 500;
+      font-size: 14px;
+      text-decoration: none;
+      color: #fff;
       &:hover {
-        background-color: $darker-black;
+        background-color: darken($blue, 5%);
         cursor: pointer;
       }
     }
 
-    .signup-link {
-      background-color: $blue;
-      color: #fff;
+    .login-link {
+      width: 80px;
+      outline: none;
+      background-color: #fff;
+      height: 32px;
+      border-radius: 100px;
+      border: 1px solid $light-grey;
+      margin-left: 12px;
+      font-size: 14px;
+      font-family: $font-stack;
+      font-weight: 500;
+      color: $text-black;
       &:hover {
-        background-color: darken($blue, 5%);
+        cursor: pointer;
       }
     }
 
@@ -263,37 +281,6 @@ $header-height: 48px;
   }
 }
 
-// @media (max-width: $breakpoint-small) {
-//   #top-nav {
-//     #header-left {
-//       .logo-section {
-//         width: 76px;
-//         border-right: none;
-//
-//         #hamburger {
-//           height: 32px;
-//           width: 32px;
-//           display: flex;
-//           justify-content: center;
-//           align-items: center;
-//           color: $light-grey;
-//           #fa-bars {
-//             color: $blue;
-//           }
-//         }
-//       }
-//       .logo-text {
-//         display: none;
-//       }
-//       .logo {
-//         display: none;
-//       }
-//       .left-menu {
-//         display: none;
-//       }
-//     }
-//   }
-// }
 
 input[type="text"].search-input::-webkit-input-placeholder { color: #999; }
 input[type="text"].search-input::-moz-placeholder { color: #999; }

@@ -17,20 +17,19 @@ class Header extends Component {
             <img
               src="../../../assets/images/bell.svg"
               alt="search"
-              className="search-icon"
+              className="bell-icon"
             />
           </div>
           <button
             onClick={this.props.showLoginModal}
-            className="nav-link login-link"
-            to="/hub"
+            className="login-link"
           >Log In</button>
           <LoginModal
             isVisable={this.props.loginModalVisable}
             requestCloseFn={this.props.hideLoginModal}
           />
           <NavLink
-            className="nav-link signup-link"
+            className="signup-link"
             to="/signup"
           >Sign Up</NavLink>
         </div>
