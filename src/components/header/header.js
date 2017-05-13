@@ -14,7 +14,11 @@ class Header extends Component {
       return (
         <div id="header-right">
           <div className="icon-div dropdown">
-            <Icon className="fa-bell" name="bell" />
+            <img
+              src="../../../assets/images/bell.svg"
+              alt="search"
+              className="search-icon"
+            />
           </div>
           <button
             onClick={this.props.showLoginModal}
@@ -35,19 +39,27 @@ class Header extends Component {
     const { displayName, username } = this.props.currentUser; // must happen after unauth
     return (
       <div id="header-right">
+        <div className="icon-div">
+          <img
+            src="../../../assets/images/bell.svg"
+            alt="search"
+            className="bell-icon"
+          />
+        </div>
+        <div className="icon-div dropdown">
+          <img
+            src="../../../assets/images/chat.svg"
+            alt="search"
+            className="bell-icon"
+          />
+        </div>
         <Link to={`/${username}`} className="user-dropdown">
           <Icon name="user-circle-o" size="2x" className="fa-user" />
           <div className="display-name">{displayName}</div>
           <Icon name="caret-down" className="fa-caret" />
         </Link>
-        <div className="icon-div dropdown">
-          <Icon className="fa-bell" name="bell" />
-        </div>
-        <div className="icon-div dropdown">
-          <Icon className="fa-comment" name="comment" />
-        </div>
         <NavLink
-          className="nav-link upload-button"
+          className="upload-link"
           to="/upload"
         >Upload</NavLink>
       </div>
