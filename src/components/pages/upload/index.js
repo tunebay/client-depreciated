@@ -11,6 +11,7 @@ import ReleasedModal from './released-modal';
 import Banner from '../../common/banner';
 import Content from '../content';
 import * as actions from '../../../actions/upload-actions';
+import KonamiCode from '../../../util/konami-code';
 import '../../../styles/components/upload/upload-index.scss';
 
 const UPLOAD_PAGE = 'UPLOAD_PAGE';
@@ -22,6 +23,9 @@ class UploadAudioFlow extends Component {
   constructor(props) {
     super(props);
     // this.onUnload = this.onUnload.bind(this);
+    KonamiCode(() => {
+      console.log('do stuff, code entered');
+    });
     document.title = 'Tunebay | Upload';
   }
 
