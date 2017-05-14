@@ -8,6 +8,7 @@
       @include alignCenter;
       height: 260px;
       width: 260px;
+      border-radius: 3px;
       position: absolute;
       background-color: rgba(0,0,0,0);
       transition: all 300ms ease-out;
@@ -30,6 +31,7 @@
     .artwork-blob {
       position: absolute;
       height: 260px;
+      border-radius: 3px;
       width: 260px;
     }
   }
@@ -44,6 +46,7 @@
   @include justifyCenter;
   @include alignCenter;
   min-width: 260px;
+  border-radius: 3px;
   height: 260px;
   background-image: linear-gradient(
     135deg,
