@@ -116,6 +116,7 @@ class UploadAudioFlow extends Component {
                 playlist={playlist}
                 onSubmit={this.handleBasicInfoSubmit.bind(this)}
                 handlePrevious={this.handleCancel.bind(this)}
+                user={this.props.currentUser}
               />
             }
 
