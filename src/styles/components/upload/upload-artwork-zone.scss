@@ -48,12 +48,10 @@
   min-width: 260px;
   border-radius: 3px;
   height: 260px;
-  background-image: linear-gradient(
-    135deg,
-    rgba(66, 153, 255, 1) 0%,
-    rgba(60, 200, 255, 1) 0%,
-    rgba(4, 139, 255, 0.9) 100%
-  );
+  background-image: -webkit-linear-gradient(320deg, #4E9EFB 0%, #0775F7 53%, #2386FB 99%);
+  background-image: -o-linear-gradient(320deg, #4E9EFB 0%, #0775F7 53%, #2386FB 99%);
+  background-image: linear-gradient(50deg, #4E9EFB 0%, #0775F7 53%, #2386FB 99%);
+  /* Rectangle 16: */
   transition: all ease-out 200ms;
   &:hover {
     cursor: pointer;

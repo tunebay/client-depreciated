@@ -6,7 +6,7 @@ const permalinkField = ({ input, meta: { touched, error }, user }) => {
     'permalink-field-input': true,
     'input-error': touched && error
   });
-  const permalink = `tunebay.com/${user.username}/`
+  const permalink = `tunebay.com/${user.username}/`;
   return (
     <div className="permalink-field">
       <div className="permalink-zone">
