@@ -1,7 +1,7 @@
 import React from 'react';
 import className from 'classnames';
 
-const titleField = ({ input, meta: { touched, error } }) => {
+const titleField = ({ input, meta: { touched, error }, setPermalink }) => {
   const inputClass = className({
     'title-field-input': true,
     'input-error': touched && error
@@ -18,6 +18,10 @@ const titleField = ({ input, meta: { touched, error } }) => {
         className={inputClass}
         {...input}
         type="text"
+        onBlur={(event) => {
+          input.onBlur(event);
+          setPermalink();
+        }}
       />
       {touched && error && <div className="field-error">{error}</div>}
     </div>

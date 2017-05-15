@@ -29,6 +29,10 @@ class UploadAudioFlow extends Component {
     document.title = 'Tunebay | Upload';
   }
 
+  setPermalink() {
+    this.props.setPermalinkString(this.props.audioUploadForm.values.title);
+  }
+
   handleFormSubmit() {
     console.log('in here');
     const { audioUploadForm, playlist, artwork } = this.props;
@@ -117,6 +121,7 @@ class UploadAudioFlow extends Component {
                 onSubmit={this.handleBasicInfoSubmit.bind(this)}
                 handlePrevious={this.handleCancel.bind(this)}
                 user={this.props.currentUser}
+                setPermalink={this.setPermalink.bind(this)}
               />
             }
 

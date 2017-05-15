@@ -63,10 +63,12 @@ const handleSingleUpload = (file) => {
       };
       dispatch({ type: ADD_TRACK, payload: track });
       dispatch({ type: SINGLE_UPLOAD_STARTED });
+      const title = file.name.substr(0, file.name.lastIndexOf('.')) || file.name;
       dispatch({
         type: SET_DEFAULT_VALUES,
-        title: file.name.substr(0, file.name.lastIndexOf('.')) || file.name,
-        playlistType: { label: 'Single', value: 'single' }
+        title,
+        playlistType: { label: 'Single', value: 'single' },
+        permalink: parameteriseString(title)
       });
       uploadSingleToS3(track, dispatch);
     });
@@ -343,4 +345,8 @@ const processTracks = (tracks) => {
     return track;
   });
   return tracks;
+};
+
+export const setPermalinkString = (title) => {
+  return { type: SET_PERMALINK, payload: parameteriseString(title) };
 };

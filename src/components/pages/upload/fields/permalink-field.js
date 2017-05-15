@@ -12,6 +12,7 @@ const permalinkField = ({ input, meta: { touched, error }, user }) => {
       <div className="permalink-zone">
         {permalink}
         <input
+          spellCheck={false}
           className={inputClass}
           {...input}
           type="text"

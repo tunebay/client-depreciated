@@ -17,7 +17,8 @@ const formReducer = reducer.plugin({
             title: action.title,
             canPayMore: true,
             price: parseFloat(0.00).toFixed(2),
-            playlistType: action.playlistType
+            playlistType: action.playlistType,
+            permalink: action.permalink
           }
         };
       case SET_PERMALINK:
