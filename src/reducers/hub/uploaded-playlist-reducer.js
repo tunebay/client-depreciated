@@ -38,6 +38,10 @@ export default (state = INITIAL_STATE, action) => {
       return state.map(track =>
         UploadedTrackReducer(track, action)
       );
+    case 'TICK_ANIMATION_PLAYED':
+      return state.map(track =>
+        UploadedTrackReducer(track, action)
+      );
     case UPDATE_PLAYLIST_POSITIONS:
       return action.payload.map((track, index) =>
         UploadedTrackReducer({ ...track, playlistPosition: index + 1 }, action)

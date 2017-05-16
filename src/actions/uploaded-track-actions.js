@@ -20,3 +20,11 @@ export const updateTrackPrice = (price, trackId) => {
 export const deleteTrack = (trackId) => {
   return { type: DELETE_TRACK, payload: trackId };
 };
+
+export const startAnimationTimer = (trackId) => {
+  return (dispatch) => {
+    setTimeout(() => {
+      dispatch({ type: 'TICK_ANIMATION_PLAYED', trackId });
+    }, 1200);
+  };
+};

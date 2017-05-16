@@ -22,7 +22,7 @@ export const INITIAL_STATE = {
   price: null,
   fileType: null,
   hasError: false,
-  isCompleted: false
+  tickAnimationPlayed: false
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -69,6 +69,10 @@ export default (state = INITIAL_STATE, action) => {
     case UPDATE_TRACK_PRICE:
       if (state.trackId !== action.trackId) return state;
       return { ...state, price: action.payload };
+    case 'TICK_ANIMATION_PLAYED':
+      console.log('ANIMATION PLAYED');
+      if (state.trackId !== action.trackId) return state;
+      return { ...state, tickAnimationPlayed: true };
     default:
       return state;
   }
