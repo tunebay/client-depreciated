@@ -34,7 +34,7 @@
       }
       .n-or-section {
         width: 470px;
-        margin: 20px 0;
+        margin: 24px 0;
         @include browserFlex;
         @include alignCenter;
         justify-content: space-between;
@@ -61,7 +61,7 @@
         font-family: $font-stack;
         color: #fff;
         border: none;
-        border-radius: 3px;
+        border-radius: 100px;
         transition: all 75ms ease-out;
         outline: none;
         &:hover {
@@ -74,7 +74,7 @@
       color: #666;
       font-size: 14px;
       padding-top: 70px;
-      font-weight: 400;
+      font-weight: 500;
       .n-note {
         font-weight: 600;
       }
@@ -95,16 +95,16 @@
 // }
 
 .n-upload-terms {
-  margin-top: 20px;
+  margin-top: 24px;
   width: 800px;
   font-size: 16px;
   font-family: $font-stack;
   font-weight: 400;
-  text-align: center;
+  // text-align: center;
   color: #666;
   line-height: 1.4;
   .n-important {
-    color: $red;
+    // color: $red;
     font-weight: 600;
   }
   .n-terms-link {
