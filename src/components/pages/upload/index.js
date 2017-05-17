@@ -22,7 +22,6 @@ const SINGLE_SELECTION_PAGE = 'SINGLE_SELECTION_PAGE';
 class UploadAudioFlow extends Component {
   constructor(props) {
     super(props);
-    // this.onUnload = this.onUnload.bind(this);
     KonamiCode(() => {
       console.log('do stuff, code entered');
     });
@@ -35,8 +34,8 @@ class UploadAudioFlow extends Component {
 
   handleFormSubmit() {
     console.log('in here');
-    const { audioUploadForm, playlist, artwork } = this.props;
-    this.props.releasePlaylist(audioUploadForm.values, playlist, artwork);
+    const { audioUploadForm, playlist, artwork, currentUser } = this.props;
+    this.props.releasePlaylist(audioUploadForm.values, playlist, artwork, currentUser);
   }
 
   handleCancel() {
@@ -57,14 +56,10 @@ class UploadAudioFlow extends Component {
   }
 
   handleBasicInfoSubmit() {
-    const { audioUploadForm, currentUser } = this.props;
-    // window.scrollTo(0, 0);
-    this.props.setPermalink(audioUploadForm.values.title, currentUser);
     this.props.setPage(PRICE_PAGE);
   }
 
   handlePricePagePrevious() {
-    // window.scrollTo(0, 0);
     this.props.setPage(BASIC_INFO_PAGE);
   }
 

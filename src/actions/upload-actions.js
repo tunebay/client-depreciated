@@ -30,11 +30,10 @@ const API_URL = 'http://localhost:3000';
 let playlistPosition = 0;
 let trackProcessCounter = 0;
 
-export const setPermalink = (title, currentUser) => {
-  const parameterisedTitle = parameteriseString(title);
-  const permalink = `https://tunebay.com/${currentUser.username}/${parameterisedTitle}`;
-  return { type: SET_PERMALINK, payload: permalink };
-};
+// export const setPermalink = (parameterisedTitle, currentUser) => {
+//   const permalink = `https://tunebay.com/${currentUser.username}/${parameterisedTitle}`;
+//   return { type: SET_PERMALINK, payload: permalink };
+// };
 
 export const processAudio = (files) => {
   playlistPosition = 0;
@@ -156,10 +155,15 @@ export const updateTrackPosition = (playlist, oldIndex, newIndex) => {
   return { type: UPDATE_PLAYLIST_POSITIONS, payload: newOrderPlaylist };
 };
 
-export const releasePlaylist = (playlistDetails, playlistTracks, image) => {
+export const releasePlaylist = (playlistDetails, playlistTracks, image, currentUser) => {
   return (dispatch) => {
+    console.log('PLAYLIST DETAILS', playlistDetails);
     dispatch({ type: PLAYLIST_RELEASE_STARTED });
     const tracksToPost = processTracks(playlistTracks);
+    const releaseDate = moment(playlistDetails.releaseDate).format('YYYY-MM-DD HH:mm:ss');
+    const permalink = `https://tunebay.com/${currentUser.username}/${playlistDetails.permalink || parameteriseString(playlistDetails.title)}`;
+    console.log('PERMALINK', permalink);
+
     const durationArray = playlistTracks.map((track) => {
       return track.duration;
     });
@@ -186,7 +190,6 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image) => {
       })
       .then((res) => {
         const artworkLocation = res.config.url.split('?')[0];
-        const releaseDate = moment(playlistDetails.releaseDate).format('YYYY-MM-DD HH:mm:ss');
         const playlistToPost = {
           // required
           tracks: tracksToPost,
@@ -197,7 +200,7 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image) => {
           numberOfTracks: playlistTracks.length,
           lengthInSeconds: playlistDuration,
           genre1Id: playlistDetails.genres[0].value,
-          permalink: playlistDetails.permalink,
+          permalink,
           // not required
           genre2Id: genre2Id || null,
           genre3Id: genre3Id || null,
@@ -206,7 +209,6 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image) => {
           description: playlistDetails.description || null,
           purchaseMessage: playlistDetails.purchaseMessage || null
         };
-
         const playlistConfig = { headers: { Authorization: localStorage.getItem('token') } };
         console.log('POSTING PLAYLIST', playlistToPost);
         axios.post(`${API_URL}/playlists/new`, playlistToPost, playlistConfig)
@@ -231,6 +233,7 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image) => {
         numberOfTracks: playlistTracks.length,
         lengthInSeconds: playlistDuration,
         genre1Id: playlistDetails.genres[0].value,
+        permalink,
         // not required
         artworkLocation,
         genre2Id: genre2Id || null,
