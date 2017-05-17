@@ -64,11 +64,11 @@ class UploadAudioFlow extends Component {
   }
 
   handlePriceSubmit() {
-    const { audioUploadForm, playlist, formType, artwork } = this.props;
+    const { audioUploadForm, playlist, formType, artwork, currentUser } = this.props;
     if (formType === 'MULTI') {
       this.props.setPage(SINGLE_SELECTION_PAGE);
     } else {
-      this.props.releasePlaylist(audioUploadForm.values, playlist, artwork);
+      this.props.releasePlaylist(audioUploadForm.values, playlist, artwork, currentUser);
     }
   }
 
