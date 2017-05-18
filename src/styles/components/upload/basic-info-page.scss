@@ -61,7 +61,7 @@
           color: $text-black;
           font-family: $font-stack;
           height: 38px;
-          border: 1px solid $light-grey;
+          border: 1px solid $border-color;
           border-radius: 3px;
           font-size: 16px;
           line-height: 38px;
@@ -88,7 +88,7 @@
         flex-direction: row;
         width: 100%;
         justify-content: space-between;
-        padding-bottom: 15px;
+        padding-bottom: 13px;
 
         .playlist-type-field {
           width: 49%;
@@ -147,7 +147,7 @@
             line-height: 40px;
             border-radius: 3px;
             font-weight: 400;
-            height: 40px;
+            height: 36px;
             border: 1px solid $light-grey;
             width: 240px;
             letter-spacing: 0.4px;
@@ -188,7 +188,7 @@
         // @include alignCenter;
         justify-content: flex-start;
         flex-direction: column;
-        padding-bottom: 15px;
+        padding-bottom: 10px;
         width: 100%;
         .permalink-zone {
           @include browserFlex;
@@ -201,7 +201,7 @@
             width: 100%;
             height: 24px;
             border: none;
-            color: $text-black;
+            color: lighten($text-black, 10%);
             font-weight: 500;
             &:focus {
               border: 1px solid $light-grey;
@@ -233,4 +233,24 @@
     }
   }
 
+}
+
+.SingleDatePickerInput {
+  @include borderBox;
+  border-radius: 3px;
+  height: 40px;
+  padding-top: 3px;
+  .DateInput {
+    height: 32px;
+    font-size: 16px;
+    padding: 0;
+    font-weight: 500;
+    font-family: $font-stack;
+    // padding-top: 4px;
+    width: 200px;
+  }
+}
+
+.SingleDatePickerInput__clear-date {
+  padding: 0;
 }
