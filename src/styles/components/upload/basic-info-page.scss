@@ -21,6 +21,7 @@
   .playlist-details {
     padding: 20px;
     width: 100%;
+    height: auto;
     flex-direction: row;
     @include browserFlex;
     @include borderBox;
@@ -162,7 +163,7 @@
         @include browserFlex;
         width: 100%;
         flex-direction: column;
-        height: 38px;
+        height: auto;
         .input-error {
           border: 1px solid $red;
           border-radius: 3px;

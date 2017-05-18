@@ -59,23 +59,21 @@ class GenreField extends Component {
     return (
       <div className="genre-field">
         <label className="field-label" htmlFor={this.props.label}>Genre(s)<span className="required">*</span></label>
-        <div>
-          <Select
-            className={inputClass}
-            {...input}
-            placeholder="Select upto 3 genres"
-            value={input.value}
-            options={
-              genresSelected >= 3 ?
-                input.values :
-                options
-            }
-            clearable={false}
-            multi
-            onBlur={() => input.onBlur(input.value)}
-          />
-          {touched && error && <div className="field-error">{error}</div>}
-        </div>
+        <Select
+          className={inputClass}
+          {...input}
+          placeholder="Select upto 3 genres"
+          value={input.value}
+          options={
+            genresSelected >= 3 ?
+              input.values :
+              options
+          }
+          clearable={false}
+          multi
+          onBlur={() => input.onBlur(input.value)}
+        />
+        {touched && error && <div className="field-error">{error}</div>}
       </div>
     );
   }
