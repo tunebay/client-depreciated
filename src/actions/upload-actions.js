@@ -25,7 +25,7 @@ import {
   ADD_TRACK_ERROR
 } from './types';
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'http://localhost:3000/api/v1';
 
 let playlistPosition = 0;
 let trackProcessCounter = 0;
@@ -102,7 +102,7 @@ const addTracksToPlaylist = (files) => {
 
 const uploadSingleToS3 = (track, dispatch) => {
   const filename = `users/music/${v4()}`;
-  axios.get(`${API_URL}/upload/s3/sign`, {
+  axios.get(`${API_URL}/aws/s3/sign`, {
     params: { filename, filetype: track.file.type }
   })
   .then((res) => {
@@ -179,7 +179,7 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image, currentU
 
     if (image) {
       const filename = `users/artwork/${v4()}`;
-      axios.get(`${API_URL}/upload/s3/sign`, {
+      axios.get(`${API_URL}/aws/s3/sign`, {
         params: { filename, filetype: image.type }
       })
       .then((res) => {
@@ -268,7 +268,7 @@ const uploadFilesToS3 = (playlist, dispatch) => {
   let uploadCounter = 0;
   playlist.forEach((track) => {
     const filename = `users/music/${v4()}`;
-    axios.get(`${API_URL}/upload/s3/sign`, {
+    axios.get(`${API_URL}/aws/s3/sign`, {
       params: { filename, filetype: track.file.type }
     })
     .then((res) => {
@@ -304,7 +304,7 @@ const uploadFilesToS3 = (playlist, dispatch) => {
 const uploadAnotherFileToS3 = (track, dispatch) => {
   dispatch({ type: UPLOAD_ANOTHER_TRACK });
   const filename = `users/music/${v4()}`;
-  axios.get(`${API_URL}/upload/s3/sign`, {
+  axios.get(`${API_URL}/aws/s3/sign`, {
     params: { filename, filetype: track.file.type }
   })
   .then((res) => {
