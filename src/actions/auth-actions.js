@@ -10,7 +10,7 @@ import {
   HIDE_LOGIN_MODAL
 } from './types';
 
-const API_URL = 'http://localhost:3000';
+const AUTH_PATH = 'http://localhost:3000/api/v1/auth';
 
 export const showLoginModal = () => {
   return { type: SHOW_LOGIN_MODAL };
@@ -25,7 +25,7 @@ export const nextSignupPage = (currentPage) => {
 
 export const loginUser = ({ emailOrUsername, password }) => {
   return (dispatch) => {
-    axios.post(`${API_URL}/login`, { emailOrUsername, password })
+    axios.post(`${AUTH_PATH}/login`, { emailOrUsername, password })
       .then((res) => {
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('user', JSON.stringify(res.data.user));
@@ -47,7 +47,7 @@ export const logoutUser = () => {
 export const signupUser = ({ displayName, email, password, username }) => {
   return (dispatch) => {
     dispatch({ type: SIGNUP_ATTEMPT });
-    axios.post(`${API_URL}/signup`, { displayName, email, password, username })
+    axios.post(`${AUTH_PATH}/register`, { displayName, email, password, username })
       .then((res) => {
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('user', JSON.stringify(res.data.user));

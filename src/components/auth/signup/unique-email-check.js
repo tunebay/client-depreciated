@@ -1,14 +1,15 @@
 import axios from 'axios';
 // import { SubmissionError } from 'redux-form';
 
-const ROOT_URL = 'http://localhost:3000';
+const AUTH_PATH = 'http://localhost:3000/api/v1/auth';
 
 const uniqueEmailCheck = (values, dispatch) => {
   dispatch({ type: 'VALIDATING' });
-  return axios.post(`${ROOT_URL}/signup/emailcheck`, { email: values.email })
+  return axios.post(`${AUTH_PATH}/emailcheck`, { email: values.email })
     .then((res) => {
+      console.log('RES', res);
       dispatch({ type: 'FINISH_VALIDATING' });
-      if (res.data.error) {
+      if (res.data.message === 'Email already in use.') {
         return { email: 'Email already in use. Are you trying to log in?' };
       }
     })

@@ -1,12 +1,13 @@
 import axios from 'axios';
 // import { SubmissionError } from 'redux-form';
 
-const ROOT_URL = 'http://localhost:3000';
+const AUTH_PATH = 'http://localhost:3000/api/v1/auth';
 
 const uniqueUsernameCheck = (values) => {
-  return axios.post(`${ROOT_URL}/signup/usernamecheck`, { username: values.username })
+  return axios.post(`${AUTH_PATH}/usernamecheck`, { username: values.username })
     .then((res) => {
-      if (res.data.error) {
+      console.log(res);
+      if (res.data.message === 'Username is not available.') {
         return { username: 'That username is not available. Please choose another' };
       }
     })

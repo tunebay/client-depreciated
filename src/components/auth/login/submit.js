@@ -4,11 +4,11 @@ import { SubmissionError } from 'redux-form';
 // import { withRouter, Redirect } from 'react-router-dom';
 // import { SET_CURRENT_USER, AUTH_USER } from '../../../actions/types';
 
-const API_URL = 'http://localhost:3000';
+const AUTH_PATH = 'http://localhost:3000/v1/auth';
 
 const submit = ({ emailOrUsername, password }, dispatch) => {
   dispatch({ type: 'VALIDATING' });
-  return axios.post(`${API_URL}/login`, { emailOrUsername, password })
+  return axios.post(`${AUTH_PATH}/login`, { emailOrUsername, password })
     .then((res) => {
       console.log('setting user...');
       localStorage.setItem('token', res.data.token);
