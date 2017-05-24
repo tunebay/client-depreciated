@@ -10,6 +10,9 @@ const uniqueUsernameCheck = (values) => {
       if (res.data.message === 'Username is not available.') {
         return { username: 'That username is not available. Please choose another' };
       }
+      if (res.data.message === 'Username is reserved.') {
+        return { username: 'This username is reserved.' };
+      }
     })
     .catch((err) => {
       console.log('Error checking email is unique', err);
