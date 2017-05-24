@@ -4,7 +4,7 @@ import { SubmissionError } from 'redux-form';
 // import { withRouter, Redirect } from 'react-router-dom';
 // import { SET_CURRENT_USER, AUTH_USER } from '../../../actions/types';
 
-const AUTH_PATH = 'http://localhost:3000/v1/auth';
+const AUTH_PATH = 'http://localhost:3000/api/v1/auth';
 
 const submit = ({ emailOrUsername, password }, dispatch) => {
   dispatch({ type: 'VALIDATING' });
