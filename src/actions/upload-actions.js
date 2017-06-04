@@ -157,7 +157,6 @@ export const updateTrackPosition = (playlist, oldIndex, newIndex) => {
 
 export const releasePlaylist = (playlistDetails, playlistTracks, image, currentUser) => {
   return (dispatch) => {
-    console.log('PLAYLIST DETAILS', playlistDetails);
     dispatch({ type: PLAYLIST_RELEASE_STARTED });
     const tracksToPost = processTracks(playlistTracks);
     const releaseDate = moment(playlistDetails.releaseDate).format('YYYY-MM-DD HH:mm:ss');
@@ -187,6 +186,7 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image, currentU
         const artworkLocation = res.config.url.split('?')[0];
         const playlistToPost = {
           // required
+          userId: currentUser.id,
           tracks: tracksToPost,
           title: playlistDetails.title,
           playlistType: playlistDetails.playlistType.value,
@@ -218,6 +218,7 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image, currentU
       const artworkLocation = null;
       const playlistToPost = {
         // required
+        userId: currentUser.id,
         tracks: tracksToPost,
         title: playlistDetails.title,
         playlistType: playlistDetails.playlistType.value,
@@ -336,6 +337,7 @@ const processTracks = (tracks) => {
     delete track.trackId;
     delete track.filename;
     delete track.progress;
+    delete track.tickAnimationPlayed;
     return track;
   });
   return tracks;
