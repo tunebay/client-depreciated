@@ -162,20 +162,15 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image, currentU
     const tracksToPost = processTracks(playlistTracks);
     const releaseDate = moment(playlistDetails.releaseDate).format('YYYY-MM-DD HH:mm:ss');
     const permalink = `https://tunebay.com/${currentUser.username}/${playlistDetails.permalink || parameteriseString(playlistDetails.title)}`;
-    console.log('PERMALINK', permalink);
 
     const durationArray = playlistTracks.map((track) => {
       return track.duration;
     });
+
     const playlistDuration = durationArray.reduce((a, b) => { return a + b; });
-    let genre2Id;
-    let genre3Id;
-    if (playlistDetails.genres[1]) {
-      genre2Id = playlistDetails.genres[1].value;
-    }
-    if (playlistDetails.genres[2]) {
-      genre3Id = playlistDetails.genres[2].value;
-    }
+    const genreIds = playlistDetails.genres.map((genre) => {
+      return genre.value;
+    });
 
     if (image) {
       const filename = `users/artwork/${v4()}`;
@@ -198,20 +193,18 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image, currentU
           price: playlistDetails.price,
           canPayMore: playlistDetails.canPayMore,
           numberOfTracks: playlistTracks.length,
-          lengthInSeconds: playlistDuration,
-          genre1Id: playlistDetails.genres[0].value,
+          duration: playlistDuration,
+          genreIds,
           permalink,
           // not required
-          genre2Id: genre2Id || null,
-          genre3Id: genre3Id || null,
-          artworkLocation: artworkLocation || null,
+          artwork: artworkLocation || null,
           releaseDate: releaseDate || null,
           description: playlistDetails.description || null,
           purchaseMessage: playlistDetails.purchaseMessage || null
         };
         const playlistConfig = { headers: { Authorization: localStorage.getItem('token') } };
         console.log('POSTING PLAYLIST', playlistToPost);
-        axios.post(`${API_URL}/playlists/new`, playlistToPost, playlistConfig)
+        axios.post(`${API_URL}/playlists`, playlistToPost, playlistConfig)
         .then((data) => {
           dispatch({ type: PLAYLIST_RELEASE_SUCCESS });
           console.log('RESPONSE', data);
@@ -231,13 +224,11 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image, currentU
         price: playlistDetails.price,
         canPayMore: playlistDetails.canPayMore,
         numberOfTracks: playlistTracks.length,
-        lengthInSeconds: playlistDuration,
-        genre1Id: playlistDetails.genres[0].value,
+        duration: playlistDuration,
+        genreIds,
         permalink,
         // not required
-        artworkLocation,
-        genre2Id: genre2Id || null,
-        genre3Id: genre3Id || null,
+        artwork: artworkLocation,
         releaseDate: playlistDetails.releaseDate || null,
         description: playlistDetails.description || null,
         purchaseMessage: playlistDetails.purchaseMessage || null
@@ -245,7 +236,7 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image, currentU
 
       const playlistConfig = { headers: { Authorization: localStorage.getItem('token') } };
       console.log('POSTING PLAYLIST', playlistToPost);
-      axios.post(`${API_URL}/playlists/new`, playlistToPost, playlistConfig)
+      axios.post(`${API_URL}/playlists`, playlistToPost, playlistConfig)
       .then((data) => {
         dispatch({ type: PLAYLIST_RELEASE_SUCCESS });
         console.log('RESPONSE', data);
