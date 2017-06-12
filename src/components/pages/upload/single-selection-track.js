@@ -25,8 +25,8 @@ class SingleSelectionTrack extends Component {
 
     const currencyBoxClass = classNames({
       'currency-box': true,
-      'box-disabled': !track.isASingle,
-      'box-active': track.isASingle
+      'box-disabled': !track.single,
+      'box-active': track.single
     });
 
     return (
@@ -37,7 +37,7 @@ class SingleSelectionTrack extends Component {
         <div id="single">
           <input
             type="checkbox"
-            checked={track.isASingle}
+            checked={track.single}
             onChange={this.handleCheckingBox.bind(this)}
           />
         </div>
@@ -51,7 +51,7 @@ class SingleSelectionTrack extends Component {
               required
               value={track.price}
               onChange={this.handleInputChange.bind(this)}
-              disabled={!track.isASingle}
+              disabled={!track.single}
             />
           </div>
         </div>

@@ -159,7 +159,7 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image, currentU
   return (dispatch) => {
     dispatch({ type: PLAYLIST_RELEASE_STARTED });
     const tracksToPost = processTracks(playlistTracks);
-    const releaseDate = moment(playlistDetails.releaseDate).format('YYYY-MM-DD HH:mm:ss');
+    // const releaseDate = moment(playlistDetails.releaseDate).format('YYYY-MM-DD HH:mm:ss');
     const permalink = `https://tunebay.com/${currentUser.username}/${playlistDetails.permalink || parameteriseString(playlistDetails.title)}`;
 
     const durationArray = playlistTracks.map((track) => {
@@ -190,16 +190,16 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image, currentU
           tracks: tracksToPost,
           title: playlistDetails.title,
           playlistType: playlistDetails.playlistType.value,
-          price: playlistDetails.price,
+          price: parseFloat(playlistDetails.price),
           canPayMore: playlistDetails.canPayMore,
           numberOfTracks: playlistTracks.length,
           duration: playlistDuration,
-          genreIds,
+          // genreIds,
           permalink,
+          createdAt: moment().format(),
           // not required
           artwork: artworkLocation || null,
-          releaseDate: releaseDate || null,
-          description: playlistDetails.description || null,
+          releaseDate: playlistDetails.releaseDate || null,
           purchaseMessage: playlistDetails.purchaseMessage || null
         };
         const playlistConfig = { headers: { Authorization: localStorage.getItem('token') } };
@@ -222,16 +222,16 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image, currentU
         tracks: tracksToPost,
         title: playlistDetails.title,
         playlistType: playlistDetails.playlistType.value,
-        price: playlistDetails.price,
+        price: parseFloat(playlistDetails.price),
         canPayMore: playlistDetails.canPayMore,
         numberOfTracks: playlistTracks.length,
         duration: playlistDuration,
-        genreIds,
+        // genreIds,
         permalink,
+        createdAt: moment().format(),
         // not required
         artwork: artworkLocation,
         releaseDate: playlistDetails.releaseDate || null,
-        description: playlistDetails.description || null,
         purchaseMessage: playlistDetails.purchaseMessage || null
       };
 
@@ -327,11 +327,13 @@ const uploadAnotherFileToS3 = (track, dispatch) => {
 
 const processTracks = (tracks) => {
   tracks.map((track) => {
-    if (!track.isASingle) {
+    if (!track.single) {
       track.price = null;
+    } else {
+      track.price = parseFloat(track.price);
     }
     if (tracks.length === 1) {
-      track.isASingle = true;
+      track.single = true;
     }
     delete track.file;
     delete track.trackId;
@@ -340,6 +342,7 @@ const processTracks = (tracks) => {
     delete track.tickAnimationPlayed;
     return track;
   });
+  console.log(tracks);
   return tracks;
 };
 

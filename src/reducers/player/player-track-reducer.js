@@ -24,7 +24,7 @@ export default (state = INITIAL_STATE, action) => {
         miliDuration: action.payload.miliDuration,
         artist: action.payload.displayName,
         playlistType: action.payload.playlistType,
-        isAsingle: action.payload.single,
+        single: action.payload.single,
         isPlaying: true
       };
     default:

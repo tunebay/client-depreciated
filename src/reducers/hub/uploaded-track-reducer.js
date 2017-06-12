@@ -18,7 +18,7 @@ export const INITIAL_STATE = {
   file: null,
   filename: null,
   playlistPosition: null,
-  isASingle: false,
+  single: false,
   price: null,
   fileType: null,
   hasError: false,
@@ -35,7 +35,7 @@ export default (state = INITIAL_STATE, action) => {
         duration: action.payload.duration,
         file: action.payload.file,
         playlistPosition: action.payload.playlistPosition,
-        isASingle: false,
+        single: false,
         price: parseFloat(0.00).toFixed(2),
         fileType: action.payload.fileType
       };
@@ -47,7 +47,7 @@ export default (state = INITIAL_STATE, action) => {
         duration: action.payload.duration,
         file: action.payload.file,
         playlistPosition: action.payload.playlistPosition,
-        isASingle: false,
+        single: false,
         price: parseFloat(0.00).toFixed(2),
         fileType: action.payload.fileType
       };
@@ -65,7 +65,7 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, hasError: true };
     case UPDATE_SINGLE_STATUS:
       if (state.trackId !== action.trackId) return state;
-      return { ...state, isASingle: action.payload };
+      return { ...state, single: action.payload };
     case UPDATE_TRACK_PRICE:
       if (state.trackId !== action.trackId) return state;
       return { ...state, price: action.payload };
