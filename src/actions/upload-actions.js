@@ -194,7 +194,7 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image, currentU
           canPayMore: playlistDetails.canPayMore,
           numberOfTracks: playlistTracks.length,
           duration: playlistDuration,
-          // genreIds,
+          genreIds,
           permalink,
           createdAt: moment().format(),
           // not required
@@ -226,7 +226,7 @@ export const releasePlaylist = (playlistDetails, playlistTracks, image, currentU
         canPayMore: playlistDetails.canPayMore,
         numberOfTracks: playlistTracks.length,
         duration: playlistDuration,
-        // genreIds,
+        genreIds,
         permalink,
         createdAt: moment().format(),
         // not required

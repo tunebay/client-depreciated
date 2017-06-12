@@ -42,7 +42,9 @@ class App extends Component {
         <div>
           <Switch>
             <Route
-              exact path="/" render={(match) => {
+              exact
+              path="/"
+              render={(match) => {
                 console.log('MATCH', match);
                 // console.log('MATCH', match);
                 return (
@@ -58,7 +60,8 @@ class App extends Component {
             />
             {/* <Route path="/hub" component={RequireAuth(Hub)} /> */}
             <Route
-              path="/login" render={() => (
+              path="/login"
+              render={() => (
               !this.props.isAuthenticated ? (
                 <div>
                   <Header unauth />
@@ -69,7 +72,8 @@ class App extends Component {
               ))}
             />
             <Route
-              path="/signup" render={() => (
+              path="/signup"
+              render={() => (
               this.props.isAuthenticated ? (
                 <Redirect to="/" />
               ) : (
