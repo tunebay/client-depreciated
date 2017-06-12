@@ -5,17 +5,17 @@ import {
   USER_DOESNT_EXIST
 } from './types';
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'http://localhost:3000/api/v1';
 
 export const loadUser = (username) => {
   return (dispatch) => {
-    axios.get(`${API_URL}/users/${username}`)
+    axios.get(`${API_URL}/users/${username}/playlists`)
     .then((res) => {
       dispatch({ type: MOUNT_USER, user: res.data.user, playlists: res.data.playlists });
     })
     .catch((err) => {
       dispatch({ type: USER_DOESNT_EXIST });
-      console.log('ERROR', err);
+      console.log('PROFILE ERROR', err);
     });
   };
 };

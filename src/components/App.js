@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { checkUserExists } from '../actions/profile-actions';
 
 import HomeFeed from './pages/home-feed';
 import PublicHomePage from './pages/welcome/';
@@ -8,11 +9,9 @@ import Login from './pages/login';
 import Signup from './pages/signup';
 import Logout from './pages/logout';
 import Profile from './pages/profile/';
-// import Hub from './pages/hub/hub';
 import NotFound from './pages/not-found';
 import Upload from './pages/upload/';
 import RequireAuth from './hoc/require-auth';
-// import Player from './player/player';
 import Header from './header/header';
 
 class App extends Component {
@@ -33,6 +32,13 @@ class App extends Component {
           <ComponentToRender {...match} />
         </div>
       );
+    };
+  }
+
+  renderProfile(ComponentToRender) {
+    return (match) => {
+      console.log('Match', match.match.params.username);
+      return <ComponentToRender {...match} />;
     };
   }
 
@@ -83,7 +89,7 @@ class App extends Component {
             <Route path="/logout" component={this.renderRoute(Logout)} />
             <Route path="/upload" component={this.renderRoute(RequireAuth(Upload))} />
             <Route path="/feed" component={this.renderRoute(RequireAuth(HomeFeed))} />
-            <Route path="/:username" render={this.renderRoute(Profile)} />
+            <Route path="/:username" render={this.renderProfile(Profile)} />
             <Route path="*" component={NotFound} />
           </Switch>
           {/* <Player /> */}
@@ -99,4 +105,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { checkUserExists })(App);
