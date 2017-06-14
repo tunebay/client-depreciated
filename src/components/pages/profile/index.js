@@ -15,6 +15,7 @@ class Profile extends Component {
     if (findingUser) return <div />;
     if (!user) return <NotFound {...this.props} />;
     document.title = `${user.displayName} | Tunebay`;
+
     return (
       <Content>
         <div>Profile Found</div>
