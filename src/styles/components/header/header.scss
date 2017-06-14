@@ -6,15 +6,13 @@ $header-height: 48px;
   align-items: center;
   height: $header-height;
   width: 100%;
-  background-color: #fff;
+  background-color: #2E3F52;
   margin: 0;
   padding: 0;
   top: 0;
   position: fixed;
   z-index: 1;
-  -webkit-box-shadow: 0px 2px 0px 0px rgba(228,228,228,1);
-  -moz-box-shadow: 0px 2px 0px 0px rgba(228,228,228,1);
-  box-shadow: 0px 2px 0px 0px rgba(228,228,228,1);
+  @include boxShadow;
 
   .nav-link {
     height: $header-height;
@@ -24,18 +22,14 @@ $header-height: 48px;
     align-items: center;
     // border-right: 1px solid $border-color;
     text-decoration: none;
-    color: lighten($text-black, 10%);
+    color: #fff;
     font-weight: 500;
     font-family: $font-stack;
     font-size: 14px;
     line-height: 1.4;
     transition: all 100ms ease-out;
     &:hover {
-
-      // background-color: #e4e4e4;
-
-      color: $text-black;
-      border-bottom: 3px solid $blue;
+      opacity: 0.8;
     }
   }
 
@@ -46,7 +40,7 @@ $header-height: 48px;
     justify-content: center;
     align-items: center;
     .fa-search {
-      color: $light-grey;
+      color: #fff;
     }
   }
 
@@ -61,14 +55,13 @@ $header-height: 48px;
     width: 80px;
     text-decoration: none;
     margin-left: 15px;
-    font-size: 14px;
+    font-size: 12px;
     color: #fff;
     font-family: $font-stack;
     font-weight: 500;
     transition: all 75ms ease-out;
     &:hover {
-      cursor: pointer;
-      background-color: darken($blue, 5%);
+      opacity: 0.8;
     }
   }
 
@@ -118,25 +111,26 @@ $header-height: 48px;
     align-items: center;
     @include browserFlex;
     .search-icon-con {
-      width: 36px;
-      height: 36px;
+      width: 32px;
+      height: 32px;
+      background-color: #fff;
       @include borderBox;
       @include browserFlex;
       @include justifyCenter;
       @include alignCenter;
       // padding: 0 5px;
       border-radius: 3px;
-      border: 1px solid $light-grey;
+      // border: 1px solid $light-grey;
       border-right: none;
       border-top-right-radius: 0px;
       border-bottom-right-radius: 0px;
     }
     .search-input {
       @include borderBox;
-      border-radius: 3px;
-      border: 1px solid $light-grey;
-      border-left: none;
-      height: 36px;
+      border-radius: 2px;
+      // border: 1px solid $light-grey;
+      border: none;
+      height: 32px;
       width: 100%;
       font-weight: 500;
       line-height: 1.4;
@@ -166,7 +160,7 @@ $header-height: 48px;
       width: 50px;
       transition: all 100ms ease-out;
       &:hover {
-        border-bottom: 3px solid $blue;
+        opacity: 0.8;
         cursor: pointer;
       }
       .bell-icon {
@@ -229,14 +223,14 @@ $header-height: 48px;
       transition: all 100ms ease-out;
       &:hover {
         cursor: pointer;
-        border-bottom: 3px solid $blue;
+        opacity: 0.8;
       }
       .fa-caret {
-        color: lighten($text-black, 10%);
+        color: #fff;
       }
       .fa-user {
         padding-right: 10px;
-        color: lighten($text-black, 10%);
+        color: #fff;
       }
       .display-name {
         display: flex;
@@ -246,7 +240,7 @@ $header-height: 48px;
         font-family: $font-stack;
         font-size: 14px;
         padding-right: 10px;
-        color: lighten($text-black, 10%);
+        color: #fff;
         white-space: nowrap;
       }
     }
@@ -277,6 +271,9 @@ $header-height: 48px;
           display: none;
         }
       }
+    }
+    .upload-link {
+      display: none;
     }
   }
 }

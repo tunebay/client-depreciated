@@ -60,7 +60,7 @@ class Header extends Component {
         <NavLink
           className="upload-link"
           to="/upload"
-        >Upload</NavLink>
+        >UPLOAD</NavLink>
       </div>
     );
   }
@@ -77,7 +77,7 @@ class Header extends Component {
             />
             <img
               className="logo-text"
-              src="../../../assets/images/Tunebay.svg"
+              src="../../../assets/images/tunebay-white.svg"
               alt="logo-text"
             />
           </div>
