@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import authReducer from './auth-reducer';
-import profileReducer from './profile/profile-reducer';
+import profileReducer from './profile.reducer';
 import uploadedPlaylistReducer from './hub/uploaded-playlist-reducer';
 import uploadedArtworkReducer from './artwork-reducer'; // new
 import formReducer from './redux-form-reducer';

@@ -35,13 +35,6 @@ class App extends Component {
     };
   }
 
-  renderProfile(ComponentToRender) {
-    return (match) => {
-      console.log('Match', match.match.params.username);
-      return <ComponentToRender {...match} />;
-    };
-  }
-
   render() {
     return (
       <Router>
@@ -89,7 +82,7 @@ class App extends Component {
             <Route path="/logout" component={this.renderRoute(Logout)} />
             <Route path="/upload" component={this.renderRoute(RequireAuth(Upload))} />
             <Route path="/feed" component={this.renderRoute(RequireAuth(HomeFeed))} />
-            <Route path="/:username" render={this.renderProfile(Profile)} />
+            <Route path="/:username" render={this.renderRoute(Profile)} />
             <Route path="*" component={NotFound} />
           </Switch>
           {/* <Player /> */}
