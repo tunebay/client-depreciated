@@ -3,7 +3,7 @@ import Content from './content';
 
 
 const NotFound = ({ match }) => {
-  document.title = ' ??? | Tunebay';
+  document.title = ' 404 | Tunebay';
   return (
     <Content>
       <h3>404 page not found</h3>

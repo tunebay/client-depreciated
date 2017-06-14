@@ -12,11 +12,9 @@ class Profile extends Component {
 
   render() {
     const { user, findingUser } = this.props;
-    console.log('PROFILE RENDER PROPS', this.props);
-    console.log('FINDING USER', findingUser);
     if (findingUser) return <div />;
     if (!user) return <NotFound {...this.props} />;
-
+    document.title = `${user.displayName} | Tunebay`;
     return (
       <Content>
         <div>Profile Found</div>
