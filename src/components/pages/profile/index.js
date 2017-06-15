@@ -4,6 +4,8 @@ import Content from '../content';
 import NotFound from '../not-found';
 import * as actions from '../../../actions/profile-actions';
 
+import './styles/cover-photo.scss';
+
 class Profile extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +20,8 @@ class Profile extends Component {
 
     return (
       <Content>
-        <div>Profile Found</div>
+        <div id="cover-photo" />
+        <div id="profile-nav" />
       </Content>
     );
   }

@@ -1,0 +1,27 @@
+@import "../../../../styles/variables";
+
+#cover-photo {
+  display: block;
+  max-height: 300px;
+  min-height: 230px;
+  max-width: 100%;
+  // min-width: 992px;
+  overflow: hidden;
+  background-image: url("http://www.twitrcovers.com/wp-content/uploads/2012/09/Earth.jpg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+}
+
+#cover-photo:before {
+  content: "";
+  display: block;
+  padding-bottom: 20%;
+}
+
+#profile-nav {
+  height: 50px;
+  width: 100%;
+  background-color: white;
+}
