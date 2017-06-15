@@ -22,6 +22,14 @@ class Profile extends Component {
       <Content>
         <div id="cover-photo" />
         <div id="profile-nav" />
+        <div id="main-profile-wrapper">
+          <div id="main-profile-content">
+            <div id="detail-section">
+              <div className="artwork" />
+            </div>
+            <div id="user-info" />
+          </div>
+        </div>
       </Content>
     );
   }
