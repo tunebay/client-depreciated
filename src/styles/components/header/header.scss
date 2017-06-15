@@ -22,7 +22,7 @@ $header-height: 48px;
     align-items: center;
     // border-right: 1px solid $border-color;
     text-decoration: none;
-    color: #fff;
+    color: $light-grey;
     font-weight: 500;
     font-family: $font-stack;
     font-size: 14px;
@@ -221,14 +221,15 @@ $header-height: 48px;
       transition: all 100ms ease-out;
       &:hover {
         cursor: pointer;
+        color: #fff;
         background-color: darken(#2E3F52, 5%);
       }
       .fa-caret {
-        color: #fff;
+        color: $light-grey;
       }
       .fa-user {
         padding-right: 10px;
-        color: #fff;
+        color: $light-grey;
       }
       .display-name {
         display: flex;
