@@ -12,6 +12,16 @@ class Profile extends Component {
     this.props.findUser(this.props.match.params.username);
   }
 
+  componentWillReceiveProps(props) {
+    const { findingUser } = this.props;
+    if (!props.user) return <NotFound {...this.props} />;
+    if (!findingUser) {
+      if (props.match.params.username !== props.user.username) {
+        this.props.findUser(props.match.params.username);
+      }
+    }
+  }
+
   render() {
     const { user, findingUser } = this.props;
     if (findingUser) return <div />;
@@ -27,7 +37,17 @@ class Profile extends Component {
             <div id="detail-section">
               <div className="artwork" />
             </div>
-            <div id="user-info" />
+            <div id="user-info">
+              <img
+                alt="profile"
+                src="https://s3.eu-west-2.amazonaws.com/tunebay/10633639_334520540070023_4983662770087093384_o.jpg"
+                id="profile-picture"
+              />
+              <div id="user-details">
+                <div id="display-name">{user.displayName}</div>
+                <div className="username">@{user.username}</div>
+              </div>
+            </div>
           </div>
         </div>
       </Content>

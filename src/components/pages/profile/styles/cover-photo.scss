@@ -51,7 +51,7 @@
     // flex-shrink: 0.5;
     min-width: calc($breakpoint-medium - 60px);
     // align-items: center;
-    height: 500px;
+    // height: 500px;
     #detail-section {
       @include browserFlex;
       width: calc(100% - 360px);
@@ -70,19 +70,37 @@
         background-color: $light-grey;
       }
     }
-    // #detail-section:before {
-    //   content: "";
-    //   display: block;
-    //   padding-bottom: 20%;
-    // }
     #user-info {
       @include boxShadow;
       width: 330px;
       // min-width: 330px;
       // flex-shrink: 0.5;
-      height: 300px;
+      height: auto;
       border-radius: 5px;
       background-color: white;
+      #profile-picture {
+        width: 100%;
+        height: auto;
+        background-color: $light-blue;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+      #user-details {
+        @include borderBox;
+        padding: 16px;
+        font-family: $font-stack;
+        line-height: 1.4;
+        color: $text-black;
+        #display-name {
+          font-size: 22px;
+          font-weight: 700;
+        }
+        #username {
+          font-size: 16px;
+          font-weight: 500;
+          color: #999;
+        }
+      }
     }
   }
 }
