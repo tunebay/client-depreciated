@@ -44,9 +44,13 @@ class Profile extends Component {
               </div>
             </div>
             <div id="user-info">
-              <div
-                id="profile-picture-con"
-              />
+              <div id="profile-picture-con">
+                <img
+                  src="https://tunebay-upload.s3-eu-west-2.amazonaws.com/users/artwork/d910d2e6-9e21-4f1e-9a6a-fb105afbf6c4"
+                  alt="avatar"
+                  className="profile-picture"
+                />
+              </div>
               <div id="user-details">
                 <div id="display-name">{user.displayName}</div>
                 <div id="username">@{user.username}</div>
