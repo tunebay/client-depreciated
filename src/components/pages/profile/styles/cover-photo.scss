@@ -21,13 +21,6 @@
   padding-bottom: 20%;
 }
 
-#profile-nav {
-  height: 50px;
-  width: 100%;
-  background-color: white;
-  border-bottom: 3px solid $light-grey;
-}
-
 #main-profile-wrapper {
   @include browserFlex;
   width: 100%;

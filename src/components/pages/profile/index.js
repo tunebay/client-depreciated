@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Content from '../content';
+import NavBar from './nav';
 import NotFound from '../not-found';
 import * as actions from '../../../actions/profile-actions';
 
@@ -31,7 +32,7 @@ class Profile extends Component {
     return (
       <Content>
         <div id="cover-photo" />
-        <div id="profile-nav" />
+        <NavBar />
         <div id="main-profile-wrapper">
           <div id="main-profile-content">
             <div id="detail-section">
