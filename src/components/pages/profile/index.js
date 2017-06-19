@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Content from '../content';
 import NavBar from './nav';
+import DetailSection from './detail-section';
 import NotFound from '../not-found';
 import * as actions from '../../../actions/profile-actions';
 
@@ -35,15 +36,7 @@ class Profile extends Component {
         <NavBar />
         <div id="main-profile-wrapper">
           <div id="main-profile-content">
-            <div id="detail-section">
-              <div id="artwork-con">
-                <img
-                  id="artwork"
-                  alt="artwork"
-                  src={user.playlists[0].artwork || 'https://tunebay-upload.s3-eu-west-2.amazonaws.com/users/artwork/eb8c974a-3b35-48b0-bd59-d102ec4d7a38'}
-                />
-              </div>
-            </div>
+            <DetailSection user={user} />
             <div id="user-info">
               <div id="profile-picture-con">
                 <img
