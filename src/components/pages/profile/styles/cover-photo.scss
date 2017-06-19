@@ -40,15 +40,16 @@
       @include browserFlex;
       @include justifyCenter;
       @include alignCenter;
+      justify-content: space-between;
       flex-direction: column;
       width: 300px;
-      height: 360px;
+      height: 367px;
       border-radius: 5px;
       padding-top: 16px;
       background-color: white;
       #profile-picture-con {
-        width: 200px;
-        height: 200px;
+        width: calc(100% - 100px);
+        height: auto;
         background-color: $light-grey;
         border: 5px solid white;
         @include boxShadow;
@@ -131,7 +132,10 @@
         margin-left: 30px;
         // margin-right: 30px;
         flex-shrink: 1;
+        height: 30.5vw;
+        // padding-right: 24%;
         max-width: 300px;
+        min-height: 340px;
       }
     }
   }
@@ -170,6 +174,9 @@
         height: 240px;
         min-width: 500px;
         height: 20vw;
+        #playlist-display {
+          min-height: 200px;
+        }
       }
       #user-info {
         min-width: 260px;

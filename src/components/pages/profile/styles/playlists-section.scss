@@ -6,34 +6,56 @@
   height: auto;
   // background-color: red;
   #user-playlists {
+    @include browserFlex;
+    flex-direction: column;
     width: 100%;
     height: auto;
     // background-color: blue;
     list-style: none;
     margin: 0;
+    margin-bottom: 100px;
     padding: 0;
-    #playlist-display {
+    .playlist-display {
+      @include browserFlex;
+      @include alignCenter;
+      @include borderBox;
+      @include boxShadow;
+      flex-direction: row;
       background-color: white;
       width: 100%;
       height: 20vw;
-      @include borderBox;
       margin-bottom: 24px;
+      padding: 16px;
       border-radius: 5px;
-      @include boxShadow;
+      .artwork-con {
+        // background-color: $light-grey;
+        height: 100%;
+        @include borderBox;
+        // padding-left: 100%;
+        // width: 200px;
+        // padding: 20px;
+        // margin: 16px;
+        border-radius: 3px;
+        .artwork {
+          @include borderBox;
+          height: 100%;
+          width: auto;
+          // padding: 16px;
+          border-radius: 4px;
+          // padding-bottom: 100%;
+          // background-color: $light-grey;
+        }
+      }
+      .playlist-details {
+        // background-color: blue;
+        font-family: $font-stack;
+        font-weight: 700;
+        color: $text-black;
+        font-size: 22px;
+        padding-left: 16px;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }
-
-// #artwork-con {
-//   padding: 20px;
-//   border-radius: 3px;
-//   #artwork {
-//     @include borderBox;
-//     height: 100%;
-//     width: auto;
-//     // padding: 16px;
-//     border-radius: 4px;
-//     // padding-bottom: 100%;
-//     // background-color: $light-grey;
-//   }
-// }
