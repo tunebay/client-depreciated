@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Content from '../content';
 import NavBar from './nav';
-import DetailSection from './detail-section';
+import PlaylistsSection from './playlists-section';
 import NotFound from '../not-found';
 import * as actions from '../../../actions/profile-actions';
 
@@ -36,7 +36,7 @@ class Profile extends Component {
         <NavBar />
         <div id="main-profile-wrapper">
           <div id="main-profile-content">
-            <DetailSection user={user} />
+            <PlaylistsSection playlists={user.playlists} />
             <div id="user-info">
               <div id="profile-picture-con">
                 <img

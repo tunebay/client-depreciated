@@ -42,7 +42,7 @@
       @include alignCenter;
       flex-direction: column;
       width: 300px;
-      height: auto;
+      height: 360px;
       border-radius: 5px;
       padding-top: 16px;
       background-color: white;
@@ -104,6 +104,7 @@
         }
       }
       #user-info-footer {
+        // align-self: baseline;
         height: 30px;
         width: 100%;
         background-color: #f7f7f7;
@@ -119,17 +120,41 @@
     #main-profile-content {
       width: calc(100% - 60px;);
       // min-width: calc($breakpoint-small - 60px);
-      #detail-section {
+      #playlists-section {
         // padding-bottom: 33%;
-        height: 240px;
+        // background-color: red;
+        height: auto;
         min-width: 780px;
       }
       #user-info {
-        min-width: 280px;
+        min-width: 260px;
         margin-left: 30px;
         // margin-right: 30px;
-        // flex-shrink: 0.5;
+        flex-shrink: 1;
         max-width: 300px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1130px) {
+  #main-profile-wrapper {
+    #main-profile-content {
+      width: calc(100% - 60px;);
+      // min-width: calc($breakpoint-small - 60px);
+      #playlists-section {
+        // padding-bottom: 33%;
+        width: 100%;
+        // background-color: blue;
+        height: auto;
+        min-width: 500px;
+      }
+      #user-info {
+        width: 260px;
+        margin-left: 30px;
+        // margin-right: 30px;
+        flex-shrink: 1;
+
       }
     }
   }
@@ -140,14 +165,14 @@
     #main-profile-content {
       width: calc(100% - 60px;);
       // min-width: calc($breakpoint-small - 60px);
-      #detail-section {
+      #playlists-section {
         // padding-bottom: 33%;
         height: 240px;
         min-width: 500px;
         height: 20vw;
       }
       #user-info {
-        min-width: 280px;
+        min-width: 260px;
         margin-left: 30px;
         // margin-right: 30px;
         // flex-shrink: 0.5;

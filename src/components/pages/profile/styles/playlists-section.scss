@@ -1,0 +1,39 @@
+@import "../../../../styles/variables";
+
+#playlists-section {
+  @include browserFlex;
+  width: calc(100% - 330px);
+  height: auto;
+  // background-color: red;
+  #user-playlists {
+    width: 100%;
+    height: auto;
+    // background-color: blue;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    #playlist-display {
+      background-color: white;
+      width: 100%;
+      height: 20vw;
+      @include borderBox;
+      margin-bottom: 24px;
+      border-radius: 5px;
+      @include boxShadow;
+    }
+  }
+}
+
+// #artwork-con {
+//   padding: 20px;
+//   border-radius: 3px;
+//   #artwork {
+//     @include borderBox;
+//     height: 100%;
+//     width: auto;
+//     // padding: 16px;
+//     border-radius: 4px;
+//     // padding-bottom: 100%;
+//     // background-color: $light-grey;
+//   }
+// }
