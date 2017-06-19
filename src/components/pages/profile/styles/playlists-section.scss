@@ -27,7 +27,7 @@
       margin-bottom: 24px;
       padding: 16px;
       border-radius: 5px;
-      .artwork-con {
+      .artwork {
         // background-color: $light-grey;
         height: 100%;
         @include borderBox;
@@ -36,7 +36,7 @@
         // padding: 20px;
         // margin: 16px;
         border-radius: 3px;
-        .artwork {
+        .artwork-image {
           @include borderBox;
           height: 100%;
           width: auto;
