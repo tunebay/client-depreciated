@@ -50,13 +50,13 @@
       #profile-picture-con {
         width: calc(100% - 100px);
         height: auto;
-        background-color: $light-grey;
-        border: 5px solid white;
-        @include boxShadow;
-        // border-top-left-radius: 5px;
-        // border-top-right-radius: 5px;
+        // padding-top: calc(100% - 100px);
+        // background-color: $light-grey;
+        // border: 5px solid white;
         border-radius: 100%;
         .profile-picture {
+          @include boxShadow;
+          border: 5px solid white;
           width: 100%;
           height: auto;
           border-radius: 100%;
@@ -120,6 +120,7 @@
   #main-profile-wrapper {
     #main-profile-content {
       width: calc(100% - 60px;);
+      // height: 170px;
       // min-width: calc($breakpoint-small - 60px);
       #playlists-section {
         // padding-bottom: 33%;
