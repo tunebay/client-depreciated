@@ -1,0 +1,21 @@
+@import "../../../../styles/variables";
+
+.artwork {
+  // background-color: $light-grey;
+  height: 100%;
+  @include borderBox;
+  // padding-left: 100%;
+  // width: 200px;
+  // padding: 20px;
+  // margin: 16px;
+  border-radius: 3px;
+  .artwork-image {
+    @include borderBox;
+    height: 100%;
+    width: auto;
+    // padding: 16px;
+    border-radius: 4px;
+    // padding-bottom: 100%;
+    // background-color: $light-grey;
+  }
+}

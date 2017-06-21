@@ -1,11 +1,10 @@
 import React from 'react';
+import Artwork from './artwork';
 
 const PlaylistDisplay = ({ playlist }) => {
   return (
     <li className="playlist-display">
-      <div className="artwork">
-        <img className="artwork-image" src={playlist.artwork} alt="artwork" />
-      </div>
+      <Artwork artwork={playlist.artwork} />
       <div className="playlist-details">
         <div className="title">{playlist.title}</div>
       </div>
