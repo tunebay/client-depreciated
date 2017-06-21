@@ -12,7 +12,7 @@ class Artwork extends Component {
               <g id="Artboard" transform="translate(-54.000000, -65.000000)">
                 <g id="Group-5" transform="translate(54.000000, 65.000000)">
                   <rect id="Rectangle-18" fill="#34BFED" x="0" y="0" width="260" height="260" rx="8" />
-                  <text id="placeholder-text" fontFamily="AvenirNext-Bold, Avenir Next" fontSize="28" fontWeight="bold" textAnchor="middle" fill="#FFFFFF">
+                  <text id="placeholder-text" fontFamily="AvenirNext-Bold, Avenir Next" fontSize="30" fontWeight="bold" textAnchor="middle" fill="#FFFFFF">
                     <tspan x="130" y="139">{title}</tspan>
                   </text>
                 </g>
