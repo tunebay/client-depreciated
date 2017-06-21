@@ -7,8 +7,7 @@ const PlaylistDisplay = ({ playlist }) => {
         <img className="artwork-image" src={playlist.artwork} alt="artwork" />
       </div>
       <div className="playlist-details">
-        <div>{playlist.title}</div>
-        <div>{playlist.numberOfTracks}</div>
+        <div className="title">{playlist.title}</div>
       </div>
     </li>
   );
