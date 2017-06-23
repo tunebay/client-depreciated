@@ -9,16 +9,16 @@ const PricePill = ({ price, button }) => {
   });
 
   return (
-    <div className={pillClass}>
+    <button className={pillClass}>
       <div className="price-pill-text">
         {renderPrice(price)}
       </div>
-    </div>
+    </button>
   );
 };
 
 const renderPrice = (price) => {
-  if (!price || price <= 0.01) return 'Free';
+  if (!price || price <= 0.01) return 'FREE';
   const priceString = `£${price}`;
   return priceString.substr(-3) === '.00' ?
     priceString.slice(0, -3) : priceString;

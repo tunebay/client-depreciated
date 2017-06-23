@@ -37,6 +37,8 @@
         height: 100%;
         .title {
           font-size: calc(14px + 0.6vw);
+          display: inline-flex;
+          @include alignCenter;
         }
       }
     }

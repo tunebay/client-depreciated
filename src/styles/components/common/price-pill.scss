@@ -4,22 +4,32 @@
   margin-left: 10px;
   background-color: $blue;
   min-width: 65px;
-  width: auto;
+  max-width: 100px;
+  width: 65px;
   height: 20px;
-  display: flex;
+  @include browserFlex;
   align-items: center;
+  display: inline-flex;
+  outline: none;
   justify-content: center;
+  text-align: center;
+  border: none;
   border-radius: 100px;
+  transition: all 75ms ease-out;
   .price-pill-text {
     display: flex;
     padding: 0;
-    align-items: baseline;
+    align-items: center;
     line-height: 1.4;
     justify-content: center;
     color: #fff;
     font-family: $font-stack;
     font-weight: 500;
     font-size: 12px;
+  }
+  &:hover {
+    background-color: darken($blue, 5%);
+    cursor: pointer;
   }
 }
 

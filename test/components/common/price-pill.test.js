@@ -3,9 +3,9 @@ import { shallow } from 'enzyme';
 import PricePill from '../../../src/components/common/price-pill';
 
 describe('<PricePill />', () => {
-  it('Displays Free for no price', () => {
+  it('Displays FREE for no price', () => {
     const wrapper = shallow(<PricePill price="0.00" />);
-    expect(wrapper.text()).toBe('Free');
+    expect(wrapper.text()).toBe('FREE');
   });
 
   it('Renders the given price', () => {
