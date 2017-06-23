@@ -30,6 +30,8 @@
       .playlist-details {
         // background-color: blue;
         font-family: $font-stack;
+        @include browserFlex;
+        flex-direction: column;
         font-weight: 700;
         color: $text-black;
         padding-left: 16px;
@@ -39,6 +41,54 @@
           font-size: calc(14px + 0.6vw);
           display: inline-flex;
           @include alignCenter;
+        }
+        .playlist-player {
+          @include borderBox;
+          @include browserFlex;
+          @include alignCenter;
+          flex-direction: row;
+          // background-color: $light-blue;
+          width: 100%;
+          height: 40px;
+          margin-top: 12px;
+          .play-btn {
+            @include browserFlex;
+            @include alignCenter;
+            @include justifyCenter;
+            height: 44px;
+            width: 44px;
+            outline: none;
+            border: 3px solid #d4ebfd;
+            border-radius: 100%;
+            background-color: $blue;
+            transition: all 75ms ease-in;
+            &:hover {
+              background-color: darken($blue, 5%);
+              cursor: pointer;
+            }
+            .play {
+              width: 16px;
+              height: 16px;
+              margin-left: 2px;
+            }
+          }
+          .track-to-play {
+            // background-color: gold;
+            @include browserFlex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-left: 8px;
+            width: 100%;
+            height: 100%;
+            .track-title {
+              font-size: 16px;
+              font-weight: 600;
+            }
+            .playlist-player-title {
+              font-weight: 600;
+              color: #999;
+            }
+          }
         }
       }
     }
