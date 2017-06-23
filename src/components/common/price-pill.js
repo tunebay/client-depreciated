@@ -19,8 +19,9 @@ const PricePill = ({ price, button }) => {
 
 const renderPrice = (price) => {
   if (!price || price <= 0.01) return 'Free';
-  return price.substr(-3) === '.00' ?
-    `£${price.slice(0, -3)}` : `£${price}`;
+  const priceString = `£${price}`;
+  return priceString.substr(-3) === '.00' ?
+    priceString.slice(0, -3) : priceString;
 };
 
 export default PricePill;

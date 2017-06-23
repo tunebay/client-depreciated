@@ -17,7 +17,7 @@ const SingleSelectionPage = ({ formValues, handleSubmit, handlePrevious, playlis
           <div className="basic-info-section">
             <div className="title-price">
               <div className="playlist-title">{formValues.title}</div>
-              <PricePill price={formValues.price} />
+              <PricePill price={parseFloat(formValues.price)} />
             </div>
             <div className="genres">{renderGenres(formValues.genres)}</div>
           </div>

@@ -39,7 +39,7 @@ class ReleasedModal extends Component {
             <div className="basic-info-section">
               <div className="title-price">
                 <div className="playlist-title">{playlistDetails.values.title}</div>
-                <PricePill price={playlistDetails.values.price} />
+                <PricePill price={parseFloat(playlistDetails.values.price)} />
               </div>
               <div className="genres">{renderGenres(playlistDetails.values.genres)}</div>
             </div>
