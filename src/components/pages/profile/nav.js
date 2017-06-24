@@ -11,6 +11,7 @@ class NavBar extends Component {
 
     return (
       <div className={navClass}>
+        <div className="nav-blur" />
         <div id="nav-content">
           <div className="profile-nav-link-active">All</div>
           <div className="profile-nav-link">Music</div>

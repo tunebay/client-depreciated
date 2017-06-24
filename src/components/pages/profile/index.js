@@ -17,7 +17,6 @@ class Profile extends Component {
 
   componentDidMount() {
     document.addEventListener('scroll', this.handleScroll);
-    // this.layout.addEventListener('scroll', this.handleScroll.bind(this));
   }
 
   componentWillReceiveProps(props) {
@@ -28,6 +27,10 @@ class Profile extends Component {
         this.props.findUser(props.match.params.username);
       }
     }
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.handleScroll);
   }
 
   handleScroll() {

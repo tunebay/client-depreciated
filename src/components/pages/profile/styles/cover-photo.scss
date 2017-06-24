@@ -27,7 +27,6 @@
   @include justifyCenter;
   #main-profile-content {
     // background-color: red;
-    padding-top: 72px;
     margin: 0 30px;
     @include browserFlex;
     justify-content: space-between;
