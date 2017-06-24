@@ -12,6 +12,12 @@ class Profile extends Component {
   constructor(props) {
     super(props);
     this.props.findUser(this.props.match.params.username);
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('scroll', this.handleScroll);
+    // this.layout.addEventListener('scroll', this.handleScroll.bind(this));
   }
 
   componentWillReceiveProps(props) {
@@ -21,6 +27,17 @@ class Profile extends Component {
       if (props.match.params.username !== props.user.username) {
         this.props.findUser(props.match.params.username);
       }
+    }
+  }
+
+  handleScroll() {
+    const nav = document.getElementById('cover-photo');
+    const coverBottom = Math.round(nav.getBoundingClientRect().bottom);
+    console.log(coverBottom);
+    if (coverBottom <= 48) {
+      console.log('Fix nav');
+    } else {
+      console.log('unfix nav');
     }
   }
 
