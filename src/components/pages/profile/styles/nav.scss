@@ -1,6 +1,6 @@
 @import "../../../../styles/variables";
 
-#profile-nav {
+.profile-nav {
   @include browserFlex;
   @include alignCenter;
   @include justifyCenter;
@@ -53,4 +53,10 @@
       }
     }
   }
+}
+
+.fixed-nav {
+  position: fixed;
+  top: 48px;
+  clear: both;
 }

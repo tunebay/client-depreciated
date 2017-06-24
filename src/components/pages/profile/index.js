@@ -34,25 +34,20 @@ class Profile extends Component {
     const nav = document.getElementById('cover-photo');
     const coverBottom = Math.round(nav.getBoundingClientRect().bottom);
     this.props.updateCoverBottom(coverBottom);
-    if (coverBottom <= 48) {
-      console.log('Fix nav');
-    } else {
-      console.log('unfix nav');
-    }
   }
 
   render() {
     const { user, findingUser, coverBottom } = this.props;
+
     if (findingUser) return <div />;
     if (!user) return <NotFound {...this.props} />;
+
     document.title = `${user.displayName} | Tunebay`;
 
-    console.log('COVER BOTTOM RENDER', (coverBottom / 5));
-    console.log('OFFSET', window.pageYOffset);
     const offset = window.pageYOffset * 0.05;
-
-    const backgroundPosition = `50% ${50 - offset}%`;
-
+    const backgroundPosition = `50% ${55 - offset}%`;
+    const fixed = coverBottom <= 48;
+    const paddingTop = fixed ? 76 : 24;
 
     return (
       <Content>
@@ -60,9 +55,9 @@ class Profile extends Component {
           id="cover-photo"
           style={{ backgroundPosition }}
         />
-        <NavBar />
+        <NavBar fixed={fixed} />
         <div id="main-profile-wrapper">
-          <div id="main-profile-content">
+          <div id="main-profile-content" style={{ paddingTop }}>
             <PlaylistsSection playlists={user.playlists} />
             <div id="user-info">
               <div id="profile-picture-con">
