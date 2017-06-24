@@ -7,7 +7,7 @@ class UserPlaylists extends Component {
     return (
       <ul id="user-playlists">
         {playlists.map((playlist) => {
-          return <PlaylistDisplay playlist={playlist} />;
+          return <PlaylistDisplay key={playlist.id} playlist={playlist} />;
         })}
       </ul>
     );
