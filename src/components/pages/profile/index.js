@@ -33,7 +33,7 @@ class Profile extends Component {
   handleScroll() {
     const nav = document.getElementById('cover-photo');
     const coverBottom = Math.round(nav.getBoundingClientRect().bottom);
-    console.log(coverBottom);
+    this.props.updateCoverBottom(coverBottom);
     if (coverBottom <= 48) {
       console.log('Fix nav');
     } else {
@@ -42,14 +42,24 @@ class Profile extends Component {
   }
 
   render() {
-    const { user, findingUser } = this.props;
+    const { user, findingUser, coverBottom } = this.props;
     if (findingUser) return <div />;
     if (!user) return <NotFound {...this.props} />;
     document.title = `${user.displayName} | Tunebay`;
 
+    console.log('COVER BOTTOM RENDER', (coverBottom / 5));
+    console.log('OFFSET', window.pageYOffset);
+    const offset = window.pageYOffset * 0.05;
+
+    const backgroundPosition = `50% ${50 - offset}%`;
+
+
     return (
       <Content>
-        <div id="cover-photo" />
+        <div
+          id="cover-photo"
+          style={{ backgroundPosition }}
+        />
         <NavBar />
         <div id="main-profile-wrapper">
           <div id="main-profile-content">
@@ -79,7 +89,8 @@ class Profile extends Component {
 const mapStateToProps = (state) => {
   return {
     user: state.profile.user,
-    findingUser: state.profile.findingUser
+    findingUser: state.profile.findingUser,
+    coverBottom: state.profile.coverBottom
   };
 };
 

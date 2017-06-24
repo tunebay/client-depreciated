@@ -3,7 +3,7 @@ import Artwork from './artwork';
 import PricePill from '../../common/price-pill';
 
 const PlaylistDisplay = ({ playlist: { price, tracks, title, artwork } }) => {
-  console.log('tracks', tracks);
+  // console.log('tracks', tracks);
   return (
     <li className="playlist-display">
       <Artwork artwork={artwork} title={title} />

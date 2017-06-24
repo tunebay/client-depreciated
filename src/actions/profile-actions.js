@@ -2,7 +2,8 @@ import axios from 'axios';
 import {
   MOUNT_USER,
   USER_DOESNT_EXIST,
-  FINDING_USER
+  FINDING_USER,
+  UPDATE_COVER_BOTTOM
 } from './types';
 
 const API_URL = 'http://localhost:3000/api/v1';
@@ -19,5 +20,12 @@ export const findUser = (username) => {
       dispatch({ type: USER_DOESNT_EXIST });
       console.log('PROFILE ERROR', err);
     });
+  };
+};
+
+export const updateCoverBottom = (coverBottom) => {
+  return {
+    type: UPDATE_COVER_BOTTOM,
+    payload: coverBottom
   };
 };

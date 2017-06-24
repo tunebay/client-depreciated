@@ -23,6 +23,7 @@ export const LOADING_USER = 'LOADING_USER';
 export const UPDATE_SCROLL_POSITION = 'UPDATE_SCROLL_POSITION';
 export const USER_DOESNT_EXIST = 'USER_DOESNT_EXIST';
 export const FINDING_USER = 'FINDING_USER';
+export const UPDATE_COVER_BOTTOM = 'UPDATE_COVER_BOTTOM';
 
 // current user actions
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
