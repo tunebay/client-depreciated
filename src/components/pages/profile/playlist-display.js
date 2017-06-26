@@ -29,7 +29,11 @@ const PlaylistDisplay = ({ playlist: { price, tracks, title, artwork } }) => {
           </div>
         </div>
         <div className="waveform" />
-        <div className="playlist-footer" />
+        <div className="playlist-footer">
+          <div className="footer-btns">
+            <button id="quicklook">Quick look</button>
+          </div>
+        </div>
       </div>
     </li>
   );
