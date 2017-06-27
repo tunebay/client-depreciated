@@ -12,12 +12,14 @@ const PlaylistDisplay = ({ playlist: { price, tracks, title, artwork } }) => {
           {title} <PricePill price={price} />
         </div>
         <div className="playlist-player">
-          <button className="play-btn">
-            <img
-              src="../../../../assets/images/triangle.svg"
-              alt="play"
-              className="play"
-            />
+          <button className="btn-span-wrapper">
+            <span className="play-btn">
+              <img
+                src="../../../../assets/images/triangle.svg"
+                alt="play"
+                className="play"
+              />
+            </span>
           </button>
           <div className="track-to-play">
             <div className="track-title">

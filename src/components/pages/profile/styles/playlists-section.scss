@@ -52,26 +52,34 @@
           width: 100%;
           height: 40px;
           margin-top: 12px;
-          .play-btn {
-            @include browserFlex;
-            @include alignCenter;
-            @include justifyCenter;
-            height: 44px;
-            width: 44px;
-            outline: none;
-            border: 3px solid #d4ebfd;
-            // border: none;
-            border-radius: 100%;
-            background-color: $blue;
-            transition: all 75ms ease-in;
-            &:hover {
-              background-color: darken($blue, 5%);
-              cursor: pointer;
-            }
-            .play {
-              width: 16px;
-              height: 16px;
-              margin-left: 2px;
+          .btn-span-wrapper {
+            border: none;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            .play-btn {
+              @include browserFlex;
+              @include alignCenter;
+              @include justifyCenter;
+              height: 40px;
+              width: 40px;
+              outline: none;
+              // border: 3px solid #d4ebfd;
+              border: none;
+              border-radius: 100%;
+              background-color: $blue;
+              transition: all 100ms ease-in;
+              &:hover {
+                background-color: darken($blue, 5%);
+                cursor: pointer;
+                transform: scale(0.95);
+                // border: 3px solid #d4ebfd;
+              }
+              .play {
+                width: 16px;
+                height: 16px;
+                margin-left: 2px;
+              }
             }
           }
           .track-to-play {
