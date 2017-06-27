@@ -32,7 +32,8 @@
     justify-content: space-between;
     flex-direction: row;
     width: 1140px;
-    flex-grow: 0.5;
+    max-width: 1220px;
+    flex-grow: 0.3;
     min-width: calc($breakpoint-medium - 60px);
     #user-info {
       @include boxShadow;

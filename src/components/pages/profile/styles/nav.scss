@@ -19,7 +19,7 @@
     @include alignCenter;
     flex-direction: row;
     width: 1140px;
-    flex-grow: 0.5;
+    flex-grow: 0.3;
     min-width: calc($breakpoint-medium - 60px);
     // background-color: red;
     .profile-nav-link {

@@ -13,6 +13,7 @@ import NotFound from './pages/not-found';
 import Upload from './pages/upload/';
 import RequireAuth from './hoc/require-auth';
 import Header from './header/header';
+import Player from './player/player';
 
 class App extends Component {
   renderRoute(ComponentToRender) {
@@ -85,7 +86,7 @@ class App extends Component {
             <Route path="/:username" render={this.renderRoute(Profile)} />
             <Route path="*" component={NotFound} />
           </Switch>
-          {/* <Player /> */}
+          <Player />
         </div>
       </Router>
     );
