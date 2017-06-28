@@ -3,6 +3,7 @@ import Sound from 'react-sound';
 import Icon from 'react-fontawesome';
 import { connect } from 'react-redux';
 import { ProgressBar, VolumeSlider } from 'react-player-controls';
+import Artwork from '../pages/profile/artwork';
 import formatSeconds from '../../util/format-seconds';
 import * as actions from '../../actions/player-actions';
 import '../../styles/components/player/player.scss';
@@ -38,78 +39,10 @@ class Player extends Component {
 
   render() {
     const { player } = this.props;
+    console.log('PLAYER', player);
     return (
-      <div className="player">
-        <ProgressBar
-          totalTime={player.currentTrack.miliDuration} // seconds
-          currentTime={player.currentTrack.miliPosition} // milliseconds
-          isSeekable
-          onSeek={this.handleSeek.bind(this)}
-        />
+      <div id="player">
         {this.renderSound(player)}
-
-        <div className="player-content">
-          <div className="player-left">
-
-            <div className="player-artwork">
-              <Icon name="music" size="lg" />
-            </div>
-
-            <div className="playback-controls">
-              <div className="icon-div">
-                <Icon className="player-icon" name="step-backward" size="lg" />
-              </div>
-              <div className="icon-div">
-                <Icon
-                  onClick={this.togglePlayPause.bind(this)}
-                  className="player-icon"
-                  name={player.playStatus === 'PLAYING' ? 'pause' : 'play'}
-                  size="lg"
-                />
-              </div>
-              <div className="icon-div">
-                <Icon
-                  className="player-icon"
-                  name="step-forward" size="lg"
-                />
-              </div>
-              <div className="icon-div repeat-icon">
-                <Icon
-                  className="player-icon"
-                  name="repeat"
-                />
-              </div>
-            </div>
-
-            <div className="elapsed-time">
-              {formatSeconds(Math.floor(player.currentTrack.miliPosition / 1000) || 0)}
-            </div>
-
-          </div>
-
-          <div className="player-center">
-            <div className="playing-track">{player.currentTrack.name}</div>
-            <div className="seperator"> - </div>
-            <div className="playing-artist">{player.currentTrack.artist}</div>
-          </div>
-
-          <div className="player-right">
-            <div className="full-time">
-              {formatSeconds(player.currentTrack.duration || 0)}
-            </div>
-            <div className="buy">
-              <button onClick={() => console.log('buy')} className="buy-btn">
-                {`Buy ${player.currentTrack.playlistType}`}
-              </button>
-            </div>
-            <div className="volume">
-              <Icon name="volume-off" className="icon" />
-              <VolumeSlider className="VolumeSlider" volume={30} />
-              <Icon name="volume-up" className="volume-up icon" />
-            </div>
-          </div>
-
-        </div>
       </div>
     );
   }
