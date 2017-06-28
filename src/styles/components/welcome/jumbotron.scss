@@ -78,6 +78,9 @@
           color: #fff;
           font-weight: 500;
           margin-right: 15px;
+          -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2);
+          -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2);
+          box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2);
           &:hover {
             cursor: pointer;
           }
@@ -94,6 +97,9 @@
           background-color: #fff;
           color: $blue;
           font-weight: 500;
+          -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2);
+          -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2);
+          box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2);
           &:hover {
             cursor: pointer;
           }
@@ -120,10 +126,10 @@
           @include browserFlex;
           @include alignCenter;
           @include justifyCenter;
-          height: 35px;
+          height: 32px;
           font-weight: 400;
           font-family: $font-stack;
-          width: 100px;
+          width: 90px;
           outline: none;
           color: #fff;
           background-color: $blue;
