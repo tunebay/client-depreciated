@@ -11,9 +11,55 @@
   background-color: rgba(246,246,246,1);
   animation: slideUp 300ms ease-out;
   #player-content {
-    height: 47px;
+    @include browserFlex;
+    @include alignCenter;
+    height: 50px;
     width: 100%;
-    // background-color: gold;
+    #player-left {
+      // background-color: gold;
+      margin-left: 24px;
+      @include browserFlex;
+      @include alignCenter;
+      flex-direction: row;
+      #player-artwork-con {
+        border-radius: 3px;
+        width: 38px;
+        height: 38px;
+        #player-artwork {
+          border-radius: 3px;
+          height: 100%;
+          width: 100%;
+        }
+      }
+      .vertical-dots {
+        margin: 0 12px;
+        // fill: red;
+      }
+      .now-playing {
+        font-weight: 600;
+        font-family: $font-stack;
+        font-size: 14px;
+        color: $text-black;
+        line-height: 1.4;
+        // background-color: gold;
+        width: 320px;
+        #now-playing-artist {
+          color: $blue;
+          font-weight: 500;
+          font-size: 13px;
+        }
+      }
+    }
+
+    #player-midlde {
+      height: 38px;
+      background-color: green;
+    }
+
+    #player-right {
+      height: 38px;
+      background-color: red;
+    }
   }
 }
 
@@ -29,13 +75,13 @@
 .ProgressBar,
 .VolumeSlider {
   position: relative;
-  background: #eee;
+  background: $light-grey;
   border-radius: 4px;
 
   &-elapsed,
   &-value {
     background: $blue;
-    animation: expandProgress 75ms linear;
+    // animation: expandProgress 75ms linear;
     border-radius: 4px;
   }
 
@@ -46,8 +92,8 @@
 
   &-handle {
     position: absolute;
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     background: $blue;
     border-radius: 100%;
     transform: scale(0);
@@ -77,12 +123,12 @@
 }
 
 .ProgressBar {
-  height: 5px;
+  height: 2px;
   margin: 0;
 
   &-elapsed {
     height: 100%;
-    transition: width 1s linear;
+    transition: width 400ms linear;
   }
 
   &-seek {
@@ -95,7 +141,7 @@
   &-handle {
     top: 0;
     margin: -4px 0 0 -8px;
-    transition: left 1s linear;
+    // transition: left 1s linear;
   }
 
   &.isSeekable {

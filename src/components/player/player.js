@@ -64,10 +64,31 @@ class Player extends Component {
             url={'https://tunebay-upload.s3-eu-west-2.amazonaws.com/users/music/bbb77e4d-7b08-4198-98c3-8c800959dd09'}
             width={0}
             height={0}
-            playing
+            playing={player.isPlaying}
+            progressFrequency={500}
             onProgress={this.onPlayerProgress.bind(this)}
             onDuration={this.onPlayerDuration.bind(this)}
           />
+          <div id="player-left">
+            <div id="player-artwork-con">
+              <img
+                id="player-artwork"
+                src="https://tunebay-upload.s3-eu-west-2.amazonaws.com/users/artwork/0bb8388c-53c0-4ed7-9b99-d836e83082d9"
+                alt="artwork"
+              />
+            </div>
+            <img
+              src="../../../assets/images/vertical-dots.svg"
+              alt="playing-menu"
+              className="vertical-dots"
+            />
+            <div className="now-playing">
+              <div id="now-playing-track-title">Hit The Ground Running</div>
+              <div id="now-playing-artist">The Keepsakes</div>
+            </div>
+          </div>
+          <div id="player-middle" />
+          <div id="player-right" />
         </div>
       </div>
     );
