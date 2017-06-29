@@ -21,7 +21,9 @@ const INITIAL_STATE = {
   hasNext: false,
   volume: 80,
   isMuted: false,
-  visable: false
+  visable: false,
+  duration: 0,
+  progress: { playedSeconds: 0, played: 0 }
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -56,6 +58,10 @@ export default (state = INITIAL_STATE, action) => {
       };
     case UPDATE_PLAY_STATUS:
       return { ...state, playStatus: action.payload };
+    case 'UPDATE_DURATION':
+      return { ...state, duration: action.payload };
+    case 'UPDATE_PROGRESS':
+      return { ...state, progress: action.payload };
     default:
       return state;
   }

@@ -73,6 +73,7 @@
     "react-dropzone": "^3.13.2",
     "react-fontawesome": "^1.6.1",
     "react-modal": "^1.9.4",
+    "react-player": "^0.18.0",
     "react-player-controls": "^0.5.14",
     "react-progressbar.js": "^0.2.0",
     "react-redux": "^5.0.2",

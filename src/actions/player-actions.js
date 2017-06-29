@@ -27,3 +27,11 @@ export const updateTrackMiliPosition = (e) => {
 export const updatePlayStatus = (status) => {
   return { type: UPDATE_PLAY_STATUS, payload: status };
 };
+
+export const updateDuration = (duration) => {
+  return { type: 'UPDATE_DURATION', payload: duration };
+};
+
+export const updateProgress = (progress) => {
+  return { type: 'UPDATE_PROGRESS', payload: progress };
+};

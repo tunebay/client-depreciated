@@ -1,15 +1,20 @@
 @import "../../variables";
 
 #player {
-  display: flex;
-  justify-content: center;
+  @include browserFlex;
+  justify-content: space-between;
   flex-direction: column;
   width: 100%;
-  height: 48px;
+  height: 52px;
   bottom: 0;
   position: fixed;
   background-color: rgba(246,246,246,1);
   animation: slideUp 300ms ease-out;
+  #player-content {
+    height: 47px;
+    width: 100%;
+    // background-color: gold;
+  }
 }
 
 @keyframes slideUp {
@@ -18,5 +23,145 @@
   }
   100% {
     transform: translateY(0%);
+  }
+}
+
+.ProgressBar,
+.VolumeSlider {
+  position: relative;
+  background: #eee;
+  border-radius: 4px;
+
+  &-elapsed,
+  &-value {
+    background: $blue;
+    animation: expandProgress 75ms linear;
+    border-radius: 4px;
+  }
+
+  &-seek {
+    position: absolute;
+    cursor: pointer;
+  }
+
+  &-handle {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: $blue;
+    border-radius: 100%;
+    transform: scale(0);
+    transition: transform 0.2s;
+  }
+
+  &.isSeekable,
+  &.isEnabled {
+    &:hover {
+      .ProgressBar-handle,
+      .VolumeSlider-handle {
+        transform: scale(1);
+      }
+
+      .ProgressBar-intent,
+      .VolumeSlider-intent {
+        position: absolute;
+        background: rgba(0,0,0,0.05);
+      }
+    }
+
+    .ProgressBar-elapsed,
+    .VolumeSlider-value {
+      background: $blue;
+    }
+  }
+}
+
+.ProgressBar {
+  height: 5px;
+  margin: 0;
+
+  &-elapsed {
+    height: 100%;
+    transition: width 1s linear;
+  }
+
+  &-seek {
+    top: -6px;
+    right: 0;
+    bottom: -6px;
+    left: 0;
+  }
+
+  &-handle {
+    top: 0;
+    margin: -4px 0 0 -8px;
+    transition: left 1s linear;
+  }
+
+  &.isSeekable {
+    &:hover {
+      .ProgressBar-handle {
+        transform: scale(1);
+      }
+
+      .ProgressBar-intent {
+        top: 0;
+        left: 0;
+        height: 100%;
+      }
+    }
+  }
+
+  &.isLoading {
+    opacity: 0.5;
+    background: #ccc;
+    animation: barLoading 2s infinite;
+  }
+}
+
+.VolumeSlider {
+  width: 8px;
+  height: 100px;
+  // margin: 10px 0;
+
+  &-value {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  &-seek {
+    left: -6px;
+    top: 0;
+    right: -6px;
+    bottom: 0;
+  }
+
+  &-handle {
+    left: 0;
+    margin: 0 0 -8px -4px;
+  }
+
+  &.isEnabled {
+    &:hover {
+      .VolumeSlider-handle {
+        transform: scale(1);
+      }
+
+      .VolumeSlider-intent {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@keyframes expandProgress {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transition: scaleX(1);
   }
 }

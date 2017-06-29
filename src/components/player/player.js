@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Sound from 'react-sound';
-import Icon from 'react-fontawesome';
 import { connect } from 'react-redux';
-import { ProgressBar, VolumeSlider } from 'react-player-controls';
-import Artwork from '../pages/profile/artwork';
-import formatSeconds from '../../util/format-seconds';
+// import Artwork from '../pages/profile/artwork';
+import ReactPlayer from 'react-player';
+import { ProgressBar } from 'react-player-controls';
+// import formatSeconds from '../../util/format-seconds';
 import * as actions from '../../actions/player-actions';
 import '../../styles/components/player/player.scss';
 
@@ -23,26 +23,52 @@ class Player extends Component {
     this.props.updateTrackMiliPosition(e);
   }
 
-  renderSound(player) {
-    if (player.visable) {
-      return (
-        <Sound
-          url={player.currentTrack.location}
-          volume={player.volume}
-          playStatus={player.playStatus}
-          position={player.currentTrack.miliPosition}
-          onPlaying={this.handlePlaying.bind(this)}
-        />
-      );
-    }
+  onPlayerProgress(progress) {
+    this.props.updateProgress(progress);
+    console.log('Progress', progress);
   }
+
+  onPlayerDuration(duration) {
+    this.props.updateDuration(duration);
+    console.log('duration', duration);
+  }
+
+  // renderSound(player) {
+  //   if (player.visable) {
+  //     return (
+  //       <Sound
+  //         url={player.currentTrack.location}
+  //         volume={player.volume}
+  //         playStatus={player.playStatus}
+  //         position={player.currentTrack.miliPosition}
+  //         onPlaying={this.handlePlaying.bind(this)}
+  //       />
+  //     );
+  //   }
+  // }
 
   render() {
     const { player } = this.props;
     console.log('PLAYER', player);
     return (
       <div id="player">
-        {this.renderSound(player)}
+        {/* {this.renderSound(player)} */}
+        <ProgressBar
+          totalTime={player.duration}
+          currentTime={player.progress.playedSeconds}
+          isSeekable
+        />
+        <div id="player-content">
+          <ReactPlayer
+            ref={(e) => { this.Player = e; }}
+            url={'https://tunebay-upload.s3-eu-west-2.amazonaws.com/users/music/bbb77e4d-7b08-4198-98c3-8c800959dd09'}
+            width={0}
+            height={0}
+            playing
+            onProgress={this.onPlayerProgress.bind(this)}
+            onDuration={this.onPlayerDuration.bind(this)}
+          />
+        </div>
       </div>
     );
   }
