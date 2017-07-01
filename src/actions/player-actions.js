@@ -35,3 +35,7 @@ export const updateDuration = (duration) => {
 export const updateProgress = (progress) => {
   return { type: 'UPDATE_PROGRESS', payload: progress };
 };
+
+export const updateArtworkLoadStatus = () => {
+  return { type: 'UPDATE_ARTWORK_LOAD_STATUS' };
+};

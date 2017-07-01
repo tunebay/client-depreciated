@@ -23,6 +23,10 @@ class Player extends Component {
     this.props.updateTrackMiliPosition(e);
   }
 
+  handleArtworkLoad() {
+    this.props.updateArtworkLoadStatus();
+  }
+
   onPlayerProgress(progress) {
     this.props.updateProgress(progress);
     console.log('Progress', progress);
@@ -64,7 +68,7 @@ class Player extends Component {
             url={'https://tunebay-upload.s3-eu-west-2.amazonaws.com/users/music/bbb77e4d-7b08-4198-98c3-8c800959dd09'}
             width={0}
             height={0}
-            playing={player.isPlaying}
+            playing={false}
             progressFrequency={500}
             onProgress={this.onPlayerProgress.bind(this)}
             onDuration={this.onPlayerDuration.bind(this)}
@@ -74,7 +78,8 @@ class Player extends Component {
               <img
                 id="player-artwork"
                 src="https://tunebay-upload.s3-eu-west-2.amazonaws.com/users/artwork/0bb8388c-53c0-4ed7-9b99-d836e83082d9"
-                alt="artwork"
+                alt="art"
+                onLoad={this.handleArtworkLoad.bind(this)}
               />
             </div>
             <img

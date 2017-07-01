@@ -16,8 +16,10 @@
     height: 50px;
     width: 100%;
     #player-left {
+      // position: absolute;
       // background-color: gold;
       margin-left: 24px;
+      height: 38px;
       @include browserFlex;
       @include alignCenter;
       flex-direction: row;
@@ -25,6 +27,9 @@
         border-radius: 3px;
         width: 38px;
         height: 38px;
+        // background-color: $light-grey;
+        animation: placeHolderFade 3s infinite;
+        // transition: all 50ms ease-out;
         #player-artwork {
           border-radius: 3px;
           height: 100%;
@@ -72,11 +77,27 @@
   }
 }
 
+@keyframes placeHolderFade {
+    0%{
+      background-color: $light-grey;
+    }
+    50%{
+      background-color: #D8D8D8;
+    }
+    100% {
+      background-color: $light-grey;
+    }
+}
+
 .ProgressBar,
 .VolumeSlider {
   position: relative;
   background: $light-grey;
   border-radius: 4px;
+  transition: transform .2s ease-out;
+  &:hover {
+    transform: scaleY(1.5);
+  }
 
   &-elapsed,
   &-value {
@@ -93,11 +114,15 @@
   &-handle {
     position: absolute;
     width: 12px;
-    height: 12px;
+    height: 5px;
+    padding-bottom: 4px;
     background: $blue;
     border-radius: 100%;
     transform: scale(0);
     transition: transform 0.2s;
+    &:hover {
+      transform: scale(1);
+    }
   }
 
   &.isSeekable,
@@ -106,6 +131,7 @@
       .ProgressBar-handle,
       .VolumeSlider-handle {
         transform: scale(1);
+        transform: scaleY(0);
       }
 
       .ProgressBar-intent,
@@ -125,10 +151,14 @@
 .ProgressBar {
   height: 2px;
   margin: 0;
+  // transition: all 400ms ease-out;
 
   &-elapsed {
     height: 100%;
-    transition: width 400ms linear;
+    transition: width 500ms linear;
+    // &:hover {
+    //   transform: scaleY(1.5);
+    // }
   }
 
   &-seek {
@@ -141,7 +171,11 @@
   &-handle {
     top: 0;
     margin: -4px 0 0 -8px;
-    // transition: left 1s linear;
+    transition: left 500ms linear;
+    &:hover {
+      transform: scale(0);
+      transform: scaleY(0);
+    }
   }
 
   &.isSeekable {
@@ -150,11 +184,14 @@
         transform: scale(1);
       }
 
-      .ProgressBar-intent {
-        top: 0;
-        left: 0;
-        height: 100%;
+      .ProgressBar-handle {
+        // transform: scale();
+        transform: scaleY(1);
       }
+
+      // .ProgressBar-elapsed {
+      //   transform: scaleY(1.5);
+      // }
     }
   }
 
