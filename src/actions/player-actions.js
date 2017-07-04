@@ -17,10 +17,10 @@ export const updateTrackMilliseconds = (e) => {
   };
 };
 
-export const updateTrackMiliPosition = (e) => {
+export const updatePlayedSeconds = (seconds) => {
   return {
-    type: UPDATE_TRACK_MILI_POSITION,
-    payload: e
+    type: 'UPDATE_PLAYED_SECONDS',
+    payload: seconds
   };
 };
 

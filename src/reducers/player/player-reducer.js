@@ -62,6 +62,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, duration: action.payload };
     case 'UPDATE_PROGRESS':
       return { ...state, progress: action.payload };
+    case 'UPDATE_PLAYED_SECONDS':
+      return { ...state, progress: { playedSeconds: action.payload } };
     default:
       return state;
   }

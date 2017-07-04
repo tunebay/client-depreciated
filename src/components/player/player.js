@@ -19,8 +19,10 @@ class Player extends Component {
     this.props.updatePlayStatus(status);
   }
 
-  handleSeek(e) {
-    this.props.updateTrackMiliPosition(e);
+  handleSeek(seconds) {
+    console.log('SEEK', seconds);
+    // this.props.updatePlayedSeconds(seconds);
+    this.player.seekTo(seconds / this.props.player.duration);
   }
 
   handleArtworkLoad() {
@@ -61,15 +63,16 @@ class Player extends Component {
           totalTime={player.duration}
           currentTime={player.progress.playedSeconds}
           isSeekable
+          onSeek={this.handleSeek.bind(this)}
         />
         <div id="player-content">
           <ReactPlayer
-            ref={(e) => { this.Player = e; }}
+            ref={(e) => { this.player = e; }}
             url={'https://tunebay-upload.s3-eu-west-2.amazonaws.com/users/music/bbb77e4d-7b08-4198-98c3-8c800959dd09'}
             width={0}
             height={0}
-            playing={false}
-            progressFrequency={500}
+            playing
+            progressFrequency={100}
             onProgress={this.onPlayerProgress.bind(this)}
             onDuration={this.onPlayerDuration.bind(this)}
           />
