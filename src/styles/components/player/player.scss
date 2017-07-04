@@ -114,14 +114,14 @@
   &-handle {
     position: absolute;
     width: 12px;
-    height: 5px;
-    padding-bottom: 4px;
+    height: 9px;
+    // padding-bottom: 4px;
     background: $blue;
     border-radius: 100%;
-    transform: scale(0);
+    transform: scaleY(0);
     transition: transform 0.2s;
     &:hover {
-      transform: scale(1);
+      transform: scaleY(0);
     }
   }
 
@@ -171,6 +171,7 @@
   &-handle {
     top: 0;
     margin: -4px 0 0 -8px;
+    transform: scaleY(0);
     transition: left 100ms linear; // HERE
     &:hover {
       transform: scale(0);
