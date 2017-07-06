@@ -77,7 +77,7 @@ class Player extends Component {
             width={0}
             volume={player.volume}
             height={0}
-            playing
+            playing={false}
             progressFrequency={100}
             onProgress={this.onPlayerProgress.bind(this)}
             onDuration={this.onPlayerDuration.bind(this)}
@@ -103,11 +103,11 @@ class Player extends Component {
           </div>
           <div id="player-middle" />
           <div id="player-right">
-            <VolumeSlider
+            {/* <VolumeSlider
               volume={player.volume}
               onVolumeChange={this.handleVolumeChange.bind(this)}
               isEnabled
-            />
+            /> */}
           </div>
         </div>
       </div>

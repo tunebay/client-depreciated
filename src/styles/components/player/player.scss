@@ -7,6 +7,7 @@
   width: 100%;
   height: 52px;
   bottom: 0;
+  z-index: 99;
   position: fixed;
   background-color: rgba(246,246,246,1);
   animation: slideUp 300ms ease-out;

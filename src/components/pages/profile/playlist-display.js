@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Artwork from './artwork';
+import WaveForm from '../../common/waveform';
 import PricePill from '../../common/price-pill';
 
-const PlaylistDisplay = ({ playlist: { price, tracks, title, artwork } }) => {
+const PlaylistDisplay = ({ player, playlist: { price, tracks, title, artwork } }) => {
   // console.log('tracks', tracks);
   return (
     <li className="playlist-display">
@@ -30,7 +32,11 @@ const PlaylistDisplay = ({ playlist: { price, tracks, title, artwork } }) => {
             </div>
           </div>
         </div>
-        <div className="waveform" />
+        <WaveForm
+          position={1}
+          audioFile={tracks[0].location}
+          background={artwork}
+        />
         <div className="playlist-footer">
           <div className="footer-btns">
             <button id="quicklook">Quick look</button>
@@ -41,4 +47,10 @@ const PlaylistDisplay = ({ playlist: { price, tracks, title, artwork } }) => {
   );
 };
 
-export default PlaylistDisplay;
+const mapStateToProps = (state) => {
+  return {
+    player: state.player
+  };
+};
+
+export default connect(mapStateToProps)(PlaylistDisplay);

@@ -101,11 +101,29 @@
             }
           }
         }
-        .waveform {
+        .waveform-con {
+          // @include browserFlex;
+          // @include alignCenter;
           height: 40%;
           width: 100%;
           margin-top: 12px;
-          background-color: #f1f1f1;
+          // background-color: #f1f1f1;
+          background-blend-mode: luminosity;
+          // filter: blur(2px);
+          // #waveform {
+          //   width: 100%;
+          // }
+        }
+        #waveform-overlay {
+          width: 100%;
+          height: 20%;
+          z-index: 99;
+          // padding-bottom: 50px;
+          bottom: 24%;
+          // padding-right: 20px;
+          position: absolute;
+          background-color: rgba(255,255,255,0.5);
+          pointer-events: none;
         }
         .playlist-footer {
           @include browserFlex;
