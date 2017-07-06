@@ -3,7 +3,7 @@ import Sound from 'react-sound';
 import { connect } from 'react-redux';
 // import Artwork from '../pages/profile/artwork';
 import ReactPlayer from 'react-player';
-import { ProgressBar } from 'react-player-controls';
+import { ProgressBar, VolumeSlider } from 'react-player-controls';
 // import formatSeconds from '../../util/format-seconds';
 import * as actions from '../../actions/player-actions';
 import '../../styles/components/player/player.scss';
@@ -29,14 +29,19 @@ class Player extends Component {
     this.props.updateArtworkLoadStatus();
   }
 
+  handleVolumeChange(vol) {
+    console.log('vol', vol);
+    this.props.updateVolume(vol);
+  }
+
   onPlayerProgress(progress) {
     this.props.updateProgress(progress);
-    console.log('Progress', progress);
+    // console.log('Progress', progress);
   }
 
   onPlayerDuration(duration) {
     this.props.updateDuration(duration);
-    console.log('duration', duration);
+    // console.log('duration', duration);
   }
 
   // renderSound(player) {
@@ -55,7 +60,7 @@ class Player extends Component {
 
   render() {
     const { player } = this.props;
-    console.log('PLAYER', player);
+    // console.log('PLAYER', player);
     return (
       <div id="player">
         {/* {this.renderSound(player)} */}
@@ -70,6 +75,7 @@ class Player extends Component {
             ref={(e) => { this.player = e; }}
             url={'https://tunebay-upload.s3-eu-west-2.amazonaws.com/users/music/bbb77e4d-7b08-4198-98c3-8c800959dd09'}
             width={0}
+            volume={player.volume}
             height={0}
             playing
             progressFrequency={100}
@@ -96,7 +102,13 @@ class Player extends Component {
             </div>
           </div>
           <div id="player-middle" />
-          <div id="player-right" />
+          <div id="player-right">
+            <VolumeSlider
+              volume={player.volume}
+              onVolumeChange={this.handleVolumeChange.bind(this)}
+              isEnabled
+            />
+          </div>
         </div>
       </div>
     );

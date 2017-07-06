@@ -9,11 +9,10 @@ export const addTrackToPlayer = (track, tracks) => {
   return { type: ADD_TRACK_TO_PLAYER, payload: track, tracks };
 };
 
-export const updateTrackMilliseconds = (e) => {
+export const updateVolume = (volume) => {
   return {
-    type: UPDATE_TRACK_MILLISECONDS,
-    position: e.position,
-    duration: e.duration
+    type: 'UPDATE_VOLUME',
+    payload: volume
   };
 };
 
