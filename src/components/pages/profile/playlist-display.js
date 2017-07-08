@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Artwork from './artwork';
-import WaveForm from '../../common/waveform';
+// import WaveForm from '../../common/waveform';
 import PricePill from '../../common/price-pill';
 
 const PlaylistDisplay = ({ player, playlist: { price, tracks, title, artwork } }) => {
@@ -25,18 +25,14 @@ const PlaylistDisplay = ({ player, playlist: { price, tracks, title, artwork } }
           </button>
           <div className="track-to-play">
             <div className="track-title">
-              {`${tracks[0].playlistPosition}. ${tracks[0].name}`}
+              {tracks[0].name}
             </div>
             <div className="playlist-player-title">
               {title}
             </div>
           </div>
         </div>
-        <WaveForm
-          position={1}
-          audioFile={tracks[0].location}
-          background={artwork}
-        />
+        <div className="tracklist" />
         <div className="playlist-footer">
           <div className="footer-btns">
             <button id="quicklook">Quick look</button>
