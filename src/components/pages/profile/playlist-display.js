@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Artwork from './artwork';
-// import WaveForm from '../../common/waveform';
+import PlaylistDisplayTracklist from './playlist-display-tracklist';
 import PricePill from '../../common/price-pill';
 
-const PlaylistDisplay = ({ player, playlist: { price, tracks, title, artwork } }) => {
+const PlaylistDisplay = ({ player, playlist: { price, tracks, title, artwork, playlistType } }) => {
   // console.log('tracks', tracks);
   return (
     <li className="playlist-display">
@@ -32,10 +32,10 @@ const PlaylistDisplay = ({ player, playlist: { price, tracks, title, artwork } }
             </div>
           </div>
         </div>
-        <div className="tracklist" />
+        <PlaylistDisplayTracklist tracks={tracks} />
         <div className="playlist-footer">
           <div className="footer-btns">
-            <button id="quicklook">Quick look</button>
+            <button id="quicklook">View {playlistType}</button>
           </div>
         </div>
       </div>

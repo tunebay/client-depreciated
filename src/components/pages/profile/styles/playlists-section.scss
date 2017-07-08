@@ -102,11 +102,26 @@
             }
           }
         }
-        .tracklist {
-          height: 45%;
+        #playlist-display-tracklist {
+          @include browserFlex;
+          flex-direction: column;
+          height: auto;
           width: 100%;
-          margin-top: 12px;
-          background-color: #f1f1f1;
+          margin: 0;
+          margin-top: 18px;
+          border-bottom: 1px solid #eee;
+          // background-color: #f1f1f1;
+          padding: 0;
+          list-style: none;
+          #playlist-track-item {
+            @include browserFlex;
+            @include alignCenter;
+            border-top: 1px solid #eee;
+            height: 28px;
+            padding-left: 10px;
+            font-size: 13px;
+            font-weight: 400;
+          }
         }
         .playlist-footer {
           @include browserFlex;
