@@ -9,13 +9,14 @@ class WaveForm extends Component {
   render() {
     console.log(this.props);
     const options = {
-      waveColor: '#C9D2D9', // #C9D2D9
+      waveColor: '#A5B5C1', // #C9D2D9
       progressColor: '#0089EE',
-      barWidth: 2,
+      barWidth: 2.3,
       barRadius: true,
       height: 80,
       // hideScrollBar: true,
-      normalize: true,
+      normalize: false,
+      fillParent: true,
       // barHeight: 2,
       minPxPerSec: 50,
       autoCenter: true,
