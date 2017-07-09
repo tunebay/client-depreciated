@@ -75,9 +75,9 @@ class Profile extends Component {
                 <div className="user-info">
                   <div className="heading">
                     <h1 className="display-name">{user.displayName}</h1>
-                    <button>FOLLOW</button>
+                    <button className="follow-btn"><span>FOLLOW</span></button>
                   </div>
-                  <div className="username">{user.username}</div>
+                  <div className="username">@{user.username}</div>
                 </div>
               </div>
             </div>
