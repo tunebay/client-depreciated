@@ -27,19 +27,49 @@
   @include justifyCenter;
   #main-profile-content {
     #profile-bio-wrapper {
-      height: 1700px;
+      @include browserFlex;
+      flex-direction: row;
+      height: 170px;
       width: 100%;
-      background-color: #f7f7f7;
-      #profile-picture-con {
-        height: 200px;
-        width: 200px;
-        z-index: 98;
-        border-radius: 100%;
-        background-color: $light-grey;
-        top: 270px;
-        border: 6px solid white;
-        position: absolute;
-        @include boxShadow;
+      // background-color: blue;
+      .col-left {
+        // background-color: red;
+        width: 212px;
+        #profile-picture-con {
+          height: 200px;
+          width: 200px;
+          z-index: 98;
+          margin-top: -70px;
+          border-radius: 100%;
+          background-color: $light-grey;
+          // top: 270px;
+          border: 6px solid white;
+          // position: absolute;
+          position: relative;
+          @include boxShadow;
+          .profile-picture {
+            height: 100%;
+            width: 100%;
+            border-radius: 100%;
+          }
+        }
+      }
+      .col-right {
+        width: calc(100% - 212px);
+        height: 100%;
+        // background-color: gold;
+        .user-info {
+          padding-left: 24px;
+          .heading {
+            @include browserFlex;
+            flex-direction: row;
+            .display-name {
+              font-size: 24px;
+              color: $text-black;
+              font-family: $font-stack;
+            }
+          }
+        }
       }
     }
     // background-color: red;

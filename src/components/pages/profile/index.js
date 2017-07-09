@@ -62,30 +62,25 @@ class Profile extends Component {
         <div id="main-profile-wrapper">
           <div id="main-profile-content" style={{ paddingTop }}>
             <div id="profile-bio-wrapper">
-              <div id="profile-picture-con">
-                {/* <img
-                  id="profile-picture"
-                  src="https://media.ents24network.com/image/000/232/168/558cb29dad2a53930ccf74d146a54f1e0ce553a5.jpg"
-                  alt="profile"
-                /> */}
+              <div className="col-left">
+                <div id="profile-picture-con">
+                  <img
+                    className="profile-picture"
+                    src="https://pbs.twimg.com/profile_images/669133764207976448/m3MKvWMn.jpg"
+                    alt="avatar"
+                  />
+                </div>
+              </div>
+              <div className="col-right">
+                <div className="user-info">
+                  <div className="heading">
+                    <h1 className="display-name">{user.displayName}</h1>
+                    <button>FOLLOW</button>
+                  </div>
+                  <div className="username">{user.username}</div>
+                </div>
               </div>
             </div>
-            {/* <PlaylistsSection playlists={user.playlists} />
-            <div id="user-info">
-              <div id="profile-picture-con">
-                <img
-                  src="https://tunebay-upload.s3-eu-west-2.amazonaws.com/users/artwork/d910d2e6-9e21-4f1e-9a6a-fb105afbf6c4"
-                  alt="avatar"
-                  className="profile-picture"
-                />
-              </div>
-              <div id="user-details">
-                <div id="display-name">{user.displayName}</div>
-                <div id="username">@{user.username}</div>
-                <button id="follow-btn">FOLLOW</button>
-              </div>
-              <div id="user-info-footer" />
-            </div> */}
           </div>
         </div>
       </Content>
