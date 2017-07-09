@@ -50,7 +50,7 @@ class Profile extends Component {
     const offset = window.pageYOffset * 0.05;
     const backgroundPosition = `50% ${55 - offset}%`;
     const fixed = coverBottom <= 48;
-    const paddingTop = fixed ? 76 : 24;
+    const paddingTop = fixed ? 0 : 0;
 
     return (
       <Content>
@@ -61,7 +61,16 @@ class Profile extends Component {
         <NavBar fixed={fixed} />
         <div id="main-profile-wrapper">
           <div id="main-profile-content" style={{ paddingTop }}>
-            <PlaylistsSection playlists={user.playlists} />
+            <div id="profile-bio-wrapper">
+              <div id="profile-picture-con">
+                {/* <img
+                  id="profile-picture"
+                  src="https://media.ents24network.com/image/000/232/168/558cb29dad2a53930ccf74d146a54f1e0ce553a5.jpg"
+                  alt="profile"
+                /> */}
+              </div>
+            </div>
+            {/* <PlaylistsSection playlists={user.playlists} />
             <div id="user-info">
               <div id="profile-picture-con">
                 <img
@@ -76,7 +85,7 @@ class Profile extends Component {
                 <button id="follow-btn">FOLLOW</button>
               </div>
               <div id="user-info-footer" />
-            </div>
+            </div> */}
           </div>
         </div>
       </Content>

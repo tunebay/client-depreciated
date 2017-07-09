@@ -2,12 +2,12 @@
 
 #cover-photo {
   display: block;
-  max-height: 330px;
+  max-height: 270px;
   min-height: 230px;
   max-width: 100%;
   // min-width: 992px;
   overflow: hidden;
-  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/2d/e1/36/2de1361f586ae98948943fdc82da1456.jpg");
+  background-image: url("https://i1.sndcdn.com/visuals-000006786776-aP2s2Q-original.jpg");
   background-color: #f7f7f7;
   background-position: 50%;
   background-repeat: no-repeat;
@@ -26,8 +26,24 @@
   width: 100%;
   @include justifyCenter;
   #main-profile-content {
+    #profile-bio-wrapper {
+      height: 1700px;
+      width: 100%;
+      background-color: #f7f7f7;
+      #profile-picture-con {
+        height: 200px;
+        width: 200px;
+        z-index: 98;
+        border-radius: 100%;
+        background-color: $light-grey;
+        top: 270px;
+        border: 6px solid white;
+        position: absolute;
+        @include boxShadow;
+      }
+    }
     // background-color: red;
-    margin: 0 30px;
+    // margin: 0 30px;
     @include browserFlex;
     justify-content: space-between;
     flex-direction: row;

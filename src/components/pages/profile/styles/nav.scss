@@ -5,14 +5,14 @@
   @include alignCenter;
   @include justifyCenter;
   flex-direction: row;
-  height: 50px;
+  height: 8px;
   width: 100%;
   z-index: 99;
-  -webkit-box-shadow: 0px -2px 7px 0px rgba(100,100,100,0.4);
-  -moz-box-shadow: 0px -2px 7px 0px rgba(100,100,100,0.4);
-  box-shadow: 0px -2px 7px 0px rgba(100,100,100,0.4);
-  background-color: rgba(255,255,255,0.95);
-  border-bottom: 3px solid $light-grey;
+  // -webkit-box-shadow: 0px -2px 7px 0px rgba(100,100,100,0.4);
+  // -moz-box-shadow: 0px -2px 7px 0px rgba(100,100,100,0.4);
+  // box-shadow: 0px -2px 7px 0px rgba(100,100,100,0.4);
+  background-color: white;
+  // border-bottom: 3px solid $light-grey;
   #nav-content {
     z-index: 99;
     margin: 0 30px;
@@ -23,42 +23,13 @@
     flex-grow: 0.3;
     min-width: calc($breakpoint-medium - 60px);
     // background-color: red;
-    .profile-nav-link {
-      font-weight: 500;
-      font-family: $font-stack;
-      color: $text-black;
-      font-size: 14px;
-      padding-right: 50px;
-      &:hover {
-        cursor: pointer;
-      }
-    }
-    .profile-nav-link-active {
-      @include browserFlex;
-      @include justifyCenter;
-      @include alignCenter;
-      @include borderBox;
-      text-align: center;
-      font-weight: 500;
-      width: 50px;
-      height: 28px;
-      font-family: $font-stack;
-      color: white;
-      background-color: $blue;
-      border-radius: 500px;
-      font-size: 14px;
-      margin-right: 50px;
-      &:hover {
-        cursor: pointer;
-      }
-    }
   }
 }
 
 .fixed-nav {
   position: fixed;
   top: 48px;
-  z-index: 99;
+  z-index: 98;
   clear: both;
   .nav-blur {
     z-index: 2;
