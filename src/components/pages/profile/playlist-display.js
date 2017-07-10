@@ -32,7 +32,7 @@ const PlaylistDisplay = ({ player, playlist: { price, tracks, title, artwork, pl
             </div>
           </div>
         </div>
-        <PlaylistDisplayTracklist tracks={tracks} />
+        {/* <PlaylistDisplayTracklist tracks={tracks} /> */}
         <div className="playlist-footer">
           <div className="footer-btns">
             <button id="quicklook">View {playlistType}</button>
