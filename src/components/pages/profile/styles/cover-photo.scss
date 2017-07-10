@@ -26,6 +26,15 @@
   width: 100%;
   @include justifyCenter;
   #main-profile-content {
+    // background-color: red;
+    // margin: 0 30px;
+    @include browserFlex;
+    // justify-content: space-between;
+    flex-direction: column;
+    width: 1140px;
+    max-width: 1220px;
+    flex-grow: 0.3;
+    min-width: calc($breakpoint-medium - 60px);
     #profile-bio-wrapper {
       @include browserFlex;
       flex-direction: row;
@@ -93,11 +102,11 @@
               line-height: 1.8;
               height: 24px;
               outline: none;
-              @include boxShadowResting;
+              // @include boxShadowResting;
               border: none;
               width: 90px;
               color: white;
-              font-weight: 400;
+              font-weight: 300;
               border-radius: 500px;
               background-color: $blue;
               font-size: 12px;
@@ -130,15 +139,6 @@
         }
       }
     }
-    // background-color: red;
-    // margin: 0 30px;
-    @include browserFlex;
-    justify-content: space-between;
-    flex-direction: row;
-    width: 1140px;
-    max-width: 1220px;
-    flex-grow: 0.3;
-    min-width: calc($breakpoint-medium - 60px);
   }
 }
 

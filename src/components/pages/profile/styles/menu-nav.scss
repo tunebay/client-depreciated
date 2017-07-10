@@ -1,0 +1,33 @@
+@import "../../../../styles/variables";
+
+#menu-nav {
+  @include browserFlex;
+  flex-direction: row;
+  width: 100%;
+  height: 28px;
+  margin: 0;
+  padding: 0;
+  padding-top: 20px;
+  list-style: none;
+  font-size: 16px;
+  font-family: $font-stack;
+  font-weight: 500;
+  word-spacing: 2px;
+  // letter-spacing: 0.3px;
+  color: lighten($text-black, 10%);
+  // background-color: white;
+  border-bottom: 1px solid #DDDDDD;
+  .menu-nav-item {
+    @include browserFlex;
+    @include justifyCenter;
+    // border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    width: 125px;
+  }
+  .active {
+    border-bottom: 2px solid $blue;
+    // stroke-linecap: round;
+    color: $text-black;
+  }
+}

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Content from '../content';
 import NavBar from './nav';
-import PlaylistsSection from './playlists-section';
+// import PlaylistsSection from './playlists-section';
+import MenuNav from './menu-nav';
 import NotFound from '../not-found';
 import * as actions from '../../../actions/profile-actions';
 
@@ -82,6 +83,7 @@ class Profile extends Component {
                 </div>
               </div>
             </div>
+            <MenuNav playlistCount={user.playlists.length} />
           </div>
         </div>
       </Content>
