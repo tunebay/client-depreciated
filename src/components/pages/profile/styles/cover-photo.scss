@@ -34,19 +34,24 @@
       // background-color: blue;
       .col-left {
         // background-color: red;
-        width: 212px;
+        width: 217px;
         #profile-picture-con {
-          height: 200px;
-          width: 200px;
+          height: 205px;
+          width: 205px;
           z-index: 98;
-          margin-top: -70px;
+          margin-top: -60px;
           border-radius: 100%;
           background-color: $light-grey;
           // top: 270px;
           border: 6px solid white;
           // position: absolute;
           position: relative;
-          @include boxShadow;
+          @include boxShadowResting;
+          transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+          &:hover {
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+            cursor: pointer;
+          }
           .profile-picture {
             height: 100%;
             width: 100%;
@@ -55,11 +60,14 @@
         }
       }
       .col-right {
-        width: calc(100% - 212px);
+        width: calc(100% - 217px);
         height: 100%;
-        // background-color: gold;
+        // background-color: white;
+        // border-radius: 8px;
         .user-info {
           padding: 18px 24px;
+          // background-color: red;
+          width: auto;
           line-height: 1.4;
           .heading {
             @include browserFlex;
@@ -67,10 +75,15 @@
             flex-direction: row;
             .display-name {
               font-size: 24px;
+              // display: inline-block;
               margin: 0;
               font-weight: 700;
               color: $text-black;
               font-family: $font-stack;
+              &:hover {
+                text-decoration: underline;
+                cursor: pointer;
+              }
             }
             .follow-btn {
               @include browserFlex;
@@ -80,9 +93,11 @@
               line-height: 1.8;
               height: 24px;
               outline: none;
+              @include boxShadowResting;
               border: none;
               width: 90px;
               color: white;
+              font-weight: 400;
               border-radius: 500px;
               background-color: $blue;
               font-size: 12px;
@@ -94,6 +109,21 @@
           .username {
             font-size: 16px;
             font-weight: 500;
+            color: $text-black;
+            display: inline-block;
+            // background-color: gold;
+            width: auto;
+            font-family: $font-stack;
+            &:hover {
+              text-decoration: underline;
+              cursor: pointer;
+            }
+          }
+          .user-bio {
+            padding-top: 14px;
+            max-width: 450px;
+            font-size: 14px;
+            font-weight: 400;
             color: $text-black;
             font-family: $font-stack;
           }
@@ -109,84 +139,6 @@
     max-width: 1220px;
     flex-grow: 0.3;
     min-width: calc($breakpoint-medium - 60px);
-    #user-info {
-      @include boxShadow;
-      @include browserFlex;
-      @include justifyCenter;
-      @include alignCenter;
-      justify-content: space-between;
-      flex-direction: column;
-      width: 290px;
-      height: 360px;
-      border-radius: 8px;
-      padding-top: 16px;
-      background-color: white;
-      #profile-picture-con {
-        width: calc(100% - 100px);
-        height: auto;
-        // padding-top: calc(100% - 100px);
-        // background-color: $light-grey;
-        // border: 5px solid white;
-        border-radius: 100%;
-        .profile-picture {
-          @include boxShadow;
-          border: 5px solid white;
-          width: 100%;
-          height: auto;
-          border-radius: 100%;
-        }
-      }
-      #user-details {
-        @include borderBox;
-        padding: 16px;
-        width: 100%;
-        @include browserFlex;
-        @include justifyCenter;
-        @include alignCenter;
-        flex-direction: column;
-        font-family: $font-stack;
-        line-height: 1.4;
-        color: $text-black;
-        text-align: center;
-        #display-name {
-          font-size: 22px;
-          font-weight: 700;
-        }
-        #username {
-          font-size: 16px;
-          font-weight: 500;
-          color: lighten($text-black, 10%);
-        }
-        #follow-btn {
-          margin-top: 10px;
-          // @include borderBox;
-          border: none;
-          @include browserFlex;
-          @include justifyCenter;
-          @include alignCenter;
-          line-height: 1.4;
-          height: 26px;
-          outline: none;
-          color: #fff;
-          font-size: 13px;
-          width: 100px;
-          border-radius: 500px;
-          background-color: $blue;
-          &:hover {
-            cursor: pointer;
-            background-color: darken($blue, 5%);
-          }
-        }
-      }
-      #user-info-footer {
-        // align-self: baseline;
-        height: 30px;
-        width: 100%;
-        background-color: #f7f7f7;
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-      }
-    }
   }
 }
 

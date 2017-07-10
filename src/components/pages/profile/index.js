@@ -78,6 +78,7 @@ class Profile extends Component {
                     <button className="follow-btn"><span>FOLLOW</span></button>
                   </div>
                   <div className="username">@{user.username}</div>
+                  <div className="user-bio">{'North London\'s six piece live Lovers rock & Dub Reggae Heavyweights est. 2008'}</div>
                 </div>
               </div>
             </div>

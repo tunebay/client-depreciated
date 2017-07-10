@@ -8,22 +8,8 @@
   height: 8px;
   width: 100%;
   z-index: 99;
-  // -webkit-box-shadow: 0px -2px 7px 0px rgba(100,100,100,0.4);
-  // -moz-box-shadow: 0px -2px 7px 0px rgba(100,100,100,0.4);
-  // box-shadow: 0px -2px 7px 0px rgba(100,100,100,0.4);
   background-color: white;
-  // border-bottom: 3px solid $light-grey;
-  #nav-content {
-    z-index: 99;
-    margin: 0 30px;
-    @include browserFlex;
-    @include alignCenter;
-    flex-direction: row;
-    width: 1140px;
-    flex-grow: 0.3;
-    min-width: calc($breakpoint-medium - 60px);
-    // background-color: red;
-  }
+  @include boxShadowResting;
 }
 
 .fixed-nav {
@@ -31,16 +17,4 @@
   top: 48px;
   z-index: 98;
   clear: both;
-  .nav-blur {
-    z-index: 2;
-    position: absolute;
-    height: 40px;
-    width: 100%;
-    -webkit-filter: blur(10px);
-    -moz-filter: blur(10px);
-    -o-filter: blur(10px);
-    -ms-filter: blur(10px);
-    filter: blur(10px);
-    background-color: rgba(255,255,255,0.7);
-  }
 }
