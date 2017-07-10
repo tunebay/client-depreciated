@@ -5,6 +5,17 @@
   width: calc(100% - 330px);
   height: auto;
   // background-color: red;
+  .no-playlists {
+    @include browserFlex;
+    @include alignCenter;
+    @include justifyCenter;
+    width: 100%;
+    height: 150px;
+    font-size: 18px;
+    font-family: $font-stack;
+    font-weight: 500;
+    color: #7B858C;
+  }
   #user-playlists {
     @include browserFlex;
     flex-direction: column;
