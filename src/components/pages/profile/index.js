@@ -50,7 +50,7 @@ class Profile extends Component {
 
     const offset = window.pageYOffset * 0.05;
     const backgroundPosition = `50% ${55 - offset}%`;
-    const fixed = coverBottom <= 48;
+    const fixed = coverBottom <= -140; // 48
     const paddingTop = fixed ? 8 : 0;
 
     return (

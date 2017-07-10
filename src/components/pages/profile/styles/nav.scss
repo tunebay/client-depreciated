@@ -9,12 +9,34 @@
   width: 100%;
   z-index: 99;
   background-color: white;
+  // animation: slideUp 300ms ease-out;
   // @include boxShadowResting;
 }
 
 .fixed-nav {
+  animation: slideDown 300ms ease-out;
+  height: 50px;
   position: fixed;
   top: 48px;
   z-index: 98;
   clear: both;
+  @include boxShadow;
 }
+
+@keyframes slideDown {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(3);
+  }
+}
+
+// @keyframes slideUp {
+//   0% {
+//     transform: scaleY(50);
+//   }
+//   100% {
+//     transform: scaleY(0);
+//   }
+// }
