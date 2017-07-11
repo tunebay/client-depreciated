@@ -4,11 +4,15 @@ import Artwork from './artwork';
 import PlaylistDisplayTracklist from './playlist-display-tracklist';
 import PricePill from '../../common/price-pill';
 
-const PlaylistDisplay = ({ player, playlist: { price, tracks, title, artwork, playlistType } }) => {
+const PlaylistDisplay = ({ player, playlist: { price, tracks, title, artwork, numberOfTracks } }) => {
   // console.log('tracks', tracks);
   return (
     <li className="playlist-display">
-      <Artwork artwork={artwork} title={title} />
+      <Artwork
+        artwork={artwork}
+        title={title}
+        numberOfTracks={numberOfTracks}
+      />
       <div className="playlist-details">
         <div className="title">
           {title} <PricePill price={price} />

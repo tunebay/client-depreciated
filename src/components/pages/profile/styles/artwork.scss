@@ -4,11 +4,41 @@
   // background-color: $light-grey;
   height: 100%;
   @include borderBox;
+  position: relative;
   // padding-left: 100%;
   // width: 200px;
   // padding: 20px;
   // margin: 16px;
   border-radius: 5px;
+  .number-of-tracks {
+    @include browserFlex;
+    @include boxShadowResting;
+    width: 60px;
+    flex-direction: column;
+    color: white;
+    @include alignCenter;
+    @include justifyCenter;
+    font-family: $font-stack;
+    text-align: center;
+    // justify-content: space-around;
+    height: 60px;
+    border-radius: 100%;
+    background-color: rgba(0,0,0,0.8);
+    position: absolute;
+    // padding-bottom: -50px;
+    pointer-events: none;
+    bottom: 0;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    .track-count {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .track-or-tracks {
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
   .artwork-image {
     @include boxShadowResting;
     @include borderBox;
