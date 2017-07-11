@@ -146,46 +146,6 @@
       width: 100%;
       // background-color: gold;
       padding-top: 24px;
-      .side-content-container {
-        @include browserFlex;
-        flex-direction: column;
-        width: 300px;
-        // background-color: gold;
-        // min-height: 400px;
-        .side-content-item {
-          height: 310px;
-          margin-bottom: 16px;
-          border-radius: 8px;
-          width: 100%;
-          background-color: white;
-          @include borderBox;
-          @include boxShadow;
-        }
-        .side-content-footer {
-          .footer-links {
-            @include browserFlex;
-            justify-content: space-between;
-            flex-direction: row;
-            list-style: none;
-            margin: 0;
-            padding: 16px;
-            color: #7B858C;
-            padding-top: 0;
-            font-family: $font-stack;
-            font-weight: 400;
-            font-size: 14px;
-            .footer-link-item:hover {
-              cursor: pointer;
-              color: $blue;
-              text-decoration: underline;
-            }
-          }
-
-        }
-        .side-content-spacer {
-          height: 50px;
-        }
-      }
     }
   }
 }

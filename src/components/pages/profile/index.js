@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Content from '../content';
 import NavBar from './nav';
 import PlaylistsSection from './playlists-section';
+import SideContentContainer from './side-content-container';
 import MenuNav from './menu-nav';
 import NotFound from '../not-found';
 import * as actions from '../../../actions/profile-actions';
@@ -86,20 +87,7 @@ class Profile extends Component {
             <MenuNav playlistCount={user.playlists.length} />
             <div className="tab-display">
               <PlaylistsSection playlists={user.playlists} />
-              <div className="side-content-container">
-                <div className="side-content-item who-to-follow" />
-                <div className="side-content-item promoted-music" />
-                <div className="side-content-footer">
-                  <ul className="footer-links">
-                    <li className="footer-link-item"><small>Tunebay © 2017</small></li>
-                    <li className="footer-link-item"><small>Terms</small></li>
-                    <li className="footer-link-item"><small>Privacy</small></li>
-                    <li className="footer-link-item"><small>Cookies</small></li>
-                    <li className="footer-link-item"><small>Careers</small></li>
-                  </ul>
-                </div>
-                <div className="side-content-spacer" />
-              </div>
+              <SideContentContainer />
             </div>
           </div>
         </div>
