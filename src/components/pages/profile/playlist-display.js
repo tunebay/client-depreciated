@@ -35,7 +35,16 @@ const PlaylistDisplay = ({ player, playlist: { price, tracks, title, artwork, pl
         {/* <PlaylistDisplayTracklist tracks={tracks} /> */}
         <div className="playlist-footer">
           <div className="footer-btns">
-            <button id="quicklook">View {playlistType}</button>
+            <button className="icon-btn">
+              <img className="heart icon" src="../../../../assets/images/heart.svg" alt="like-btn" />
+            </button>
+            <button className="icon-btn">
+              <img className="share icon" src="../../../../assets/images/share.svg" alt="share-btn" />
+            </button>
+            <div className="icon-btn">
+              <img className="comment icon" src="../../../../assets/images/comment.svg" alt="comment-btn" />
+            </div>
+            <button id="quicklook">Quick look</button>
           </div>
         </div>
       </div>

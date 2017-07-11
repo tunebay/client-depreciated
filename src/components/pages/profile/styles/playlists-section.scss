@@ -146,9 +146,33 @@
           // background-color: gold;
           .footer-btns {
             @include browserFlex;
+            @include alignCenter;
             // background-color: red;
             height: 100%;
             width: auto;
+            .icon-btn {
+              @include browserFlex;
+              @include alignCenter;
+              @include justifyCenter;
+              height: 36px;
+              width: 36px;
+              margin-right: 8px;
+              background-color: white;
+              border: none;
+              .icon {
+                // @include boxShadowResting;
+                width: 20px;
+                height: 20px;
+                color: #ccc;
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+              .share {
+                width: 24px;
+                height: 24px;
+              }
+            }
             #quicklook {
               width: 100px;
               height: 100%;
@@ -159,6 +183,7 @@
               font-size: 13px;
               background-color: $royal;
               border: none;
+              @include boxShadowResting;
               border-radius: 500px;
               &:hover {
                 cursor: pointer;
