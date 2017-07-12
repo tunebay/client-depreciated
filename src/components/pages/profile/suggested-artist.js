@@ -1,9 +1,11 @@
 import React from 'react';
 
-const SuggestedArtist = ({ username, displayName }) => {
+const SuggestedArtist = ({ avatar, username, displayName }) => {
   return (
     <div className="suggested-artist">
-      <div className="img" />
+      <div className="avatar-con">
+        <img src={avatar} alt="avatar" className="avatar" />
+      </div>
       <div className="details">
         <div className="name-and-username">
           <span className="display-name">{displayName}</span> @{username}
