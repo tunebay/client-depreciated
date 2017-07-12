@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TrendingArtists from './trending-artists';
 
 import './styles/side-content-container.scss';
 
@@ -6,7 +7,7 @@ class SideContentContainer extends Component {
   render() {
     return (
       <div className="side-content-container">
-        <div className="side-content-item trending-artists" />
+        <TrendingArtists />
         <div className="side-content-item promoted-music" />
         <div className="side-content-footer">
           <ul className="footer-links">
