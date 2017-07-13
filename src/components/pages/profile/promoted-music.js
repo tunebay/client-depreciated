@@ -11,7 +11,7 @@ class PromotedMusic extends Component {
         <PromotedPlaylist
           artwork={'https://i0.wp.com/stagedoor.fm/wp-content/uploads/2016/12/Liam-Bailey-Love-My-Neighbour.jpeg?fit=500%2C500'}
           title={'Love My Neighbour'}
-          price={1.50}
+          price={0.99}
           artist={'Liam Bailey'}
         />
         <PromotedPlaylist

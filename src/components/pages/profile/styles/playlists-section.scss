@@ -183,7 +183,7 @@
               font-size: 13px;
               background-color: $royal;
               border: none;
-              @include boxShadowResting;
+              // @include boxShadowResting;
               border-radius: 500px;
               &:hover {
                 cursor: pointer;

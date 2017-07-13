@@ -20,6 +20,8 @@
     }
   }
   .promoted-playlist {
+    @include browserFlex;
+    flex-direction: row;
     height: 100%;
     width: 100%;
     padding-top: 12px;
@@ -33,6 +35,29 @@
         height: 100%;
         width: auto;
         border-radius: 3px;
+      }
+    }
+    .playlist-details {
+      @include browserFlex;
+      @include justifyCenter;
+      @include alignCenter;
+      // justify-conten;
+      flex-direction: column;
+      width: calc(100% - 100px);
+      height: 100px;
+      // background-color: gold;
+      font-weight: 500;
+      font-family: $font-stack;
+      font-size: 14px;
+      color: $text-black;
+      text-align: center;
+      .artist {
+        color: $blue;
+        padding-bottom: 8px;
+        font-weight: 400;
+      }
+      .title {
+        padding-bottom: 8px;
       }
     }
   }
