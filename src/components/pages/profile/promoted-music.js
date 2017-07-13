@@ -14,6 +14,12 @@ class PromotedMusic extends Component {
           price={1.50}
           artist={'Liam Bailey'}
         />
+        <PromotedPlaylist
+          artwork={'https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/54/0a/77/540a770f-c8e6-2367-c35b-b0e3967947d1/source/1200x630bb.jpg'}
+          title={'Every Where Is Somewhere'}
+          price={6}
+          artist={'K. Flay'}
+        />
       </div>
     );
   }
