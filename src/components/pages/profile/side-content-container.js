@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TrendingArtists from './trending-artists';
+import PromotedMusic from './promoted-music';
 
 import './styles/side-content-container.scss';
 
@@ -8,7 +9,7 @@ class SideContentContainer extends Component {
     return (
       <div className="side-content-container">
         <TrendingArtists />
-        <div className="side-content-item promoted-music" />
+        <PromotedMusic />
         <div className="side-content-footer">
           <ul className="footer-links">
             <li className="footer-item"><small>Tunebay © 2017</small></li>

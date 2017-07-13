@@ -1,0 +1,37 @@
+@import "../../../../styles/variables";
+
+.side-content-item {
+  height: auto;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  width: 100%;
+  background-color: white;
+  @include borderBox;
+  @include boxShadow;
+  padding: 22px;
+  .item-title {
+    font-weight: 600;
+    font-family: $font-stack;
+    font-size: 18px;
+    color: #999;
+    padding-bottom: 14px;
+    .bullet {
+      font-size: 14px;
+    }
+  }
+  .promoted-playlist {
+    height: 100%;
+    width: 100%;
+    .artwork-con {
+      height: 100px;
+      width: 100px;
+      background-color: $light-grey;
+      border-radius: 3px;
+      .artwork {
+        height: 100%;
+        width: auto;
+        border-radius: 3px;
+      }
+    }
+  }
+}

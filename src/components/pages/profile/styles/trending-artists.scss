@@ -9,11 +9,7 @@
   background-color: white;
   @include borderBox;
   @include boxShadow;
-}
-
-.trending-artists {
   padding: 22px;
-  // padding-bottom: 0;
   .item-title {
     font-weight: 600;
     font-family: $font-stack;
@@ -24,9 +20,9 @@
       font-size: 14px;
     }
   }
-  // .top, .middle {
-  //   border-bottom: 1px solid #EEEEEE;
-  // }
+}
+
+.trending-artists {
   .suggested-artist {
     @include browserFlex;
     @include alignCenter;
