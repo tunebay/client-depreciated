@@ -10,7 +10,7 @@ const PromotedPlaylist = ({ artwork, title, artist, price }) => {
       <div className="playlist-details">
         <div className="title">{title}</div>
         <div className="artist">{artist}</div>
-        <PricePill price={price} color={'#556067'} />
+        <PricePill price={price} backgroundColor={'#556067'} />
         {/* <div className="price">{price}</div> */}
       </div>
     </div>
