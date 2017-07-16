@@ -12,8 +12,11 @@
   background-color: rgba(246,246,246,1);
   animation: slideUp 300ms ease-out;
   #player-content {
+    // background-color: pink;
     @include browserFlex;
     @include alignCenter;
+    flex-direction: row;
+    justify-content: space-between;
     height: 50px;
     width: 100%;
     #player-left {
@@ -21,6 +24,7 @@
       // background-color: gold;
       margin-left: 24px;
       height: 38px;
+      width: 500px;
       @include browserFlex;
       @include alignCenter;
       flex-direction: row;
@@ -48,7 +52,8 @@
         color: $text-black;
         line-height: 1.4;
         // background-color: gold;
-        width: 320px;
+        // width: auto;
+        white-space: nowrap;
         #now-playing-artist {
           color: $blue;
           font-weight: 500;
@@ -57,14 +62,43 @@
       }
     }
 
-    #player-midlde {
+    #player-middle {
+      @include browserFlex;
+      flex-direction: row;
+      @include alignCenter;
+      @include justifyCenter;
       height: 38px;
-      background-color: green;
+      width: 100%;
+      // background-color: green;
+      .controls {
+        width: 150px;
+        @include browserFlex;
+        justify-content: space-between;
+        @include alignCenter;
+        .control-icon {
+          height: 18px;
+          width: auto;
+        }
+        .forwards, .backwards {
+          height: 16px;
+          width: auto;
+        }
+        .loop {
+          height: 15px;
+          width: auto;
+        }
+        .play {
+          height: 20px;
+          width: auto;
+        }
+      }
     }
 
     #player-right {
       height: 38px;
-      background-color: red;
+      width: 500px;
+      // background-color: red;
+      margin-right: 24px;
     }
   }
 }

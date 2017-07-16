@@ -70,18 +70,19 @@ class Player extends Component {
           isSeekable
           onSeek={this.handleSeek.bind(this)}
         />
+        <ReactPlayer
+          className="react-player"
+          ref={(e) => { this.player = e; }}
+          url={'https://tunebay-upload.s3-eu-west-2.amazonaws.com/users/music/bbb77e4d-7b08-4198-98c3-8c800959dd09'}
+          width={0}
+          volume={player.volume}
+          height={0}
+          playing={false}
+          progressFrequency={100}
+          onProgress={this.onPlayerProgress.bind(this)}
+          onDuration={this.onPlayerDuration.bind(this)}
+        />
         <div id="player-content">
-          <ReactPlayer
-            ref={(e) => { this.player = e; }}
-            url={'https://tunebay-upload.s3-eu-west-2.amazonaws.com/users/music/bbb77e4d-7b08-4198-98c3-8c800959dd09'}
-            width={0}
-            volume={player.volume}
-            height={0}
-            playing={false}
-            progressFrequency={100}
-            onProgress={this.onPlayerProgress.bind(this)}
-            onDuration={this.onPlayerDuration.bind(this)}
-          />
           <div id="player-left">
             <div id="player-artwork-con">
               <img
@@ -101,7 +102,35 @@ class Player extends Component {
               <div id="now-playing-artist">The Keepsakes</div>
             </div>
           </div>
-          <div id="player-middle" />
+          <div id="player-middle">
+            <div className="controls">
+              <img
+                src="../../../assets/images/shuffle.svg"
+                alt="shuffle"
+                className="shuffle control-icon"
+              />
+              <img
+                src="../../../assets/images/backwards.svg"
+                alt="backwards"
+                className="backwards control-icon"
+              />
+              <img
+                src="../../../assets/images/play.svg"
+                alt="play"
+                className="play control-icon"
+              />
+              <img
+                src="../../../assets/images/forwards.svg"
+                alt="forwards"
+                className="forwards control-icon"
+              />
+              <img
+                src="../../../assets/images/loop.svg"
+                alt="forwards"
+                className="loop control-icon"
+              />
+            </div>
+          </div>
           <div id="player-right">
             {/* <VolumeSlider
               volume={player.volume}
