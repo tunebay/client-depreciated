@@ -76,19 +76,19 @@
         justify-content: space-between;
         @include alignCenter;
         .control-icon {
-          height: 18px;
-          width: auto;
-        }
-        .forwards, .backwards {
           height: 16px;
           width: auto;
         }
+        .forwards, .backwards {
+          height: 14px;
+          width: auto;
+        }
         .loop {
-          height: 15px;
+          height: 14px;
           width: auto;
         }
         .play {
-          height: 20px;
+          height: 16px;
           width: auto;
         }
       }
