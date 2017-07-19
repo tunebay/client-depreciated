@@ -11,8 +11,14 @@ class PlaylistDisplay extends Component {
   }
 
   togglePlayClick() {
-    this.props.addPlaylistToPlayer(this.props.playlist);
-    console.log('Sent playlist to player here');
+    const { player, playlist } = this.props;
+    if (player.isPlaying && player.playlist.id === playlist.id) {
+      console.log('here');
+      this.props.updatePlayStatus(false);
+    } else {
+      this.props.addPlaylistToPlayer(this.props.playlist);
+      console.log('Sent playlist to player here');
+    }
   }
 
   render() {

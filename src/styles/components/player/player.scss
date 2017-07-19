@@ -204,7 +204,7 @@
 
   &-elapsed {
     height: 100%;
-    transition: width 100ms linear; //HERE
+    // transition: width 100ms linear; //HERE
     // &:hover {
     //   transform: scaleY(1.5);
     // }
@@ -221,7 +221,7 @@
     top: 0;
     margin: -4px 0 0 -8px;
     transform: scaleY(0);
-    transition: left 100ms linear; // HERE
+    // transition: left 100ms linear; // HERE
     &:hover {
       transform: scale(0);
       transform: scaleY(0);
