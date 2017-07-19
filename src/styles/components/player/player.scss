@@ -56,9 +56,10 @@
         // width: auto;
         white-space: nowrap;
         #now-playing-artist {
-          color: $blue;
+          color: #999;
           font-weight: 500;
           font-size: 13px;
+          text-decoration: none;
         }
       }
     }

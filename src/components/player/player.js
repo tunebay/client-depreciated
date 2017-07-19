@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Sound from 'react-sound';
 import { connect } from 'react-redux';
 // import Artwork from '../pages/profile/artwork';
@@ -104,7 +105,9 @@ class Player extends Component {
               />
               <div className="now-playing">
                 <div id="now-playing-track-title">{player.currentTrack.name}</div>
-                <div id="now-playing-artist">The Keepsakes</div>
+                <Link to={`/${player.playlist.user.username}`} id="now-playing-artist">
+                  {player.playlist.user.displayName}
+                </Link>
               </div>
             </div>
             <div id="player-middle">
