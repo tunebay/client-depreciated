@@ -16,9 +16,15 @@ class PlaylistDisplay extends Component {
   }
 
   render() {
-    const { playlist: {
-      price, tracks, title, artwork, numberOfTracks
+    const { player, playlist: {
+      price, tracks, title, artwork, numberOfTracks, id
     } } = this.props;
+
+    const btnSrc = (
+      player.isPlaying && player.playlist.id === id ?
+        '../../../../assets/images/pause.svg' :
+        '../../../../assets/images/triangle.svg'
+    );
 
     return (
       <li className="playlist-display">
@@ -38,7 +44,7 @@ class PlaylistDisplay extends Component {
             >
               <span className="play-btn">
                 <img
-                  src="../../../../assets/images/triangle.svg"
+                  src={btnSrc}
                   alt="play"
                   className="play"
                 />

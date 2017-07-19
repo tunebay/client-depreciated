@@ -66,6 +66,10 @@ class Player extends Component {
   render() {
     const { player } = this.props;
     // console.log('PLAYER', player);
+    const playOrPauseSVG = player.isPlaying ?
+      'url("../../../../assets/images/pause.svg")' :
+      'url("../../../../assets/images/play.svg")';
+
     if (player.visable) {
       return (
         <div id="player">
@@ -122,13 +126,11 @@ class Player extends Component {
                   alt="backwards"
                   className="backwards control-icon"
                 />
-                <button onClick={this.togglePlayPause}>
-                  <img
-                    src="../../../assets/images/play.svg"
-                    alt="play"
-                    className="play control-icon"
-                  />
-                </button>
+                <button
+                  className="play-control"
+                  onClick={this.togglePlayPause}
+                  style={{ background: playOrPauseSVG }}
+                />
                 <img
                   src="../../../assets/images/forwards.svg"
                   alt="forwards"

@@ -77,6 +77,18 @@
         @include browserFlex;
         justify-content: space-between;
         @include alignCenter;
+        .play-control {
+          height: 20px;
+          width: 20px;
+          border: none;
+          outline: none;
+          background: url("../../../../assets/images/play.svg");
+          background-size: fill;
+          background-repeat: no-repeat;
+          &:hover {
+            cursor: pointer;
+          }
+        }
         .control-icon {
           height: 16px;
           width: auto;
@@ -236,7 +248,7 @@
   &.isLoading {
     opacity: 0.5;
     background: #ccc;
-    animation: barLoading 2s infinite;
+    // animation: barLoading 2s infinite;
   }
 }
 
