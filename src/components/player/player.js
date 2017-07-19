@@ -103,7 +103,7 @@ class Player extends Component {
                 className="vertical-dots"
               />
               <div className="now-playing">
-                <div id="now-playing-track-title">Hit The Ground Running</div>
+                <div id="now-playing-track-title">{player.currentTrack.name}</div>
                 <div id="now-playing-artist">The Keepsakes</div>
               </div>
             </div>
