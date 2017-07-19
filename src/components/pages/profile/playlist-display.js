@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Artwork from './artwork';
+import * as actions from '../../../actions/player-actions';
 import PricePill from '../../common/price-pill';
 
 class PlaylistDisplay extends Component {
@@ -10,11 +11,12 @@ class PlaylistDisplay extends Component {
   }
 
   togglePlayClick() {
-    console.log('Send playlist to player here');
+    this.props.addPlaylistToPlayer(this.props.playlist);
+    console.log('Sent playlist to player here');
   }
 
   render() {
-    const { player, playlist: {
+    const { playlist: {
       price, tracks, title, artwork, numberOfTracks
     } } = this.props;
 
@@ -78,4 +80,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(PlaylistDisplay);
+export default connect(mapStateToProps, actions)(PlaylistDisplay);

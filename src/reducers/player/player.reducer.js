@@ -1,15 +1,13 @@
-import playerPlaylist from './player-playlist.reducer';
+// import playerPlaylist from './player-playlist.reducer';
 import {
   ADD_PLAYLIST_TO_PLAYER,
   UPDATE_PLAY_STATUS
 } from '../../actions/types';
 
-const PLAYING = 'PLAYING';
-const PAUSED = 'PAUSED';
-
 const INITIAL_STATE = {
-  playlist: [],
-  playStatus: PAUSED,
+  playlist: {},
+  isPlaying: false,
+  currentTrack: null,
   hasNext: false,
   volume: 0.8,
   isMuted: false,
@@ -21,7 +19,7 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case UPDATE_PLAY_STATUS:
-      return { ...state, playStatus: action.payload };
+      return { ...state, isPlaying: action.payload };
     case 'UPDATE_DURATION':
       return { ...state, duration: action.payload };
     case 'UPDATE_PROGRESS':
@@ -33,9 +31,10 @@ export default (state = INITIAL_STATE, action) => {
     case ADD_PLAYLIST_TO_PLAYER:
       return {
         ...state,
-        playlist: playerPlaylist(null, action),
+        playlist: action.payload,
+        currentTrack: action.payload.tracks[0],
         visable: true,
-        playStatus: PLAYING
+        isPlaying: true
       };
     default:
       return state;
