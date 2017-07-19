@@ -1,12 +1,12 @@
 import {
-  ADD_TRACK_TO_PLAYER,
+  ADD_PLAYLIST_TO_PLAYER,
   UPDATE_TRACK_MILLISECONDS,
   UPDATE_TRACK_MILI_POSITION,
   UPDATE_PLAY_STATUS
 } from './types';
 
-export const addTrackToPlayer = (track, tracks) => {
-  return { type: ADD_TRACK_TO_PLAYER, payload: track, tracks };
+export const addPlaylistToPlayer = (playlist) => {
+  return { type: ADD_PLAYLIST_TO_PLAYER, payload: playlist };
 };
 
 export const updateVolume = (volume) => {

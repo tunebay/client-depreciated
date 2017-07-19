@@ -7,7 +7,7 @@ import formReducer from './redux-form-reducer';
 import audioUploadReducer from './upload-reducer'; // new
 import bannerReducer from './banner-reducer';
 import currentUserReducer from './current-user-reducer';
-import playerReducer from './player/player-reducer';
+import playerReducer from './player/player.reducer';
 
 const rootReducer = combineReducers({
   form: formReducer,
