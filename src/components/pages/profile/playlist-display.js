@@ -35,6 +35,7 @@ class PlaylistDisplay extends Component {
     return (
       <li className="playlist-display">
         <Artwork
+          linkTo={'/generalroots/first-attack'}
           artwork={artwork}
           title={title}
           numberOfTracks={numberOfTracks}

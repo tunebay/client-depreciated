@@ -23,8 +23,8 @@ class Profile extends Component {
 
   componentWillReceiveProps(props) {
     const { findingUser } = this.props;
-    if (!props.user) return <NotFound {...this.props} />;
     if (!findingUser) {
+      if (!props.user) return <NotFound {...this.props} />;
       if (props.match.params.username !== props.user.username) {
         this.props.findUser(props.match.params.username);
       }
@@ -84,7 +84,7 @@ class Profile extends Component {
                 </div>
               </div>
             </div>
-            <MenuNav playlistCount={user.playlists.length} />
+            <MenuNav playlistCount={user.playlists.length} username={user.username} />
             <div className="tab-display">
               <PlaylistsSection playlists={user.playlists} />
               <SideContentContainer />

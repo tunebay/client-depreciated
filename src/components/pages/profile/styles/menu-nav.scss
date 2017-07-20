@@ -20,7 +20,9 @@
   .menu-nav-item {
     @include browserFlex;
     @include justifyCenter;
+    color: lighten($text-black, 10%);
     // border-radius: 10px;
+    text-decoration: none;
     padding: 0;
     margin: 0;
     width: 125px;

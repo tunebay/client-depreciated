@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './styles/artwork.scss';
 
 class Artwork extends Component {
   render() {
-    const { artwork, title, numberOfTracks } = this.props;
+    const { artwork, title, numberOfTracks, linkTo } = this.props;
     if (!artwork) {
       return (
-        <div className="artwork-placeholder">
+        <Link to={linkTo} className="artwork-placeholder">
           <svg className="artwork-placeholder" width="260px" height="260px" viewBox="0 0 260 260" version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin none">
             <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
               <g id="Artboard" transform="translate(-54.000000, -65.000000)">
@@ -19,12 +20,12 @@ class Artwork extends Component {
               </g>
             </g>
           </svg>
-        </div>
+        </Link>
       );
     }
 
     return (
-      <div className="artwork">
+      <Link to={linkTo} className="artwork">
         <div className="number-of-tracks">
           <div className="track-count">{numberOfTracks}</div>
           <div className="track-or-tracks">
@@ -32,7 +33,7 @@ class Artwork extends Component {
           </div>
         </div>
         <img className="artwork-image" src={artwork} alt="artwork" />
-      </div>
+      </Link>
     );
   }
 }
