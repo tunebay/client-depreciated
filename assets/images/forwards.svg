@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="25px" height="24px" viewBox="0 0 25 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="18px" height="17px" viewBox="0 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
-    <title>Group 18</title>
+    <title>Group 13</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="1200px-Feed" transform="translate(-681.000000, -769.000000)" fill="#2E3F52">
-            <g id="Group-22" transform="translate(563.000000, 764.000000)">
-                <g id="Group-19" transform="translate(82.000000, 2.000000)">
-                    <g id="Group-18" transform="translate(37.000000, 3.000000)">
-                        <g id="Group-15-Copy-5">
-                            <polygon id="Triangle" transform="translate(10.661053, 12.000000) rotate(90.000000) translate(-10.661053, -12.000000) " points="10.6610526 0.449197861 20.3621053 23.5508021 0.96 23.5508021"></polygon>
-                        </g>
-                        <rect id="Rectangle-22-Copy" x="19.1494737" y="0.449197861" width="4.85052632" height="23.1016043"></rect>
-                    </g>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g id="1200px-Feed" transform="translate(-712.000000, -761.000000)" stroke="#2E3F52" fill="#2E3F52">
+            <g id="Group-18" transform="translate(646.000000, 760.000000)">
+                <g id="Group-13" transform="translate(66.000000, 2.000000)">
+                    <rect id="Rectangle-7-Copy" x="14.2222222" y="2.66666667" width="2.55999994" height="10.6666667"></rect>
+                    <polygon id="Triangle" transform="translate(8.202463, 7.797537) rotate(90.000000) translate(-8.202463, -7.797537) " points="8.20246325 0.241981196 15.7580188 15.3530923 0.646907693 15.3530923"></polygon>
                 </g>
             </g>
         </g>

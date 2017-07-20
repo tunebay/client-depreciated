@@ -23,12 +23,12 @@ class PlaylistDisplay extends Component {
 
   render() {
     const { player, playlist: {
-      price, tracks, title, artwork, numberOfTracks, id
+      price, tracks, title, artwork, numberOfTracks, id, playlistType
     } } = this.props;
 
     const btnSrc = (
       player.isPlaying && player.playlist.id === id ?
-        '../../../../assets/images/pause.svg' :
+        '../../../../assets/images/white-pause.svg' :
         '../../../../assets/images/triangle.svg'
     );
 
@@ -77,7 +77,7 @@ class PlaylistDisplay extends Component {
               <div className="icon-btn">
                 <img className="comment icon" src="../../../../assets/images/comment.svg" alt="comment-btn" />
               </div>
-              <button id="quicklook">Quick look</button>
+              <button id="quicklook">View {playlistType}</button>
             </div>
           </div>
         </div>

@@ -13,15 +13,39 @@ class Player extends Component {
   constructor(props) {
     super(props);
     this.togglePlayPause = this.togglePlayPause.bind(this);
+    this.handleShuffleClick = this.handleShuffleClick.bind(this);
+    this.handleBackwardsClick = this.handleBackwardsClick.bind(this);
+    this.handleForwardsClick = this.handleForwardsClick.bind(this);
+    this.handleLoopClick = this.handleLoopClick.bind(this);
   }
   // handlePlaying(e) {
   //   this.props.updateTrackMilliseconds(e);
   // }
 
-  togglePlayPause() {
-    const { player } = this.props;
-    const isPlaying = !player.isPlaying;
-    this.props.updatePlayStatus(isPlaying);
+  onPlayerProgress(progress) {
+    this.props.updateProgress(progress);
+    // console.log('Progress', progress);
+  }
+
+  onPlayerDuration(duration) {
+    this.props.updateDuration(duration);
+    // console.log('duration', duration);
+  }
+
+  handleBackwardsClick() {
+    console.log('go back a track if < 5secs or beggning of track otherwise');
+  }
+
+  handleForwardsClick() {
+    console.log('go fowards a track');
+  }
+
+  handleShuffleClick() {
+    console.log('Shuffle plylist when track ends');
+  }
+
+  handleLoopClick() {
+    console.log('Loop single track... playlist?');
   }
 
   handleSeek(seconds) {
@@ -39,14 +63,10 @@ class Player extends Component {
     this.props.updateVolume(vol);
   }
 
-  onPlayerProgress(progress) {
-    this.props.updateProgress(progress);
-    // console.log('Progress', progress);
-  }
-
-  onPlayerDuration(duration) {
-    this.props.updateDuration(duration);
-    // console.log('duration', duration);
+  togglePlayPause() {
+    const { player } = this.props;
+    const isPlaying = !player.isPlaying;
+    this.props.updatePlayStatus(isPlaying);
   }
 
   // renderSound(player) {
@@ -68,7 +88,7 @@ class Player extends Component {
     // console.log('PLAYER', player);
     const playOrPauseSVG = player.isPlaying ?
       'url("../../../../assets/images/pause.svg")' :
-      'url("../../../../assets/images/play.svg")';
+      'url("../../../../assets/images/player-play.svg")';
 
     if (player.visable) {
       return (
@@ -116,30 +136,30 @@ class Player extends Component {
             </div>
             <div id="player-middle">
               <div className="controls">
-                <img
-                  src="../../../assets/images/shuffle.svg"
-                  alt="shuffle"
-                  className="shuffle control-icon"
+                <button
+                  className="play-control"
+                  onClick={this.handleShuffleClick}
+                  style={{ backgroundImage: 'url("../../../assets/images/shuffle.svg")' }}
                 />
-                <img
-                  src="../../../assets/images/backwards.svg"
-                  alt="backwards"
-                  className="backwards control-icon"
+                <button
+                  className="play-control"
+                  onClick={this.handleBackwardsClick}
+                  style={{ backgroundImage: 'url("../../../assets/images/backwards.svg")' }}
                 />
                 <button
                   className="play-control"
                   onClick={this.togglePlayPause}
-                  style={{ background: playOrPauseSVG }}
+                  style={{ backgroundImage: playOrPauseSVG }}
                 />
-                <img
-                  src="../../../assets/images/forwards.svg"
-                  alt="forwards"
-                  className="forwards control-icon"
+                <button
+                  className="play-control"
+                  onClick={this.handleForwardsClick}
+                  style={{ backgroundImage: 'url("../../../assets/images/forwards.svg")' }}
                 />
-                <img
-                  src="../../../assets/images/loop.svg"
-                  alt="forwards"
-                  className="loop control-icon"
+                <button
+                  className="play-control"
+                  onClick={this.handleLoopClick}
+                  style={{ backgroundImage: 'url("../../../assets/images/loop.svg")' }}
                 />
               </div>
             </div>
