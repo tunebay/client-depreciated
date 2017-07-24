@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../../actions/profile-actions';
+import './styles/playlist-detail-page.scss';
 
 class PlaylistDeatilPage extends Component {
   constructor(props) {
@@ -21,13 +22,20 @@ class PlaylistDeatilPage extends Component {
     if (!playlist) return <div>No playlist by that name</div>;
 
     return (
-      <div>
-        <div>{this.props.playlist.title}</div>
-        <ul>
-          {playlist.tracks.map((track) => {
-            return <li>{track.name}</li>;
-          })}
-        </ul>
+      <div className="playlist-detail-page">
+        <div className="left-col">
+          <div className="artwork-con">
+            <img
+              className="artwork"
+              src={playlist.artwork}
+              alt="artwork"
+            />
+          </div>
+          <button className="buy-btn">Buy £7.99</button>
+        </div>
+        <div className="right-col">
+
+        </div>
       </div>
     );
   }

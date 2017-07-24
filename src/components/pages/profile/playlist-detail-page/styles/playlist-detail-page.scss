@@ -1,0 +1,65 @@
+@import "../../../../../styles/_variables.scss";
+
+.playlist-detail-page {
+  @include browserFlex;
+  flex-direction: row;
+  height: auto;
+  width: 100%;
+  // background-color: gold;
+  .left-col {
+    width: 260px;
+    height: 500px;
+    .artwork-con {
+      height: 260px;
+      width: 260px;
+      border-radius: 5px;
+      .artwork {
+        @include boxShadowResting;
+        height: 100%;
+        width: auto;
+        border-radius: 5px;
+        animation: grow 300ms ease-out;
+        &:hover {
+          @include boxShadow;
+          cursor: pointer;
+        }
+      }
+    }
+    .buy-btn {
+      margin: 16px 0;
+      width: 100%;
+      height: 42px;
+      background-color: $green;
+      border: none;
+      border-radius: 500px;
+      outline: none;
+      color: white;
+      font-family: $font-stack;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 75ms ease-out;
+      &:hover {
+        cursor: pointer;
+        background-color: darken($green, 5%);
+      }
+    }
+  }
+
+  .right-col {
+    width: calc(100% - 250px);
+    height: 100px;
+    margin-left: 24px;
+    // background-color: red;
+  }
+}
+
+@keyframes grow {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
