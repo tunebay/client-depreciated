@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Switch, Route } from 'react-router-dom';
+import PlaylistDeatilPage from './playlist-detail-page';
 import Content from '../content';
 import NavBar from './nav';
 import PlaylistsSection from './playlists-section';
@@ -84,10 +86,19 @@ class Profile extends Component {
               </div>
             </div>
             <MenuNav playlistCount={user.playlists.length} username={user.username} />
-            <div className="tab-display">
-              <PlaylistsSection playlists={user.playlists} />
-              <SideContentContainer />
-            </div>
+            <Switch>
+              <Route
+                exact
+                path="/:username"
+                render={() => (
+                  <div className="tab-display">
+                    <PlaylistsSection playlists={user.playlists} />
+                    <SideContentContainer />
+                  </div>
+                )}
+              />
+              <Route path="/:username/:playlist" component={PlaylistDeatilPage} />
+            </Switch>
           </div>
         </div>
       </Content>

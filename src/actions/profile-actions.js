@@ -23,6 +23,10 @@ export const findUser = (username) => {
   };
 };
 
+export const findPlaylist = (playlist) => {
+  console.log('Find play list here:', playlist);
+};
+
 export const updateCoverBottom = (coverBottom) => {
   return {
     type: UPDATE_COVER_BOTTOM,
