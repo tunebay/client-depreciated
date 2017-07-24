@@ -3,7 +3,7 @@ UPDATE_COVER_BOTTOM } from '../actions/types';
 
 const INITIAL_STATE = {
   user: null,
-  findingUser: false
+  findingUser: true
 };
 
 export default (state = INITIAL_STATE, action) => {

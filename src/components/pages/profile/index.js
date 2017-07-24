@@ -43,9 +43,8 @@ class Profile extends Component {
 
   render() {
     const { user, findingUser, coverBottom } = this.props;
-
     if (findingUser) return <div />;
-    if (!user) return <NotFound {...this.props} />;
+    if (!user && !findingUser) return <NotFound {...this.props} />;
 
     document.title = `${user.displayName} | Tunebay`;
 

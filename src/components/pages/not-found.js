@@ -4,6 +4,7 @@ import Content from './content';
 
 const NotFound = ({ match }) => {
   document.title = ' 404 | Tunebay';
+  console.log('404 BEING RENDERED');
   return (
     <Content>
       <h3>404 page not found</h3>

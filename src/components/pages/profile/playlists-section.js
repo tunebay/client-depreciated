@@ -5,7 +5,7 @@ import './styles/playlists-section.scss';
 class PlaylistsSection extends Component {
   render() {
     const { playlists } = this.props;
-    console.log(playlists.length === 0);
+    // console.log(playlists.length === 0);
     return (
       <div id="playlists-section">
         {playlists.length !== 0 ?

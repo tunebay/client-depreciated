@@ -9,7 +9,7 @@ import Login from './pages/login';
 import Signup from './pages/signup';
 import Logout from './pages/logout';
 import Profile from './pages/profile/';
-import NotFound from './pages/not-found';
+// import NotFound from './pages/not-found';
 import Upload from './pages/upload/';
 import RequireAuth from './hoc/require-auth';
 import Header from './header/header';
@@ -83,8 +83,7 @@ class App extends Component {
             <Route path="/logout" component={this.renderRoute(Logout)} />
             <Route path="/upload" component={this.renderRoute(RequireAuth(Upload))} />
             <Route path="/feed" component={this.renderRoute(RequireAuth(HomeFeed))} />
-            <Route path="/:username" render={this.renderRoute(Profile)} />
-            <Route path="*" component={NotFound} />
+            <Route path="/:username" component={this.renderRoute(Profile)} />
           </Switch>
           <Player />
         </div>
