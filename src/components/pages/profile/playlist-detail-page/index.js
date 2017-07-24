@@ -17,10 +17,18 @@ class PlaylistDeatilPage extends Component {
   }
 
   render() {
-    if (!this.props.playlist) return <div>No playlist by that name</div>;
+    const { playlist } = this.props;
+    if (!playlist) return <div>No playlist by that name</div>;
 
     return (
-      <div>{this.props.playlist.title}</div>
+      <div>
+        <div>{this.props.playlist.title}</div>
+        <ul>
+          {playlist.tracks.map((track) => {
+            return <li>{track.name}</li>;
+          })}
+        </ul>
+      </div>
     );
   }
 }

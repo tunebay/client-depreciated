@@ -23,7 +23,7 @@ class PlaylistDisplay extends Component {
 
   render() {
     const { player, playlist: {
-      price, tracks, title, artwork, numberOfTracks, id, playlistType
+      price, tracks, title, artwork, numberOfTracks, id, playlistType, permalink
     } } = this.props;
 
     const btnSrc = (
@@ -32,10 +32,12 @@ class PlaylistDisplay extends Component {
         '../../../../assets/images/triangle.svg'
     );
 
+    // console.log('permalink', permalink.substr(19));
+
     return (
       <li className="playlist-display">
         <Artwork
-          linkTo={'/generalroots/first-attack'}
+          linkTo={permalink.substr(19)}
           artwork={artwork}
           title={title}
           numberOfTracks={numberOfTracks}
