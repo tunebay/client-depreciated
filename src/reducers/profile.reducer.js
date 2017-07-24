@@ -16,7 +16,7 @@ export default (state = INITIAL_STATE, action) => {
     case UPDATE_COVER_BOTTOM:
       return { ...state, coverBottom: action.payload };
     case USER_DOESNT_EXIST:
-      return INITIAL_STATE;
+      return { ...state, user: null, findingUser: false };
     case 'SET_PLAYLIST_PAGE_PLAYLIST':
       return { ...state, currentPlaylist: action.payload };
     case 'PLAYLIST_DOESNT_EXIST': {
