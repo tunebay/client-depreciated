@@ -5,17 +5,30 @@ import * as actions from '../../../../actions/profile-actions';
 class PlaylistDeatilPage extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.match.params.playlist);
-    // this.props.findPlaylist(this.props.match.params.playlist);
+    const { playlists, match } = this.props;
+    this.props.setCurrentPlaylist(playlists, match);
+    // this.props.findPlaylistByURL(this.props.match.url);
+  }
+
+  componentWillReceiveProps(props) {
+    console.log('recive props', props);
+    console.log(props.playlist);
+    // if (props.playlist === null) return <Redirect to {...this.props} />;
   }
 
   render() {
-    // const { playlist } = this.props;
-    // console.log('Detail page props', this.props);
+    if (!this.props.playlist) return <div>No playlist by that name</div>;
+
     return (
-      <div className="tab-display">Playlist page</div>
+      <div>{this.props.playlist.title}</div>
     );
   }
 }
 
-export default connect(null, actions)(PlaylistDeatilPage);
+const mapStateToProps = (state) => {
+  return {
+    playlist: state.profile.currentPlaylist
+  };
+};
+
+export default connect(mapStateToProps, actions)(PlaylistDeatilPage);

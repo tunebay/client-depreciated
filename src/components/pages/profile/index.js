@@ -97,7 +97,33 @@ class Profile extends Component {
                   </div>
                 )}
               />
-              <Route path="/:username/:playlist" component={PlaylistDeatilPage} />
+              <Route
+                path="/:username/videos"
+                render={() => (
+                  <div className="tab-display">
+                    <div>Videos tab placeholder</div>
+                    <SideContentContainer />
+                  </div>
+                )}
+              />
+              <Route
+                path="/:username/collection"
+                render={() => (
+                  <div className="tab-display">
+                    <div>collection tab placeholder</div>
+                    <SideContentContainer />
+                  </div>
+                )}
+              />
+              <Route
+                path="/:username/:playlist"
+                exact
+                render={props => (
+                  <div className="tab-display">
+                    <PlaylistDeatilPage {...props} playlists={user.playlists} />
+                  </div>
+                )}
+              />
             </Switch>
           </div>
         </div>

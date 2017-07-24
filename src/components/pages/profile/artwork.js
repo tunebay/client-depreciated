@@ -7,7 +7,7 @@ class Artwork extends Component {
     const { artwork, title, numberOfTracks, linkTo } = this.props;
     if (!artwork) {
       return (
-        <Link to={linkTo} className="artwork-placeholder">
+        <Link to={{ pathname: linkTo, state: numberOfTracks }} className="artwork-placeholder">
           <svg className="artwork-placeholder" width="260px" height="260px" viewBox="0 0 260 260" version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin none">
             <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
               <g id="Artboard" transform="translate(-54.000000, -65.000000)">

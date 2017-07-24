@@ -23,7 +23,7 @@ export const findUser = (username) => {
   };
 };
 
-export const findPlaylist = (playlist) => {
+export const findPlaylistByURL = (playlist) => {
   console.log('Find play list here:', playlist);
 };
 
@@ -32,4 +32,15 @@ export const updateCoverBottom = (coverBottom) => {
     type: UPDATE_COVER_BOTTOM,
     payload: coverBottom
   };
+};
+
+export const setCurrentPlaylist = (playlists, match) => {
+  console.log(playlists, match.url);
+  const playlistToSet = playlists.find((playlist) => {
+    return playlist.permalink === `https://tunebay.com${match.url}`;
+  });
+  if (playlistToSet) {
+    return { type: 'SET_PLAYLIST_PAGE_PLAYLIST', payload: playlistToSet };
+  }
+  return { type: 'PLAYLIST_DOESNT_EXIST' };
 };
