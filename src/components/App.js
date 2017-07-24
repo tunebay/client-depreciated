@@ -83,6 +83,8 @@ class App extends Component {
             <Route path="/logout" component={this.renderRoute(Logout)} />
             <Route path="/upload" component={this.renderRoute(RequireAuth(Upload))} />
             <Route path="/feed" component={this.renderRoute(RequireAuth(HomeFeed))} />
+            <Route path="/hello" exact render={() => (<div>Hello</div>)} />
+            <Route path="/hello/world" render={() => (<div>Hello World</div>)} />
             <Route path="/:username" component={this.renderRoute(Profile)} />
           </Switch>
           <Player />
