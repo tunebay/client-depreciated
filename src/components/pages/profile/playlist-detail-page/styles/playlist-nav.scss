@@ -1,0 +1,38 @@
+@import "../../../../../styles/_variables.scss";
+
+.playlist-nav {
+  @include browserFlex;
+  flex-direction: row;
+  height: 24px;
+  margin: 22px 0;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  .playlist-nav-item {
+    @include browserFlex;
+    @include alignCenter;
+    @include justifyCenter;
+    @include borderBox;
+    height: 24px;
+    min-width: 90px;
+    margin-right: 36px;
+    color: #5F5F60;
+    font-family: $font-stack;
+    padding: 8px;
+    font-weight: 500;
+    border-radius: 500px;
+    font-size: 14px;
+    transition: all 100ms ease-out;
+    // background-color: $bluey-grey;
+    &:hover {
+      cursor: pointer;
+      color: $text-black;
+    }
+  }
+  .active {
+    background-color: $bluey-grey;
+    font-family: $font-stack;
+    color: white;
+    font-weight: 500;
+  }
+}
