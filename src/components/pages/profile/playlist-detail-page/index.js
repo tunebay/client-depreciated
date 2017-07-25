@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PlaylistNav from './playlist-nav';
+import PlaylistTrackList from './playlist-tracklist';
 import * as actions from '../../../../actions/profile-actions';
 import './styles/playlist-detail-page.scss';
 
@@ -57,6 +58,7 @@ class PlaylistDeatilPage extends Component {
             />
           </div>
           <PlaylistNav numberOfTracks={playlist.numberOfTracks} />
+          <PlaylistTrackList tracks={playlist.tracks} />
         </div>
       </div>
     );
