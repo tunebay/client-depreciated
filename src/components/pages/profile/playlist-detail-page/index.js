@@ -36,6 +36,9 @@ class PlaylistDeatilPage extends Component {
           <button className="buy-btn">
             {playlist.price > 0 ? `Buy £${playlist.price}` : 'Download Free'}
           </button>
+          <div className="supporting-this">
+            <div className="title">People supporting this <span className="bullet">&#x25CF;</span></div>
+          </div>
         </div>
         <div className="right-col">
           <div className="play-btn-title-con">
