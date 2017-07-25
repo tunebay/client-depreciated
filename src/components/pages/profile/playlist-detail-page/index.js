@@ -31,10 +31,29 @@ class PlaylistDeatilPage extends Component {
               alt="artwork"
             />
           </div>
-          <button className="buy-btn">Buy £7.99</button>
+          <button className="buy-btn">
+            {playlist.price > 0 ? `Buy £${playlist.price}` : 'Download Free'}
+          </button>
         </div>
         <div className="right-col">
-
+          <div className="play-btn-title-con">
+            <button
+              className="btn-span-wrapper"
+            >
+              <span className="play-btn">
+                <img
+                  src={'../../../../../assets/images/triangle.svg'}
+                  alt="play"
+                  className="play"
+                />
+              </span>
+            </button>
+            <div className="playlist-title">{playlist.title}</div>
+            <img
+              src="../../../../../assets/images/horizontal-dots.svg"
+              alt=""
+            />
+          </div>
         </div>
       </div>
     );

@@ -4,6 +4,7 @@
   @include browserFlex;
   flex-direction: row;
   height: auto;
+  margin-top: 4px;
   width: 100%;
   // background-color: gold;
   .left-col {
@@ -47,9 +48,60 @@
 
   .right-col {
     width: calc(100% - 250px);
-    height: 100px;
+    @include browserFlex;
+    flex-direction: column;
+    height: auto;
     margin-left: 24px;
     // background-color: red;
+    .play-btn-title-con {
+      // margin-top: 8px;
+      @include browserFlex;
+      @include alignCenter;
+      flex-direction: row;
+      height: 42px;
+      width: 100%;
+      // background-color: gold;
+      .btn-span-wrapper {
+        border: none;
+        background-color: $background;
+        height: 42px;
+        width: 42px;
+        margin: 0;
+        padding: 0;
+        outline: none;
+        .play-btn {
+          @include browserFlex;
+          @include alignCenter;
+          @include justifyCenter;
+          height: 42px;
+          width: 42px;
+          outline: none;
+          // border: 3px solid #d4ebfd;
+          border: none;
+          border-radius: 100%;
+          background-color: $blue;
+          transition: all 100ms ease-in;
+          &:hover {
+            background-color: darken($blue, 5%);
+            cursor: pointer;
+            transform: scale(0.95);
+            // border: 3px solid #d4ebfd;
+          }
+          .play {
+            width: 17px;
+            height: 17px;
+            // margin-left: 2px;
+          }
+        }
+      }
+      .playlist-title {
+        font-size: 24px;
+        padding: 0 12px;
+        color: $text-black;
+        font-weight: 700;
+        font-family: $font-stack;
+      }
+    }
   }
 }
 
