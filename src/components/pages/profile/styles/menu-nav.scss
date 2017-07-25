@@ -17,16 +17,38 @@
   color: lighten($text-black, 10%);
   // background-color: white;
   border-bottom: 1px solid #DDDDDD;
+  transition: all 75ms ease-out;
   .menu-nav-item {
-    @include browserFlex;
-    @include justifyCenter;
+    display: block;
+    text-align: center;
+    // @include browserFlex;
+    // @include justifyCenter;
     color: lighten($text-black, 10%);
     // border-radius: 10px;
     text-decoration: none;
     padding: 0;
     margin: 0;
     width: 125px;
+    // &:hover {
+    //   color: $text-black;
+    //   border-bottom: 2px solid $blue;
+    // }
   }
+  .menu-nav-item::after {
+    content: '';
+    display: block;
+    width: 0;
+    margin-top: 8px;
+    border-radius: 500px;
+    height: 2px;
+    background: $blue;
+    transition: width .2s;
+  }
+  .menu-nav-item:hover::after {
+    width: 100%;
+    //transition: width .3s;
+  }
+
   .active {
     border-bottom: 2px solid $blue;
     // stroke-linecap: round;
