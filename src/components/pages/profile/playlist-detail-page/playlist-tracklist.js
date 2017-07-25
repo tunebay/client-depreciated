@@ -19,7 +19,7 @@ class PlaylistTrackList extends Component {
         <tbody className="tbody">
           {tracks.map((track) => {
             return (
-              <tr className="tr">
+              <tr key={track.id} className="tr">
                 <td className="td position">{track.playlistPosition}</td>
                 <td className="td name">{track.name}</td>
                 <td className="td duration">{formatSeconds(track.duration)}</td>

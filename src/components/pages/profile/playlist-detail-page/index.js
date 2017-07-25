@@ -13,11 +13,11 @@ class PlaylistDeatilPage extends Component {
     // this.props.findPlaylistByURL(this.props.match.url);
   }
 
-  componentWillReceiveProps(props) {
-    console.log('recive props', props);
-    console.log(props.playlist);
-    // if (props.playlist === null) return <Redirect to {...this.props} />;
-  }
+  // componentWillReceiveProps(props) {
+  //   // console.log('recive props', props);
+  //   // console.log(props.playlist);
+  //   // if (props.playlist === null) return <Redirect to {...this.props} />;
+  // }
 
   render() {
     const { playlist } = this.props;
