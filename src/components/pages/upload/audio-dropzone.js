@@ -66,7 +66,7 @@ class AudioDropzone extends Component {
                 </button>
               </div>
               <div className="n-upload-note">
-                <span className="n-note">Tip:</span> you can select multiple files to start uploading an EP or album.
+                <span className="n-note">Tip:</span> Select multiple files to start uploading an EP or album.
               </div>
             </div>
           );

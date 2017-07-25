@@ -1,14 +1,14 @@
 @import "../../variables";
 
 .n-dropzone {
-  @include boxShadow;
+  @include boxShadowResting;
   @include browserFlex;
   @include alignCenter;
   @include justifyCenter;
   min-width: 500px;
-  height: 350px;
+  height: 400px;
   margin-top: 100px;
-  width: 810px;
+  width: 800px;
   background-color: #fff;
   border-radius: 5px;
   .n-inner-drop {
@@ -83,10 +83,12 @@
   .n-inner-drop-active {
     border: 1px solid $green;
     border-radius: 3px;
+    @include boxShadow;
   }
   .n-inner-drop-reject {
     border: 1px solid $red;
     border-radius: 3px;
+    @include boxShadow;
   }
 }
 
