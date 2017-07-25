@@ -97,6 +97,8 @@
       .playlist-title {
         font-size: 24px;
         padding: 0 12px;
+        max-width: 500px;
+        text-overflow: ellipsis;
         color: $text-black;
         font-weight: 700;
         font-family: $font-stack;
