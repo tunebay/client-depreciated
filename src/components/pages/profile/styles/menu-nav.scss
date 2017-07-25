@@ -49,9 +49,20 @@
     //transition: width .3s;
   }
 
-  .active {
-    border-bottom: 2px solid $blue;
-    // stroke-linecap: round;
+  .active,  {
     color: $text-black;
+  }
+
+  .active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    border-radius: 500px;
+    height: 2px;
+    background: $blue;
+    transition: width .2s;
+    // border-bottom: 3px solid $blue;
+    // stroke-linecap: round;
   }
 }
