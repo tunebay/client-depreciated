@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './playlist-tracklist';
+import formatSeconds from '../../../../util/format-seconds';
 import './styles/playlist-tracklist.scss';
 
 class PlaylistTrackList extends Component {
   render() {
-    const { tracks } = this.props;
+    const { tracks, playlistType } = this.props;
 
     return (
       <table className="playlist-tracklist">
@@ -21,9 +21,11 @@ class PlaylistTrackList extends Component {
             return (
               <tr className="tr">
                 <td className="td position">{track.playlistPosition}</td>
-                <td className="td">{track.name}</td>
-                <td className="td">{track.duration}</td>
-                <td className="td">{track.price}</td>
+                <td className="td name">{track.name}</td>
+                <td className="td duration">{formatSeconds(track.duration)}</td>
+                <td className="td price">{
+                  track.isASingle ? 'single' : `${playlistType} only`
+                }</td>
               </tr>
             );
           })}

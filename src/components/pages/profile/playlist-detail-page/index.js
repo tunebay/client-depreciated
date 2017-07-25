@@ -58,7 +58,10 @@ class PlaylistDeatilPage extends Component {
             />
           </div>
           <PlaylistNav numberOfTracks={playlist.numberOfTracks} />
-          <PlaylistTrackList tracks={playlist.tracks} />
+          <PlaylistTrackList
+            tracks={playlist.tracks}
+            playlistType={playlist.playlistType}
+          />
         </div>
       </div>
     );

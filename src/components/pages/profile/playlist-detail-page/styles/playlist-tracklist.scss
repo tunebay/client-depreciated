@@ -26,6 +26,9 @@
         font-weight: 400;
         // list-style: none;
       }
+      .price {
+        width: 100px;
+      }
     }
   }
   .tbody {
@@ -38,6 +41,7 @@
       text-align: left;
       .td {
         // display: block;
+        word-wrap: break-word;
         vertical-align: center;
         padding: 0;
         margin: 0;
@@ -48,6 +52,18 @@
       }
       .position {
         text-align: center;
+        max-width: 10px;
+        color: #999;
+      }
+      .duration {
+        color: #606468;
+      }
+      .price {
+        width: 100px;
+        word-wrap: break-word;
+        color: $bluey-grey;
+        font-weight: 500;
+        font-size: 13px;
       }
     }
   }
