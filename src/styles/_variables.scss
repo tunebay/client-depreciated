@@ -1,20 +1,20 @@
-$black: #2D2E2F;
+$black: #2d2e2f;
 // $blue: #1596F5;  // original one
-$blue: #0089EE;
+$blue: #0089ee;
 $light-blue: #34bfed;
-$darker-black: #1E2325;
+$darker-black: #1e2325;
 $light-grey: #e4e4e4;
 $border-color: #dbdbdb;
-$text-black: #46484A;
-$royal: #2E3F52;
-$green: #43AC6A;
-$aqua: #50E3C2;
+$text-black: #333333; //#46484a;
+$royal: #333333; //#2e3f52;
+$green: #43ac6a;
+$aqua: #50e3c2;
 $red: #d0011b;
 $placeholder: #aaa;
-$background: #eff2f5;
+$background: #f7f7f7; //#eff2f5;
 $yellow: #ffd700; // #f8bb86
 $player-grey: #f7f7f7;
-$bluey-grey: #8C9BA6;
+$bluey-grey: #8c9ba6;
 
 $font-stack: 'Avenir Next', 'Avenir', 'Lato', 'Helvetica', 'Arial', 'Sans-Serif';
 
@@ -23,21 +23,22 @@ $breakpoint-medium: 992px;
 $breakpoint-large: 1200px;
 
 @mixin boxshadow {
-  -webkit-box-shadow: 0px 1px 3px 0 rgba(100,100,100,0.32);
-  -moz-box-shadow: 0px 1px 3px 0 rgba(100,100,100,0.32);
-  box-shadow: 0px 1px 3px 0 rgba(100,100,100,0.32);
+  -webkit-box-shadow: 0px 1px 3px 0 rgba(100, 100, 100, 0.32);
+  -moz-box-shadow: 0px 1px 3px 0 rgba(100, 100, 100, 0.32);
+  box-shadow: 0px 1px 3px 0 rgba(100, 100, 100, 0.32);
 }
 
 @mixin boxShadowResting {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 @mixin boxShadow {
-  -webkit-box-shadow: 0px 1px 3px 0 rgba(100,100,100,0.32);
-  -moz-box-shadow: 0px 1px 3px 0 rgba(100,100,100,0.32);
-  box-shadow: 0px 1px 3px 0 rgba(100,100,100,0.32);
+  -webkit-box-shadow: 0px 1px 3px 0 rgba(100, 100, 100, 0.32);
+  -moz-box-shadow: 0px 1px 3px 0 rgba(100, 100, 100, 0.32);
+  box-shadow: 0px 1px 3px 0 rgba(100, 100, 100, 0.32);
 }
 
 @mixin borderBox {
@@ -47,11 +48,11 @@ $breakpoint-large: 1200px;
 }
 
 @mixin browserFlex {
-  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;      /* TWEENER - IE 10 */
-  display: -webkit-flex;     /* NEW - Chrome */
-  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
 
 @mixin justifyCenter {

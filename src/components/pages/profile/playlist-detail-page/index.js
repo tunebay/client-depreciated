@@ -27,24 +27,20 @@ class PlaylistDeatilPage extends Component {
       <div className="playlist-detail-page">
         <div className="left-col">
           <div className="artwork-con">
-            <img
-              className="artwork"
-              src={playlist.artwork}
-              alt="artwork"
-            />
+            <img className="artwork" src={playlist.artwork} alt="artwork" />
           </div>
           <button className="buy-btn">
             {playlist.price > 0 ? `Buy £${playlist.price}` : 'Download Free'}
           </button>
           <div className="supporting-this">
-            <div className="title">People supporting this <span className="bullet">&#x25CF;</span></div>
+            <div className="title">
+              People supporting this <span className="bullet">&#x25CF;</span>
+            </div>
           </div>
         </div>
         <div className="right-col">
           <div className="play-btn-title-con">
-            <button
-              className="btn-span-wrapper"
-            >
+            <button className="btn-span-wrapper">
               <span className="play-btn">
                 <img
                   src={'../../../../../assets/images/triangle.svg'}
@@ -53,14 +49,16 @@ class PlaylistDeatilPage extends Component {
                 />
               </span>
             </button>
-            <div className="playlist-title">{playlist.title}</div>
+            <div className="playlist-title">
+              {playlist.title}
+            </div>
             <img
               src="../../../../../assets/images/horizontal-dots.svg"
               alt="playlist-dots"
               className="playlist-dots"
             />
           </div>
-          <PlaylistNav numberOfTracks={playlist.numberOfTracks} />
+          {/* <PlaylistNav numberOfTracks={playlist.numberOfTracks} /> */}
           <PlaylistTrackList
             tracks={playlist.tracks}
             playlistType={playlist.playlistType}
@@ -73,7 +71,7 @@ class PlaylistDeatilPage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    playlist: state.profile.currentPlaylist
+    playlist: state.profile.currentPlaylist,
   };
 };
 

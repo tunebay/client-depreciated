@@ -31,24 +31,24 @@
     @include browserFlex;
     // justify-content: space-between;
     flex-direction: column;
-    width: 1140px;
-    max-width: 1220px;
-    flex-grow: 0.3;
+    width: 1160px;
+    max-width: 1160px;
+    // flex-grow: 0.3;
     min-width: calc($breakpoint-medium - 60px);
     #profile-bio-wrapper {
       @include browserFlex;
       flex-direction: row;
-      height: 170px;
+      height: 150px;
       width: 100%;
-      // background-color: blue;
+      // background-color: #fff;
       .col-left {
         // background-color: red;
         width: 217px;
         #profile-picture-con {
-          height: 205px;
-          width: 205px;
+          height: 200px;
+          width: 200px;
           z-index: 98;
-          margin-top: -60px;
+          margin-top: -80px;
           border-radius: 100%;
           background-color: $light-grey;
           // top: 270px;
@@ -56,9 +56,10 @@
           // position: absolute;
           position: relative;
           @include boxShadowResting;
-          transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+          transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
           &:hover {
-            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+              0 3px 6px rgba(0, 0, 0, 0.23);
             cursor: pointer;
           }
           .profile-picture {
@@ -129,11 +130,11 @@
             }
           }
           .user-bio {
-            padding-top: 14px;
+            padding-top: 8px;
             max-width: 450px;
-            font-size: 14px;
-            font-weight: 400;
-            color: $text-black;
+            font-size: 16px;
+            font-weight: 600;
+            color: #999;
             font-family: $font-stack;
           }
         }
@@ -145,7 +146,7 @@
       justify-content: space-between;
       width: 100%;
       // background-color: gold;
-      padding-top: 24px;
+      padding-top: 30px;
     }
   }
 }

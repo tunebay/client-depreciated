@@ -6,16 +6,16 @@ $header-height: 48px;
   align-items: center;
   height: $header-height;
   width: 100%;
-  background-color: #2E3F52;
+  background-color: $royal;
   margin: 0;
   padding: 0;
   top: 0;
   position: fixed;
   z-index: 99;
   // @include boxShadow;
-  -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.4);
-  -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.4);
-  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.4);
 
   .nav-link {
     height: $header-height;
@@ -33,7 +33,7 @@ $header-height: 48px;
     transition: all 100ms ease-out;
     &:hover {
       color: #fff;
-      background-color: darken(#2E3F52, 5%);
+      background-color: darken($royal, 5%);
     }
   }
 
@@ -118,12 +118,12 @@ $header-height: 48px;
     .search-icon-con {
       width: 32px;
       height: 32px;
-      background-color: #fff;
+      background-color: lighten($royal, 10%);
       @include borderBox;
       @include browserFlex;
       @include justifyCenter;
       @include alignCenter;
-      border-radius: 3px;
+      border-radius: 500px;
       border-right: none;
       border-top-right-radius: 0px;
       border-bottom-right-radius: 0px;
@@ -134,6 +134,8 @@ $header-height: 48px;
       border: none;
       height: 32px;
       width: 100%;
+      background-color: lighten($royal, 10%);
+      border-radius: 500px;
       font-weight: 500;
       line-height: 1.4;
       font-family: $font-stack;
@@ -161,7 +163,7 @@ $header-height: 48px;
       transition: all 100ms ease-out;
       &:hover {
         // opacity: 0.8;
-        background-color: darken(#2E3F52, 5%);
+        background-color: darken(#2e3f52, 5%);
         cursor: pointer;
       }
       .bell-icon {
@@ -225,7 +227,7 @@ $header-height: 48px;
       &:hover {
         cursor: pointer;
         color: #fff;
-        background-color: darken(#2E3F52, 5%);
+        background-color: darken(#2e3f52, 5%);
       }
       .fa-caret {
         color: $light-grey;
@@ -280,13 +282,28 @@ $header-height: 48px;
   }
 }
 
+input[type="text"].search-input::-webkit-input-placeholder {
+  color: #999;
+}
+input[type="text"].search-input::-moz-placeholder {
+  color: #999;
+}
+input[type="text"].search-input:-ms-input-placeholder {
+  color: #999;
+}
+input[type="text"].search-input:-moz-placeholder {
+  color: #999;
+}
 
-input[type="text"].search-input::-webkit-input-placeholder { color: #999; }
-input[type="text"].search-input::-moz-placeholder { color: #999; }
-input[type="text"].search-input:-ms-input-placeholder { color: #999; }
-input[type="text"].search-input:-moz-placeholder { color: #999; }
-
-input:focus[type="text"].search-input::-webkit-input-placeholder { color: $light-grey; }
-input:focus[type="text"].search-input::-moz-placeholder { color: $light-grey; }
-input:focus[type="text"].search-input:-ms-input-placeholder { color: $light-grey; }
-input:focus[type="text"].search-input:-moz-placeholder { color: $light-grey; }
+input:focus[type="text"].search-input::-webkit-input-placeholder {
+  color: $light-grey;
+}
+input:focus[type="text"].search-input::-moz-placeholder {
+  color: $light-grey;
+}
+input:focus[type="text"].search-input:-ms-input-placeholder {
+  color: $light-grey;
+}
+input:focus[type="text"].search-input:-moz-placeholder {
+  color: $light-grey;
+}

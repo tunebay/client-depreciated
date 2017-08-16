@@ -57,10 +57,7 @@ class Profile extends Component {
 
     return (
       <Content>
-        <div
-          id="cover-photo"
-          style={{ backgroundPosition }}
-        />
+        <div id="cover-photo" style={{ backgroundPosition }} />
         <NavBar fixed={fixed} />
         <div id="main-profile-wrapper">
           <div id="main-profile-content" style={{ paddingTop }}>
@@ -77,52 +74,59 @@ class Profile extends Component {
               <div className="col-right">
                 <div className="user-info">
                   <div className="heading">
-                    <h1 className="display-name">{user.displayName}</h1>
-                    <button className="follow-btn"><span>FOLLOW</span></button>
+                    <h1 className="display-name">
+                      {user.displayName}
+                    </h1>
+                    <button className="follow-btn">
+                      <span>FOLLOW</span>
+                    </button>
                   </div>
-                  <div className="username">@{user.username}</div>
-                  <div className="user-bio">{'North London\'s six piece live Lovers rock & Dub Reggae Heavyweights est. 2008'}</div>
+                  <div className="username">
+                    @{user.username}
+                  </div>
+                  <div className="user-bio">
+                    {'London, UK'}
+                  </div>
                 </div>
               </div>
             </div>
-            <MenuNav playlistCount={user.playlists.length} username={user.username} />
+            <MenuNav
+              playlistCount={user.playlists.length}
+              username={user.username}
+            />
             <Switch>
               <Route
                 exact
                 path="/:username"
-                render={() => (
-                  <div className="tab-display">
+                render={() =>
+                  (<div className="tab-display">
                     <PlaylistsSection playlists={user.playlists} />
                     <SideContentContainer />
-                  </div>
-                )}
+                  </div>)}
               />
               <Route
                 path="/:username/videos"
-                render={() => (
-                  <div className="tab-display">
+                render={() =>
+                  (<div className="tab-display">
                     <div>Videos tab placeholder</div>
                     <SideContentContainer />
-                  </div>
-                )}
+                  </div>)}
               />
               <Route
                 path="/:username/collection"
-                render={() => (
-                  <div className="tab-display">
+                render={() =>
+                  (<div className="tab-display">
                     <div>collection tab placeholder</div>
                     <SideContentContainer />
-                  </div>
-                )}
+                  </div>)}
               />
               <Route
                 path="/:username/:playlist"
                 exact
-                render={props => (
-                  <div className="tab-display">
+                render={props =>
+                  (<div className="tab-display">
                     <PlaylistDeatilPage {...props} playlists={user.playlists} />
-                  </div>
-                )}
+                  </div>)}
               />
             </Switch>
           </div>
@@ -136,7 +140,7 @@ const mapStateToProps = (state) => {
   return {
     user: state.profile.user,
     findingUser: state.profile.findingUser,
-    coverBottom: state.profile.coverBottom
+    coverBottom: state.profile.coverBottom,
   };
 };
 

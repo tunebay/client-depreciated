@@ -10,39 +10,58 @@
   // table-layout: fixed;
   vertical-align: middle;
   border-collapse: collapse;
+  margin-top: 24px;
   .thead {
     .tr {
       .th {
         // @include browserFlex;
         // flex-direction: row;
-        height: 18px;
+        height: 42px;
         font-size: 12px;
-        color: #999;
+        color: #7b7b7b;
+        background-color: #eaeaea; //#efefef;
+        // border-radius: 3px;
         padding: 0;
         margin: 0;
-        border-bottom: 1px solid #ddd;
+        margin-bottom: 8px;
         // border-top: 1px solid #ddd;
         font-family: $font-stack;
-        font-weight: 400;
+        font-weight: 500;
         // list-style: none;
       }
       .price {
         width: 100px;
       }
+      .header-position {
+        text-align: center;
+        max-width: 60px;
+        padding: 2px;
+        // min-width: 30px;
+        color: #999;
+        transition: all 100ms ease-out;
+      }
     }
   }
   .tbody {
     .tr {
-      height: 34px;
+      border-radius: 5px;
+      @include borderBox;
+      height: 42px;
       vertical-align: middle;
-      border-bottom: 1px solid #ddd;
       // padding: 12px;
       margin: 0;
+      border-radius: 5px;
+      margin-bottom: 8px;
+
       text-align: left;
+      background-color: #fff;
       .td {
         // display: block;
+        border-radius: 5px;
         word-wrap: break-word;
         vertical-align: center;
+        margin-bottom: 8px;
+        // border-top: 5px solid $background;
         padding: 0;
         margin: 0;
         font-size: 14px;
@@ -52,19 +71,36 @@
       }
       .position {
         text-align: center;
-        max-width: 10px;
-        color: #999;
+        max-width: 60px;
+        // padding: 2px;
+        // min-width: 30px;
+        color: #959595;
       }
       .duration {
-        color: #606468;
+        color: $text-black;
       }
       .price {
         width: 100px;
         word-wrap: break-word;
-        color: $bluey-grey;
+        color: $text-black;
         font-weight: 500;
         font-size: 13px;
       }
+    }
+  }
+}
+
+tbody:before {
+  content: "-";
+  display: block;
+  line-height: 8px;
+  color: transparent;
+}
+
+.playlist-tracklist {
+  .tbody {
+    .tr-odd {
+      background-color: $background;
     }
   }
 }
