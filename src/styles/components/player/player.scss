@@ -9,7 +9,7 @@
   bottom: 0;
   z-index: 99;
   position: fixed;
-  background-color: rgba(246,246,246,1);
+  background-color: rgba(246, 246, 246, 1);
   animation: slideUp 300ms ease-out;
   #player-content {
     // background-color: pink;
@@ -97,7 +97,8 @@
           height: 14px;
           width: auto;
         }
-        .forwards, .backwards {
+        .forwards,
+        .backwards {
           height: 14px;
           width: auto;
         }
@@ -131,15 +132,15 @@
 }
 
 @keyframes placeHolderFade {
-    0%{
-      background-color: $light-grey;
-    }
-    50%{
-      background-color: #D8D8D8;
-    }
-    100% {
-      background-color: $light-grey;
-    }
+  0% {
+    background-color: $light-grey;
+  }
+  50% {
+    background-color: #d8d8d8;
+  }
+  100% {
+    background-color: $light-grey;
+  }
 }
 
 .ProgressBar,
@@ -190,7 +191,7 @@
       .ProgressBar-intent,
       .VolumeSlider-intent {
         position: absolute;
-        background: rgba(0,0,0,0.05);
+        background: rgba(0, 0, 0, 0.05);
       }
     }
 

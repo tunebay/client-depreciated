@@ -48,7 +48,7 @@ $jumbo-height: 500px;
 
     .shout-out {
       margin: 0 20px;
-      width: 570px;
+      // width: 500px;
       color: #fff;
       font-family: $font-stack;
       text-align: center;
@@ -61,6 +61,7 @@ $jumbo-height: 500px;
         font-weight: 500;
         margin: 10px 0;
         margin-bottom: 30px;
+        font-family: $font-stack;
         line-height: 1.4;
         text-align: center;
       }

@@ -114,7 +114,7 @@ $header-height: 48px;
     align-items: center;
     @include browserFlex;
     .search-icon-con {
-      width: 32px;
+      width: 40px;
       height: 32px;
       background-color: lighten($royal, 10%);
       @include borderBox;
@@ -125,6 +125,8 @@ $header-height: 48px;
       border-right: none;
       border-top-right-radius: 0px;
       border-bottom-right-radius: 0px;
+      padding-left: 12px;
+      padding-right: 12px;
     }
     .search-input {
       @include borderBox;
@@ -140,7 +142,7 @@ $header-height: 48px;
       font-size: 14px;
       margin-right: 12px;
       outline: none;
-      color: $text-black;
+      color: #fff;
       border-top-left-radius: 0px;
       border-bottom-left-radius: 0px;
     }
@@ -281,27 +283,27 @@ $header-height: 48px;
 }
 
 input[type="text"].search-input::-webkit-input-placeholder {
-  color: #999;
+  color: $light-grey;
 }
 input[type="text"].search-input::-moz-placeholder {
-  color: #999;
+  color: $light-grey;
 }
 input[type="text"].search-input:-ms-input-placeholder {
-  color: #999;
+  color: $light-grey;
 }
 input[type="text"].search-input:-moz-placeholder {
-  color: #999;
+  color: $light-grey;
 }
 
 input:focus[type="text"].search-input::-webkit-input-placeholder {
-  color: $light-grey;
+  color: #999;
 }
 input:focus[type="text"].search-input::-moz-placeholder {
-  color: $light-grey;
+  color: #999;
 }
 input:focus[type="text"].search-input:-ms-input-placeholder {
-  color: $light-grey;
+  color: #999;
 }
 input:focus[type="text"].search-input:-moz-placeholder {
-  color: $light-grey;
+  color: #999;
 }
