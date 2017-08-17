@@ -44,7 +44,14 @@
   }
   .tbody {
     .tr {
-      border-radius: 5px;
+      transition: all 100ms ease-out;
+      &:hover {
+        // background-color: blue;
+        transform: scale(1.005);
+        cursor: pointer;
+        @include boxShadow;
+      }
+      // border-radius: 5px;
       @include borderBox;
       height: 42px;
       vertical-align: middle;
@@ -57,7 +64,7 @@
       background-color: #fff;
       .td {
         // display: block;
-        border-radius: 5px;
+        // border-radius: 5px;
         word-wrap: break-word;
         vertical-align: center;
         margin-bottom: 8px;
@@ -74,6 +81,7 @@
         max-width: 60px;
         // padding: 2px;
         // min-width: 30px;
+        width: 8%;
         color: #959595;
       }
       .duration {

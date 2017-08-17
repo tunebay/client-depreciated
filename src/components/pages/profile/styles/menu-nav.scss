@@ -16,7 +16,7 @@
   // letter-spacing: 0.3px;
   color: lighten($text-black, 10%);
   // background-color: white;
-  border-bottom: 1px solid #DDDDDD;
+  border-bottom: 1px solid #dddddd;
   transition: all 75ms ease-out;
   .menu-nav-item {
     display: block;
@@ -49,7 +49,7 @@
     //transition: width .3s;
   }
 
-  .active,  {
+  .active {
     color: $text-black;
   }
 

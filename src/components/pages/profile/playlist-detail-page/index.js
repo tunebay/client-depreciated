@@ -18,6 +18,15 @@ class PlaylistDeatilPage extends Component {
   //   // console.log(props.playlist);
   //   // if (props.playlist === null) return <Redirect to {...this.props} />;
   // }
+  renderGenres() {
+    return this.props.playlist.genres.map((genre) => {
+      return (
+        <div key={genre.id} className="genre-box">
+          {genre.name}
+        </div>
+      );
+    });
+  }
 
   render() {
     const { playlist } = this.props;
@@ -49,14 +58,14 @@ class PlaylistDeatilPage extends Component {
                 />
               </span>
             </button>
-            <div className="playlist-title">
-              {playlist.title}
+            <div className="title-genres-wrapper">
+              <div className="playlist-title">
+                {playlist.title}
+              </div>
+              <div className="genres-wrapper">
+                {this.renderGenres()}
+              </div>
             </div>
-            <img
-              src="../../../../../assets/images/horizontal-dots.svg"
-              alt="playlist-dots"
-              className="playlist-dots"
-            />
           </div>
           {/* <PlaylistNav numberOfTracks={playlist.numberOfTracks} /> */}
           <PlaylistTrackList

@@ -23,9 +23,9 @@ $breakpoint-medium: 992px;
 $breakpoint-large: 1200px;
 
 @mixin boxshadow {
-  -webkit-box-shadow: 0px 1px 3px 0 rgba(100, 100, 100, 0.32);
-  -moz-box-shadow: 0px 1px 3px 0 rgba(100, 100, 100, 0.32);
-  box-shadow: 0px 1px 3px 0 rgba(100, 100, 100, 0.32);
+  -webkit-box-shadow: 0px 1px 3px 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 1px 3px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 3px 0 rgba(0, 0, 0, 0.2);
 }
 
 @mixin boxShadowResting {
@@ -36,9 +36,9 @@ $breakpoint-large: 1200px;
 }
 
 @mixin boxShadow {
-  -webkit-box-shadow: 0px 1px 3px 0 rgba(100, 100, 100, 0.32);
-  -moz-box-shadow: 0px 1px 3px 0 rgba(100, 100, 100, 0.32);
-  box-shadow: 0px 1px 3px 0 rgba(100, 100, 100, 0.32);
+  -webkit-box-shadow: 0px 1px 3px 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 1px 3px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 3px 0 rgba(0, 0, 0, 0.2);
 }
 
 @mixin borderBox {

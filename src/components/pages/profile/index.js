@@ -58,7 +58,7 @@ class Profile extends Component {
     return (
       <Content>
         <div id="cover-photo" style={{ backgroundPosition }} />
-        <NavBar fixed={fixed} />
+        {/* <NavBar fixed={fixed} /> */}
         <div id="main-profile-wrapper">
           <div id="main-profile-content" style={{ paddingTop }}>
             <div id="profile-bio-wrapper">

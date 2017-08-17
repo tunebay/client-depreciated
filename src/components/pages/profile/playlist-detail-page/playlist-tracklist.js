@@ -11,6 +11,10 @@ class PlaylistTrackList extends Component {
     });
   }
 
+  onTrackClick(track) {
+    console.log(track);
+  }
+
   render() {
     const { tracks, playlistType } = this.props;
 
@@ -29,7 +33,11 @@ class PlaylistTrackList extends Component {
         <tbody className="tbody">
           {tracks.map((track, index) => {
             return (
-              <tr key={track.id} className={this.getTrStyles(index)}>
+              <tr
+                onClick={() => this.onTrackClick(track)}
+                key={track.id}
+                className={this.getTrStyles(index)}
+              >
                 <td className="td position">
                   {track.playlistPosition}
                 </td>
