@@ -6,7 +6,7 @@ import {
   UPDATE_SINGLE_STATUS,
   UPDATE_TRACK_PRICE,
   ADD_ANOTHER_TRACK,
-  ADD_TRACK_ERROR
+  ADD_TRACK_ERROR,
 } from '../../actions/types';
 
 export const INITIAL_STATE = {
@@ -22,7 +22,7 @@ export const INITIAL_STATE = {
   price: null,
   fileType: null,
   hasError: false,
-  tickAnimationPlayed: false
+  tickAnimationPlayed: false,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -36,8 +36,8 @@ export default (state = INITIAL_STATE, action) => {
         file: action.payload.file,
         playlistPosition: action.payload.playlistPosition,
         single: false,
-        price: parseFloat(0.00).toFixed(2),
-        fileType: action.payload.fileType
+        price: parseFloat(0.0).toFixed(2),
+        fileType: action.payload.fileType,
       };
     case ADD_ANOTHER_TRACK:
       return {
@@ -48,8 +48,8 @@ export default (state = INITIAL_STATE, action) => {
         file: action.payload.file,
         playlistPosition: action.payload.playlistPosition,
         single: false,
-        price: parseFloat(0.00).toFixed(2),
-        fileType: action.payload.fileType
+        price: parseFloat(0.0).toFixed(2),
+        fileType: action.payload.fileType,
       };
     case UPDATE_TRACK_NAME:
       if (state.trackId !== action.trackId) return state;
@@ -70,7 +70,6 @@ export default (state = INITIAL_STATE, action) => {
       if (state.trackId !== action.trackId) return state;
       return { ...state, price: action.payload };
     case 'TICK_ANIMATION_PLAYED':
-      console.log('ANIMATION PLAYED');
       if (state.trackId !== action.trackId) return state;
       return { ...state, tickAnimationPlayed: true };
     default:

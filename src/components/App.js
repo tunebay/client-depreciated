@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
 import { checkUserExists } from '../actions/profile-actions';
 
 import HomeFeed from './pages/home-feed';
@@ -47,44 +52,41 @@ class App extends Component {
               render={(match) => {
                 console.log('MATCH', match);
                 // console.log('MATCH', match);
-                return (
-                !this.props.isAuthenticated ? (
-                  <PublicHomePage />
-                ) : (
-                  <div>
+                return !this.props.isAuthenticated
+                  ? <PublicHomePage />
+                  : <div>
                     <Header />
                     <HomeFeed />
-                  </div>
-                ));
+                  </div>;
               }}
             />
             {/* <Route path="/hub" component={RequireAuth(Hub)} /> */}
             <Route
               path="/login"
-              render={() => (
-              !this.props.isAuthenticated ? (
-                <div>
-                  <Header unauth />
-                  <Login />
-                </div>
-              ) : (
-                <Redirect to="/" />
-              ))}
+              render={() =>
+                !this.props.isAuthenticated
+                  ? <div>
+                    <Header unauth />
+                    <Login />
+                  </div>
+                  : <Redirect to="/" />}
             />
             <Route
               path="/signup"
-              render={() => (
-              this.props.isAuthenticated ? (
-                <Redirect to="/" />
-              ) : (
-                <Signup />
-              ))}
+              render={() =>
+                this.props.isAuthenticated ? <Redirect to="/" /> : <Signup />}
             />
             <Route path="/logout" component={this.renderRoute(Logout)} />
-            <Route path="/upload" component={this.renderRoute(RequireAuth(Upload))} />
-            <Route path="/feed" component={this.renderRoute(RequireAuth(HomeFeed))} />
-            <Route path="/hello" exact render={() => (<div>Hello</div>)} />
-            <Route path="/hello/world" render={() => (<div>Hello World</div>)} />
+            <Route
+              path="/upload"
+              component={this.renderRoute(RequireAuth(Upload))}
+            />
+            <Route
+              path="/feed"
+              component={this.renderRoute(RequireAuth(HomeFeed))}
+            />
+            <Route path="/hello" exact render={() => <div>Hello</div>} />
+            <Route path="/hello/world" render={() => <div>Hello World</div>} />
             <Route path="/:username" component={this.renderRoute(Profile)} />
           </Switch>
           <Player />
@@ -96,7 +98,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    isAuthenticated: state.auth.isAuthenticated
+    isAuthenticated: state.auth.isAuthenticated,
   };
 };
 
