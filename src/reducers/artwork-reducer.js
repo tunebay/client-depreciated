@@ -2,7 +2,7 @@ const INITIAL_STATE = {
   artworkModalVisable: false,
   dataURL: null,
   image: null,
-  scale: 1
+  scale: 1,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -18,7 +18,7 @@ export default (state = INITIAL_STATE, action) => {
         ...INITIAL_STATE,
         artworkModalVisable: false,
         dataURL: action.dataURL,
-        image: action.image
+        image: action.image,
       };
     case 'TERMINATE_PLAYLIST_UPLOAD':
       return INITIAL_STATE;

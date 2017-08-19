@@ -8,7 +8,7 @@ export default (state = null, action) => {
         id: action.payload.id,
         username: action.payload.username,
         email: action.payload.email,
-        displayName: action.payload.displayName
+        displayName: action.payload.displayName,
       };
     default:
       return state;

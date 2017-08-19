@@ -18,7 +18,7 @@ const rootReducer = combineReducers({
   currentUser: currentUserReducer,
   audioUpload: audioUploadReducer,
   player: playerReducer,
-  banner: bannerReducer
+  banner: bannerReducer,
 });
 
 export default rootReducer;

@@ -3,7 +3,7 @@ import { reducer } from 'redux-form';
 import {
   SET_PERMALINK,
   SET_DEFAULT_VALUES,
-  TERMINATE_PLAYLIST_UPLOAD
+  TERMINATE_PLAYLIST_UPLOAD,
 } from '../actions/types';
 
 const formReducer = reducer.plugin({
@@ -12,21 +12,25 @@ const formReducer = reducer.plugin({
       case TERMINATE_PLAYLIST_UPLOAD:
         return undefined;
       case SET_DEFAULT_VALUES:
-        return { ...state,
+        return {
+          ...state,
           values: {
             title: action.title,
             canPayMore: true,
-            price: parseFloat(0.00).toFixed(2),
+            price: parseFloat(0.0).toFixed(2),
             playlistType: action.playlistType,
-            permalink: action.permalink
-          }
+            permalink: action.permalink,
+          },
         };
       case SET_PERMALINK:
-        return { ...state, values: { ...state.values, permalink: action.payload } };
+        return {
+          ...state,
+          values: { ...state.values, permalink: action.payload },
+        };
       default:
         return state;
     }
-  }
+  },
 });
 
 export default formReducer;

@@ -9,7 +9,7 @@ import {
   USERNAME_ERROR,
   NEXT_SIGNUP_PAGE,
   SHOW_LOGIN_MODAL,
-  HIDE_LOGIN_MODAL
+  HIDE_LOGIN_MODAL,
 } from '../actions/types';
 
 const INITITAL_STATE = {
@@ -19,7 +19,7 @@ const INITITAL_STATE = {
   usernameValidating: false,
   emailValidating: false,
   signupPage: 1,
-  loginModalVisable: false
+  loginModalVisable: false,
 };
 
 export default (state = INITITAL_STATE, action) => {

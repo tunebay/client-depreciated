@@ -7,11 +7,17 @@ import { loadState, saveState } from './util/local-storage';
 
 const configureStore = () => {
   const persistedState = loadState();
-  const store = createStore(reducers, persistedState, applyMiddleware(ReduxThunk));
+  const store = createStore(
+    reducers,
+    persistedState,
+    applyMiddleware(ReduxThunk),
+  );
 
-  store.subscribe(_.throttle(() => {
-    saveState(store.getState().currentUser);
-  }, 1000));
+  store.subscribe(
+    _.throttle(() => {
+      saveState(store.getState().currentUser);
+    }, 1000),
+  );
 
   const token = localStorage.getItem('token');
 

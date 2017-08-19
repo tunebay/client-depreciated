@@ -1,5 +1,9 @@
-import { MOUNT_USER, USER_DOESNT_EXIST, FINDING_USER,
-UPDATE_COVER_BOTTOM } from '../actions/types';
+import {
+  MOUNT_USER,
+  USER_DOESNT_EXIST,
+  FINDING_USER,
+  UPDATE_COVER_BOTTOM,
+} from '../actions/types';
 
 const INITIAL_STATE = {
   user: null,
